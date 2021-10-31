@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Welcome to Login Page</title>
+    <link rel="stylesheet" href="style.css">             <!--link css file before ending head tag-->
+                                                         <!--You may add custom fonts here-->
+</head>
+<body>
+    <div class="container">
+<h1>Chatnaut Login Page</h1>
+<p>Enter your details and Submit for contribution</p>
+<p class="submitMsg"> Thanks for submitting this form</p>
+<form action="index.php" method="post">      <!--there are two methods:GET(searchable) and POST(secure)-->
+<input type="text" name="name" id="name" placeholder="Enter your name">
+<input type="text" name="age" id="age" placeholder="Enter your age">
+<input type="text" name="gender" id="gender" placeholder="Enter your gender">
+<input type="email" name="email" id="email" placeholder="Enter your email">
+<input type="phone" name="phone" id="phone" placeholder="Enter your phone">
+<textarea name="desc" id="desc" cols="30" rows="10" placeholder="If any"></textarea>
+<button class="btn">Submit</button>
+    
+</form> 
+
+</div>
+
+
+    <script src="index.js"></script>                        <!--link index.js file before ending body tag-->
+
+     
+</body>
+</html>

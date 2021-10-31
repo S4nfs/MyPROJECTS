@@ -1,0 +1,37 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container{
+    max-width: 80%;
+    background-color: rgb(159, 130, 238);
+    padding: 34px;
+    margin: auto;
+}
+
+.container h1, p{                                               /* Heading aur paragraph me badlav kiye hai */
+    text-align: center;                                         
+}
+
+input, textarea{
+    margin: 7px auto;
+    width: 80%;
+    font-size: 16px;
+    padding: 7px;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 6px;
+    display: block;
+}
+.btn{
+color: white;
+padding: 15px 10px;
+background-color: black;
+font-size: 20px;
+border: 2px solid white;
+border-radius: 14px;
+cursor: pointer;
+}
+
