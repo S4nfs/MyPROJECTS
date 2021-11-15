@@ -27,7 +27,7 @@ class BankAccount{
     public function BankAccount($acno, $acna, $bal){    // Constructor (with same name as class) automatically call itself at time of initialization of objects                                                                                            
         // echo "Constructor Method";
 
-        $this->Accno = $acno;                         //$this variable is ike a pointer to the current object e.g $obj
+        $this->Accno = $acno;                           // $this variable is ike a pointer to the current object e.g $obj
         $this->AccName = $acna;
         $this->Balanace = $bal;
     }
