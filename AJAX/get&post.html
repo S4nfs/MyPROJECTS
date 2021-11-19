@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+<p id="getmaan" > This line is going to be changed using GET method</p>
+<button class="btn btn-primary btnclick">POST</button>
+    </div>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('.btnclick').click(function(){
+        $.get('example.html', function(data, status){
+        $('#getmaan').html(data);
+        // alert(status);
+
+        });
+    });
+});
+
+
+</script>
+
+<div class="container">
+    <p id="postmaan" > This line is going to be changed using POST method</p>
+    <button class="btn btn-primary btnclick">POST</button>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.btnclick').click(function(){
+                    $.post('example2.php',{
+                    name :  "Sagar Verma",
+                    field : "Illuminati"    
+
+
+                    }, function(data, status){
+                    $('#postmaan').html(data);
+                    // alert(status);
+                    });
+                });
+            });
+</script>
+
+
+
+</body>
+</html>
