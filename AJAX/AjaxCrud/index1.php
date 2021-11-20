@@ -188,7 +188,7 @@ function GetUserDetails(id){                  //Edit Records
 
 
 
-function updateuserdetail(){
+function updateuserdetail(){                   //Update Records
   var firstnameupd = $('#update_firstname').val();
   var lastnameupd = $('#update_lastname').val();
   var emailupd = $('#update_email').val();
