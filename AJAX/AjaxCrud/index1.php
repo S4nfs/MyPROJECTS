@@ -75,22 +75,22 @@
       <div class="modal-body">
         <div class = "form-group">
           <label>Update First Name:</label>
-          <input type="text" name="" id="update-firstname" class="form-control" placeholder="Enter First Name">
+          <input type="text" name="" id="update_firstname" class="form-control" placeholder="Enter First Name">
         </div>
 
         <div class = "form-group">
           <label>Update Last Name:</label>
-          <input type="text" name="" id="update-lastname" class="form-control" placeholder="Enter Last Name">
+          <input type="text" name="" id="update_lastname" class="form-control" placeholder="Enter Last Name">
         </div>
 
         <div class = "form-group">
           <label>Update Email ID:</label>
-          <input type="email" name="" id="update-email" class="form-control" placeholder="Email">
+          <input type="email" name="" id="update_email" class="form-control" placeholder="Email">
         </div>
 
         <div class = "form-group">
           <label>Update Mobile No:</label>
-          <input type="text" name="" id="update-mobile" class="form-control" placeholder="Mobile No.">
+          <input type="text" name="" id="update_mobile" class="form-control" placeholder="Mobile No.">
         </div>
       </div>
 
@@ -103,63 +103,59 @@
     </div>
   </div>
 </div>
+
+
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script type = "text/javascript">
+
+  $(document).ready(function(){                 //show readrecord data on the front page
+  readRecords();
+  });
 
 
 
 
+  function readRecords(){                   //fetch records
+    var readrecord = "readrecord";  
+    $.ajax({
+    url: "backend1.php",
+    type: "post",
+    data: { readrecord : readrecord },
+    success:function(data,status){
+      $('#records_contant').html(data);
+    }
+
+    });
+  }
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+  function addRecord(){                     //Insert Records   
+  var firstname = $('#firstname').val();
+  var lastname = $('#lastname').val();
+  var email = $('#email').val();
+  var mobile = $('#mobile').val();
 
-    <script type = "text/javascript">
-
-$(document).ready(function(){                 //show readrecord data on the front page
-readRecords();
-});
-
-
-
-
-    function readRecords(){                   //fetch records
-      var readrecord = "readrecord";  
       $.ajax({
       url: "backend1.php",
-      type: "post",
-      data: { readrecord : readrecord },
-      success:function(data,status){
-        $('#records_contant').html(data);
-      }
+      type: 'post',
+      data: { firstname : firstname,
+              lastname : lastname,
+              email : email,
+              mobile : mobile
+            },
 
+            success:function(data, status){
+              readRecords();
+            }  
       });
-    }
-
-
-
-    function addRecord(){                     //Insert Records   
-    var firstname = $('#firstname').val();
-    var lastname = $('#lastname').val();
-    var email = $('#email').val();
-    var mobile = $('#mobile').val();
-
-        $.ajax({
-        url: "backend1.php",
-        type: 'post',
-        data: { firstname : firstname,
-                lastname : lastname,
-                email : email,
-                mobile : mobile
-              },
-
-              success:function(data, status){
-                readRecords();
-              }  
-        });
-    }
+  }
 
 function DeleteUser(deleteid){                //Delete Records
   var conf = confirm("Are you sure ");
@@ -178,19 +174,44 @@ function DeleteUser(deleteid){                //Delete Records
 
 
 function GetUserDetails(id){                  //Edit Records
-  $('#hidden_user_id').val(id);
-  $.post("backend1.php" , 
-  {id:id}, function(data,status){
-    var user = JSON.parse(data);
-    $('#update_firstname').val(user.firstname);
-    $('#update_lastname').val(user.lastname);
-    $('#update_email').val(user.email);
-    $('#update_mobile').val(user.mobile);       
-  }
-
-  );
-$('#update_user_modal').modal("show");
+    $('#hidden_user_id').val(id);
+    $.post("backend1.php" ,
+    {id:id}, function(data,status){
+      var user = JSON.parse(data);
+      $('#update_firstname').val(user.firstname);
+      $('#update_lastname').val(user.lastname);
+      $('#update_email').val(user.email);
+      $('#update_mobile').val(user.mobile);       
+    });
+  $('#update_user_modal').modal("show");
 }
+
+
+
+function updateuserdetail(){
+  var firstnameupd = $('#update_firstname').val();
+  var lastnameupd = $('#update_lastname').val();
+  var emailupd = $('#update_email').val();
+  var mobileupd = $('#update_mobile').val();
+
+  var hidden_user_idupd = $('#hidden_user_id').val();
+    $.post("backend1.php", 
+        { hidden_user_idupd : hidden_user_idupd,
+          firstnameupd : firstnameupd,
+          lastnameupd :lastnameupd,
+          emailupd : emailupd,
+          mobileupd : mobileupd },
+      function(data,status){
+        $('#update_user_modal').modal("hide");
+        readRecords();
+      }
+
+    );
+}
+
+
+
+
 
     </script>
 </body>
