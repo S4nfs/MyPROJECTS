@@ -114,11 +114,9 @@
 
 <script type = "text/javascript">
 
-  $(document).ready(function(){                 //show readrecord data on the front page
+  $(document).ready(function(){             //show readrecord data on the front page
   readRecords();
   });
-
-
 
 
   function readRecords(){                   //fetch records
@@ -127,13 +125,11 @@
     url: "backend1.php",
     type: "post",
     data: { readrecord : readrecord },
-    success:function(data,status){
-      $('#records_contant').html(data);
-    }
-
+      success:function(data,status){
+        $('#records_contant').html(data);
+      }
     });
   }
-
 
 
   function addRecord(){                     //Insert Records   
@@ -205,7 +201,6 @@ function updateuserdetail(){                   //Update Records
         $('#update_user_modal').modal("hide");
         readRecords();
       }
-
     );
 }
 
