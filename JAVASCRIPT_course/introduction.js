@@ -40,4 +40,3 @@ var y = 5;
 console.log(`Is both the x and y are equal: ${x === y}`);
 
 
-
