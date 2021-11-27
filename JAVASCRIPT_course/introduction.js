@@ -26,11 +26,13 @@ console.log(typeof something); //undefined
 
 // Operators in JavaScript---------------------------------------------------------------------------------------
 // 1. Arithmetic Operators  +, -, *, /, %,
-// 2. Assignment Operators
-// 3. Comparison Operators
-// 4. Logical Operators
-// 5. String Operators
-// 6. Conditional (Ternary) Operator
+// 2. Assignment Operators =, +=, -=, *=, /=, %=
+// 3. Comparison Operators ==, ===, !=, !==, >, <, >=, <=
+// 4. Logical Operators &&, ||, !
+// 5. String Concatenation Operators  +, +=,
+// 6. Increment/Decrement Operators ++, --
+// 7. Conditional (Ternary) Operators if, else, else if, switch, case, default
+
 
 //Arithmetic Operators
 console.log("Remainder is " + 81%8);
@@ -40,3 +42,28 @@ var y = 5;
 console.log(`Is both the x and y are equal: ${x === y}`);
 
 
+//Logical Operators
+var s = 30;
+var t = -20;
+console.log(s > t && t > -50 && t < 0);
+console.log(!((s > t) && (t > -50) && (t < 0)));
+
+//String Concatenation Operators
+console.log("Hello World");
+console.log("Hello" + "World");
+
+//Conditional (Ternary) Operators
+var year = 2020;
+debugger;
+if(year % 4 === 0){
+    if(year % 100 === 0){
+        if(year % 400 === 0){
+            console.log("The year " + year + " is a leap year");
+            }else{
+                console.log("The year " + year + " is not a leap year");
+            }
+        } else {
+            console.log("The year " + year + " is a leap year");
+        }
+    } else { console.log("The year " + year + " is not a leap year");
+}
