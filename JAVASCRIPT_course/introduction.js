@@ -70,7 +70,7 @@ if (year % 4 === 0) {
 // ---------------------------------------------------------------------
 var age = 17;
 console.log(age >= 18 ? "You can vote" : "You can't vote");
-// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------If Else
 // var area = "circle";
 // var PI = 3.142, l = 5, b = 4, r = 3;
 
@@ -83,13 +83,10 @@ console.log(age >= 18 ? "You can vote" : "You can't vote");
 // }else{
 //     console.log("please enter valid data");
 // }
-// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------Switch Case
 
 var area = "circle";
-var PI = 3.142,
-  l = 5,
-  b = 4,
-  r = 3;
+var PI = 3.142, l = 5, b = 4, r = 3;
 
 switch (area) {
   case "circle":
@@ -101,7 +98,6 @@ switch (area) {
   case "rectangle":
     console.log("the area of rectangle is : " + l * b);
     break;
-
   default:
     console.log("Please enter valid data");
 }
