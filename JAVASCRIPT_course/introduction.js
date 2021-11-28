@@ -33,20 +33,18 @@ console.log(typeof something); //undefined
 // 6. Increment/Decrement Operators ++, --
 // 7. Conditional (Ternary) Operators if, else, else if, switch, case, default
 
-
 //Arithmetic Operators
-console.log("Remainder is " + 81%8);
+console.log("Remainder is " + (81 % 8));
 
 var x = 5;
 var y = 5;
 console.log(`Is both the x and y are equal: ${x === y}`);
 
-
 //Logical Operators
 var s = 30;
 var t = -20;
 console.log(s > t && t > -50 && t < 0);
-console.log(!((s > t) && (t > -50) && (t < 0)));
+console.log(!(s > t && t > -50 && t < 0));
 
 //String Concatenation Operators
 console.log("Hello World");
@@ -55,15 +53,55 @@ console.log("Hello" + "World");
 //Conditional (Ternary) Operators
 var year = 2020;
 debugger;
-if(year % 4 === 0){
-    if(year % 100 === 0){
-        if(year % 400 === 0){
-            console.log("The year " + year + " is a leap year");
-            }else{
-                console.log("The year " + year + " is not a leap year");
-            }
-        } else {
-            console.log("The year " + year + " is a leap year");
-        }
-    } else { console.log("The year " + year + " is not a leap year");
+if (year % 4 === 0) {
+  if (year % 100 === 0) {
+    if (year % 400 === 0) {
+      console.log("The year " + year + " is a leap year");
+    } else {
+      console.log("The year " + year + " is not a leap year");
+    }
+  } else {
+    console.log("The year " + year + " is a leap year");
+  }
+} else {
+  console.log("The year " + year + " is not a leap year");
+}
+
+// ---------------------------------------------------------------------
+var age = 17;
+console.log(age >= 18 ? "You can vote" : "You can't vote");
+// ---------------------------------------------------------------------
+// var area = "circle";
+// var PI = 3.142, l = 5, b = 4, r = 3;
+
+// if(area == "circle"){
+//     console.log("The area of circle is : " + PI*r**2);
+// }else if(area == "triangle"){
+//     console.log("The area of triangle is : " + (l*b)/2);
+// }else if(area == "rectangle"){
+//     console.log("The are of rectangle is : " + l*b);
+// }else{
+//     console.log("please enter valid data");
+// }
+// ---------------------------------------------------------------------
+
+var area = "circle";
+var PI = 3.142,
+  l = 5,
+  b = 4,
+  r = 3;
+
+switch (area) {
+  case "circle":
+    console.log("the area of circle is : " + PI * r ** 2);
+    break;
+  case "triangle":
+    console.log("the area of triangle is : " + (l * b) / 2);
+    break;
+  case "rectangle":
+    console.log("the area of rectangle is : " + l * b);
+    break;
+
+  default:
+    console.log("Please enter valid data");
 }
