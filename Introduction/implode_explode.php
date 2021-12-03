@@ -18,17 +18,19 @@ The explode function is used to “it breaks a string into an array”. -->
 
 // echo "<br>";
 // echo "<br>";
-// $names = "Nikunj Joshi PHP Developer \n Sagar Loves PHP";
-// // $outpit = explode(" ",$names);                                        arrays space-wise
-// $outpit = explode("\n", $names);                                         //arrays line-wise
-// echo $outpit[1];
-$str = "foo bar php js";
-$arr =  explode(" ", $str);
+$names = "Nikunj Joshi PHP Developer \n Sagar Loves PHP";
+// $outpit = explode(" ",$names);                                        arrays space-wise
+$outpit = explode("\n", $names);                                         //arrays line-wise
+echo $outpit[1];
 
-//print all the value which are in the array
-foreach($arr as $v){
-    echo $v[0][1];
-}
+
+// $str = "foo bar php js";
+// $arr =  explode(" ", $str);
+
+// //print all the value which are in the array
+// foreach($arr as $v){
+//     echo $v[0];
+// }
 
 
 ?>

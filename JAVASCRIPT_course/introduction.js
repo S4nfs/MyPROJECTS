@@ -24,7 +24,7 @@ console.log(typeof myname); //like var_dump to determine which datatype
 var something;
 console.log(typeof something); //undefined
 
-// Operators in JavaScript---------------------------------------------------------------------------------------
+// OPERTORS IN JAVASCRIPT---------------------------------------------------------------------------------------
 // 1. Arithmetic Operators  +, -, *, /, %,
 // 2. Assignment Operators =, +=, -=, *=, /=, %=
 // 3. Comparison Operators ==, ===, !=, !==, >, <, >=, <=
@@ -70,7 +70,14 @@ if (year % 4 === 0) {
 // ---------------------------------------------------------------------
 var age = 17;
 console.log(age >= 18 ? "You can vote" : "You can't vote");
-// ---------------------------------------------------------------------If Else
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// CONTROL STATEMENTS & LOOPs-------------------------------------------If-Else, For, While, Do-While, For-In, For-Of, Switch, Break, Continue
+
 // var area = "circle";
 // var PI = 3.142, l = 5, b = 4, r = 3;
 
@@ -100,4 +107,24 @@ switch (area) {
     break;
   default:
     console.log("Please enter valid data");
+}
+
+// ---------------------------------------------------------------------While
+var num = 0;
+while(num <= 10){
+  console.log(num);
+  num++;
+}
+
+// ---------------------------------------------------------------------Do-While
+// var num = 0;
+// do{
+//   console.log(num);
+//   num++;
+// }while(num <= 10);
+
+// ---------------------------------------------------------------------For Loop
+
+for(var num = 0; num <= 10; num++){
+  console.log(num);
 }
