@@ -72,11 +72,16 @@ var age = 17;
 console.log(age >= 18 ? "You can vote" : "You can't vote");
 
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// CONTROL STATEMENTS & LOOPs-------------------------------------------If-Else, For, While, Do-While, For-In, For-Of, Switch, Break, Continue
+/* CONTROL STATEMENTS & LOOPs--------------------------------------------------------------------------------------------------
+If-Else
+2. For Loop
+3. While Loop
+4. Do-While Loop
+5. For-In Loop
+6. For-Of Loop
+7. Switch
+8. Break
+9. Continue */
 
 // var area = "circle";
 // var PI = 3.142, l = 5, b = 4, r = 3;
