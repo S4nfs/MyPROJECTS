@@ -23,3 +23,11 @@ var myFriends = ["Sagar","Pratik","Anjali"];
 myFriends.forEach(function(element, index, array){  //ForEach is just a combination of For-in & For-of loop
     console.log(element)
 })
+
+
+// ✔️ Searching $ Filter in an arrays ---------------------------------------------------------------------------
+var myFriendz = ["Sagar","Pratik","Anjali","Pratham","Devendra"];
+console.log(myFriendz.indexOf("Pratham"));          //indexof = returns index position
+console.log(myFriendz.includes("Pratham"));         //incudes = check if the element exists and returns true
+
+
