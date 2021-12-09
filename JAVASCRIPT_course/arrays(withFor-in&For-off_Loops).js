@@ -54,13 +54,13 @@ splice(indextochange, Delete/Not, whatToChange)
 2. What is the return value of return method
 3. Update mar to March
 4. Delete Aug month from an array */
-const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
-const newMonth = months.splice(6, 0, "Dec");                             //1 Add
-console.log(months); 
+// const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
+// const newMonth = months.splice(6, 0, "Dec");                             //1 Add
+// console.log(months); 
 
-const monthUpdate = months.splice(1, 1, 'March');                        //3 Insert
-console.log(months);
-console.log(monthUpdate);                                               //2 return only the deleted element value
+// const monthUpdate = months.splice(1, 1, 'March');                        //3 Insert
+// console.log(months);
+// console.log(monthUpdate);                                               //2 return only the deleted element value
 
 // OR Maybe you are not GOD who knows where that element was
 // const indexOfMonths = months.indexOf('Mar');
@@ -69,7 +69,30 @@ console.log(monthUpdate);                                               //2 retu
 //     console.log(months);
 // }
 
-const indexOfMonths = months.indexOf('Aug');                    
-const  monthDelete = months.splice(indexOfMonths, 1);                      //4 Delete
-console.log(months);
+// const indexOfMonths = months.indexOf('Aug');                    
+// const  monthDelete = months.splice(indexOfMonths, 1);                      //4 Delete
+// console.log(months);
+
+
+//✔️ Map method() return a new array containing the results--------------------------------------------------------
+const arr1 = [1, 49, 16, 25];
+let newArr = arr1.map((myelement, index, arr) => {
+    return myelement > 9;
+})
+console.log(newArr);
+
+
+/*EXERCISE:
+Multiply each element by 2 and return only those elements which are greater than 10 */
+
+let arr = [2, 3, 4, 6, 8];
+let outarr = arr.map((outpitelement) => {               //👉 Can be written In Single line: 
+    return outpitelement * 2;                            
+}).filter((finalelement) => {
+    return finalelement > 10;
+})
+// 👇Single line:
+// let outarr = arr.map((outpitelement) => outpitelement * 2).filter((finalelement) => finalelement > 10);
+console.log(outarr);
+
 
