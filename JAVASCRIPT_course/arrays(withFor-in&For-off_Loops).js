@@ -12,22 +12,22 @@ var myFriends = ["Sagar","Pratik","Anjali"];
 // }
 
 // ✔️ For-in & For-of & ForEach Loops only in arrays ---------------------------------------------------------------------------
-// for(let elements in myFriends){                  //return index number
+// for(let elements in myFriends){                       //return index number
 //     console.log(elements);
 // }
 
-// for(let elements of myFriends){                  //return array elements
+// for(let elements of myFriends){                       //return array elements
 //     console.log(elements);
 // }
 
-// myFriends.forEach(function(element, index, array){  //ForEach is just a combination of For-in & For-of loop
+// myFriends.forEach(function(element, index, array){    //ForEach is just a combination of For-in & For-of loop
 //     console.log(element)
 // })
 
 
 // ✔️ Searching $ Filter in an arrays ---------------------------------------------------------------------------
 // var myFriendz = ["Sagar","Pratik","Anjali","Pratham","Devendra"];
-// console.log(myFriendz.indexOf("Pratham"));            //indexof() = returns index position
+// console.log(myFriendz.indexOf("Pratham"));            //indexof() = returns index position CASE-SENSITIVE
 // console.log(myFriendz.includes("Pratham"));           //incudes() = check if the element exists and returns true
 
 
@@ -100,7 +100,8 @@ console.log(outarr);
 //Sum all elements
 const arr3 = [5, 6, 2];    
 const sum = arr3.reduce((accumulator, currElem, index, arr) => {               //accumulator means Collecting               
-return accumulator += currElem;                                                //(+=) adds a value to a variable     
+debugger:
+    return accumulator += currElem;                                                //(+=) adds a value to a variable     
 })
 console.log(sum);
 
