@@ -47,7 +47,7 @@ var myFriends = ["Sagar","Pratik","Anjali"];
 // })
 // console.log(newPriceTag);
 
-/*✔️ splice method (add or remove elements in an array-------------------------------------------------------------------------
+/*✔️ splice method (Do CRUD operations in an array---------------------------------------------------------------------------
 splice(indextochange, Delete/Not, whatToChange)
 
 1. Add Dec month at the end of an Array
@@ -60,7 +60,7 @@ splice(indextochange, Delete/Not, whatToChange)
 
 // const monthUpdate = months.splice(1, 1, 'March');                        //3 Insert
 // console.log(months);
-// console.log(monthUpdate);                                               //2 return only the deleted element value
+// console.log(monthUpdate);                                                //2 return only the deleted element value
 
 // OR Maybe you are not GOD who knows where that element was
 // const indexOfMonths = months.indexOf('Mar');
@@ -74,25 +74,33 @@ splice(indextochange, Delete/Not, whatToChange)
 // console.log(months);
 
 
-//✔️ Map method() return a new array containing the results--------------------------------------------------------
+//✔️ Map method() return a new array containing the results--------------------------------------------------------------------
 const arr1 = [1, 49, 16, 25];
 let newArr = arr1.map((myelement, index, arr) => {
     return myelement > 9;
 })
 console.log(newArr);
 
-
 /*EXERCISE:
 Multiply each element by 2 and return only those elements which are greater than 10 */
 
 let arr = [2, 3, 4, 6, 8];
-let outarr = arr.map((outpitelement) => {               //👉 Can be written In Single line: 
+let outarr = arr.map((outpitelement) => {                                   //👉 Can be written In Single line: 
     return outpitelement * 2;                            
 }).filter((finalelement) => {
     return finalelement > 10;
 })
-// 👇Single line:
+// 👇Single line: (using => instead of return)
 // let outarr = arr.map((outpitelement) => outpitelement * 2).filter((finalelement) => finalelement > 10);
 console.log(outarr);
 
+
+
+//✔️ Reduce method() ----------------------------------------------------------------------------------------------------------
+//Sum all elements
+const arr3 = [5, 6, 2];    
+const sum = arr3.reduce((accumulator, currElem, index, arr) => {               //accumulator means Collecting               
+return accumulator += currElem;                                                //(+=) adds a value to a variable     
+})
+console.log(sum);
 
