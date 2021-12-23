@@ -99,9 +99,9 @@ console.log(outarr);
 //✔️ Reduce method() ----------------------------------------------------------------------------------------------------------
 //Sum all elements
 const arr3 = [5, 6, 2];    
-const sum = arr3.reduce((accumulator, currElem, index, arr) => {               //accumulator means Collecting               
+const sum = arr3.reduce((accumulator, currElem, index, arr) => {            //accumulator means Collecting               
 debugger:
-    return accumulator += currElem;                                                //(+=) adds a value to a variable     
+    return accumulator += currElem;                                         //(+=) adds a value to a variable     
 })
 console.log(sum);
 
