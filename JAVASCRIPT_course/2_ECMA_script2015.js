@@ -1,4 +1,9 @@
-// ✔️ LET VS CONST  vs VAR--------------------------------------------------------------------------------------------------
+// ✔️ LET,CONST, VAR
+// Difference between let and const and var
+// let is block scoped
+// const is block scoped
+// var is function scoped
+// -----------------------------------------------------------------------------------------------------------------------------
 // var myname = "Sagar Verma";
 // myname = "S4nfs";
 // console.log(myname);                       //output: S4nfs                     
@@ -44,17 +49,17 @@
 
 // ✔️ Fat Arrow function ⟹ --------------------------------------------------------------------------------------------------------
 //normal function
-function sum(){
-    let a = 5, b =10;
-    let sum = a + b;
-    return (`The sum of two numbers is ${sum}`)
-}
-console.log(sum());
+// function sum(){
+//     let a = 5, b =10;
+//     let sum = a + b;
+//     return (`The sum of two numbers is ${sum}`)
+// }
+// console.log(sum());
 
-//with fat arrow
-const sum  = () => {
-    let a = 5, b =10;
-    let sum = a + b;
-    return (`The sum of two numbers is ${sum}`)
-}
-console.log(sum());
+// //with fat arrow
+// const sum  = () => {
+//     let a = 5, b =10;
+//     let sum = a + b;
+//     return (`The sum of two numbers is ${sum}`)
+// }
+// console.log(sum());
