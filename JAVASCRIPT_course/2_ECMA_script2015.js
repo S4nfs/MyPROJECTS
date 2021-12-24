@@ -1,8 +1,36 @@
-// ✔️ LET,CONST, VAR
-// Difference between let and const and var
-// let is block scoped
-// const is block scoped
-// var is function scoped
+/* LET,CONST,VAR
+
+✔️ let 
+-is block scoped, means it lives in curly braces {}. 
+-can be updated but not re-declared
+👍  can be updated
+    let greeting = "say Hi";
+    greeting = "say Hello instead";
+
+👎  can not be re-declared
+    let greeting = "say Hi";
+    let greeting = "say Hello instead";
+-However, if the same variable is defined in different scopes, there will be no error:
+    let greeting = "say Hi";
+    if (true) {
+        let greeting = "say Hello instead";
+        console.log(greeting); // "say Hello instead"
+    }
+    console.log(greeting); // "say Hi"
+
+
+
+✔️ const 
+-is block scoped
+-cannot be updated or re-declared
+
+
+
+✔️ var 
+-is function scoped if used within a function and global scoped if used outside a function
+-can be re-declared and updated
+
+*/
 // -----------------------------------------------------------------------------------------------------------------------------
 // var myname = "Sagar Verma";
 // myname = "S4nfs";
