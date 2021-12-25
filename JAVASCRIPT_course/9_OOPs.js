@@ -37,10 +37,18 @@ Object = School bag
 /*✔️What is (this) object ?
 Note:(this) object will not work wth fat arrow function
 */
-   var me = "Sagar";
-   function myName() {
-       console.log(this.me);
-   }
-   myName();                                                        //run on browser
+//    var me = "Sagar";
+//    function myName() {
+//        console.log(this.me);
+//    }
+//    myName();                                                        //run on browser
 
+
+
+//✔️ Objects to arrays & array to onjects conversion
+const person = {name : 'Sagar', age : 30 };
+console.log(Object.values(person));                                    
+//vice-versa
+const arrObj = Object.entries(person);
+console.log(Object.fromEntries(arrObj));
    
