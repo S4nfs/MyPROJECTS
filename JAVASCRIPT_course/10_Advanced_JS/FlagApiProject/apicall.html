@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "container"></div>
+
+
+
+<script>
+const container = document.querySelector('#container');
+const request = new XMLHttpRequest();
+request.open('GET', "https://restcountries.com/v2/name/nepal");
+request.send();
+
+//to get the response
+request.addEventListener('load', function() {
+
+    // console.log(this.responseText);
+    const [countrydata] = JSON.parse(this.responseText);                           //convert JSON to javascript object 
+    // console.log(countrydata.region);
+    const htmlDataMeDikaho = `
+    <div style="text-align:center;">
+        <h1>${countrydata.name}</h1>
+        <p>${countrydata.capital}</p>
+        <p>${countrydata.region}</p>
+        <p>${countrydata.population}</p>
+        <p>${countrydata.languages[0].name}</p>
+        <p>${countrydata.languages[0].nativeName}</p>
+        <p><img src="${countrydata.flag}"/></p>
+    </div>
+    `;
+
+    container.insertAdjacentHTML('afterbegin', htmlDataMeDikaho);
+
+
+})
+
+
+</script>
+</body>
+</html>

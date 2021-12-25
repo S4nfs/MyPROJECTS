@@ -5,4 +5,9 @@ console.log(myName);
 var myName;
 myName = "Sagar Verma"; 
 
-hello
+👆
+/*Steps:
+1. var myName;                 //Declaration or Define
+2. console.log(myName);        //Print
+3. myName = "Sagar Verma";     //Assignment or Initialization
+*/
