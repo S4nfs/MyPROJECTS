@@ -2,8 +2,8 @@
 
 
 
-const jokes = document.querySelector('.jokes');
-const jokeBtn = document.querySelector('.jokeBtn');
+const jokes = document.querySelector('#joke');
+const jokeBtn = document.querySelector('#jokeBtn');
 
 
 const generateJokes = () => {
@@ -13,10 +13,12 @@ const setHeader = {
     }
 }
     fetch('https://icanhazdadjoke.com/', setHeader)                                //PROMISE
-    .then = ((responseMila) => {                                       
-        console.log(responseMila.json());
-        
-    }).catch((error) => {
+    .then((responseMila) => responseMila.json())
+    .then((data) => {
+     jokes.innerHTML = data.joke;  
+    })
+    
+    .catch((error) => {
         console.log(error);
         })
 
