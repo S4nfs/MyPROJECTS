@@ -14,7 +14,7 @@ const calculateTemp = () => {
         return celsius;
     }
 
-
+    
     let result;
     if(valueTemp == 'cel'){
         result = celToFah(numberTemp);
