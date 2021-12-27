@@ -8,13 +8,20 @@ const calculateTemp = () => {
         let fahrenheit = Math.round((cel * 9/5) + 32);
         return fahrenheit;
     }
+
+    const fahToCel = (fah) => {
+        let celsius = Math.round((fah - 32) * 5/9);
+        return celsius;
+    }
+
+
     let result;
     if(valueTemp == 'cel'){
         result = celToFah(numberTemp);
         document.getElementById('resultContainer').innerHTML = `= ${result}°Fahrenheit`;
     
     }else{
-        result = fahToCah(numberTemp);
+        result = fahToCel(numberTemp);
         document.getElementById('resultContainer').innerHTML = `= ${result}°Celsius`;
     }
 
