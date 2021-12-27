@@ -12,12 +12,12 @@ const setHeader = {
         Accept: 'application/json' 
     }
 }
-    fetch('https://icanhazdadjoke.com/', setHeader)                                //PROMISE
+    fetch('https://icanhazdadjoke.com/', setHeader)                                //using PROMISES
     .then((responseMila) => responseMila.json())
     .then((data) => {
      jokes.innerHTML = data.joke;  
     })
-    
+
     .catch((error) => {
         console.log(error);
         })
