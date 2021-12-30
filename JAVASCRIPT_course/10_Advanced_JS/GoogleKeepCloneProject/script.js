@@ -1,6 +1,14 @@
 const addbutton = document.querySelector('#add');
+const updateLocalStorage = () => {
+const textAreaData = document.querySelectorAll('textarea');
+const notes = [];
+textAreaData.forEach(note => {
+return notes.push(note.value);
+})
 
-const addNewNote = (text = 'wfwefw') => {
+localStorage.setItem('notes', JSON.stringify(notes));
+}
+const addNewNote = (text = '') => {
     const note = document.createElement('div');
     note.classList.add('note');
     const htmlData  = `
@@ -12,7 +20,7 @@ const addNewNote = (text = 'wfwefw') => {
                     <textarea class="${text ? "hidden" : ""}"></textarea>           
                     `;
 
-//    hide the text area if contain any user data, using hidden class in css *****************************************
+//hide the text area or the main div, 👆 using hidden class in css *****************************************
 
     note.insertAdjacentHTML('afterbegin', htmlData);
     console.log(note);
@@ -30,21 +38,37 @@ const addNewNote = (text = 'wfwefw') => {
     const editButton = note.querySelector('.edit');
     const delButton = note.querySelector('.delete');
     const mainDiv = note.querySelector('.main');
-    const textarea = note.querySelector('textarea');
+    const textArea = note.querySelector('textarea');
 
 
     //deleting the data
     delButton.addEventListener('click', () => {
         note.remove();
+        updateLocalStorage();
     })
 
     //toggle using edit button
+    textArea.value = text;
+    mainDiv.innerHTML = text;
+
     editButton.addEventListener('click', () => {
-    mainDiv.classList.toggle('hidden');
-    textarea.classList.toggle('hidden');
-    
+        mainDiv.classList.toggle('hidden');
+        textArea.classList.toggle('hidden');
+    })
+
+    textArea.addEventListener('change', (event) =>{
+        const value = event.target.value;
+        mainDiv.innerHTML = value;
+        updateLocalStorage();
     })
 
     document.body.appendChild(note);                                                        //append means to add something
 }
+
+
+// getting Data back from local storage
+const notes = JSON.parse(localStorage.getItem('notes'));
+if(notes){
+    notes.forEach((note) => addNewNote(note))
+};
 addbutton.addEventListener('click', () => addNewNote() );
