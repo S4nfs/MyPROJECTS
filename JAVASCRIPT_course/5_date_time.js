@@ -5,6 +5,7 @@
     -new Date(date string)
 */
 
+
 var currDate = new Date();
 console.log(currDate);
 console.log(new Date().toLocaleString());               //local time
