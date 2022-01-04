@@ -3,6 +3,10 @@ An object is a collection of properties and methods.
 Object = School bag
 
 
+There are two ways an object can be accessed in the end
+1. Dot Notation     - you can see below bioData.myname to access value "Sagar Verma"
+2. Bracket Notation - you can also use bioData["myname"] to access value "Sagar Verma" (useful if you have a key with spaces)
+
 */
 
 
@@ -18,7 +22,7 @@ Object = School bag
 // bioData.getData();
 
 
-//✔️What if we want an object as a vale inside an object ?
+//✔️What if we want an object as a value inside an object ?
 // let bioData = {
 //         whoAmI : {
 //             realName : "S4nfs",
