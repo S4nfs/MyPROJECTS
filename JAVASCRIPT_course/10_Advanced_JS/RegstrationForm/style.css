@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
 *{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root{
@@ -40,7 +40,7 @@ body {
 }
 
 .header h2{
-    color: #222;
+    color: rgb(255, 255, 255);
     font-size: 24px;
     font-family: var(--my-btn-font);
     text-align: center;
