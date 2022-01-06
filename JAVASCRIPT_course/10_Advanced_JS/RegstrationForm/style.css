@@ -34,5 +34,40 @@ body {
     -webkit-border-radius: 10px;
 }
 
-.header
+.header{
+    background: var(--lg-color);
+    padding: 30px 0;
+}
+
+.header h2{
+    color: #222;
+    font-size: 24px;
+    font-family: var(--my-btn-font);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form .btn{
+    background: var(--lg-color);
+    color: #fff;
+    font-size: 16px;
+    font-family: var(--my-btn-font);
+    font-weight: bold;
+    padding: 15px 0px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    display: block;
+    transition: all 1s ease;
+    margin-top: 20px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+@media(max-width: 998px){
+    .container{
+        width: calc(100vw - 35vw);
+        max-width: 100%;
+    }
+}
 
