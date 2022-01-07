@@ -15,7 +15,7 @@
 
 body {
     font-family: var(--myfont);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
     width: 100vw;
@@ -32,6 +32,20 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
     -webkit-border-radius: 10px;
+}
+
+.form{
+    padding: 40px;
+    background-color: #fff;
+}
+
+.form-control{
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-control label{
+    display: inline-block;
 }
 
 .header{
