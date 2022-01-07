@@ -59,7 +59,7 @@ body {
     padding: 12px;
 }
 
-.form-control imput:focus{
+.form-control input:focus{
     outline: none;
     border-coor: 2px solid #777;
 }
@@ -67,6 +67,40 @@ body {
 .form-control.success input{
     border-color: #2ecc71;
 }
+
+.form-control.error input{
+    border-color: #e74c3c;
+}
+
+.form-control i{
+    position: absolute;
+    right: 12px;
+    top: 38px;
+    visibility: hidden;
+}
+
+.form-control small{
+    color: #e74c3c;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+}
+
+.form-control.error small{
+    visibility: visible;
+}
+
+.form-control.success i.fa-circle-check{
+    visibility: visible;
+    color: #2ecc71;
+}
+
+.form-control.error i.fa-exclamation{
+    visibility: visible;
+    color: #e74c3c;
+}
+
 .header{
     background: var(--lg-color);
     padding: 30px 0;
