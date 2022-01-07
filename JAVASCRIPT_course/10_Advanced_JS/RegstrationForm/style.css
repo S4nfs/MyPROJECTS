@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
 *{
     margin: 0;
@@ -7,8 +7,8 @@
 }
 
 :root{
-    --myfont: 'Montserrat', sans-serif;
-    --my-btn-font: 'Montserrat', sans-serif;
+    --myfont: 'Roboto', sans-serif;
+    --my-btn-font: 'Roboto', sans-serif;
     /* --lg-lightcolor: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); */
     --lg-color: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
@@ -46,8 +46,27 @@ body {
 
 .form-control label{
     display: inline-block;
+    margin-bottom: 5px;
 }
 
+.form-control imput{
+    width: 100%;
+    border: 2px solid #f0f0f0;
+    border-radius: 5px;
+    display: block;
+    font-family: var(--myfont);
+    font-size: 14px;
+    padding: 12px;
+}
+
+.form-control imput:focus{
+    outline: none;
+    border-coor: 2px solid #777;
+}
+
+.form-control.success input{
+    border-color: #2ecc71;
+}
 .header{
     background: var(--lg-color);
     padding: 30px 0;
