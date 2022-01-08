@@ -80,32 +80,42 @@
         const passwordVal = password.value.trim();
         const cpasswordVal = cpassword.value.trim();
         
-        
+        //more validate email
+        const isEmail = (emailVal) => {
+            const atSymbol = emailVal.indexOf('@');
+            if(atSymbol < 1) return false;                      //@ symbol position should be in the middle
+            var dot = emailVal.lastIndexOf('.');
+            if(dot <= atSymbol + 2) return false;               //. symbol position should be after @ symbol
+            if(dot === emailVal.length - 1) return false;       //. symbol position should be in the middle
+            return true;    
+        }
         //validate username
         if(usernameVal === ""){
-            setErrormsg(usernameVal, "Username is required");
+            setErrorMsg(username, "Username is required");
         }else if(usernameVal.length <= 2){
-            setErrormsg(usernameVal, "Username must be at least 3 characters");
-        }else{
-            setSuccessMsg(usernameVal);
-        }
-
-                //validate email
-                if(emailVal === ""){
-            setErrormsg(emailVal, "email is required");
-        }else if(emailVal.length <= 2){
-            setErrormsg(emailVal, "email must be at least 3 characters");
-        }else{
-            setSuccessMsg(emailVal);
-        }
-
-                //validate username
-                if(username === ""){
-            setErrormsg(username, "Username is required");
-        }else if(username.length <= 2){
-            setErrormsg(username, "Username must be at least 3 characters");
+            setErrorMsg(username, "Username must be at least 3 characters");
         }else{
             setSuccessMsg(username);
+        }
+        //validate email
+        if(emailVal === ""){
+            setErrorMsg(email, "email is required");
+        }else if(!isEmail(emailVal)){
+            setErrorMsg(email, "Not a valid email");
+        }else{
+            setSuccessMsg(email);
+        }
+
+
+        function setErrorMsg(input, errormsgs) {
+            const formControl = input.parentElement;
+            const small = formControl.querySelector('small');
+            formControl.className = 'form-control error';
+            small.innerText = errormsgs;
+        }
+        function setSuccessMsg() {
+            const formControl = input.parentElement;
+            formControl.className = 'form-control success';
         }
     }
 

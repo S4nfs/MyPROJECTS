@@ -40,7 +40,7 @@ body {
 }
 
 .form-control{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     position: relative;
 }
 
@@ -81,7 +81,6 @@ body {
 
 .form-control small{
     color: #e74c3c;
-    bottom: 0;
     position: absolute;
     left: 0;
     visibility: hidden;
