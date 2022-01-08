@@ -73,14 +73,44 @@
 
     //define the validate function
     const validate = () => {
-        const form = form.value.trim();
-        const username = username.value.trim();
-        const email = email.value.trim();
-        const phone = phone.value.trim();
-        const password = password.value.trim();
-        const cpassword = cpassword.value.trim();
+        const formVal = form.value.trim();
+        const usernameVal = username.value.trim();
+        const emailVal = email.value.trim();
+        const phoneVal = phone.value.trim();
+        const passwordVal = password.value.trim();
+        const cpasswordVal = cpassword.value.trim();
+        
+        
+        //validate username
+        if(usernameVal === ""){
+            setErrormsg(usernameVal, "Username is required");
+        }else if(usernameVal.length <= 2){
+            setErrormsg(usernameVal, "Username must be at least 3 characters");
+        }else{
+            setSuccessMsg(usernameVal);
+        }
+
+                //validate email
+                if(emailVal === ""){
+            setErrormsg(emailVal, "email is required");
+        }else if(emailVal.length <= 2){
+            setErrormsg(emailVal, "email must be at least 3 characters");
+        }else{
+            setSuccessMsg(emailVal);
+        }
+
+                //validate username
+                if(username === ""){
+            setErrormsg(username, "Username is required");
+        }else if(username.length <= 2){
+            setErrormsg(username, "Username must be at least 3 characters");
+        }else{
+            setSuccessMsg(username);
+        }
     }
 
+
+    
 
 
 </script>
