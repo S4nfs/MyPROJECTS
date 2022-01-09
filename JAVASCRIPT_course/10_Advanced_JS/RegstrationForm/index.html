@@ -65,12 +65,7 @@
     const password = document.getElementById('password');
     const cpassword = document.getElementById('cpassword');
 
-    //add event
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        validate();
-    })
-
+    
     //define the validate function
     const validate = () => {
         const usernameVal = username.value.trim();
@@ -79,6 +74,16 @@
         const passwordVal = password.value.trim();
         const cpasswordVal = cpassword.value.trim();
         
+        //add event
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            validate();
+        })
+        
+        //for final validation
+        const successMsg = () => {
+            
+        }
         //more validate email
         const isEmail = (emailVal) => {
             const atSymbol = emailVal.indexOf('@');
@@ -100,18 +105,43 @@
         if(emailVal === ""){
             setErrorMsg(email, "email is required");
         }else if(!isEmail(emailVal)){
-            setErrorMsg(emailVal, "Not a valid email");
+            setErrorMsg(email, "Not a valid email");
         }else{
             setSuccessMsg(email);
         }
         //validate phone
         if(phoneVal === ""){
             setErrorMsg(phone, "phone is required");
-        }else if(phoneVal != 10){
-            setErrorMsg(phoneVal, "Phone number must be of 10-digits");
+        }else if(phoneVal.length != 10){
+            setErrorMsg(phone, "Phone number must be of 10-digits");
         }else{
             setSuccessMsg(phone);
         }
+        //validate password
+        if(passwordVal === ""){
+            setErrorMsg(password, "password is required");
+        }else if(passwordVal.length <= 5){
+            setErrorMsg(password, "password number must be of 6 characters long");
+        }else{
+            setSuccessMsg(password);
+        }
+        //validate cpassword
+        if(cpasswordVal === ""){
+            setErrorMsg(cpassword, "confirm password is required");
+        }else if(passwordVal != cpasswordVal){
+            setErrorMsg(cpassword, "confirm password must be same as password");
+        }else{
+            setSuccessMsg(cpassword);
+        }
+
+        successMsg();
+
+
+
+
+    }
+
+
 
 
         function setErrorMsg(input, errormsgs) {
@@ -120,11 +150,11 @@
             formControl.className = 'form-control error';
             small.innerText = errormsgs;
         }
-        function setSuccessMsg() {
+        function setSuccessMsg(input) {
             const formControl = input.parentElement;
             formControl.className = 'form-control success';
         }
-    }
+    
 
 
     
