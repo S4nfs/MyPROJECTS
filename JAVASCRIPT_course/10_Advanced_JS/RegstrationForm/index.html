@@ -73,7 +73,6 @@
 
     //define the validate function
     const validate = () => {
-        const formVal = form.value.trim();
         const usernameVal = username.value.trim();
         const emailVal = email.value.trim();
         const phoneVal = phone.value.trim();
@@ -101,9 +100,17 @@
         if(emailVal === ""){
             setErrorMsg(email, "email is required");
         }else if(!isEmail(emailVal)){
-            setErrorMsg(email, "Not a valid email");
+            setErrorMsg(emailVal, "Not a valid email");
         }else{
             setSuccessMsg(email);
+        }
+        //validate phone
+        if(phoneVal === ""){
+            setErrorMsg(phone, "phone is required");
+        }else if(phoneVal != 10){
+            setErrorMsg(phoneVal, "Phone number must be of 10-digits");
+        }else{
+            setSuccessMsg(phone);
         }
 
 
