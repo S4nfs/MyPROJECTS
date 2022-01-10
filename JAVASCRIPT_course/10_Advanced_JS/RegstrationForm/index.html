@@ -72,22 +72,14 @@
         event.preventDefault();
         validate();
     })
-    
-    //define the validate function
-    const validate = () => {
-        const usernameVal = username.value.trim();
-        const emailVal = email.value.trim();
-        const phoneVal = phone.value.trim();
-        const passwordVal = password.value.trim();
-        const cpasswordVal = cpassword.value.trim();
-        
-        const sendData = (usernameVal, sRate, count) => {
-            if(sRate === count){
-                alert("Regstration Successfull ");
-                swal("Welcome! " + usernameVal, "Regstration Successfull", "success");
-                location.href = `login.html?username=${usernameVal}`;
-            }
+    const sendData = (usernameVal, sRate, count) => {
+        if(sRate === count){
+            alert("Regstration Successfull ");
+            swal("Welcome! " + usernameVal, "Regstration Successfull", "success");
+            location.href = `login.html?username=${usernameVal}`;
         }
+    }
+
 
         //for final validation
         const successMsg = (usernameVal) => {
@@ -98,9 +90,9 @@
                    console.log(sRate);
                    var sRate = 0 + i;
                    sendData(usernameVal, sRate, count);
-                }else{
+                }  else{
                     return false;
-                }
+                  }
             }
         }
         //more validate email
@@ -112,6 +104,16 @@
             if(dot === emailVal.length - 1) return false;       //. symbol position should be in the middle
             return true;    
         }
+
+            
+    //define the validate function
+    const validate = () => {
+        const usernameVal = username.value.trim();
+        const emailVal = email.value.trim();
+        const phoneVal = phone.value.trim();
+        const passwordVal = password.value.trim();
+        const cpasswordVal = cpassword.value.trim();
+        
         //validate username
         if(usernameVal === ""){
             setErrorMsg(username, "Username is required");
