@@ -28,10 +28,11 @@ body {
 .container{
     width: calc(100vw - 65vw);
     max-width: 100%;
-    background-color: #232f3e;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
     -webkit-border-radius: 10px;
+    overflow: hidden;
 }
 
 .form{
@@ -60,8 +61,8 @@ body {
 }
 
 .form-control input:focus{
-    outline: none;
-    border-coor: 2px solid #777;
+    outline: 0;
+    border-color: #777;
 }
 
 .form-control.success input{
@@ -72,7 +73,7 @@ body {
     border-color: #e74c3c;
 }
 
-.form-control i{
+.form-control i {
     position: absolute;
     right: 12px;
     top: 38px;
@@ -106,7 +107,7 @@ body {
 }
 
 .header h2{
-    color: rgb(255, 255, 255);
+    color: #222;
     font-size: 24px;
     font-family: var(--my-btn-font);
     text-align: center;
@@ -119,7 +120,7 @@ body {
     font-size: 16px;
     font-family: var(--my-btn-font);
     font-weight: bold;
-    padding: 15px 0px;
+    padding: 15px 0;
     border-radius: 6px;
     border: none;
     outline: none;

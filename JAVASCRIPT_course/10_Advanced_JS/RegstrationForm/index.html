@@ -66,7 +66,12 @@
     const phone = document.getElementById('phone');
     const password = document.getElementById('password');
     const cpassword = document.getElementById('cpassword');
-
+    
+    //add event
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        validate();
+    })
     
     //define the validate function
     const validate = () => {
@@ -76,15 +81,10 @@
         const passwordVal = password.value.trim();
         const cpasswordVal = cpassword.value.trim();
         
-        //add event
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            validate();
-        })
         const sendData = (usernameVal, sRate, count) => {
             if(sRate === count){
-                alert("Regstration Successful ");
-                swal("Welcome! " + usernameVal, "Regstration Successful", "success");
+                alert("Regstration Successfull ");
+                swal("Welcome! " + usernameVal, "Regstration Successfull", "success");
                 location.href = `login.html?username=${usernameVal}`;
             }
         }
@@ -105,7 +105,7 @@
         }
         //more validate email
         const isEmail = (emailVal) => {
-            const atSymbol = emailVal.indexOf('@');
+            var atSymbol = emailVal.indexOf('@');
             if(atSymbol < 1) return false;                      //@ symbol position should be in the middle
             var dot = emailVal.lastIndexOf('.');
             if(dot <= atSymbol + 2) return false;               //. symbol position should be after @ symbol
@@ -154,10 +154,6 @@
         }
 
         successMsg(usernameVal);
-
-
-
-
     }
 
 
@@ -174,11 +170,6 @@
             formControl.className = 'form-control success';
         }
     
-
-
-    
-
-
 </script>
 </body>
 </html>
