@@ -1,9 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Space+Mono&display=swap');
+
+/* font-family: 'Montserrat Alternates', sans-serif; */
 body{
     background-color: antiquewhite;
 
 }
 
-#{
+*{
     margin: 0;
     padding: 0;
+}
+
+
+nav{
+    font-family: 'Space Mono', monospace;
+}
+
+nav ul{
+    display: flex;
+    list-style-type: none;
+    align-items: center;;
+    height: 65px;
+    background-color: black;
+    color: white;
+}
+
+nav ul li{
+    padding: 0 12px;
+}
+.brand{
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;;
+}
+.brand img{
+    width: 44px;
+    padding: 0 8px;
+}
+
+.bottom{
+    
 }
