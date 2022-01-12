@@ -1,5 +1,8 @@
 //Initialize the Variables
-
+let songIndex = 0;
+let audioElement = new Audio('ATC.mp3');
+let masterPlay = document.getElementById('masterPlay');
+let myProgressBar = document.getElementById('myProgressBar');
 let songs = [
     {
         songName: "Jump",
@@ -28,8 +31,13 @@ let songs = [
     }
 ]
 
-let audioElement = new Audio('ATC.mp3');
 //audioElement.play();
 
-//Listen to Events
-document.addEventListener('time');
+//  Play||Pause the Song
+
+//  Listen to Events
+myProgressBar.addEventListener('timeupdate', () => {
+    console.log('timeeupdate');
+    //Update the Progress Bar
+
+});
