@@ -115,5 +115,5 @@ nav ul li{
 
 .songInfo img{
     opacity: 0;
-    transform: opacity 1s ease-in;
+    transform: opacity 0.4s ease-in;
 }
