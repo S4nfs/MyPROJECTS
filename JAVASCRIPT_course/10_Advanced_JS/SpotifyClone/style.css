@@ -4,14 +4,12 @@
 /* font-family: 'Montserrat Alternates', sans-serif; */
 body{
     background-color: antiquewhite;
-
 }
 
 *{
     margin: 0;
     padding: 0;
 }
-
 
 nav{
     font-family: 'Space Mono', monospace;
@@ -29,6 +27,7 @@ nav ul{
 nav ul li{
     padding: 0 12px;
 }
+
 .brand{
     display: flex;
     align-items: center;
@@ -54,7 +53,6 @@ nav ul li{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
 }
 
 .bottom{
@@ -73,10 +71,15 @@ nav ul li{
     margin-top: 14px;
     cursor: pointer;
 }
+
 #myProgressBar{
     width: 80vw;
     text-align: center;
+    cursor: pointer;
+}
 
+.songItemContainer{
+    margin-top: 74px;
 }
 
 .songItem{
@@ -102,5 +105,15 @@ nav ul li{
 
 .timestamp i{
     cursor: pointer;
+}
 
+.songInfo{
+    position: absolute;
+    left: 10vw;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.songInfo img{
+    opacity: 0;
+    transform: opacity 1s ease-in;
 }
