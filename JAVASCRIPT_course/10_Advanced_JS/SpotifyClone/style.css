@@ -95,6 +95,7 @@ nav ul li{
 
 .songItem img{
     width: 43px;
+    height: 43px;
     margin: 0 23px;
     border-radius: 50%;
 }
