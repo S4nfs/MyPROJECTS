@@ -17,7 +17,7 @@ let songs = [
 songItems.forEach((element, i) => {
     // console.log(element, i);
     element.getElementsByTagName("img")[0].src = songs[i].coverPath;
-    element.getElementByClassName("songName")[0].innerText = songs[i].songName;
+    element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
     
 })
 //  Play||Pause the Song
