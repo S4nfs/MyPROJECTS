@@ -3,7 +3,7 @@
 
 /* font-family: 'Montserrat Alternates', sans-serif; */
 body{
-    background-color: antiquewhite;
+    background-color: rgb(21, 24, 28);
 }
 
 *{
@@ -57,7 +57,7 @@ nav ul li{
 
 .bottom{
     position: sticky;
-    height: 130px;
+    height: 100px;
     background-color: black;
     bottom: 0;
     display: flex;
@@ -68,7 +68,7 @@ nav ul li{
 }
 
 .icons{
-    margin-top: 14px;
+    margin-top: 10px;
     cursor: pointer;
 }
 
