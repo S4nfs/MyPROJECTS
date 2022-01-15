@@ -18,11 +18,20 @@ console.log(myAge);
 // 4. Number
 // 5. undefined   ---- if variable is not set
 // 6. Symbol
+// 7. Objects
+// 8. null
 var myname = "Sagar Verma";
-console.log(typeof myname); //like var_dump to determine which datatype
+console.log(typeof myname);    //like var_dump to determine which datatype
 
 var something;
 console.log(typeof something); //undefined
+
+var marks = {
+    maths: 90,
+    science: 80,
+    english: 70
+}
+console.log(typeof marks);     //object
 
 // OPERTORS IN JAVASCRIPT---------------------------------------------------------------------------------------
 // 1. Arithmetic Operators  +, -, *, /, %,
