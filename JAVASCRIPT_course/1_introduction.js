@@ -11,7 +11,9 @@ var myAge = 30;
 console.log(myName);
 console.log(myAge);
 
-// Data Types 6--------------------------------------------------------------------------------------------------
+/*Data Types ---------------------------------------------------------------------------------------------------
+Primitive Data Types: String, Number, Boolean, Null, Undefined, Symbol
+Reference Data Types: Object, Function, Array, Date, RegExp, Error */
 // 1. String
 // 2. BigInt
 // 3. Boolean
