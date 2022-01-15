@@ -57,3 +57,14 @@ const calculator = (num1,num2, operator) => {
     return operator(num1,num2);
 }
 console.log(calculator(10,20,sub));          //calculator is a High order function and it contains a function as an argument while add,sub,mult are callback functions
+
+
+
+//SOME Functions RAW Examples:
+//this generates random number between 0 and 10
+function randomRange(myMin, myMax) {
+  
+  var result = Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+    return result;
+  }
+  randomRange(0,10);
