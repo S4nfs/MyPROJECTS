@@ -94,6 +94,7 @@ If-Else
 8. Break
 9. Continue */
 
+//---------------------------------------------------------------------If-Else
 // var area = "circle";
 // var PI = 3.142, l = 5, b = 4, r = 3;
 
@@ -105,6 +106,22 @@ If-Else
 //     console.log("The are of rectangle is : " + l*b);
 // }else{
 //     console.log("please enter valid data");
+// }
+
+//----------------------------------------------------------------------Break
+// var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// for (var i = 0; i < arr.length; i++) {
+//   if(i==2){
+//     break;
+//   }
+//   console.log(arr[i]);
+// }
+
+// for (var j = 0; j < arr.length; j++) {
+//   if(j==2){                               
+//     continue;//continue will skip the current iteration and go to next iteration here number 3
+//   }
+//   console.log(arr[j]);
 // }
 // ---------------------------------------------------------------------Switch Case
 
