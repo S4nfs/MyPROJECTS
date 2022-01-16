@@ -1,4 +1,4 @@
-/* LET,CONST,VAR
+/* LET,CONST,  VAR
 
 ✔️ let 
 -is block scoped, means it lives in curly braces {}. 
