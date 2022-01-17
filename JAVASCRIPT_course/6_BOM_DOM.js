@@ -40,3 +40,12 @@ document.body.nextSibling
 document.body.nextElementSibling
 document.body.previousSibling
 document.body.previousElementSibling*/
+
+
+
+//DOM MANIPULATION with respect to 6_BOM_DOM.html
+let elem = document.getElementById("click");
+// console.log(elem);
+
+let elemClass = document.getElementsByClassName("container");
+console.log(elemClass);
