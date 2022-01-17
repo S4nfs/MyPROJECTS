@@ -49,3 +49,35 @@ let elem = document.getElementById("click");
 
 let elemClass = document.getElementsByClassName("container");
 console.log(elemClass);
+//i want to change the color of the first container
+elemClass[0].style.background = "green";
+
+//i want to add a custom class called .bg-primary whi i made in CSS now to my second container
+elemClass[1].classList.add("bg-primary");
+// elemClass[1].classList.remove("bg-primary");
+
+//this displays inner HTML and text
+console.log(elemClass[0].innerHTML);
+console.log(elemClass[0].innerText);
+
+//i wnat to get elements by tag name <button>
+tn = document.getElementsByTagName("button");
+console.log(tn);
+
+//i want to add a child in this div
+tn2 = document.getElementsByTagName("div");
+createdElement = document.createElement("p");
+createdElement.innerHTML = "This is a new paragraph by appending the div";
+tn2[0].appendChild(createdElement);
+//i want to replace tthis child with another child
+createdElement2 = document.createElement("b");
+createdElement2.innerHTML = "This is a created bold";
+tn2[0].replaceChild(createdElement2, createdElement);
+
+// //i want to remove this child
+// tn2[0].removeChild(createdElement2);
+
+//U can also use Query Selector while targeting elements
+//this will return the first container but not the node list, use querySelectorAll() to get all the containers  
+sel = document.querySelector(".container");  
+console.log(sel);
