@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/*CSS positions: static(default), relative, absolute, fixed, sticky*/
+.box{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin: 2px;
+    border: 1px solid orangered;
+}
+
+.container{
+    border-color: 2px solid mediumslateblue;
+    background-color: khaki;
+    height: 3000px;
+}
+#box3{
+    position: relative;         /*  relative to its position hilega leaving a gap , u can set height, width, top, bottom now  */
+    top: 50px;
+    left: 50px;
+}
+
+#box5{
+    position: absolute;         /*  absolute to its parent position hilega (ex.container here) without leaving gap , u can set height, width, top, bottom now  */
+    top: 50px;
+    left: 50px;
+}
+
+#box7{
+    position: fixed;           /*   scroll with the mouse*/
+}
+
+#box8{
+    position: sticky;          /*  sticked to its position not with the mouse scroll */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1">1</div>
+        <div class="box" id="box2">2</div>
+        <div class="box" id="box3">3</div>
+        <div class="box" id="box4">4</div>
+        <div class="box" id="box5">5</div>
+        <div class="box" id="box6">6</div>
+        <div class="box" id="box7">7</div>
+        <div class="box" id="box8">8</div>
+
+    </div>
+    </body>
+</html>
