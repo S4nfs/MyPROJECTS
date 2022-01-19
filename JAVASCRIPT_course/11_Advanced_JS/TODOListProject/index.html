@@ -50,24 +50,107 @@
 
       <div class="container my-4">
         <h2 class="text-center">TODOs List</h2>
-        <form>
+        <!-- <form> -->
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title">
+            <small id="emailHelp" class="form-text text-muted">Add an item to the list</small>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>  
           </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+          <button  class="btn btn-primary" id="add">Add</button>
+          <button  class="btn btn-primary" id="clear" onclick="clearStorage()">Clear</button>
+          <!-- </form> -->
+        <div id="items" class="my-4">
+          <h2>Your items</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Sno</th>
+                <th scope="col">Item Title</th>
+                <th scope="col">Item Description</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr>
+                <th scope="row">1</th>
+                <td>Get some coffee</td>
+                <td>Tired! Have some coffee</td>
+                <td><button class="btn btn-primary">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
+
+
+
+<script>
+function getAndUpdate(){
+  tit = document.getElementById('title').value;
+  desc = document.getElementById('description').value;
+  if(localStorage.getItem('itemsJSON') == null){
+    itemJSONArray = [];
+    itemJSONArray.push([tit, desc]);
+    localStorage.setItem('itemsJSON', JSON.stringify(itemJSONArray));
+  }
+  else{
+    itemJSONArrayStr = localStorage.getItem('itemsJSON');
+    itemJSONArray = JSON.parse(itemJSONArrayStr);
+    itemJSONArray.push([tit, desc]);
+    localStorage.setItem('itemsJSON', JSON.stringify(itemJSONArray));
+  }
+  update();
+}
+
+function update() {
+  
+  if(localStorage.getItem('itemsJSON') == null){
+    itemJSONArray = [];
+    localStorage.setItem('itemsJSON', JSON.stringify(itemJSONArray));
+  }
+  else{
+    itemJSONArrayStr = localStorage.getItem('itemsJSON');
+    itemJSONArray = JSON.parse(itemJSONArrayStr);
+  }
+  //Populate the table
+  let tableBody = document.getElementById('tableBody');
+  let str = "";
+  itemJSONArray.forEach((element, index) => {
+    str += `<tr>
+              <th scope="row">${index}</th>
+              <td>${element[0]}</td>
+              <td>${element[1]}</td>
+              <td><button class="btn btn-primary" onclick="deleted(${index})">Delete</button></td>
+            </tr>`;
+  });
+  tableBody.innerHTML = str;
+}
+
+add = document.getElementById('add');
+add.addEventListener('click', getAndUpdate);
+update();
+
+function deleted(itemIndex) {
+  console.log("Delete", itemIndex);
+  itemJSONArrayStr = localStorage.getItem('itemsJSON');
+  itemJSONArray = JSON.parse(itemJSONArrayStr);
+  //Delete itemIndex element from an array
+  itemJSONArray.splice(itemIndex, 1);
+  localStorage.setItem('itemsJSON', JSON.stringify(itemJSONArray));
+  update();
+}
+
+function clearStorage() {
+  console.log("clearing");
+  localStorage.clear();
+  update();
+}
+</script>
 
     <!-- Optional JavaScript -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
