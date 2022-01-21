@@ -70,8 +70,14 @@ splice(indextochange, Delete/Not, whatToChange)
 // }
 
 // const indexOfMonths = months.indexOf('Aug');                    
-// const  monthDelete = months.splice(indexOfMonths, 1);                      //4 Delete
+// const  monthDelete = months.splice(indexOfMonths, 1);                    //4 Delete
 // console.log(months);
+
+//✔️ unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
+const newMonth = months.unshift("Dec");
+console.log(months);                                                        //Output: [ 'Dec', 'Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct' ]
+console.log(newMonth);                                                      //Output: 7
 
 
 //✔️ Map method() return a new array containing the results--------------------------------------------------------------------
