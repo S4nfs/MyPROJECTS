@@ -1,9 +1,4 @@
- 
-<!-- Important Tips
--PHP is not case sensitive
-
-
- -->
+ <!-- Important Tips- PHP is not case sensitive -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +65,7 @@ echo "The value of ne variable is ";
 echo $newVar;
 echo "<br>"; 
 
-// Comaprison Operators  >, <, >=, <=, ==, !=            ----------------------------------------------------------
+// Comprison Operators  >, <, >=, <=, ==, !=            ----------------------------------------------------------
 echo "<br>";
 echo "The value of 1==4 is ";
 echo var_dump(1==4);                //function var_dump  
