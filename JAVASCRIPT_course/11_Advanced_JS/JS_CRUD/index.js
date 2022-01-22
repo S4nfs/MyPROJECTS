@@ -10,6 +10,7 @@ var mysqlConnection = mysql.createConnection({
     user: 'root',
     password: '',
     database: 'js_crud'
+    // multipleStatements: true
 });
 
 //create connection
@@ -33,3 +34,40 @@ app.get('/employees', (req, res) => {
         }
     })
 });
+
+//Get an employee detail
+app.get('/employees/:id', (req, res) => {
+    mysqlConnection.query('SELECT * FROM employee WHERE EmpID = ?',[req.params.id], (err, rows, fields)=>{
+        if(!err){
+            res.send(rows);
+        }else{
+            console.log(err);
+        }
+    })
+});
+
+//Delete an employee detail
+app.delete('/employees/:id', (req, res) => {
+    mysqlConnection.query('DELETE * FROM employee WHERE EmpID = ?',[req.params.id], (err, rows, fields)=>{
+        if(!err){
+            res.send('Deleted Successfully');
+        }else{
+            console.log(err);
+        }
+    })
+});
+
+//Insert an employee detail
+mysqlConnection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    var sql = "INSERT INTO employee (Name, EmpCode, Salary) VALUES ?";
+    var values = [
+      ['John', '71', 20000],
+
+    ];
+    mysqlConnection.query(sql, [values], function (err, result) {
+      if (err) throw err;
+      console.log("Number of records inserted: " + result.affectedRows);
+    });
+  });
