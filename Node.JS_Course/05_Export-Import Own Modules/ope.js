@@ -10,6 +10,8 @@ const sub = (a, b) => {
 const name = "Sagar";
 
 
-module.exports.add = add;       //if we want to export many functions
-module.exports.sub = sub;       
-module.exports.name = name;
+// module.exports.addisShipped = add;       //if we want to export many functions 
+// module.exports.subisShipped = sub;       
+// module.exports.nameisShipped = name;
+// OR use
+module.exports = {add, sub, name};
