@@ -22,7 +22,7 @@ const addNewNote = (text = "") => {
                     }"></textarea>           
                     `;
 
-  //hide the text area or the main div, 👆 using hidden class in css *****************************************
+  //hide the text area or the main div, 👆 using hidden class in css ****************************************
 
   note.insertAdjacentHTML("afterbegin", htmlData);
   console.log(note);
