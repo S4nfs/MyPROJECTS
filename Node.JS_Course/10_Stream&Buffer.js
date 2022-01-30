@@ -6,16 +6,16 @@ const server = http.createServer();
 server.on("request", (req, res) => {
   //1st Method Normal Way
 
-  //     fs.readFile("input.txt", (err, data) => {
+  //     fs.readFile("Stream&Buffer.txt", (err, data) => {
   //         if (err) return console.error(err);
   //         res.end(data.toString());
   //     });
   // });
-  
+
 // ==========================================================================================================
   //2nd Method Using Stream
   //Handle stream events --> data, end, and error
-  const rstream = fs.createReadStream("input.txt");
+  const rstream = fs.createReadStream("Stream&Buffer.txt");
   rstream.on("data", (chunkData) => {
     res.write(chunkData);
   });
