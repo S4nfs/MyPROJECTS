@@ -15,16 +15,21 @@ server.on("request", (req, res) => {
 // ==========================================================================================================
   //2nd Method Using Stream
   //Handle stream events --> data, end, and error
-  const rstream = fs.createReadStream("Stream&Buffer.txt");
-  rstream.on("data", (chunkData) => {
-    res.write(chunkData);
-  });
-  rstream.on("end", () => {
-    res.end();
-  });
-  rstream.on("error", (err) => {
-    console.log(err);
-  });
-});
+//   const rstream = fs.createReadStream("Stream&Buffer.txt");
+//   rstream.on("data", (chunkData) => {
+//     res.write(chunkData);
+//   });
+//   rstream.on("end", () => {
+//     res.end();
+//   });
+//   rstream.on("error", (err) => {
+//     console.log(err);
+//   });
+// });
 
+
+  //3nd Method Using pipe(realtime data)
+  const rstream = fs.createReadStream("Stream&Buffer.txt");
+  rstream.pipe(res);
+});
 server.listen(3000, "127.0.0.1");
