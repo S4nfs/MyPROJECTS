@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -11,11 +12,13 @@
         flex-wrap: wrap;
         height: 100vh;
         width: 100vw;
+ 
     }
     html, body, {
         height: 100%;
         font-size: 62.5%;
-    }
+        }
+    
     .container {
     width: 100%;
     height: 100vh;
@@ -26,8 +29,8 @@
     text-align: center;
     }
     .box {
-    width: 20vw;
-    height: 60vh;
+    width: 390px;
+    height: 450px;
     background-color: #a5bbdd;
     margin: auto;
     border-radius: 0.5rem;
@@ -52,6 +55,7 @@
     }
     .info {
     margin-top: 20%;
+    font-family: 'MuseoModerno', cursive;    
     }
     .info .temp {
     font-size: 30px;
