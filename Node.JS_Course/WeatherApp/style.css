@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+    body{
+        background: #f3f2ef;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 100vh;
+        width: 100vw;
+    }
+    html, body, {
+        height: 100%;
+        font-size: 62.5%;
+    }
+    .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+    .box {
+    width: 20vw;
+    height: 60vh;
+    background-color: #a5bbdd;
+    margin: auto;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 25px -5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    }
+    .inputData {
+    padding: 20px;
+    }
+    .inputData input {
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    }
+    i {
+    font-size: 60px;
+    }
+    .info {
+    margin-top: 20%;
+    }
+    .info .temp {
+    font-size: 30px;
+    margin: 20px 0 20px 0;
+    font-weight: 800;
+
+
+    }
+    .info h3 {
+    font-size: 20px;
+    font-weight: 400;
+    }
+    .wave1 {
+    opacity: 0.3;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    background: white;
+    width: 50rem;
+    height: 50rem;
+    margin-left: -25rem;
+    margin-top: -20rem;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    animation: drift 3000ms infinite linear;
+    z-index: 1;
+    }
+    .wave2 {
+    animation: drift 5000ms infinite linear;
+    z-index: 2 !important;
+    opacity: 0.2;
+    }
+    .wave3 {
+    animation: drift 7000ms infinite linear;
+    z-index: 3 !important;
+    opacity: 0.1;
+    }
+    .box::after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    transform: translate3d(0, 0, 0);
+    }
+    @keyframes drift {
+    from {
+    transform: rotate(0deg);
+    }
+    from {
+    transform: rotate(360deg);
+    }
+    }
