@@ -52,7 +52,7 @@ console.log(elemClass);
 //i want to change the color of the first container
 elemClass[0].style.background = "green";
 
-//i want to add a custom class called .bg-primary whi i made in CSS now to my second container
+//i want to add a custom class called .bg-primary which made in CSS now to my second container
 elemClass[1].classList.add("bg-primary");
 // elemClass[1].classList.remove("bg-primary");
 
@@ -60,7 +60,7 @@ elemClass[1].classList.add("bg-primary");
 console.log(elemClass[0].innerHTML);
 console.log(elemClass[0].innerText);
 
-//i wnat to get elements by tag name <button>
+//i want to get elements by tag name <button>
 tn = document.getElementsByTagName("button");
 console.log(tn);
 
