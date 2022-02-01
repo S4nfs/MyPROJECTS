@@ -7,7 +7,9 @@ const server = http.createServer((req, res) => {
   if (req.url == "/") {
     requests('http://api.openweathermap.org/data/2.5/weather?q=kanpur&appid=c631f7bd93f21b7bcb88127e4a9d8cc2')
     .on('data', (chunk) => {
-      console.log(chunk)
+      const objdata = JSON.parse(chunk);
+      const arrdata = [objdata];
+      console.log(arrdata[0].main.temp);
     })
     .on('end', (err) => {
       if (err) 

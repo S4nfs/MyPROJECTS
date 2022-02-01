@@ -5,11 +5,11 @@ obj = {
     profession: 'Software Engineer',
 }
 jso = JSON.stringify(obj);
-console.log(jso);
-console.log(typeof jso);   
+console.log(jso);           // {"name":"Sagar","age":25,"profession":"Software Engineer"} //Output
+console.log(typeof jso);    
 
 
 //Convert JSON String to JSON Object
-parsed = JSON.parse(`{"name":"Sagar","age":25,"profession":"Software Engineer"}`);   //require string input
-console.log(parsed);
-console.log(typeof parsed);
+// parsed = JSON.parse(`{"name":"Sagar","age":25,"profession":"Software Engineer"}`);
+// console.log(parsed);   // {name: "Sagar", age: 25, profession: "Software Engineer"}  //Output
+// console.log(typeof parsed);
