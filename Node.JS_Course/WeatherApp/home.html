@@ -21,8 +21,8 @@
       <div class="info">
         <h2 class="location"><i class="fas fa-location-arrow" style="color: rgb(0, 0, 0)"></i>{%location%},{%country%}</h2>
         <p id="date">Monday | January 30</p>
-        <h1 class="temp">{%tempVal%}</h1>
-        <h3 class="empmin_max">Min {%tempmin%}| max {%tempmax%}</h3>
+        <h1 class="temp">{%tempVal%}°C</h1>
+        <h3 class="empmin_max">Min {%tempmin%}°C| max {%tempmax%}°C</h3>
       </div>
     </div></div>
 
@@ -30,8 +30,38 @@
     <script>
       const curDate = document.getElementById('date');
       let weathercon = document.getElementById('weathericon');
-      const tempStatus = "Clouds";
-
+      const tempStatus = "{%tempstatus%}";
+if(tempStatus == "Sunny"){
+  weathercon.innerHTML = "<i class='far fa-sun' style='color: orange; margin-top: 20px'></i>";
+}else if(tempStatus == "Cloudy"){
+  weathercon.innerHTML = "<i class='fas fa-cloud' style='color: grey; margin-top: 20px'></i>";
+}else if(tempStatus == "Rainy"){
+  weathercon.innerHTML = "<i class='fas fa-cloud-showers-heavy' style='color: blue; margin-top: 20px'></i>";
+}else if(tempStatus == "Snowy"){
+  weathercon.innerHTML = "<i class='fas fa-snowflake' style='color: white; margin-top: 20px'></i>";
+}else if(tempStatus == "Thunder"){
+  weathercon.innerHTML = "<i class='fas fa-bolt' style='color: black; margin-top: 20px'></i>";
+}else if(tempStatus == "Mist"){
+  weathercon.innerHTML = "<i class='fas fa-smog' style='color: rgb (205, 216, 217) ; margin-top: 20px'></i>";
+}else if(tempStatus == "Haze"){
+  weathercon.innerHTML = "<i class='fas fa-smog' style='color: #B7C0BE; margin-top: 20px'></i>";
+}else if(tempStatus == "Dust"){
+  weathercon.innerHTML = "<i class='fas fa-smog' style='color: #C9C1B5; margin-top: 20px'></i>";
+}else if(tempStatus == "Fog"){
+  weathercon.innerHTML = "<i class='fas fa-smog' style='color: white; margin-top: 20px'></i>";
+}else if(tempStatus == "Sand"){
+  weathercon.innerHTML = "<i class='fas fa-smog' style='color: yellow; margin-top: 20px'></i>";
+}else if(tempStatus == "Ash"){
+  weathercon.innerHTML = "<i class='fas fa-smog' style='color: ash; margin-top: 20px'></i>";
+}else if(tempStatus == "Squall"){
+  weathercon.innerHTML = "<i class='fas fa-smog' style='color: #3A3B35; margin-top: 20px'></i>";
+}else if(tempStatus == "Tornado"){
+  weathercon.innerHTML = "<i class='fas fa-smog' style='color: grey'; margin-top: 20px></i>";
+}else if(tempStatus == "Clear"){
+  weathercon.innerHTML = "<i class='far fa-sun' style='color: blue; margin-top: 20px'></i>";
+}else if(tempStatus == "Clouds"){
+  weathercon.innerHTML = "<i class='fas fa-cloud' style='color: grey; margin-top: 20px'></i>";
+}
       //Get current day
       const getCurrentDay = () => {
         var weekday = new Array(7);
