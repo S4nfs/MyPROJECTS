@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const requests = require("requests");
 
 const my_static_website_Path = path.join(__dirname, "../public"); //join the directory with the path above this file
 const mytemplate = path.join(__dirname, "../template");
@@ -23,15 +24,27 @@ app.get("/", (req, res) => {
 */
 
 app.get("/", (req, res) => {
-  res.render("index", {
-    title: "Home Page",
-    user: "Sagar Verma",
+    res.render("index", {
+        title: "Home Page",
+        name: "Sagar"
+    });
+});
+
+// EXPRESSJS + API = get temperature using http://localhost:8001/about?name=pune with any name
+app.get("/temp", (req, res) => {
+  requests(`http://api.openweathermap.org/data/2.5/weather?q=${req.query.name}&appid=c631f7bd93f21b7bcb88127e4a9d8cc2`)
+  .on('data', (chunk) => {
+    const objdata = JSON.parse(chunk);
+    const arrData = [objdata];
+    console.log(`City is ${arrData[0].name} and the temp is ${arrData[0].main.temp}`);
+      res.write(arrData[0].name);           
+  })
+  .on('end', (err) => {
+    if (err) return console.log('connection closed due to errors', err);
+    res.end();
   });
 });
 
-app.get("/about", (req, res) => {
-  res.send("This is express JS");
-});
 
 app.get("/api", (req, res) => {
   res.json([
