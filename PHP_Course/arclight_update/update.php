@@ -1,6 +1,6 @@
 <?php
 
-$arrayLatest = file('https://chatnaut.com/version.php'); //Check for a newer version of OpenVM
+$arrayLatest = file('https://arclight.chatnaut.com/version/'); //Check for a newer version of OpenVM
 $arrayExisting = file('version.php'); //Check the existing version of OpenVM
 $latestExploded = explode('.', $arrayLatest[0]); //Seperate Major.Minor.Patch
 $existingExploded = explode('.', $arrayExisting[1]); //Seperate Major.Minor.Patch
