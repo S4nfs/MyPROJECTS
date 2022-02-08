@@ -118,17 +118,7 @@ footer p {
   font-size: 1.4rem;
 }
 
-/* reponsive code */
-@media (max-width: 768px) {
-  .main_header_left {
-    height: auto;
-    margin: 5rem 0;
-  }
-  .main_header_right {
-    height: auto;
-    margin-top: 3rem;
-  }
-}
+
 
 /* temp input */
 .temp_form {
@@ -166,7 +156,7 @@ footer p {
   background-color: #fff;
 }
 .tempInformation {
-  width: 40rem;
+  width: 50rem;
   margin: auto;
   min-height: 20rem;
   background-color: #323544;
@@ -222,6 +212,27 @@ sup {
 }
 
 .data_hide {
-  visibility: show;
+  visibility: hidden;
   transition: al 0.3s linear;
+}
+
+/* reponsive code */
+@media (max-width: 768px) {
+  .main_header_left {
+    height: auto;
+    margin: 5rem 0;
+  }
+  .main_header_right {
+    height: auto;
+    margin-top: 3rem;
+  }
+
+  .tempInformation{
+    width: auto;
+  
+}
+
+.temp_form{
+  width: auto;
+}
 }

@@ -29,8 +29,8 @@
                     <div class="main_layer">
                         <p id="city_name">Get Output Here</p>
                         <div class="middle_layer data_hide">
-                            <p class="temp"><span>0</span><sup>0</sup>C</p>
-                            <p class="temp_status"> <i class="fa fa-cloud" aria-hidden="true"></i> </p>
+                            <p id="temp"><span id="temp_real_val">0</span><sup>°</sup>C</p>
+                            <p id="temp_status"> <i class="fa fa-cloud" aria-hidden="true"></i> </p>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,28 @@
     <!-- footer from partials-->
     {{>footer}}
 
-        <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+
+        //Get current day
+        const getCurrentDay = () => {
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday"
+            weekday[5] = "Friday"
+            weekday[6] = "Saturday"
+
+            let currentTime = new Date();
+            days = weekday[currentTime.getDay()];
+
+        let day = document.getElementById('day');
+        day.innerText = days;
+        };
+        getCurrentDay();
+    </script>
 
 </body>
 </html>
