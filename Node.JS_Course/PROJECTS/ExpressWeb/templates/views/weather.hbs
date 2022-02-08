@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-10 col-12 mx-auto">
                 <div class="main_content">
-                    <form action="" class="temp_form">
+                    <form class="temp_form">
                         <input type="text" id="cityName" placeholder="Enter your City Name" autocomplete="off">
                         <input type="submit" value="search" id="submitBtn">
                     </form>
@@ -27,9 +27,11 @@
                         <p id="date">8 FEB</p>
                     </div>
                     <div class="main_layer">
-                        <p>
-
-                        </p>
+                        <p id="city_name">Get Output Here</p>
+                        <div class="middle_layer data_hide">
+                            <p class="temp"><span>0</span><sup>0</sup>C</p>
+                            <p class="temp_status"> <i class="fa fa-cloud" aria-hidden="true"></i> </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,6 +41,8 @@
 
     <!-- footer from partials-->
     {{>footer}}
-</body>
 
+        <script src="js/main.js"></script>
+
+</body>
 </html>
