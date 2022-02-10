@@ -20,6 +20,8 @@ Mongo DB Commands:
 
 7.db.collection_name.find().pretty() : show all documents in collection in pretty format
 
+8.db.collection_name.find({name:"React"}) : get output with only name: React
+
 
 
 
