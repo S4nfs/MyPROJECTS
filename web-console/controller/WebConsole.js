@@ -5,7 +5,7 @@ driver = require("node-ssh");
 ssh = new driver();
 
 const sshConfig = {
-  host: "ci.codingtown.com",
+  host: "3.111.98.248",
   username: "ubuntu",
   privateKey: "/home/codingtown/Downloads/ct-dev-tools.pem"
 };
