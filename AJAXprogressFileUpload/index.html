@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .progress-bar {
+        height: 35px;
+        width: 250px;
+        border: 2px solid rgb(79, 110, 248);
+      }
+      .progress-bar-fill {
+        height: 100%;
+        width: 0%;
+        background: lightblue;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        transition: width 0.25s;
+      }
+
+      .progress-bar-text {
+        margin-left: 10px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Upload using AJAX</h1>
+    <form action="" class="form" id="uploadForm">
+      <input type="file" name="inpfile" id="inpfile" /><br />
+      <input class="button" type="submit" value="Upload" />
+
+      <div class="progress-bar" id="progressbar">
+        <div class="progress-bar-fill">
+          <span class="progress-bar-text">0%</span>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      const uploadForm = document.getElementById("uploadForm");
+      const inpfile = document.getElementById("inpfile");
+      const progressBarFill = document.querySelector(
+        "#progressbar > .progress-bar-fill"
+      );
+      const progressBarText =
+        progressBarFill.querySelector(".progress-bar-text");
+
+      uploadForm.addEventListener("submit", uploadFile);
+
+      function uploadFile(e) {
+        e.preventDefault();
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "upload.php");
+        xhr.upload.addEventListener("progress", (e) => {
+          console.log(e);
+        });
+
+        xhr.setRequestHeader("Content-Type", "multiplart/form-data");
+        xhr.send(new FormData(uploadForm));
+      }
+    </script>
+  </body>
+</html>
