@@ -29,16 +29,15 @@
   </head>
   <body>
     <h1>Upload using AJAX</h1>
-    <form action="" class="form" id="uploadForm">
-      <input type="file" name="inpfile" id="inpfile" /><br />
-      <input class="button" type="submit" value="Upload" />
-
-      <div class="progress-bar" id="progressbar">
-        <div class="progress-bar-fill">
-          <span class="progress-bar-text">0%</span>
-        </div>
-      </div>
+    <form class="form" id="uploadForm" enctype="multipart/form-data">
+      <input type="file" name="inpfile" id="inpfile"><br>
+      <input class="button" type="submit" value="Upload">
     </form>
+    <div class="progress-bar" id="progressbar">
+      <div class="progress-bar-fill">
+        <span class="progress-bar-text">0%</span>
+      </div>
+    </div>
 
     <script>
       const uploadForm = document.getElementById("uploadForm");
@@ -53,15 +52,17 @@
 
       function uploadFile(e) {
         e.preventDefault();
-
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "upload.php");
         xhr.upload.addEventListener("progress", (e) => {
-          console.log(e);
+          const percent = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
+          progressBarFill.style.width = percent.toFixed(2) + "%";
+          progressBarText.textContent = percent.toFixed(2) + "%";
         });
 
-        xhr.setRequestHeader("Content-Type", "multiplart/form-data");
+        // xhr.setRequestHeader("Content-Type", "multiplart/form-data");
         xhr.send(new FormData(uploadForm));
+
       }
     </script>
   </body>
