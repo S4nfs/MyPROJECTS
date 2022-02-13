@@ -30,8 +30,16 @@
   <body>
     <h1>Upload using AJAX</h1>
     <form class="form" id="uploadForm" enctype="multipart/form-data">
-      <input type="file" name="inpfile" id="inpfile"><br>
-      <input class="button" type="submit" value="Upload">
+      <input type="file" name="inpfile" id="inpfile" /><br />
+      <!-- Download by entering a file URL -->
+      <!-- <input
+        type="text"
+        name="inpfileurl"
+        id="inpfileurl"
+        placeholder="Enter file URL"
+      /><br /> -->
+      <!-- end -->
+      <input class="button" type="submit" value="Upload"/>
     </form>
     <div class="progress-bar" id="progressbar">
       <div class="progress-bar-fill">
@@ -40,6 +48,9 @@
     </div>
 
     <script>
+      // get file name from URL
+      const url = document.getElementById("inpfileurl").value;
+      // var myfile = document.querySelector('#inpfile');
       const uploadForm = document.getElementById("uploadForm");
       const inpfile = document.getElementById("inpfile");
       const progressBarFill = document.querySelector(
@@ -50,7 +61,20 @@
 
       uploadForm.addEventListener("submit", uploadFile);
 
+        let filename = '';
+            filename = new URL(url).pathname.split("/").pop();
+
+
+
       function uploadFile(e) {
+        //   filename = new URL(url).pathname.split("/").pop();
+        // if(myfile === null){
+        //   myfile.files[0].name = filename;
+        //   inpfile.value = url;
+
+        // }
+        
+// console.log(`${filename} is the file name from the URL ${url} | ${myfile.value} ${inpfile.value}`);
         e.preventDefault();
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "upload.php");
@@ -62,8 +86,8 @@
 
         // xhr.setRequestHeader("Content-Type", "multiplart/form-data");
         xhr.send(new FormData(uploadForm));
-
       }
     </script>
+
   </body>
 </html>

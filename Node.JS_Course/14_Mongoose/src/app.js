@@ -31,8 +31,20 @@ const Meratable = new mongoose.model("Meratable", meratablelistSchema);
 const createDocument = async () => {
   try {
     const phpPlaylist = new Meratable({
-      name: "Mongoose",
-      ctype: "MongoDB object modeling tool",
+      name: "Java",
+      ctype: "Backend",
+      active: false,
+    });
+
+    const phpPlaylist = new Meratable({
+      name: "Go",
+      ctype: "Backend",
+      active: true,
+    });
+
+    const phpPlaylist = new Meratable({
+      name: "Python",
+      ctype: "Backend",
       active: true,
     });
     const result = await phpPlaylist.save();
