@@ -32,13 +32,13 @@
     <form class="form" id="uploadForm" enctype="multipart/form-data">
       <input type="file" name="inpfile" id="inpfile" /><br />
       <!-- Download by entering a file URL -->
-      <!-- <input
+      <input
         type="text"
         name="inpfileurl"
         id="inpfileurl"
         placeholder="Enter file URL"
-      /><br /> -->
-      <!-- end -->
+      /><br /> 
+      
       <input class="button" type="submit" value="Upload"/>
     </form>
     <div class="progress-bar" id="progressbar">
@@ -48,8 +48,11 @@
     </div>
 
     <script>
+      var form = new FormData(document.getElementById("uploadForm"));
+var inputValue = form.get("inpfile");
+
       // get file name from URL
-      const url = document.getElementById("inpfileurl").value;
+      // const url = document.getElementById("inpfileurl").value;
       // var myfile = document.querySelector('#inpfile');
       const uploadForm = document.getElementById("uploadForm");
       const inpfile = document.getElementById("inpfile");
@@ -61,8 +64,8 @@
 
       uploadForm.addEventListener("submit", uploadFile);
 
-        let filename = '';
-            filename = new URL(url).pathname.split("/").pop();
+        // let filename = '';
+        //     filename = new URL(url).pathname.split("/").pop();
 
 
 
@@ -75,6 +78,7 @@
         // }
         
 // console.log(`${filename} is the file name from the URL ${url} | ${myfile.value} ${inpfile.value}`);
+console.log(inputValue);
         e.preventDefault();
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "upload.php");
