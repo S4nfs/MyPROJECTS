@@ -15,7 +15,7 @@ import os
 print(os.listdir())
 
 #Import External modules : pip install <module>
-from playsound import playsound
-playsound("C:\\xampp\\htdocs\\MyCourses\\PYTHON_course\\1.mp3")
+# from playsound import playsound
+# playsound("C:\\xampp\\htdocs\\MyCourses\\PYTHON_course\\1.mp3")
 
 
