@@ -1,0 +1,17 @@
+{
+  "name": "uppy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@uppy/core": "^2.1.4",
+    "@uppy/dashboard": "^2.1.3",
+    "@uppy/url": "^2.0.5",
+    "@uppy/xhr-upload": "^2.0.7"
+  }
+}
