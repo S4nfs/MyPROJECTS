@@ -9,7 +9,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log("Could not connect to MongoDB", err));
 
-//schema defines the structure of the documents in the collection
+//SCHEMA defines the structure of the documents in the collection
 const meratablelistSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -23,34 +23,45 @@ const meratablelistSchema = new mongoose.Schema({
   },
 });
 
-//Mongoose Model provides an interface to the database simply,
-//COLLECTION CREATION(tables)
+//CREATE COLLECTION(tables)
+//Mongoose MODEL provides an interface to the database simply,
 const Meratable = new mongoose.model("Meratable", meratablelistSchema);
 
-//CREATE DOCUMENT(row) using async await
-const createDocument = async () => {
-  try {
-    const phpPlaylist = new Meratable({
-      name: "Java",
-      ctype: "Backend",
-      active: false,
-    });
+//🍃CREATE DOCUMENT(row) using async await
+// const createDocument = async () => {
+//   try {
+//     const javaPlaylist = new Meratable({
+//       name: "Java",
+//       ctype: "Backend",
+//       active: false,
+//     });
 
-    const phpPlaylist = new Meratable({
-      name: "Go",
-      ctype: "Backend",
-      active: true,
-    });
+//     const goPlaylist = new Meratable({
+//       name: "Go",
+//       ctype: "Backend",
+//       active: true,
+//     });
 
-    const phpPlaylist = new Meratable({
-      name: "Python",
-      ctype: "Backend",
-      active: true,
-    });
-    const result = await phpPlaylist.save();
-    console.log(result);
-  } catch (err) {
-    console.log(err);
-  }
-};
-createDocument();
+//     const pythonPlaylist = new Meratable({
+//       name: "Python",
+//       ctype: "Backend",
+//       active: true,
+//     });
+//     // const result = await phpPlaylist.save();   //insert only one document
+//     const result = await Meratable.insertMany([javaPlaylist, goPlaylist, pythonPlaylist]); //insert many
+//     console.log(result);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+// createDocument();
+
+
+//🍃READ DOCUEMNT
+const getDocument = async () => {
+const result = await Meratable.find();
+console.log(result)
+
+
+}
+getDocument();
