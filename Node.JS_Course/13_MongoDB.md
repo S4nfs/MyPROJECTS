@@ -22,7 +22,7 @@ Mongo DB Commands: CRUD
 
 8.db.collection_name.find({name:"React"}) : get output of the document with only name: React
 
-9.db.collection_name.updateOne({name:"React"},{$set:{name:"ReactJS"}}) : update the document with name React to name ReactJS
+9.db.collection_name.updateOne({name:"React"},{$set:{name:"ReactJS"}}) : update the first document with name React to name ReactJS
 
 10.db.collection_name.updateMany({name:"React"},{$set:{name:"ReactJS"}}) : update all documents with name React to name ReactJS
 
