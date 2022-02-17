@@ -57,11 +57,11 @@ const Meratable = new mongoose.model("Meratable", meratablelistSchema);
 // createDocument();
 
 //🍃READ DOCUEMNT---------------------------------------------------------------------------------------------
-const getDocument = async () => {
-const result = await Meratable.find();
-console.log(result);
-}
-getDocument();
+// const getDocument = async () => {
+//   const result = await Meratable.find();
+//   console.log(result);
+// }
+// getDocument();
 
 /*🍃Mongodb Operators---------------------------------------------------------------------------------------------
 $eq : Matches values that are equal to a specified value.
@@ -101,3 +101,28 @@ $nin : Matches none of the values specified in an array.
 // getDocument()
 
 //🍃UPDATE DOCUMENT---------------------------------------------------------------------------------------------
+// const updateDocument = async () => {
+//   try {
+//     const result = await Meratable.updateOne({ _id: "620a56d4b8584419310b61d5" }, { $set: { name: "python" } });
+//     //to show the new value use findByIdAndUpdate({},{},{}) takes three arguments
+//     // const result = await Meratable.findByIdAndUpdate({ _id: "620a56d4b8584419310b61d5" }, { $set: { name: "python" }}, {new: true, useFindAndModify: false});
+//     console.log(result);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// updateDocument()
+
+
+//🍃DELETE DOCUMENT---------------------------------------------------------------------------------------------
+const deleteDocument = async () => {
+  try {
+    const result = await Meratable.deleteOne({ _id: "620e0aa2a15a138fe05b0c3b" });
+    //simmilar to above if you want to grab the deleted output use     
+    // const result = await Meratable.findByIdAndDelete({ _id: "620e0aa2a15a138fe05b0c3b" });
+    console.log(result);
+  } catch (err) {
+    console.log(err);
+  }
+}
+deleteDocument()
