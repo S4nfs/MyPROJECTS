@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>google.charts.load('current', { packages: ['corechart', 'line'] });
+    google.charts.setOnLoadCallback(drawBackgroundColor);
+
+      var chartLoaded = false;
+      var histogram = [];
+
+    function drawBackgroundColor() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'CPU');
+
+      data.addRows(histogram);
+
+      var options = {
+        hAxis: {
+          title: 'Seconds'
+        },
+        vAxis: {
+          title: 'CPU Load %',
+          viewWindow: {
+            min: 0,
+            max: 100
+          }
+        },
+        backgroundColor: '#f1f8e9'
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+      chartLoaded = true;
+    }
+    var socket = io();
+    socket.on('cpu histogram', function(cpuHistogram){
+      console.log(cpuHistogram); // for debugging
+        histogram = cpuHistogram;
+    if(chartLoaded)
+    drawBackgroundColor();
+});
+
+  </script>
+</head>
+
+<body>
+
+  <div id="chart_div"></div>
+
+
+</body>
+
+</html>
