@@ -1,11 +1,13 @@
 const { json } = require('express');
 const { verify } = require('jsonwebtoken');
+//access auth key from env
+const authKey = process.env.AUTH_KEY;
 module.exports = {
     checkToken: (req, res, next) => {
         let token = req.get("authorization");
         if (token) {
             token = token.slice(7);
-            verify(token, "hardcodedtokenSECRETKEY", (err, decoded) => {
+            verify(token, authKey, (err, decoded) => {
                 if(err){
                     res.json({
                         success:0,
