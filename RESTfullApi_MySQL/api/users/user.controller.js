@@ -2,6 +2,10 @@ const { create, getUserByUserId, getUsers, updateUser, deleteUser, getUserByUser
 const { genSaltSync, hashSync, compareSync } = require("bcrypt"); //compareSync compare passwords to match
 const { get } = require("./user.router");
 const { sign } = require("jsonwebtoken");
+//access auth key from env
+const authKey = process.env.AUTH_KEY;
+
+
 module.exports = {
     createUser: (req, res) => {
         const body = req.body;
@@ -98,7 +102,8 @@ module.exports = {
             const result = compareSync(body.password, results.password);
             if (result) {
                 results.password = undefined;
-                const jsontoken = sign({ result: results }, "hardcodedtokenSECRETKEY", { expiresIn: "1h" });
+                //need authkey from pool
+                const jsontoken = sign({ result: results }, authKey, { expiresIn: "1h" });
                 return res.json({
                     success: 1,
                     message: "Login Successfully",
