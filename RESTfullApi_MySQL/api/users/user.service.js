@@ -13,7 +13,7 @@ module.exports = {
                 data.number
             ], (error, results, fields) => {
                 if (error) {
-                    return callback(error)
+                     callback(error)
                 }
                 return callback(null, results)
             }
@@ -26,7 +26,7 @@ module.exports = {
             , [],
             (error, results, fields) => {
                 if (error) {
-                    return callback(error)
+                     callback(error)
                 }
                 return callback(null, results)
             }
@@ -38,7 +38,7 @@ module.exports = {
             , [id],
             (error, results, fields) => {
                 if (error) {
-                    return callback(error)
+                     callback(error)
                 }
                 return callback(null, results[0])
             }
@@ -60,7 +60,7 @@ module.exports = {
             ],
             (error, results, fields) => {
                 if (error) {
-                    return callback(error)
+                     callback(error)
                 }
                 return callback(null, results[0])
             }
@@ -74,9 +74,22 @@ module.exports = {
             , [data.id],
             (error, results, fields) => {
                 if (error) {
-                    return callback(error)
+                     callback(error)
                 }
                 return callback(null, results[0])
+            }
+        );
+    },
+
+    //Authorize users using JWT
+    getUserByUserEmail:(email, callback)=> {
+        pool.query(
+            `SELECT * from registration WHERE email = ?`,
+            [email],(error, results,fields) =>{
+                if(error){
+                    callback(error);
+                }
+                return callback(null, results[0]);
             }
         );
     }

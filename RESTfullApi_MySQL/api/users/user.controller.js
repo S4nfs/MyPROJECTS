@@ -1,7 +1,7 @@
-const { create, getUserByUserId, getUsers, updateUser, deleteUser } = require("./user.service");
-const { genSaltSync, hashSync } = require("bcrypt");
+const { create, getUserByUserId, getUsers, updateUser, deleteUser, getUserByUserEmail } = require("./user.service");
+const { genSaltSync, hashSync, compareSync } = require("bcrypt"); //compareSync compare passwords to match
 const { get } = require("./user.router");
-
+const { sign } = require("jsonwebtoken");
 module.exports = {
     createUser: (req, res) => {
         const body = req.body;
@@ -36,52 +36,81 @@ module.exports = {
                 data: results
             });
         });
-    }, getUsers:(req,res)=> {
-        getUsers((err,results) => {
-            if(err){
+    }, getUsers: (req, res) => {
+        getUsers((err, results) => {
+            if (err) {
                 console.log(err);
                 return;
             }
             return res.json({
-                success:1,
-                message:results
+                success: 1,
+                message: results
             });
         });
-    }, updateUser:(req,res) => {
+    }, updateUser: (req, res) => {
         const body = req.body;
         const salt = genSaltSync(10);
-        body.password  = hashSync(body.password, salt);
+        body.password = hashSync(body.password, salt);
         updateUser(body, (err, results) => {
-            if(err){
+            if (err) {
                 console.log(err);
-                return false;
-            }if(!results){
-                return res.json({
-                    success:0,
-                    message:"Failed to Update User"
-                })
+                return;
             }
             return res.json({
-                success:1,
+                success: 1,
                 message: "Database Updated"
             });
         });
-    }, deleteUser:(req, res)=> {
+    }, deleteUser: (req, res) => {
         const data = req.body;
         deleteUser(data, (err, results) => {
-            if(err){
+            if (err) {
                 console.log(err);
                 return;
             }
-            if(!results){
+            if (!results) {
                 return res.json({
-                    success:0,
-                    message:"Record not found"
+                    success: 0,
+                    message: "Record not found"
                 })
-            }return res.json({
-                success:1,
-                message:"User Deleted Successfully"
+            }
+ 
+            return res.json({
+                success: 1,
+                message: "User Deleted Successfully"
             });
         });
+    },
+
+    //login controller
+    login: (req, res) => {
+        const body = req.body; //user pass email and password
+        getUserByUserEmail(body.email, (err, results) => {
+            if (err) {
+                console.log(err);
+            }
+            if (!results) {
+                return res.json({
+                    success: 0,
+                    message: "User Not Found"
+                });
+            }
+            const result = compareSync(body.password, results.password);
+            if (result) {
+                results.password = undefined;
+                const jsontoken = sign({ result: results }, "hardcodedtokenSECRETKEY", { expiresIn: "1h" });
+                return res.json({
+                    success: 1,
+                    message: "Login Successfully",
+                    token: jsontoken
+                });
+            } else {
+                return res.json({
+                    success: 0,
+                    message: "Invalid Email or Password"
+
+                });
+            }
+        })
     }
 }
