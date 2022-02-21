@@ -13,7 +13,7 @@ app.use(express.json())
 //     res.send(`Listening to port ${port}`);
 // })
 
-
+//https://mongoosejs.com/docs/queries.html
 //Create (POST) using Promise-------------------------------------------------------------------------------
 // app.post('/students', (req, res) => {
 //     console.log(req.body);
@@ -49,15 +49,36 @@ app.get('/students', async (req, res) => {
 app.get('/students/:id', async (req, res) => {
     try {
         const _id = req.params.id;
-        const singleStudentData = await Student.findById({_id: _id})
+        const singleStudentData = await Student.findById({ _id: _id })
         res.status(201).send(singleStudentData);
     } catch (e) {
         res.status(400).send(e);
     }
 })
 
+//Update
+app.patch('/students/:id', async (req, res) => {
+    try {
+        const _id = req.params.id;
+        const updateStudents = await Student.findByIdAndUpdate({ _id: _id }, req.body);
+        res.status(201).send(updateStudents);
+    } catch (e) {
+        res.status(404).send(e);
+    }
+})
 
-
+//Delete
+app.delete('/students/:id', async (req, res) => {
+    try {
+        const deleteStudent = await Student.findByIdAndDelete(req.params.id);
+        if (!req.params.id) {
+            return res.status(400).send();
+        }
+        res.send(deleteStudent)
+    } catch (e) {
+        res.status(500).send(e);
+    }
+})
 
 
 app.listen(port, () => {
