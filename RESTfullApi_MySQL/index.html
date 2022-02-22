@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <form class="form" id="myform" method="post">
+    <form class="form" id="myform">
         <div class="mb-3">
             <label class="form-label">First Name</label>
             <input type="text" class="form-control" name="first_name" id="first_name">
         </div>
-                <div class="mb-3">
+        <div class="mb-3">
             <label class="form-label">Last Name</label>
             <input type="text" class="form-control" name="last_name" id="last_name">
         </div>
@@ -46,39 +46,56 @@
         crossorigin="anonymous"></script>
 
     <script>
-//send form data to create user in endpoint localhost://api/users in json
-var form = document.getElementById('myform');
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var first_name = document.getElementById('first_name').value;
-    var last_name = document.getElementById('last_name').value;
-    var gender = document.getElementById('gender').value;
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    var number = document.getElementById('number').value;
+        //send form data to create user in endpoint localhost://api/users in json
+        var form = document.getElementById('myform');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var first_name = document.getElementById('first_name').value;
+            var last_name = document.getElementById('last_name').value;
+            var gender = document.getElementById('gender').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var number = document.getElementById('number').value;
 
-    //Fetch POST request
-    fetch('http://localhost:3001/api/users', {
-        method: 'POST',
-        body: JSON.stringify({
-            first_name: first_name,
-            last_name: last_name,
-            gender:gender,
-            email:email,
-            password:password,
-            number:number
-        }),
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8'
-        }
-    }).then(function(response){
-            return response.json();
-        }).then(function(data){
-            console.log(data)
-        })
-    });
+            //Fetch POST request
+                fetch('http://localhost:3001/api/users', {
+                    method: 'POST',
+                    mode: "no-cors",
+                    body: JSON.stringify({
+                        first_name: first_name,
+                        last_name: last_name,
+                        gender: gender,
+                        email: email,
+                        password: password,
+                        number: number
+                    }),
+                    headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                }
+        }).then(function (response) {
+                    return response.json();
+                }).then(function (data) {
+                    console.log(data)
+                })
+        });
 
+        // const thisForm = document.getElementById('myform');
+        // thisForm.addEventListener('submit', async function (e) {
+        //     e.preventDefault();
+        //     const formData = new FormData(thisForm).entries()
+        //     const response = await fetch('http://localhost:3001/api/users', {
+        //         method: 'POST',
+        //         headers: {
+        //             Accept: 'application/json',
+        //             'Content-Type': 'application/json',
+        //             // Authorization: 'Bearer ' + token // if you use token
+        //         }, mode: "no-cors",
+        //         body: JSON.stringify(Object.fromEntries(formData))
+        //     });
 
+        //     const result = await response.json();
+        //     console.log(result)
+        // });
 
 
     </script>
