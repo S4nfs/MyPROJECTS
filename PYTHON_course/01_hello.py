@@ -1,8 +1,12 @@
-# Print SingleLine
 from winsound import PlaySound
 
-
 print("Hello World")
+
+#print in single line
+print("Another", end=" ")
+print("Way", end=" ")
+print("of printing", end=" ")
+print("HELLO WORLD")
 
 # Print multiline
 print(''' lorem ipsum dolor sit amet, consectetur adipiscing elit.
