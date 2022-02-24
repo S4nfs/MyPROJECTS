@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+//Async JS programming [Callbacks, Promises, Async/Await]------------------------------------------------------------------------------
+
+// //Normal function, the problem here is that the created Prateek's data can't be shown on page because DOM refreshes the page in 1 sec
+// const datas = [
+//     { name: "Sagar", profession: "coder" },
+//     { name: "Anuj", profession: "Software Engineer" }
+// ];
+// function getDatas() {    setTimeout(() => {
+//         let output="";
+//         datas.forEach((data, index) => {
+//             output+= `<li>${data.name} </li>`;
+//         })
+//         document.body.innerHTML = output;
+//     }, 1000)
+// }
+// function createdata(newData) {
+//     setTimeout(() => {
+//         datas.push(newData)
+//     }, 2000)
+// }
+// createdata({name:"Prateek", profession: "Entrepreneur"})
+// getDatas()
+
+
+//Callback------------------------------------------------------------------------------------------------------------------------------
+// const datas = [
+//     { name: "Sagar", profession: "coder" },
+//     { name: "Anuj", profession: "Software Engineer" }
+// ];
+// function getDatas() {
+//         setTimeout(() => {
+//         let output="";
+//         datas.forEach((data, index) => {
+//             output+= `<li>${data.name} </li>`;
+//         })
+//         document.body.innerHTML = output;
+//     }, 1000)
+// }
+// function createdata(newData, callback) {
+//     setTimeout(() => {
+//         datas.push(newData)
+//         callback();
+//     }, 2000)
+// }
+// createdata({name:"Prateek", profession: "Entrepreneur"}, getDatas)
+
+
+// Promise----------------------------------------------------------------------------------------------------------------------------
+// const datas = [
+//     { name: "Sagar", profession: "coder" },
+//     { name: "Anuj", profession: "Software Engineer" }
+// ];
+// function getDatas() {
+//         setTimeout(() => {
+//         let output="";
+//         datas.forEach((data, index) => {
+//             output+= `<li>${data.name} </li>`;
+//         })
+//         document.body.innerHTML = output;
+//     }, 1000)
+// }
+// function createdata(newData) {
+//     return new Promise((resolve, reject) => {
+
+//         setTimeout(() => {
+//             datas.push(newData)
+//             let error = false;
+//             if(!error){
+//                 resolve()
+//             }else{
+//                 reject("Kuch sahi nhi hai")
+//             }
+//         }, 2000)
+//     })
+// }
+// createdata({name:"Prateek", profession: "Entrepreneur"}).then(getDatas).catch(err => console.log(err))
+
+// Async/Await----------------------------------------------------------------------------------------------------------------------------
+const datas = [
+    { name: "Sagar", profession: "coder" },
+    { name: "Anuj", profession: "Software Engineer" }
+];
+async function getDatas() {
+        setTimeout(() => {
+        let output="";
+        datas.forEach((data, index) => {
+            output+= `<li>${data.name} </li>`;
+        })
+        document.body.innerHTML = output;
+    }, 1000)
+
+await createdata(newData){
+    setTimeout(() => {
+        datas.push(newData)
+    }, 2000)
+}
+createdata({name:"Prateek", profession: "Entrepreneur"}).then(getDatas).catch(err => console.log(err))
+getDatas()
+}
+
+</script>
+</body>
+</html>
