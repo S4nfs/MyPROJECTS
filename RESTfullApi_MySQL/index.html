@@ -82,10 +82,11 @@
         thisForm.addEventListener('submit', async function (e) {
             e.preventDefault();
             const formData = new FormData(thisForm).entries()
-            const response = await fetch('http://localhost:3001/api/users', {
+            const response = await fetch('/api/users', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
+                    'Access-Control-Allow-Origin' : '*',
                     'Content-Type': 'application/json',
                     // Authorization: 'Bearer ' + token // if you use token
                 },

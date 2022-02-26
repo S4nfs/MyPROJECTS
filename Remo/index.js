@@ -3,7 +3,9 @@ var cors = require('cors');
 const app = express();
 
 app.use(express.json());
-app.use(cors()); //set Cross-Origin Resource Sharing
+//set Cross-Origin Resource Sharing
+//The CORS mechanism supports secure cross-origin requests and data transfers between browsers and servers
+app.use(cors());
 app.post('/api', (request, response) => {
     console.log(request.body);
     response.json({
