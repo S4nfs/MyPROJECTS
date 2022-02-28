@@ -1,78 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="jquery-3.6.0.min.js"></script>
-    <style>
-      #mydiv {
-        width: 100%;
-        padding: 50px 0;
-        text-align: center;
-        background-color: bisque;
-        margin-top: 20px;
-      }
-      .divs{
-          margin: 20px 20px;
-          width: 50px;
-          height: 50px;
-          display: inline-block;
-          background-color: aqua;
-          
-      }
-    </style>
-  </head>
 
-  <body>
-    <button onclick="myFunction()">Click Me</button>
-    <div id="mydiv">This is my div</div>
-    <div id="div1" class="divs">1</div>
-    <div id="div2" class="divs">2</div>
-    <div id="div3" class="divs">3</div>
-    <div id="div4" class="divs">4</div>
-    <div id="div5" class="divs">5</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="jquery-3.6.0.min.js"></script>
+  <style>
+    .div {
+      width: 100%;
+      padding: 50px 0;
+      text-align: center;
+      background-color: bisque;
+      margin-top: 20px;
+    }
 
-    <p>My paragraph change color on hover</p>
+    .divs {
+      margin: 20px 20px;
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      background-color: aqua;
 
-    <script>
-/*
-        $(this).hide() - hides the current element.
-        $("p").hide() - hides all <p> elements.
-        $(".test").hide() - hides all elements with class="test".
-        $("#test").hide() - hides the element with id="test".
-*/
-      //     function myFunction(){
-      //     var x = document.getElementById('mydiv');
-      //     if (x.style.display === 'none') {
-      //         x.style.display = 'block';
-      //     } else {
-      //         x.style.display = 'none';
-      //     }
-      // }
+    }
+  </style>
+</head>
 
-      //same piece of code with Jquery
-      $(document).ready(function () {
-        $("button").click(function () {
-          $("#mydiv").toggle(100);
-          $('#div1').fadeTo('slow', 0.15);       // (speed, opacity(b/w 0-1), callback);
-          $('#div2').fadeIn(3000);
-          $("#div3").fadeOut(3000);
-        });
+<body>
+  <button id="btn" onclick="myFunction()">Click Me</button>
+  <div id="mydiv" class="div">This is my div</div>
+  <div id="div1" class="divs">1</div>
+  <div id="div2" class="divs">2</div>
+  <div id="div3" class="divs">3</div>
+  <div id="div4" class="divs">4</div>
+  <div id="div5" class="divs">5</div>
 
-        //css with jquery
-        $("p").on({         //.on is best when you need to fire multiple actions
-          mouseenter: function () {
-            $(this).css("backgroundColor", "aqua");
-          },
-          mouseleave: function () {
-            $(this).css("backgroundColor", "yellow");
-          },
-          click: function () {
-            $(this).append("<p>My paragraph change color on hover </p>");
-        }
-        });
+  <p>My paragraph change color on hover</p>
+
+  <div id="emptyDiv" class="div">
+    <p class="ps">We are the children of this div</p>
+    <p class="ps">remove() - Removes the selected element along with its child elements)</p>
+    <p class="ps">empty() - Removes only the child elements from the selected element</p>
+  </div>
+  <button id="remove">Remove div element</button>
+  <button id="empty">Empty div element</button>
+  <button id="traverse">Traverse</button>
+
+  <script>
+    /*
+            $(this).hide() - hides the current element.
+            $("p").hide() - hides all <p> elements.
+            $(".test").hide() - hides all elements with class="test".
+            $("#test").hide() - hides the element with id="test".
+    */
+    //     function myFunction(){
+    //     var x = document.getElementById('mydiv');
+    //     if (x.style.display === 'none') {
+    //         x.style.display = 'block';
+    //     } else {
+    //         x.style.display = 'none';
+    //     }
+    // }
+
+    //same piece of code with Jquery
+    $(document).ready(function () {
+      $("btn").click(function () {
+        $("#mydiv").toggle(100);
+        $('#div1').fadeTo('slow', 0.15);       // (speed, opacity(b/w 0-1), callback);
+        $('#div2').fadeIn(3000);
+        $("#div3").fadeOut(3000);
       });
-    </script>
-  </body>
+
+      //css with jquery
+      $("p").on({                              //.on is best when you need to fire multiple actions
+        mouseenter: function () {
+          $(this).css("backgroundColor", "aqua");
+        },
+        mouseleave: function () {
+          $(this).css("backgroundColor", "yellow");
+        },
+        click: function () {
+          $(this).append("<p>My paragraph change color on hover </p>");
+        }
+      });
+
+      //remove & empty element
+      $("#remove").click(function () {
+        $("#emptyDiv").remove();
+      });
+
+      $("#empty").click(function () {
+        $("#emptyDiv").empty();
+      })
+
+      //traverse  (travelling around DOM element) element
+      $('#traverse').click(function () {
+        $('.ps').parent().css({
+          "backgroundColor": 'yellow',
+        });
+      })
+    });
+  </script>
+</body>
+
 </html>
