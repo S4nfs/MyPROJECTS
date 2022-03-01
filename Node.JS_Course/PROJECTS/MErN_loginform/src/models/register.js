@@ -9,7 +9,7 @@ const employeeSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    emailname:{
+    email:{
         type:String,
         required:true,
         unique:true
@@ -23,10 +23,6 @@ const employeeSchema = new mongoose.Schema({
         required:true,
         unique:true
     },
-    age:{
-        type:Number,
-        required:true
-    },
     password:{
         type:String,
         required:true
@@ -37,6 +33,6 @@ const employeeSchema = new mongoose.Schema({
     }
 });
 
-//create collection
+//create collection & model
 const Register = new mongoose.model("Register", employeeSchema);
 module.exports = Register;
