@@ -43,6 +43,7 @@ app.post('/register', async (req, res) => {
                 password: password,
                 confirmpassword: cpassword
             })
+            //password hash middleware
             const filled = await registerEmployee.save();
             res.status(201).render("index");
         } else {
@@ -73,6 +74,16 @@ app.post('/login', async (req, res) => {
         res.status(400).send(error);
     }
 });
+
+//Bcrypt Alogorithm
+// const secrurepassword = async(password) => {
+//     const passwordHash = await bcrypt.hash(password, 10);
+//     console.log(passwordHash);
+//     const passwordmatch = await bcrypt.compare(password, passwordHash);
+//     console.log(passwordmatch);
+// }
+// secrurepassword("sagar")
+
 
 app.listen(port, () => {
     console.log(`listening to port ${port}`);

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const employeeSchema = new mongoose.Schema({
     firstname:{
@@ -33,6 +34,17 @@ const employeeSchema = new mongoose.Schema({
     }
 });
 
+//pre method before saving to database
+employeeSchema.pre("save", async function(next){
+    if(this.isModified("password")){
+        console.log(`the current password is ${this.password}`)
+        this.password = await bcrypt.hash(this.password, 10)      //stored in same password variable
+        console.log(`the current password is ${this.password}`)
+        console.log(`the current password is ${this.email}`)
+        this.confirmpassword = undefined;
+    }
+        next();
+})
 //create collection & model
 const Register = new mongoose.model("Register", employeeSchema);
 module.exports = Register;
