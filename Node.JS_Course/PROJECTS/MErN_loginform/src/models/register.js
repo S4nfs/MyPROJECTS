@@ -40,7 +40,6 @@ employeeSchema.pre("save", async function(next){
         console.log(`the current password is ${this.password}`)
         this.password = await bcrypt.hash(this.password, 10)      //stored in same password variable
         console.log(`the current password is ${this.password}`)
-        console.log(`the current password is ${this.email}`)
         this.confirmpassword = undefined;
     }
         next();

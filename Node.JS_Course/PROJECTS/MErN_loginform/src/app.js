@@ -4,7 +4,6 @@ const port = process.env.PORT || 3000;
 const path = require('path');
 const hbs = require('hbs');
 const Register = require("./models/register"); //models
-const { urlencoded } = require("express");
 require('./db/conn');
 
 const static_path = path.join(__dirname, '../public')
@@ -45,7 +44,8 @@ app.post('/register', async (req, res) => {
             })
             //password hash middleware
             const filled = await registerEmployee.save();
-            res.status(201).render("index");
+            // res.status(201).render("index");
+            console.log(filled)
         } else {
             res.send("password don't match")
         }
