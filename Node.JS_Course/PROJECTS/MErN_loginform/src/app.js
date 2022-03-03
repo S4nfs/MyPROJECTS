@@ -11,7 +11,7 @@ const template_path = path.join(__dirname, '../templates/views')
 const partials_path = path.join(__dirname, '../templates/partials')
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended:false}));
 app.use(express.static(static_path));
 
 app.set("view engine", 'hbs');
@@ -21,6 +21,9 @@ hbs.registerPartials(partials_path);
 //index route
 app.get('/', (req, res) => {
     res.render('index');
+});
+app.get('/demo', (req, res) => {
+    res.render('demo');
 });
 
 //register route
@@ -44,8 +47,7 @@ app.post('/register', async (req, res) => {
             })
             //password hash middleware
             const filled = await registerEmployee.save();
-            // res.status(201).render("index");
-            console.log(filled)
+            res.status(201).render("index");
         } else {
             res.send("password don't match")
         }
@@ -64,14 +66,15 @@ app.post('/login', async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
         const userdata = await Register.findOne({ email: email }) //first one from databse:user enters || can simply be writter as ({email}) object destructuring
-        if (userdata.password === password) {
+        const isMatching = await bcrypt.compare(password, userdata.password);
+        if (isMatching) {
             res.status(201).render("index");
             // res.send(userdata)
         } else {
-            res.send("Passwords don't match")
+            res.send("Wrong Password")
         }
     } catch (error) {
-        res.status(400).send(error);
+        res.status(400).send(`Invalid Login Details ERROR: ${error}`);
     }
 });
 
