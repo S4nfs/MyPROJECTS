@@ -54,6 +54,28 @@ const bioData = {
         add = 2 + 2;
         console.log("Sum of two no. is " + add)
         console.log(this) //return bioData object
+
+        function anotherFunc(){
+            var name = "Sagar";
+            console.log("Your name is " + name);
+            console.log(this); //return globar object as it act as a regular func
+        }
+        anotherFunc();
     }
 }
 bioData.sum()
+
+
+//✔️ Difference b/w Pass by value || pass by reference (see image f)
+
+let a =10;
+let b = a;
+b += 5;
+console.log(a); //10
+console.log(b); //15
+
+let arr1 = [1,2.3,4];
+let arr2 = arr1;
+arr2.push(5);
+console.log(arr1) //same
+console.log(arr2)  //same becoz reference data types share same memory 
