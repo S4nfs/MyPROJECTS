@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 const path = require('path');
 const hbs = require('hbs');
 const Register = require("./models/register"); //models
+const bcrypt = require("bcrypt");
 require('./db/conn');
 
 const static_path = path.join(__dirname, '../public')
@@ -11,7 +12,7 @@ const template_path = path.join(__dirname, '../templates/views')
 const partials_path = path.join(__dirname, '../templates/partials')
 
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(static_path));
 
 app.set("view engine", 'hbs');
@@ -21,9 +22,6 @@ hbs.registerPartials(partials_path);
 //index route
 app.get('/', (req, res) => {
     res.render('index');
-});
-app.get('/demo', (req, res) => {
-    res.render('demo');
 });
 
 //register route
@@ -45,6 +43,10 @@ app.post('/register', async (req, res) => {
                 password: password,
                 confirmpassword: cpassword
             })
+            //jwt middleware
+            const token = await registerEmployee.generateAuthToken()
+            console.log(token);
+
             //password hash middleware
             const filled = await registerEmployee.save();
             res.status(201).render("index");
@@ -56,10 +58,7 @@ app.post('/register', async (req, res) => {
     }
 });
 
-//login route
-app.get('/login', (req, res) => {
-    res.render('login')
-});
+
 
 app.post('/login', async (req, res) => {
     try {
@@ -67,6 +66,10 @@ app.post('/login', async (req, res) => {
         const password = req.body.password;
         const userdata = await Register.findOne({ email: email }) //first one from databse:user enters || can simply be writter as ({email}) object destructuring
         const isMatching = await bcrypt.compare(password, userdata.password);
+        console.log(isMatching)
+        const token = await userdata.generateAuthToken()
+        console.log("My token for login " + token)
+
         if (isMatching) {
             res.status(201).render("index");
             // res.send(userdata)
@@ -78,15 +81,31 @@ app.post('/login', async (req, res) => {
     }
 });
 
+//login route
+app.get('/login', (req, res) => {
+    res.render('login')
+});
 //Bcrypt Alogorithm
-// const secrurepassword = async(password) => {
+// const securepassword = async(password) => {
 //     const passwordHash = await bcrypt.hash(password, 10);
 //     console.log(passwordHash);
 //     const passwordmatch = await bcrypt.compare(password, passwordHash);
 //     console.log(passwordmatch);
 // }
-// secrurepassword("sagar")
+// securepassword("myverysecretpassword")
 
+
+//jwt
+// const jwt = require('jsonwebtoken');
+
+// const createToken = async () => {
+//     const token = await jwt.sign({_id:"6223908c4c099cd5fcb7dfe8"}, "4444")
+//     console.log(token)
+
+//     const verify = await jwt.verify(token, "4444");
+//     console.log(verify)
+// }
+// createToken();
 
 app.listen(port, () => {
     console.log(`listening to port ${port}`);
