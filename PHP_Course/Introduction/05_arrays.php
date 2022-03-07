@@ -1,13 +1,18 @@
 <?php
-//normal array
+
+/*Types of array:
+1. Indexed array
+2. Associative array
+3. Multi-dimensional array
+*/
+
+//Indexed Array---------------------------------------------------------------
 // echo "Welcome to associative arrays in PHP";
 // $arr = array("this", 'That', 'What');
 // echo  $arr[0];
 
-
-//Indexed Array---------------------------------------------------------------
+ 
 $favcol = array( 'subham' =>'red', 'rohan' => 'green', 'harry' => 'Blue', 8=> 'this');
-
 echo $favcol['harry'];
 echo $favcol[8];
 echo "<br>";
@@ -23,7 +28,7 @@ foreach ($favcol as $key => $value) {
 //Numeric Array----------------------------------------------------------------
 $lol = array("Bananas", "Apple", "Bread", "Butter", "Jam");
 foreach ($lol as $value){
-    echo $value;
+    echo $value. " ";
 }
 ?>
 

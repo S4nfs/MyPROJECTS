@@ -57,6 +57,7 @@ $a++;
 }
 echo "<br>";
 
+
 //do-while loop
 $a=0;                                     //the difference is just that in do-while first iteration is always executed
 do {
