@@ -95,7 +95,7 @@ $database = "bootstrapform";
 
 <div class="contaner">
 <h1>Please enter your name and password</h1>
-<form action="06_Bootstrapform.php" method="post">
+<form action="06_Bootstrapform.php" method="POST">
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
     <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp">
