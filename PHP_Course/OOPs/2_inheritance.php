@@ -24,18 +24,21 @@ class AC
 
 class SmartAc extends AC   //Inheritance  - the property of one class inherit by another class 
 {
-    public $timer = true;
+    public $timer = "Yes";
     public $wifi = true;
 
-    function __construct(){
-    parent::__construct("LG", 17);
-    }
+    // function __construct(){
+    // parent::__construct("LG", 17);
+    // }
 }
 
 $Ajay = new AC("Voltas", 16);
 echo $Ajay->model;
 echo $Ajay->speed;
 
-$Sagar = new SmartAc("Samsung", 32);
+$Sagar = new SmartAc("Samsung", 32); //now SmartAC can have all the features
 echo $Sagar->model;
 echo $Sagar->speed;
+echo $Sagar->timer;
+echo $Sagar->wifi;
+
