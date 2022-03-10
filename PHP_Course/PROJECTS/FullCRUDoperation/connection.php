@@ -1,20 +1,21 @@
 <?php
+    
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "fullcrud";
+ 
 
-$server = "localhost";
-$username = "root";
-$db = "fullcrud";
-$password = "";
-
-$conn = mysqli_connect($server, $username, $db, $password);
-
-if ($conn) {
-?>
+$conn = mysqli_connect($server, $username, $password, $database);
+if ($conn){
+    ?>
     <script>
-        alert("connection Successfull");
+        alert("Connection Successful")
     </script>
-<?php
-} else {
-    die("Connection Error" . mysqli_connect_error());
+    <?php
+}
+else{
+    die("error".mysqli_connect_error());
 }
 
 ?>
