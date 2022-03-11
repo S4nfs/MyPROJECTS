@@ -1,6 +1,9 @@
 <?php
-// Abstraction menas showing the essential features and hiding the background details.
+/* Abstraction menas showing the essential features and hiding the background details. U can achieve abstraction by using:
+Abstract Class and  Interface
 
+Abstract Class - is a class that contains empty methods as well as non-empty methods, have constructor and variables, but instanciation is not possible.
+*/
 abstract class BaseClass //you can't create object using abstract class
 {
     protected $Firstname;
