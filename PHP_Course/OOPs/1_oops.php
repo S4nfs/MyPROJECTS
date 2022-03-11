@@ -1,7 +1,7 @@
 <?php
 /* 
-Class - A template for creating objects. Ex - Person, Student, Employee, AC
-Object - An instance of a class. Ex - john, jane, mike, ACmodel etc.
+Class - A template for creating objects. Ex - Student, Employee, AC
+Object - An instance of a class. Ex - john, jane, mike, Samsung etc.
 Method - a function defined in a class. Ex - getName(), setName(), getAge(), speed(), model()etc.
 variables - just like in js we have here in class = Public, Private, Protected
 Instantiate - create an object from a class.
