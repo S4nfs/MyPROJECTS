@@ -1,5 +1,7 @@
 <?php
-/* ACCES MODIFIERS :
+/* 
+Incapsulation - means hiding the data from the outside world. Ex - private, protected, public
+ACCES MODIFIERS :
 1. private - within a class
 2. protected -  within the class + inherited
 3. public - access anywhere
