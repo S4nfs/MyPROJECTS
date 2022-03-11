@@ -1,5 +1,5 @@
 <?php
-//Abstraction menas showing the essential features and hiding the background details.
+// Abstraction menas showing the essential features and hiding the background details.
 
 abstract class BaseClass //you can't create object using abstract class
 {
