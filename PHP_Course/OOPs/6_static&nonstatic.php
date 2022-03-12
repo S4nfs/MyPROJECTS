@@ -14,7 +14,7 @@ class Demo
 
     public static function showmsg() //static method
     { 
-        echo self::$age = 20;
+        echo self::$age = 20;   //to access static keyword use self nstead of $this
     }
 }
 
@@ -23,4 +23,5 @@ $obj1->showroll();
 
 Demo::showmsg(); //no need an object
 // echo Demo::showmsg()
+
 ?>
