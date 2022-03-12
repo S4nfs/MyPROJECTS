@@ -36,4 +36,7 @@ class IRCTC
 
 $obj1 = new IRCTC();
 $obj2 = new IRCTC();
-echo IRCTC::getCount(); //2 Now every object share same variable
+$obj3 = new IRCTC();
+$obj4 = new IRCTC();
+$obj5 = new IRCTC();
+echo IRCTC::getCount(); //5 Now every object share same variable
