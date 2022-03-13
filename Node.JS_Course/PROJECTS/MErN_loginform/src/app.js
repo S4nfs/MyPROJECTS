@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
@@ -46,7 +47,11 @@ app.post('/register', async (req, res) => {
             //jwt middleware
             const token = await registerEmployee.generateAuthToken()
             console.log(token);
-
+            //res.cookie() is used to set the cookie name to value.
+            res.cookie("jwt", token, {
+                expires: new Date(Date.now() + 3000),
+                httpOnly: true
+            });
             //password hash middleware
             const filled = await registerEmployee.save();
             res.status(201).render("index");

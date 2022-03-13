@@ -42,9 +42,9 @@ const employeeSchema = new mongoose.Schema({
 });
 
 //jwt <MIDDLEWARE>
-employeeSchema.methods.generateAuthToken = async function () {
+employeeSchema.methods.generateAuthToken = async function () {  //instance method
     try {
-        const token = jwt.sign({ _id: this._id.toString()}, "myveryverysecretkey")
+        const token = jwt.sign({ _id: this._id.toString()}, process.env.SECRET_KEY)
         this.tokens = this.tokens.concat({token:token}) //putting user token in my schema databse
         await this.save();
         return token;
