@@ -1,5 +1,5 @@
 <?php
-/*Polymorphism is the ability of an object to take on many forms.
+/*Polymorphism ['poly' means onething || 'morphism' means manyform] is the ability of an object to take on many forms.
 Polymorphism
     |
     Compile Time
