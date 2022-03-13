@@ -1,0 +1,42 @@
+body {
+  background-color: #f5f5f5;
+  align-items: center;
+  background-image: url("https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+.container {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  align-items: center;
+}
+h1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#survey-form {
+  background-color: lightgrey;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  align-items: center;
+}
