@@ -14,7 +14,7 @@ class Demo
 
     public static function showmsg() //static method
     { 
-        echo self::$age = 20;   //to access static keyword use self nstead of $this
+        echo self::$age = 20;   //to access static keyword use self with scope resolution operator:: instead of $this
     }
 }
 
