@@ -1,1 +1,0 @@
-<h1>Welcome from other side</h1>
