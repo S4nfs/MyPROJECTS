@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Usercontroller;
-
+use App\Http\Controllers\CustomController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +21,6 @@ Route::get('users/{customer}', [Usercontroller::class, 'show']); //[2]from contr
 // Route::view("user", "users"); //[3]from view
 
 
-Route::view('about', 'about');
+Route::view('about', 'about');  //with header component
+Route::get('custom', [CustomController::class, 'loadview']);
+
