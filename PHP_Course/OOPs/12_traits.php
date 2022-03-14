@@ -1,5 +1,5 @@
 <?php
-//Trait: A trait is a collection of methods and properties that can be used as an extension by other classes.
+//Trait: A trait is a collection of methods and properties that can be used as per your requst in any class u want.
 class Base{
    public function show(){
        echo "I am a Base class method";
