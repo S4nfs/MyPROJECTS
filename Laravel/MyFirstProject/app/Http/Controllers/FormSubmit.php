@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class FormSubmit extends Controller
 {
-    function getData()
+    function getData(Request $req)
     {
-        echo "Form Submitted";
+        return $req->input();
     }
 }

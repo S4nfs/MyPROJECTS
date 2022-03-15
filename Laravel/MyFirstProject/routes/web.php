@@ -23,13 +23,15 @@ Route::get('/', function () {                                       //[1]using f
 Route::get('users/{customer}', [Usercontroller::class, 'show']);    //[2]from controller [must import above]
 // Route::view("url", "file");                                      //[3]from view
 
-
+//---------------------------------------------------------------------------------------------------------------
 Route::view('about', 'about');  //with header component
 Route::get('custom', [CustomController::class, 'loadview']); //custom.blade
 Route::view('login', 'submit'); //form view
 Route::post('submit', [FormSubmit::class, 'getData']); //form post
 
-Route::view('noaccess', 'noaccess'); //middleware ageCheck
-Route::group(['middleware' => ['protectPage']],function(){ //middleware ageCheck group
+// MIDDLEWARE-----------------------------------------------------------------------------------------------------
+Route::view('noaccess', 'noaccess'); //goup middleware
+Route::group(['middleware' => ['protectPage']], function () { //middleware ageCheck
     Route::view('access', 'access');
 });
+Route::view('access1', 'access1')->middleware('ageCheckerRoute'); //route middleware
