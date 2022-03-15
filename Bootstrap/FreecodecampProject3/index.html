@@ -10,9 +10,10 @@
 </head>
 
 <body>
-    <header id="header">
+    <header id="header" style="  position: fixed;
+    width: 100%;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
+            <div class="container-fluid" style="flex-direction: column;">
                 <img src="https://freepngimg.com/save/26045-apple-logo-transparent-background/2272x1704" alt=""
                     id="header-img">
                 <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -23,9 +24,9 @@
                 <nav id="nav-bar">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/">Home</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a class="nav-link" href="#product">Product</a>
                             </li>
@@ -41,7 +42,7 @@
             </div>
         </nav>
     </header>
-
+<div class="container" id="con1">
     <div id="product" class="applestore">
         <div> <img
                 src="https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/hero/intro__ewz1ro7xs14y_large.jpg"
@@ -72,11 +73,13 @@
             <div class="mb-3">
                 <h2>Subscribe to Apple's Newsletter</h2>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                    placeholder="Enter valid AppleID">
+                    placeholder="Enter valid AppleID" name="email">
             </div>
             <button type="submit" class="btn btn-primary" id="submit">Subscribe</button>
         </form>
     </div>
+
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>

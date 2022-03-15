@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
-html {
-}
+
 body {
   background-color: #f5f5f5;
   max-width: 100%;
@@ -11,12 +10,18 @@ body {
   margin: auto;
   width: 50vw;
 }
+header{
+  position: fixed;
+  width: 100%;
+}
 #header-img {
   width: 4rem;
   height: auto;
 }
 
+
 #nav-bar {
+
 }
 /* #product{
     margin: auto;
@@ -29,10 +34,11 @@ body {
   width: 100%;
   height: 100%;
   margin-bottom: 5rem;
+  margin-top: 5rem;
 }
 h2 {
   margin-top: 5rem;
-  margin-top: 3rem;
+  margin-bottom: 2rem;
   font-family: "Montserrat", sans-serif;
   font-size: 5rem;
   font-weight: 800;
@@ -48,7 +54,18 @@ h4 {
 }
 
 #features {
-  margin-top: 5rem;
+  margin-top: 10rem;
+}
+#video {
+  margin-top: 3rem;
+  min-height: 400px;
+}
+iframe{
+  width: 100%;
+  height: auto;
+}
+#newsletter{
+  margin-top: 10rem;
 }
 
 #form {
