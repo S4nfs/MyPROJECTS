@@ -6,6 +6,9 @@ const path = require('path');
 const hbs = require('hbs');
 const Register = require("./models/register"); //models
 const bcrypt = require("bcrypt");
+const cookieParser = require('cookie-parser');
+const { Router } = require('express');
+const auth = require('./middleware/auth');
 require('./db/conn');
 
 const static_path = path.join(__dirname, '../public')
@@ -15,6 +18,7 @@ const partials_path = path.join(__dirname, '../templates/partials')
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(static_path));
+app.use(cookieParser());
 
 app.set("view engine", 'hbs');
 app.set('views', template_path);
@@ -46,10 +50,10 @@ app.post('/register', async (req, res) => {
             })
             //jwt middleware
             const token = await registerEmployee.generateAuthToken()
-            console.log(token);
+            console.log("My token for register is " + token);
             //res.cookie() is used to set the cookie name to value.
             res.cookie("jwt", token, {
-                expires: new Date(Date.now() + 3000),
+                expires: new Date(Date.now() + 30000),
                 httpOnly: true
             });
             //password hash middleware
@@ -74,7 +78,10 @@ app.post('/login', async (req, res) => {
         console.log(isMatching)
         const token = await userdata.generateAuthToken()
         console.log("My token for login " + token)
-
+        res.cookie("jwt", token, {
+            expires: new Date(Date.now() + 30000),
+            httpOnly: true
+        });
         if (isMatching) {
             res.status(201).render("index");
             // res.send(userdata)
@@ -90,6 +97,11 @@ app.post('/login', async (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login')
 });
+app.get('/home', auth, (req, res) => {
+    console.log(`This is my cookie ${req.cookies.jwt}`);
+    res.render('home')
+
+})
 //Bcrypt Alogorithm
 // const securepassword = async(password) => {
 //     const passwordHash = await bcrypt.hash(password, 10);
