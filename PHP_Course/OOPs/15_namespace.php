@@ -17,7 +17,7 @@ namespace abc {
     // $obj1 = new Demo(); 
 }
 
-namespace {
+namespace { //create global namespace
     class Demo  //Global class,access anywhere
     {         
         public function __construct()
@@ -25,7 +25,6 @@ namespace {
             echo "I am constructor of global namespace <br>";
         }
     }
-
     $obj1 = new Demo();     //call this constructor
     $obj1 = new abc\Demo(); //call constructor from Demo
 
