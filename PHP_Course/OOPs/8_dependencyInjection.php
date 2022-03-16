@@ -71,12 +71,12 @@ class userInfo
     {
         $this->logger->log("User Updated");
     }
-    public function __construct(logger $logger) //first parameter is class name[optional] (to find when code becomes big)
+    public function __construct(logger $logger) //first parameter is class name[optional] (aka TypeHinting, to find when code becomes big)
     {
         $this->logger = $logger; 
     }
 }
 $obj1 = new logger();
-$sagar = new userInfo($obj1);
+$sagar = new userInfo($obj1); //Dependency Injection
 $sagar->Createuser();
 $sagar->Updateuser();
