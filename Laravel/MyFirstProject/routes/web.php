@@ -35,7 +35,7 @@ Route::post('submit', [FormSubmit::class, 'getData']); //form post
 // MIDDLEWARE-----------------------------------------------------------------------------------------------------
 Route::view('noaccess', 'noaccess'); //goup middleware
 Route::group(['middleware' => ['protectPage']], function () { //middleware ageCheck
-Route::view('access', 'access');
+    Route::view('access', 'access');
 });
 Route::view('access1', 'access1')->middleware('ageCheckerRoute'); //route middleware
 
@@ -46,5 +46,22 @@ Route::get('/connect', [KroConnect::class, 'getDatabase']); //database connectio
 //HTTP Client-----------------------------------------------------------------------------------------------------
 Route::get('fetch', [MyfetchedData::class, 'fdata']); //fetch apis
 
-Route::post('formlogin', [Formlogin::class, 'testrequest']);
-Route::view('form', 'formlogin');
+//HTTP methods-----------------------------------------------------------------------------------------------------
+Route::post('formlogin', [Formlogin::class, 'testrequest']); //post form data
+
+Route::get('/employeelogin', function () {
+    if (session()->has('usersession')) {
+        return redirect('profile');
+    }
+    return redirect('employeelogin');
+});
+Route::view('/profile', 'profile');
+
+Route::view('employeelogin', 'employeelogin');
+
+Route::get('/logout', function () {
+    if (session()->has('usersession')) {
+        session()->pull('usersession', null);
+    }
+    return redirect('employeelogin');
+});
