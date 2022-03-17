@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\CustomController;
 use App\Http\Controllers\FormSubmit;
-
+use App\Http\Controllers\KroConnect;
+use App\Http\Controllers\WorldWideConnection;
+use App\Http\Controllers\MyfetchedData;
+use App\Http\Controllers\Formlogin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +35,16 @@ Route::post('submit', [FormSubmit::class, 'getData']); //form post
 // MIDDLEWARE-----------------------------------------------------------------------------------------------------
 Route::view('noaccess', 'noaccess'); //goup middleware
 Route::group(['middleware' => ['protectPage']], function () { //middleware ageCheck
-    Route::view('access', 'access');
+Route::view('access', 'access');
 });
 Route::view('access1', 'access1')->middleware('ageCheckerRoute'); //route middleware
+
+// DATABASE-------------------------------------------------------------------------------------------------------
+Route::get('createconnection', [WorldWideConnection::class, 'dataq']); //database connection with class
+Route::get('/connect', [KroConnect::class, 'getDatabase']); //database connection with model
+
+//HTTP Client-----------------------------------------------------------------------------------------------------
+Route::get('fetch', [MyfetchedData::class, 'fdata']); //fetch apis
+
+Route::post('formlogin', [Formlogin::class, 'testrequest']);
+Route::view('form', 'formlogin');
