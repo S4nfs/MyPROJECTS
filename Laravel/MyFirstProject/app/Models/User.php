@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
-    public $table="employee";
+    public $table="register";
+    public $timestamps = false;
 }

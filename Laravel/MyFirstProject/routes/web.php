@@ -30,8 +30,6 @@ Route::get('users/{customer}', [Usercontroller::class, 'show']);    //[2]from co
 //---------------------------------------------------------------------------------------------------------------
 Route::view('about', 'about');  //with header component
 Route::get('custom', [CustomController::class, 'loadview']); //custom.blade
-Route::view('login', 'submit'); //form view
-Route::post('submit', [FormSubmit::class, 'getData']); //form post
 
 // MIDDLEWARE-----------------------------------------------------------------------------------------------------
 Route::view('noaccess', 'noaccess'); //goup middleware
@@ -77,3 +75,7 @@ Route::get('/lang/{lang}', function ($language){
     App::setlocale($language);
     return view('lang');
 });
+
+// CRUD-----------------------------------------------------------------------------------------------------------
+Route::view('login', 'submit'); //form view
+Route::post('add', [FormSubmit::class, 'registerData']); //form post
