@@ -8,6 +8,7 @@ use App\Http\Controllers\KroConnect;
 use App\Http\Controllers\WorldWideConnection;
 use App\Http\Controllers\MyfetchedData;
 use App\Http\Controllers\Formlogin;
+use App\Http\Controllers\UploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,4 +65,15 @@ Route::get('/logout', function () {
         session()->pull('usersession', null);
     }
     return redirect('employeelogin');
+});
+
+
+//File Upload-----------------------------------------------------------------------------------------------------
+Route::view('upload', 'upload');
+Route::post('uploadFile', [UploadController::class, 'uploadER']);
+
+//Language-------------------------------------------------------------------------------------------------------
+Route::get('/lang/{lang}', function ($language){
+    App::setlocale($language);
+    return view('lang');
 });

@@ -25,3 +25,6 @@ Post: Send data
 Put: Update data 
 Delete: Delete data
 PATCH: Update data 
+
+🍔Locale language:
+{{__('fileName.keyName')}}
