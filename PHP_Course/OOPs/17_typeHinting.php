@@ -1,21 +1,31 @@
 <?php
-
-
-
 class Demo{
-    function show(){
-        echo "show functiion from Demo class";
-    }
+    public $value = "Hello i am value <br>";
 }
-class XYZ{
-    function show1(){
-        echo "show1 function from XYZ class";
+class Demo1{
+    public $abc;
+    public function __construct()
+    {
+        $this->abc = new Demo(); //here demo oject is now abc
     }
 }
 
-function test(XYZ $obj1){ //type hinting (see ex: dependencyInjection.php)
-    $obj1->show1();
+$obj1 = new Demo1();
+echo $obj1->abc->value; //superobject->subobject->value
+
+
+/*There are many ways to acess the same result like in type hinting also-----------------------------------------------------------
+With Type hinting we can specify the expected data type (arrays, objects, interface, etc.) for an argument in a function declaration. This practice can be most advantageous because it results in better code organization and improved error messages.*/
+class Abc{
+    public $valuez = "Hello i am value 2";
+}
+class Xyz{
+    public $abcd;
+    public function __construct(Abc $abcd) //type Hinting
+    {
+        echo $abcd->valuez;
+    }
 }
 
-$obj1 = new XYZ();
-test($obj1);
+$abcd = new Abc();
+$obj= new Xyz($abcd);
