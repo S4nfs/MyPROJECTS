@@ -9,6 +9,7 @@ use App\Http\Controllers\WorldWideConnection;
 use App\Http\Controllers\MyfetchedData;
 use App\Http\Controllers\Formlogin;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\GetUser;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,3 +80,4 @@ Route::get('/lang/{lang}', function ($language){
 // CRUD-----------------------------------------------------------------------------------------------------------
 Route::view('login', 'submit'); //form view
 Route::post('add', [FormSubmit::class, 'registerData']); //form post
+Route::get('myuser', [GetUser::class, 'GetUser']);// list Users

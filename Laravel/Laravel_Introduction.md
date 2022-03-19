@@ -13,7 +13,7 @@ You can access blade views file out side the view folder but you need to do some
 #php artisan make:component Mycustomcomponentname
 generate two files in resources/views/components folder named Mycustomcomponentname.blade.php and in app/views/components folder named Mycustomcomponentname.blade.php
 
-🍔Model is the data that is stored in the database. Model name should be singular || table name plural
+🍔Model is the data that is stored in the database. If same name (Model name should be singular[Capital Letter] || table name plural) otherwise define in model file
 #php artisan make:model Mycustommodelname
 
 🍔@csrf
