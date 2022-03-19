@@ -1,48 +1,75 @@
-.home-main{
-    background: #5812c5;
-    color:#fff;
-    padding: 13%;
-    text-align: center;
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+.home-main {
+  background: #5812c5;
+  color: #fff;
+  padding: 13%;
+  text-align: center;
 }
-.blinker{
-    animation: blinker 1.5s linear infinite;
+.blinker {
+  animation: blinker 1.5s linear infinite;
 }
 @keyframes blinker {
   50% {
     opacity: 0;
   }
 }
-.home-main button{
-    background: #fff;
-    color: #5812c5;
-    border-radius: 0;
-    font-weight: 700;
-    width: 16%;
-    height: 50px;
-    top: 4%;
-    margin-top: 3%;
+.home-main button {
+  background: #fff;
+  color: #5812c5;
+  border-radius: 0;
+  font-weight: 700;
+  width: 16%;
+  height: 50px;
+  top: 4%;
+  margin-top: 3%;
 }
-.home-main button:hover{
-    transition: 1s ease;
-    color:#5812c5;
-    width: 19%;
+.home-main button:hover {
+  transition: 1s ease;
+  color: #5812c5;
+  width: 19%;
 }
-.content1-left{
-    padding:9%;
+.content1-left {
+  padding: 9%;
 }
-.content1-right{
-    padding:9%;
-    background:#e4e4e4;
+.content1-right {
+  padding: 9%;
+  background: #e4e4e4;
 }
-.home-content2{
-    background: #adb5bd;
-    padding: 1.4%;
-    text-align: center;	
+.home-content2 {
+  background: #adb5bd;
+  padding: 1.4%;
+  text-align: center;
 }
-.home-content2 p{
-    font-size: 18px;
-    line-height: 50px;
+.home-content2 p {
+  font-size: 18px;
+  line-height: 50px;
 }
-.home-content2 p span{
-    font-weight: 500;
+.home-content2 p span {
+  font-weight: 500;
+}
+.card-body btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#welcome-section {
+  height: 100vh;
+}
+
+#projectBtn {
+  border-radius: 2rem;
+  margin: auto;
+  margin-top: 2rem;
+}
+.cardicontainer {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  text-align: center;
+}
+.card {
+  width: 18rem;
+  height: 20rem;
+  margin-left: auto;
+  margin-right: auto;
 }
