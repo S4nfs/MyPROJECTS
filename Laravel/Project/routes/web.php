@@ -9,7 +9,7 @@ use App\Http\Controllers\WorldWideConnection;
 use App\Http\Controllers\MyfetchedData;
 use App\Http\Controllers\Formlogin;
 use App\Http\Controllers\UploadController;
-use App\Http\Controllers\GetUser;
+use App\Http\Controllers\Crud;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,5 +79,8 @@ Route::get('/lang/{lang}', function ($language){
 
 // CRUD-----------------------------------------------------------------------------------------------------------
 Route::view('login', 'submit'); //form view
-Route::post('add', [FormSubmit::class, 'registerData']); //form post
-Route::get('myuser', [GetUser::class, 'GetUser']);// list Users
+Route::post('add', [Crud::class, 'registerData']); //Create
+Route::get('myuser', [Crud::class, 'getUser']); // Read
+Route::get('/edit{id}', [Crud::class, 'showWhatToUpdate']); //Update
+Route::post('/edit', [Crud::class, 'updateData']);
+Route::get('/delete{id}', [Crud::class, 'deleteUser']); //Delete

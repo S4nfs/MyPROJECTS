@@ -18,6 +18,7 @@
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome for Registration</h3>
                 <input type="submit" name="" value="Login" /><br />
+                <a href="checkform.php"><button>Check Candidate</button></a>
             </div>
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -31,7 +32,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Apply as a Employee</h3>
-                        <form action="" method="post">
+                        <form action="checkform.php" method="post">
                             <div class="row register-form">
                                 <div class="col-md-6">
                                     <div class="form-group">
