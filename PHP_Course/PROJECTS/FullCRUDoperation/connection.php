@@ -10,7 +10,7 @@ $conn = mysqli_connect($server, $username, $password, $database);
 if ($conn){
     ?>
     <script>
-        alert("Connection Successful")
+        // alert("Connection Successful")
     </script>
     <?php
 }
