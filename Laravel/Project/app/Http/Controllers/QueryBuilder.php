@@ -34,6 +34,11 @@ class QueryBuilder extends Controller
         // return DB::table('register') 
         // ->updateOrInsert(['id'=>'2'],['name'=>'new', 'password'=>'newlyinsertedpass']);
 
+        //Aggregate Methods(min,max,sum,avg)--------------------------------------------
+        // return DB::table('register')->sum('id');
+        // return DB::table('register')->min('id');
+        //return DB::table('register')->select(DB::raw("min(id) as min_myData, max(id) as mix_myData"))->get(); //return multiple fields
+
     }
     
 }
