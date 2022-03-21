@@ -9,7 +9,7 @@ class QueryBuilder extends Controller
 {
     function operation()
     {
-//============================= CRUD OPERATIONS USING QUERYBUILDER==========================================
+//========================================== CRUD OPERATIONS USING QUERY BUILDER==========================================
         //Read-----------------------------------------------------------
         $data =  DB::table('register')->get();
         return view('myquerybuilder',['data'=>$data]);
@@ -26,5 +26,14 @@ class QueryBuilder extends Controller
 
         //Delete-----------------------------------------------------------
         // return DB::table('register')->where('id', 2)->delete();
+
+
+        
+
+        // Interview Q: Insert the query if it didn't exists or simply update------------
+        // return DB::table('register') 
+        // ->updateOrInsert(['id'=>'2'],['name'=>'new', 'password'=>'newlyinsertedpass']);
+
     }
+    
 }
