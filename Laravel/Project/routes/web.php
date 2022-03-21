@@ -10,6 +10,9 @@ use App\Http\Controllers\MyfetchedData;
 use App\Http\Controllers\Formlogin;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\Crud;
+use App\Http\Controllers\QueryBuilder;
+use League\CommonMark\Node\Query;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,10 +80,13 @@ Route::get('/lang/{lang}', function ($language){
     return view('lang');
 });
 
-// CRUD-----------------------------------------------------------------------------------------------------------
+//CRUD-----------------------------------------------------------------------------------------------------------
 Route::view('login', 'submit'); //form view
 Route::post('add', [Crud::class, 'registerData']); //Create
 Route::get('myuser', [Crud::class, 'getUser']); // Read
 Route::get('/edit{id}', [Crud::class, 'showWhatToUpdate']); //Update
 Route::post('/edit', [Crud::class, 'updateData']);
 Route::get('/delete{id}', [Crud::class, 'deleteUser']); //Delete
+
+//QUERY BUILDER-----------------------------------------------------------------------------------------------------
+Route::get('myquerybuilder',[QueryBuilder::class, 'operation']);

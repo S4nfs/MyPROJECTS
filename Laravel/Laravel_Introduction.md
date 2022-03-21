@@ -28,3 +28,5 @@ PATCH: Update data
 
 🍔Locale language:
 {{__('fileName.keyName')}}
+
+🍔Query Builder: Laravel connect with database in two ways, one is Eloquent ORM (Model) and another is Query Builder
