@@ -30,3 +30,8 @@ PATCH: Update data
 {{__('fileName.keyName')}}
 
 🍔Query Builder: Laravel connect with database in two ways, one is Eloquent ORM (Model) and another is Query Builder
+
+🍔Migration is an important feature in a Laravel, which helps us to create the tables in a database in an ordered mode
+#php artisan make:migration create_SVTABLE_table
+Reset database:
+#php artisan migrate:rollback
