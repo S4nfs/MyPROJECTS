@@ -33,5 +33,17 @@ PATCH: Update data
 
 🍔Migration is an important feature in a Laravel, which helps us to create the tables in a database in an ordered mode
 #php artisan make:migration create_SVTABLE_table
-Reset database:
-#php artisan migrate:rollback
+
+1.Migrate a particular database
+#php artisan migrate --path=/database/migrations/2020_01_01_000000_create_SVTABLE_table.php
+
+2.Reset database:
+#php artisan migrate:reset
+
+3.Rollback database [like restore points]:
+#php artisan migrate:rollback            // rollback to previous migration
+#php artisan migrate:rollback --step=2   // rollback to 2 previous migration
+
+🍔Seeding: insert dummy data into database
+Create a seeder file in database/seeds folder    |    #php artisan make:seeder Mycustomseedername
+Insert dummy data                                |    #php artisan db:seed --class=Mycustomseedername
