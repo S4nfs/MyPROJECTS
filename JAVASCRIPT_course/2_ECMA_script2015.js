@@ -33,12 +33,12 @@
 */
 // -----------------------------------------------------------------------------------------------------------------------------
 // var myname = "Sagar Verma";
-// myname = "S4nfs";
+// var myname = "S4nfs";
 // console.log(myname);                       //output: S4nfs                     
 
 // let myname1 = "Sagar Verma";
-// myname1 = "S4nfs";
-// console.log(myname1);                      //output: S4nfs                     
+// let myname1 = "S4nfs";
+// console.log(myname1);                      //output: Error Can't be redeclared                     
 
 // const myname2 = "Sagar Verma";             //error: const variable can't be changed
 // myname2 = "S4nfs";
