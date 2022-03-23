@@ -102,6 +102,20 @@ app.get('/home', auth, (req, res) => {
     res.render('home')
 
 })
+
+app.get('/logout', auth, async (req, res) => {
+    try {
+        req.user.tokens = req.user.tokens.filter((currElement) =>{
+            return currElement.token != req.token;
+        })
+        res.clearCookie('jwt');
+        console.log("Logout Successfully");
+        await req.user.save();
+        res.render('login');
+    } catch (error) {
+        res.status(500).send(error);
+    }
+})
 //Bcrypt Alogorithm
 // const securepassword = async(password) => {
 //     const passwordHash = await bcrypt.hash(password, 10);
