@@ -47,3 +47,7 @@ PATCH: Update data
 🍔Seeding: insert dummy data into database
 Create a seeder file in database/seeds folder    |    #php artisan make:seeder Mycustomseedername
 Insert dummy data                                |    #php artisan db:seed --class=Mycustomseedername
+
+🍔Accessors & Mutators: 
+Accessors are used to format the attributes after you retrieve them from database. Mutators are used to format the attributes before you save them to database.
+

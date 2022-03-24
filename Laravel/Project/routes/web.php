@@ -12,6 +12,7 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\Crud;
 use App\Http\Controllers\QueryBuilder;
 use League\CommonMark\Node\Query;
+use App\Http\Controllers\LearnAccessorsMutators;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,3 +91,7 @@ Route::get('/delete{id}', [Crud::class, 'deleteUser']); //Delete
 
 //QUERY BUILDER-----------------------------------------------------------------------------------------------------
 Route::get('myquerybuilder',[QueryBuilder::class, 'operation']);
+
+//Accessors & Mutators--------------------------------------------------------------------------------------------
+Route::get('accessors', [LearnAccessorsMutators::class, 'accessorss']);
+Route::get('mutators', [LearnAccessorsMutators::class, 'mutatorss']);

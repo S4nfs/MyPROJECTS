@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
-    public $table="register";
+    public $table="register";   //define if DB name is not registers
     public $timestamps = false;
+
 }
