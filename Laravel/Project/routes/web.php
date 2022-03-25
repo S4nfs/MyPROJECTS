@@ -13,6 +13,7 @@ use App\Http\Controllers\Crud;
 use App\Http\Controllers\QueryBuilder;
 use League\CommonMark\Node\Query;
 use App\Http\Controllers\LearnAccessorsMutators;
+use App\Http\Controllers\OnetoOne;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,3 +96,7 @@ Route::get('myquerybuilder',[QueryBuilder::class, 'operation']);
 //Accessors & Mutators--------------------------------------------------------------------------------------------
 Route::get('accessors', [LearnAccessorsMutators::class, 'accessorss']);
 Route::get('mutators', [LearnAccessorsMutators::class, 'mutatorss']);
+
+//Relationship with tables members,comanies,devices---------------------------------------------------------------
+Route::get('/o', [OnetoOne::class, 'onetoone']);    //OnetoOne
+Route::get('/om', [OnetoOne::class, 'onetomany']);

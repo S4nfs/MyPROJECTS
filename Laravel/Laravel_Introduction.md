@@ -51,3 +51,7 @@ Insert dummy data                                |    #php artisan db:seed --cla
 🍔Accessors & Mutators: 
 Accessors are used to format the attributes after you retrieve them from database. Mutators are used to format the attributes before you save them to database.
 
+🍔Relationships:
+1.One to One Relationship:
+2.One to Many Relationsip:
+3.Many to Many Relationship:

@@ -12,13 +12,13 @@ class LearnAccessorsMutators extends Controller
         return Demo::all();
     }
 
-    
+
     function mutatorss(){
         $data = new Demo;
 
-        $data->name= "vishal";
-        $data->email="visal@gmail.com";
-        $data->address="Gol Chawk Shardapur";
+        $data->name= "ajay";
+        $data->email="ajay@gmail.com";
+        $data->address="Naveen Mandi";
         $data->save();
     }
 }

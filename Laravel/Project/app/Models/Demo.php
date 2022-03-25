@@ -21,8 +21,13 @@ class Demo extends Model
 
     //Mutator, Mutators are used to format the attributes before you save them to database.
     function setNameAttribute($value){
-        return $this->attributes['name']= 'Mr. '.$value;
+        if(strpos($value, "Mr.") !== false){
+            return $this->attributes['name']= $value;
+        }else{
+    	    return $this->attributes['name'] = "Mr. ".$value;
+        }
     }
+
     function setAddressAttribute($value){
         return $this->attributes['address']= $value." ,INDIA";
     }
