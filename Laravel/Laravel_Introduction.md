@@ -55,3 +55,5 @@ Accessors are used to format the attributes after you retrieve them from databas
 1.One to One Relationship:
 2.One to Many Relationsip:
 3.Many to Many Relationship:
+
+🍔
