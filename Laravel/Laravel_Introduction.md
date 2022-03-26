@@ -56,4 +56,5 @@ Accessors are used to format the attributes after you retrieve them from databas
 2.One to Many Relationsip:
 3.Many to Many Relationship:
 
-🍔
+🍔Markdown Mail: 
+#php artisan make:mail SampleMail --markdown=emails.SampleMail
