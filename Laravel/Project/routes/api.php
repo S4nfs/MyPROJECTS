@@ -19,7 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Get
+//🍎 API Operation GET, POST, PUT, DELETE
 Route::get('/get',[DummyAPI::class, 'getData']);
 Route::get('/getmembers/{id?}', [FetchApiMembers::class, 'list']); //get data from members databse unique id
 Route::get('/getwithname/{key:name}', [FetchApiMembers::class, 'list2']); //get data through unique name
+Route::post('/addmembers', [FetchApiMembers::class, 'add']); //post
+Route::put('/putmembers/{id}', [FetchApiMembers::class, 'put']); //put
+Route::delete('/deletemembers/{id}', [FetchApiMembers::class, 'del']);
