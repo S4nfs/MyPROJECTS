@@ -58,3 +58,8 @@ Accessors are used to format the attributes after you retrieve them from databas
 
 🍔Markdown Mail: 
 #php artisan make:mail SampleMail --markdown=emails.SampleMail
+
+🍔APIs: 
+You can create using simple model and controller and route multiple request methods OR
+Create Using resources, resources are used for creating API endpoint
+#php artisan make:controller Mycustomresourcename --resource
