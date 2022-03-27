@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FetchMembers;
+use Illuminate\Auth\Events\Validated;
+use Validator;
 
 class FetchApiMembers extends Controller
 {
@@ -25,9 +27,9 @@ class FetchApiMembers extends Controller
         $data->address = $req->myaddress;
         $result = $data->save();
         if($result){
-            return ["result"=> "Confidential Data Inserted :)"];
+            return ["message"=> "Confidential Data Inserted :)"];
         }else{
-            return ["result"=> "Operation Failed :("];
+            return ["message"=> "Operation Failed :("];
         }
     }
 
@@ -39,9 +41,9 @@ class FetchApiMembers extends Controller
         $data->address = $req->myaddress;
         $result = $data->save();
         if($result){
-            return ["result"=> "Confidential Data Updated :)"];
+            return ["message"=> "Confidential Data Updated :)"];
         }else{
-            return ["result"=> "Operation Failed :("];
+            return ["message"=> "Operation Failed :("];
         }
     }
 
@@ -50,10 +52,43 @@ class FetchApiMembers extends Controller
         $data = FetchMembers::find($req->id);
         $result = $data->delete();
         if($result){
-            return ["result"=> "Data Deleted :)"];
+            return ["message"=> "Data Deleted :)"];
         }else{
-            return ["result"=> "Operation Failed :("];
+            return ["message"=> "Operation Failed :("];
         }
+    }
+
+    //Search
+    function ser($name){
+        $result = FetchMembers::where("name","like", "%".$name."%")->get();
+        if(count($result) > 0){
+            return $result;
+        }else{
+            return ["message"=> "Search result not found !!"];
+        }
+    }
+
+    //Validation
+    function validation(Request $req){
+        $rules = array(
+            "myname" => "required | min:4" ,
+            "myemail" => "required",
+            "myaddress" => "required"
+
+        );
+        $myValidator = Validator::make($req->all(),$rules);
+        if($myValidator->fails()){
+            return response()->json($myValidator->errors(), 401);
+        }else{
+            $data = new FetchMembers;
+            $data->name = $req->myname;
+            $data->email = $req->myemail;
+            $data->address = $req->myaddress;
+            $result = $data->save();
+            if($result){
+                return ["message" => "validated"];
+            }
+        }   
     }
 }
 

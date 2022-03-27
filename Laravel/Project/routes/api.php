@@ -25,4 +25,6 @@ Route::get('/getmembers/{id?}', [FetchApiMembers::class, 'list']); //get data fr
 Route::get('/getwithname/{key:name}', [FetchApiMembers::class, 'list2']); //get data through unique name
 Route::post('/addmembers', [FetchApiMembers::class, 'add']); //post
 Route::put('/putmembers/{id}', [FetchApiMembers::class, 'put']); //put
-Route::delete('/deletemembers/{id}', [FetchApiMembers::class, 'del']);
+Route::delete('/deletemembers/{id}', [FetchApiMembers::class, 'del']); //delete
+Route::get('/search/{name}', [FetchApiMembers::class, 'ser']); //search
+Route::post('/val', [FetchApiMembers::class, 'validation']);
