@@ -6,6 +6,8 @@ use App\Http\Controllers\DummyAPI;
 use App\Http\Controllers\FetchApiMembers;
 use App\Http\Controllers\FetchApiMembers2;
 use App\Models\FetchMembers;
+use App\Http\Controllers\Sanctuez;
+use Laravel\Sanctum\Sanctum;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,6 @@ Route::post('/val', [FetchApiMembers::class, 'validation']); //post with validat
 
 // Api with single endpoint doing CRUD using resource
 Route::apiResource('/res', FetchApiMembers2::class); //api resource
+
+// Sanctum Authorization
+Route::post('/secure', [Sanctuez::class, 'securewithsanctum']);
