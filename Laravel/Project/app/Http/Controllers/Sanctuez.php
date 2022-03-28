@@ -13,7 +13,7 @@ class Sanctuez extends Controller
         if(!$data || !Hash::check($req->mypassword, $data->password)){
             return response(['message' => ['These Credentials do not match with our records']], 404);
         }
-        $token = $data->createToken('my-app-token')->plainTextToken;
+        $token = $data->createToken('myverysecretkey')->plainTextToken;
         
         $result = [
             'data' => $data,
