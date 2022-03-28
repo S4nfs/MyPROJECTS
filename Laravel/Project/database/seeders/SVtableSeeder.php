@@ -18,9 +18,9 @@ class SVtableSeeder extends Seeder
     {
         // DB::table('sv')->insert(['name'=>Str::random(10), 'email'=>Str::random(10).'@gmail.com']);
         DB::table('register')->insert([
-            'name' => 'Naveen',
-            'email' => 'naveen@gmail.com',
-            'password' => Hash::make('Naveen')
+            'name' => 'Rohan',
+            'email' => 'rohan@gmail.com',
+            'password' => Hash::make('Rohan')
         ]);
     }
 }
