@@ -90,9 +90,9 @@ Accessors are used to format the attributes after you retrieve them from databas
 
 ## Relationships
 🍔Relationships:
-1.One to One Relationship:
-2.One to Many Relationsip:
-3.Many to Many Relationship:
+1. One to One Relationship:
+2. One to Many Relationsip:
+3. Many to Many Relationship:
 
 ## Markdown Mail
 🍔Markdown Mail: 
@@ -106,6 +106,11 @@ You can create using simple model and controller and route multiple request meth
 Create Using resources, resources are used for creating API endpoint
 ```
 php artisan make:controller Mycustomresourcename --resource
+```
+## Custom Commands
+🍔
+```
+php artisan make:command MycustomcommandnameShowDB
 ```
 ## API Authentication with Sanctum
 ### Step 1:Install Laravel Sanctum.
