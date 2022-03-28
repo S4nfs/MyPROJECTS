@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Device extends Model
+class FetchMembers extends Model
 {
     use HasFactory;
-
-
-    //code 
+    public $table="Members";
+    public $timestamps=false;
 }

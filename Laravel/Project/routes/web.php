@@ -14,6 +14,8 @@ use App\Http\Controllers\QueryBuilder;
 use League\CommonMark\Node\Query;
 use App\Http\Controllers\LearnAccessorsMutators;
 use App\Http\Controllers\OnetoOne;
+use App\Http\Controllers\RouteModelBinding;
+use App\Mail\SampleMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,13 +78,13 @@ Route::get('/logout', function () {
 Route::view('upload', 'upload');
 Route::post('uploadFile', [UploadController::class, 'uploadER']);
 
-//Language-------------------------------------------------------------------------------------------------------
+//Language--------------------------------------------------------------------------------------------------------
 Route::get('/lang/{lang}', function ($language){
     App::setlocale($language);
     return view('lang');
 });
 
-//CRUD-----------------------------------------------------------------------------------------------------------
+//CRUD-------------------------------------------------------------------------------------------------------------
 Route::view('login', 'submit'); //form view
 Route::post('add', [Crud::class, 'registerData']); //Create
 Route::get('myuser', [Crud::class, 'getUser']); // Read
@@ -93,10 +95,21 @@ Route::get('/delete{id}', [Crud::class, 'deleteUser']); //Delete
 //QUERY BUILDER-----------------------------------------------------------------------------------------------------
 Route::get('myquerybuilder',[QueryBuilder::class, 'operation']);
 
-//Accessors & Mutators--------------------------------------------------------------------------------------------
+//Accessors & Mutators----------------------------------------------------------------------------------------------
 Route::get('accessors', [LearnAccessorsMutators::class, 'accessorss']);
 Route::get('mutators', [LearnAccessorsMutators::class, 'mutatorss']);
 
-//Relationship with tables members,comanies,devices---------------------------------------------------------------
+//Relationship with tables members,comanies,devices-----------------------------------------------------------------
 Route::get('/o', [OnetoOne::class, 'onetoone']);    //OnetoOne
 Route::get('/om', [OnetoOne::class, 'onetomany']);
+
+//Route Model Binding-----------------------------------------------------------------------------------------------
+Route::get('rbm/{mykey}', [RouteModelBinding::class, 'rbm']); //fetch using unique id
+Route::get('rbm/{mykey:devicename}', [RouteModelBinding::class, 'rbm']);  //fetch using name
+
+//Mail--------------------------------------------------------------------------------------------------------------
+ROute::get('/mail', function(){
+    return new SampleMail();
+});
+
+//APIs---------------------------------------------------------------------------------------------------------------
