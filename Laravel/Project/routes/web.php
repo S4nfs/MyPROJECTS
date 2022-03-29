@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Clonedatabse;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\CustomController;
@@ -113,3 +114,6 @@ ROute::get('/mail', function(){
 });
 
 //APIs---------------------------------------------------------------------------------------------------------------
+
+//Connect Multiple Databse-----------------------------------------------------------------------------------------------------
+Route::get('/db2', [Clonedatabse::class, 'list']);  //without model
