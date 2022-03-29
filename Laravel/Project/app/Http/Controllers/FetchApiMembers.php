@@ -90,5 +90,10 @@ class FetchApiMembers extends Controller
             }
         }   
     }
+
+    //File Upload
+    function uploader(Request $req){
+        return $req->file('doc')->store('apiDocs');
+    }
 }
 

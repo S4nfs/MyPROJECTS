@@ -116,4 +116,4 @@ ROute::get('/mail', function(){
 //APIs---------------------------------------------------------------------------------------------------------------
 
 //Connect Multiple Databse-----------------------------------------------------------------------------------------------------
-Route::get('/db2', [Clonedatabse::class, 'list']);  //without model
+Route::get('/db2', [Clonedatabse::class, 'list']);  //controller OR model

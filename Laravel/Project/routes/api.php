@@ -39,3 +39,6 @@ Route::apiResource('/res', FetchApiMembers2::class); //api resource
 
 // Sanctum Authorization
 Route::post('/secure', [Sanctuez::class, 'securewithsanctum']);
+
+// Upload File API
+Route::post('/upload', [FetchApiMembers::class, 'uploader']);
