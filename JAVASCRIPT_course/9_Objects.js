@@ -3,7 +3,7 @@ An object is a collection of properties and methods.
 Object = School bag
 
 
-There are two ways an object can be accessed in the end
+There are two ways to access objects properties using:
 1. Dot Notation     - you can see below bioData.myname to access value "Sagar Verma"
 2. Bracket Notation - you can also use bioData["myname"] to access value "Sagar Verma" (useful if you have a key with spaces)
 
@@ -20,6 +20,14 @@ There are two ways an object can be accessed in the end
 //     }
 // }
 // bioData.getData();
+
+//✔️Delete a property from an object
+// let bioData = {
+//     myname : "Sagar",
+//     myage  : 23
+// }
+// delete bioData.myage;
+// console.log(bioData);
 
 
 //✔️What if we want an object as a value inside an object ?
@@ -49,7 +57,7 @@ Note:(this) object will not work wth fat arrow function
 
 
 
-//✔️ Objects to arrays & array to onjects conversion
+//✔️ Objects to arrays & array to objects conversion
 const person = {name : 'Sagar', age : 30 };
 console.log(Object.values(person));                                    
 //vice-versa
