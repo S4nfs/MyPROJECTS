@@ -69,7 +69,7 @@ console.log(elemClass[0].innerHTML);
 // createdElement = document.createElement("p");
 // createdElement.innerHTML = "This is a new paragraph by appending the div";
 // tn2[0].appendChild(createdElement);
-//i want to replace tthis child with another child-------------------
+//i want to replace this child with another child-------------------
 // createdElement2 = document.createElement("b");
 // createdElement2.innerHTML = "This is a created bold";
 // tn2[0].replaceChild(createdElement2, createdElement);
