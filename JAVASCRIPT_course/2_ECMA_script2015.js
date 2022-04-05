@@ -77,17 +77,11 @@
 
 // ✔️ Fat Arrow function ⟹ --------------------------------------------------------------------------------------------------------
 //normal function
-// function sum(){
-//     let a = 5, b =10;
-//     let sum = a + b;
-//     return (`The sum of two numbers is ${sum}`)
+// const sv = function (arr1, arr2){
+//     return arr1.concat(arr2);
 // }
-// console.log(sum());
+// console.log(sv([0,1,2], [3,4]));
 
 // //with fat arrow
-// const sum  = () => {
-//     let a = 5, b =10;
-//     let sum = a + b;
-//     return (`The sum of two numbers is ${sum}`)
-// }
-// console.log(sum());
+const sv = (arr1, arr2) => arr1.concat(arr2);
+console.log(sv([0,1,2], [3,4]));
