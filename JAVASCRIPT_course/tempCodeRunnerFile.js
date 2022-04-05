@@ -1,5 +1,5 @@
-let a =10;
-let b = a;
-b += 5;
-console.log(a);
-console.log(b);
+const person = {name : 'Sagar', age : 30 };
+// console.log(Object.values(person));                                    
+// //vice-versa
+// const arrObj = Object.entries(person);
+// console.log(Object.fromEntries(arrObj));
