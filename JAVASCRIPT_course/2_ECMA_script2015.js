@@ -82,6 +82,6 @@
 // }
 // console.log(sv([0,1,2], [3,4]));
 
-// //with fat arrow
-const sv = (arr1, arr2) => arr1.concat(arr2);
-console.log(sv([0,1,2], [3,4]));
+////with fat arrow
+// const sv = (arr1, arr2) => arr1.concat(arr2);
+// console.log(sv([0,1,2], [3,4]));

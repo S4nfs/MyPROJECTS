@@ -3,7 +3,7 @@ Input: nums = [2,5,5,11], target = 10
 Output: [0,1]
 */
 
-//Soulution:
+//Solution:
 var twoSum = function (nums, target) {
     for (var i = 0; i < nums.length; i++) {
         for (var j = i+1; j < nums.length; j++) {
