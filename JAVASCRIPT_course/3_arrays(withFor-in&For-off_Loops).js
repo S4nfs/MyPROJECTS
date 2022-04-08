@@ -7,18 +7,16 @@ var myFriends = ["Sagar","Pratik","Anjali"];
 // console.log(myFriends[0]);
 // console.log(myFriends.length);
 
-// for(i=0; i<myFriends.length; i++){
+// for(var i=0; i<myFriends.length; i++){
 //     console.log(myFriends[i]);
 // }
 
 // ✔️ For-in & For-of & ForEach Loops only in arrays ---------------------------------------------------------------------------
-// for(let elements in myFriends){                       //return index number
+// for(var elements in myFriends){                       //return index number
 //     console.log(elements);
 // }
 
-// for(let elements of myFriends){                       //return array elements
-//     console.log(elements);
-// }
+//  
 
 // myFriends.forEach(function(element, index, array){    //ForEach is just a combination of For-in & For-of loop
 //     console.log(element)
@@ -74,40 +72,40 @@ splice(indextochange, Delete/Not, whatToChange)
 // console.log(months);
 
 //✔️ unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
-const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
-const newMonth = months.unshift("Dec");
-console.log(months);                                                        //Output: [ 'Dec', 'Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct' ]
-console.log(newMonth);                                                      //Output: 7
+// const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
+// const newMonth = months.unshift("Dec");
+// console.log(months);                                                        //Output: [ 'Dec', 'Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct' ]
+// console.log(newMonth);                                                      //Output: 7
 
 
 //✔️ Map method() return a new array containing the results--------------------------------------------------------------------
-const arr1 = [1, 49, 16, 25];
-let newArr = arr1.map((myelement, index, arr) => {
-    return myelement > 9;
-})
-console.log(newArr);
+// const arr1 = [1, 49, 16, 25];
+// let newArr = arr1.map((myelement, index, arr) => {
+//     return myelement > 9;
+// })
+// console.log(newArr);
 
 /*EXERCISE:
 Multiply each element by 2 and return only those elements which are greater than 10 */
 
-let arr = [2, 3, 4, 6, 8];
-let outarr = arr.map((outpitelement) => {                                   //👉 Can be written In Single line: 
-    return outpitelement * 2;                            
-}).filter((finalelement) => {
-    return finalelement > 10;
-})
-// 👇Single line: (using => instead of return)
-// let outarr = arr.map((outpitelement) => outpitelement * 2).filter((finalelement) => finalelement > 10);
-console.log(outarr);
+// let arr = [2, 3, 4, 6, 8];
+// let outarr = arr.map((outpitelement) => {                                   //👉 Can be written In Single line: 
+//     return outpitelement * 2;                            
+// }).filter((finalelement) => {
+//     return finalelement > 10;
+// })
+// // 👇Single line: (using => instead of return)
+// // let outarr = arr.map((outpitelement) => outpitelement * 2).filter((finalelement) => finalelement > 10);
+// console.log(outarr);
 
 
 
 //✔️ Reduce method() ----------------------------------------------------------------------------------------------------------
 //Sum all elements
-const arr3 = [5, 6, 2];    
-const sum = arr3.reduce((accumulator, currElem, index, arr) => {            //accumulator means Collecting               
-debugger:
-    return accumulator += currElem;                                         //(+=) adds a value to a variable     
-})
-console.log(sum);
+// const arr3 = [5, 6, 2];    
+// const sum = arr3.reduce((accumulator, currElem, index, arr) => {            //accumulator means Collecting               
+// debugger:
+//     return accumulator += currElem;                                         //(+=) adds a value to a variable     
+// })
+// console.log(sum);
 

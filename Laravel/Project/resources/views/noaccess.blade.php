@@ -1,1 +1,0 @@
-<h1>You cannot access that page, you are below 18</h1>

@@ -25,7 +25,7 @@ class AC
         echo $this->speed - 1;
     }
 
-    function __construct() //constructor (auto call-itself in every created instance) || SYNTAX: function __construct()
+    function __construct() //constructor (a function that auto call-itself in every created instance) || SYNTAX: function __construct()
     { 
         echo "HI";
     }
