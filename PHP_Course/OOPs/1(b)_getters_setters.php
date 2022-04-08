@@ -1,5 +1,5 @@
 <?php
-
+//Getters and Setters: are used to access and modify the properties of an object.
 class book{
     public $title;
     private $author;    //private - cant access outside class
