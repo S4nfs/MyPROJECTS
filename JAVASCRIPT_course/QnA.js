@@ -1,6 +1,6 @@
 /* Q1: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 Input: nums = [2,5,5,11], target = 10
-Output: [0,1]
+Output: [1,2]
 */
 
 //Solution:
@@ -13,3 +13,17 @@ var twoSum = function (nums, target) {
     }
 };
 console.log(twoSum([2,5,5,11], 10));
+
+
+/* Q1   *
+        **
+        ***
+        ****
+        *****   */
+
+
+for (var i = "*"; i.length < 5; i+= "*") {
+    console.log(i);
+}
+
+/* Q2.Check whether an iput is palindrome or not ex. "level" is palindrome */
