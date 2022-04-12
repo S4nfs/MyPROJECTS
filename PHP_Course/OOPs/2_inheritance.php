@@ -34,7 +34,7 @@ class SmartAc extends AC   //Inheritance  - the property of one class inherit by
 
 $Ajay = new AC("Voltas", 16);
 echo $Ajay->model;
-echo $Ajay->speed;
+echo $Ajay->speed . "<br>";
 
 $Sagar = new SmartAc("Samsung", 32); //now SmartAC can have all the features
 echo $Sagar->model;

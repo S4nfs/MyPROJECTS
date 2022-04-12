@@ -2,7 +2,7 @@
 /* Abstraction menas showing the essential features and hiding the background details. U can achieve abstraction by using:
 Abstract Class and  Interface
 
-Abstract Class - is a class that contains empty methods as well as non-empty methods, have constructor and variables, but instanciation is not possible.
+Abstract Class - is a class that contains empty methods as well as non-empty methods, have constructor and variables, but instanciation is not possible (meaning u cant create an object of that class which is helpful when u want that class to be untouched).
 */
 abstract class BaseClass //you can't create object using abstract class
 {
@@ -26,7 +26,7 @@ abstract class BaseClass //you can't create object using abstract class
 class RegularEmployee extends BaseClass
 {
 
-    protected $Annualsalary;
+    protected $Annualsalary = 1200;
 
 
     public function GetMonthlysal()
@@ -51,5 +51,4 @@ class PartEmploye extends BaseClass
 
 $obj1 = new RegularEmployee("Sagar", "Verma");
 echo $obj1->Getfullname();
-// $obj1->Annualsalary = 1200;
 echo $obj1->GetMonthlysal();

@@ -8,10 +8,12 @@ ACCES MODIFIERS :
 */
 
 //to access private property we use getter or setter
+
+
 class AC
 {
     private $model;
-    public $speed;
+    protected $speed;
 
     function speedUp()
     {
@@ -29,7 +31,7 @@ class AC
         $this->speed = $speed;
     }
 
-    function getmodel() //Accessor function (getter R)
+    function model()                //Can access private property as its in same class
     {
         return $this->model;
     }
@@ -38,13 +40,28 @@ class AC
 
 class SmartAc extends AC 
 {
+    //access private property of parent class
+    function model()
+    {
+        return $this->model;
+    }
+    
+    function myspeed()
+    {
+         return $this->speed;       //Can access protected property in extended class
+    }
 }
 $ajay = new AC("Voltas", 20);
-// echo $ajay->model;
-// echo $ajay->model = "Diakin"; //ajay can changed the model which is ❌ when its public
+// echo $ajay->model;               //❌ Can't access private property outside class
+// echo $ajay->model = "Diakin";    //ajay can changed the model which is ❌ when its public
+// echo $ajay->model();
+// echo $ajay->speed. "<br>";       //❌Can't access protected property outside class
 
-echo $ajay->getmodel();
-echo $ajay->speed;
+
+echo "<br";
+$sagar = new SmartAc("Haier", 25);
+echo $sagar->model();
+echo $sagar->myspeed();
 
 
 
