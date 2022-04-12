@@ -5,13 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Typing Master</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="btn.css">
 
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="https://github.com/S4nfs" style="    text-decoration:none;
+                color: white;   ">S4nfs</a></li>
+        </ul>
+    </nav>
     <div class="mainDiv">
         <div class="centerDiv">
             <h1>Welcome to Typing Master Pro</h1>
@@ -23,9 +29,8 @@
     </div>
     <script>
         const paragraph = [
-            "Ratan Tata, in full Ratan Naval Tata, (born December 28, 1937, Bombay[now Mumbai], India), Indian businessman who became chairman (1991–2012 and 2016–17) of the Tata Group, a Mumbai - based conglomerate.",
-            "A member of a prominent family of Indian industrialists and philanthropists(see Tata family), he was educated at Cornell University, Ithaca, New York, where he earned a B.S. (1962) in architecture before returning to work in India.He gained experience in a number of Tata Group businesses and was named director in charge(1971) of one of them, the National Radio and Electronics Co. ",
-            "He became chairman of Tata Industries a decade later and in 1991 succeeded his uncle, J.R.D.Tata, as chairman of the Tata Group.Upon assuming leadership of the conglomerate, Tata aggressively sought to expand it, and increasingly he focused on globalizing its businesses.",
+            "Ratan Tata, in full Ratan Naval Tata, (born December 28, 1937, Bombay[now Mumbai], India), Indian businessman who became chairman (1991–2012 and 2016–17) of the Tata Group, a Mumbai - based conglomerate.A member of a prominent family of Indian industrialists and philanthropists(see Tata family), he was educated at Cornell University, Ithaca, New York, where he earned a B.S. (1962) in architecture before returning to work in India.",
+            "He gained experience in a number of Tata Group businesses and was named director in charge(1971) of one of them, the National Radio and Electronics Co.He became chairman of Tata Industries a decade later and in 1991 succeeded his uncle, J.R.D.Tata, as chairman of the Tata Group.Upon assuming leadership of the conglomerate, Tata aggressively sought to expand it, and increasingly he focused on globalizing its businesses.",
             "In 2000 the group acquired London - based Tetley Tea for $431.3 million, and in 2004 it purchased the truck - manufacturing operations of South Korea’s Daewoo Motors for $102 million.In 2007 Tata Steel completed the biggest corporate takeover by an Indian company when it acquired the giant Anglo - Dutch steel manufacturer Corus Group for $11.3 billion."
         ];
         const msg = document.getElementById("msg");
@@ -40,19 +45,44 @@
             startTime = date.getTime();
             gobtn.innerText = "Done";
         }
+
         const endtype = () => {
             let date = new Date();
             endTime = date.getTime();
             let timetaken = ((endTime - startTime) / 1000);
             // console.log(timetaken);
+            let wordstyped = words.value;
+            let wordcount = mywordCounter(wordstyped);
+            let speed = Math.round((wordcount / timetaken) * 60);
+            let finalmessage = "Your typing speed is " + speed + " WPM \n";
+            finalmessage += compareWords(msg.innerText, wordstyped);
+            msg.innerText = finalmessage;
 
-            let wordstyped = paragraph.value;
-            let count = mywordCounter(wordstyped);
+            gobtn.addEventListener('click', function () {
+                location.reload();
+                words.value = "";
+            });
         }
+
+        const compareWords = (str1, str2) => {
+            let cpuwords = str1.split(" ");
+            let userwords = str2.split(" ");
+            let cnt = 0;
+
+            cpuwords.forEach(function (item, index) {   //compare words given v/s inputed
+                if (item == userwords[index]) {
+                    cnt++;
+                }
+            });
+
+            let errorwords = (cpuwords.length - cnt);
+            return (cnt + " correct out of " + cpuwords.length + " words with " + errorwords + " errors. ");
+        }
+
 
         const mywordCounter = (str) => {
             let response = str.split(" ").length;
-            console.log(response);
+            // console.log(response);
             return response;
         }
 
