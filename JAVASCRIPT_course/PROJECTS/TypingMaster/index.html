@@ -23,7 +23,7 @@
             <h1>Welcome to Typing Master Pro</h1>
             <h2 id="msg"></h2><br>
             <textarea name="" id="words" cols="100" rows="10"
-                placeholder="Keep your key ready on the Go !!"></textarea><br>
+                placeholder="Keep your keys ready on the Go !!"></textarea><br>
             <a class="btn blue" id="gobtn">Go</a>
         </div>
     </div>
@@ -73,10 +73,14 @@
                 if (item == userwords[index]) {
                     cnt++;
                 }
+                // console.log(item + " " + userwords[index]);
+            
             });
 
-            let errorwords = (cpuwords.length - cnt);
-            return (cnt + " correct out of " + cpuwords.length + " words with " + errorwords + " errors. ");
+            let errorwords = userwords.filter(function (item, index) {
+                return item != cpuwords[index];
+            });
+            return (cnt + " correct out of " + cpuwords.length + " words with " + errorwords.length + " errors. ");
         }
 
 
@@ -86,7 +90,7 @@
             return response;
         }
 
-        gobtn.addEventListener('click', function () {
+        gobtn.addEventListener('click', function() {
             if (this.innerText == 'Go') {
                 words.disabled = false;
                 typenow();
@@ -95,7 +99,6 @@
                 gobtn.innerText = "Start";
                 endtype();
             }
-
         });
 
     </script>
