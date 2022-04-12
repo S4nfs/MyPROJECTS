@@ -21,7 +21,6 @@ class Demo
 $obj1 = new Demo();
 $obj1->showroll();
 
-Demo::showmsg(); //no need an object
-// echo Demo::showmsg()
+Demo::showmsg(); //no need to create an object
 
 ?>
