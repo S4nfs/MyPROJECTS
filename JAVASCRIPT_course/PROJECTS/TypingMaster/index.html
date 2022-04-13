@@ -74,7 +74,7 @@
                     cnt++;
                 }
                 // console.log(item + " " + userwords[index]);
-            
+
             });
 
             let errorwords = userwords.filter(function (item, index) {
@@ -90,9 +90,10 @@
             return response;
         }
 
-        gobtn.addEventListener('click', function() {
+        gobtn.addEventListener('click', function () {
             if (this.innerText == 'Go') {
                 words.disabled = false;
+                words.placeholder = "";
                 typenow();
             } else if (this.innerText == "Done") {
                 words.disabled = true;
