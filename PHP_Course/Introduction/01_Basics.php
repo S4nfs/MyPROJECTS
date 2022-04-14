@@ -11,18 +11,28 @@
 <div class="container">
 This is my first PHP website
 <?php
-echo "echo just print something on screen without showing its logic of the backend";   //echo
+echo "echo just print something on screen without showing its logic of the backend <br>";   //echo
 // secret logic here
 
 $variable1 = 5;              //variable denoted by $ sign
 $variable2= 2;
 echo $variable1;
+echo "<br>"; 
 echo $variable2;
-
+echo "<br>"; 
 echo $variable1+$variable2;
-echo "<br>";                  //break line
+echo "<br>";                 //break line
 
-// Operators in PHP-----------------------------------------------------------------------------------------------
+/* Operators in PHP-----------------------------------------------------------------------------------------------
+1. Arithmetic Operators
+2. Assignment Operators
+3. Comparison Operators
+4. Increment/Decrement Operators
+5. Logical Operators
+6. String Operators
+7. Array Operators
+8. Conditional assignment operators
+*/
 // Airthematic Operators  +, -, *, /, %, **
 echo "The value of variable1 + variable2 is ";
 echo "<br>";                  
@@ -52,7 +62,8 @@ echo "<br>";
 echo "The value of variable1 ** variable2 is ";
 echo "<br>";                  
 echo $variable1 ** $variable2;
-
+echo "<br>"; 
+echo "<br>"; 
 
 
 // Assignment Operators  =, +=, -=, *=, /=               ----------------------------------------------------------
@@ -148,11 +159,20 @@ echo $languages[1];
 echo "<br>";
 echo count ($languages);                                       //count method
 echo "<br>";
+
+$name  = null;                                                 //null
+echo var_dump($name);
+echo "<br>";
 echo "<br>";
 
-//null
-$name  = null;
-echo var_dump($name);
+//Type Casting---------------------------------------------------------------------------------------------------------
+$int = (int)"100 USD";
+var_dump($int);
+echo "<br>";
+
+$str = (string)200;
+var_dump($str);
+
 
 ?>
 </div>
