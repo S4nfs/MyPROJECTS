@@ -68,40 +68,54 @@ echo "<br>";
 
 // Assignment Operators  =, +=, -=, *=, /=               ----------------------------------------------------------
 $newVar = $variable1;
-// $newVar += 1;             Output= 6
-// $newVar -= 1;             Output= 4
-// $newVar *= 2;             Output= 10
-// $newVar /= 2;             Output= 2.5
-echo "The value of ne variable is ";
-echo $newVar;
+echo $newVar += 1;              //Output= 6
 echo "<br>"; 
 
-// Comprison Operators  >, <, >=, <=, ==, !=            ----------------------------------------------------------
+echo $newVar -= 1;                   //Output= 4
+echo "<br>"; 
+
+echo $newVar *= 2;                   //Output= 10
+echo "<br>"; 
+
+echo $newVar /= 2;                   //Output= 2.5
+echo "<br>"; 
+echo "<br>"; 
+
+
+// Comprison Operators  >, <, >=, <=, ==, !=, ===, <=>   ----------------------------------------------------------
 echo "<br>";
 echo "The value of 1==4 is ";
-echo var_dump(1==4);                //function var_dump  
+echo var_dump(1==4);                //equal   
 echo "<br>";
 
 echo "The value of 1>=4 is ";
-echo var_dump(1>=4);                //function var_dump  
+echo var_dump(1>=4);                //greater than or equal to 
 echo "<br>";
 
 echo "The value of 1<=4 is ";
-echo var_dump(1<=4);                //function var_dump  
+echo var_dump(1<=4);                //less than or equal to
 echo "<br>";
 
 echo "The value of 1!=4 is ";
-echo var_dump(1!=4);                //function var_dump  
+echo var_dump(1!=4);                //not equal
 echo "<br>";
 
 echo "The value of 1>4 is ";
-echo var_dump(1>4);                //function var_dump  
+echo var_dump(1>4);                //greater than
 echo "<br>";
 
 echo "The value of 1<4 is ";
-echo var_dump(1<4);                //function var_dump  
+echo var_dump(1<4);                //less than
 echo "<br>";
 
+echo "The value of 1===1 is ";
+echo var_dump(1===1);               //identical 
+echo "<br>";
+
+echo "The value of 1<=>1 is ";
+echo var_dump(1<=>1);               //spaceship 0, 1, -1  //0 means equal, 1 means greater than, -1 means less than
+echo "<br>";
+echo "<br>";
 
 // Increment/Decrement Operators   variable++, variable--, --variable, ++variable -----------------------------------
 echo $variable1++;                   //output first pint then increment 5 6
@@ -112,7 +126,7 @@ echo $variable1;
 // echo "<br>";
 // echo $variable1;
 
-// echo --$variable1;                    //output first decrement then print 4 4
+// echo --$variable1;                   //output first decrement then print 4 4
 // echo "<br>";
 // echo $variable1;
 
