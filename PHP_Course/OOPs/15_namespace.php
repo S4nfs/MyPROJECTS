@@ -3,7 +3,7 @@
 
 namespace abc {
 
-    class Demo //access with a namespace
+    class Demo //access within a namespace
     {    
         public function __construct()
         {
@@ -26,6 +26,6 @@ namespace { //create global namespace
         }
     }
     $obj1 = new Demo();     //call this constructor
-    $obj1 = new abc\Demo(); //call constructor from Demo
+    $obj1 = new abc\Demo(); //call constructor from Demo or use can use alias-  (use abc\Demo as newDemo) and create that object
 
 }
