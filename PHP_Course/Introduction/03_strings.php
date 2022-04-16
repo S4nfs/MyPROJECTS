@@ -1,3 +1,4 @@
+<p align = center>String Functions<p>
 <?php
 $str= "I am a Dev";
 $str1 = "My name is Sagar";
@@ -31,10 +32,16 @@ echo "<br>";
 echo implode(" ", $arr)."<br>";                     //array to string - I am a Dev
 echo join("+", $arr)."<br>";                        //join array - I+am+a+Dev
 
-
-
-
-
-
 ?>
+<p align= center>Math Functions<p><br><br>
+<?php
+
+echo abs(-100)."<br>";                              //returns the absolute (positive) value of a number - 100
+
+
+    
+
+
+
+
 
