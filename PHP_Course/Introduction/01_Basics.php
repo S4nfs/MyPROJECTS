@@ -23,7 +23,7 @@ echo "<br>";
 echo $variable1+$variable2;
 echo "<br>";                 //break line
 
-/* Operators in PHP-----------------------------------------------------------------------------------------------
+/* 🍺 Operators in PHP:==============================================================================================================
 1. Arithmetic Operators
 2. Assignment Operators
 3. Comparison Operators
@@ -118,11 +118,11 @@ echo "<br>";
 echo "<br>";
 
 // Increment/Decrement Operators   variable++, variable--, --variable, ++variable -----------------------------------
-echo $variable1++;                   //output first pint then increment 5 6
+echo $variable1++;                      //output first pint then increment 5 6
 echo "<br>";
 echo $variable1;
 
-// echo $variable1--;                  //output first print then decrement 5 4
+// echo $variable1--;                   //output first print then decrement 5 4
 // echo "<br>";
 // echo $variable1;
 
@@ -130,20 +130,53 @@ echo $variable1;
 // echo "<br>";
 // echo $variable1;
 
-// echo ++$variable1;                 //output first decrement then print 6 6
+// echo ++$variable1;                   //output first decrement then print 6 6
 // echo "<br>";
 // echo $variable1;
+echo "<br>";
+echo "<br>";
 
-
-// Logical Operators        and (&&),  or(||), not !, xor, ye reverse or hai yaar ---------------------------------------------------------     
+// Logical Operators        and (&&),  or(||), not !, xor (True if either $x or $y is true, but not both--
 $myVar =  (false and true);
 echo "<br>";
 echo var_dump($myVar);  
+echo "<br>";
+echo "<br>";
 
-?>
-<?php
+
+//String Operators  ., .=, .(), .[]  ---------------------------------------------------------------------
+$string1 = "Hello";                      //Concatenation
+$string2 = "World";
+echo $string1 . $string2;
+echo "<br>";
+
+echo $string1 .= $string2;              //Concatenation and assignment
+echo "<br>";
+echo "<br>";
+
+//Array Operators  +, ==, ===, !=, !==,---------------------------------------------------------------------
+$x = array("a" => "red", "b" => "green");  
+$y = array("c" => "blue", "d" => "yellow");  
+print_r($x + $y);                        //Union of $x and $y
+echo "<br>";
+
+var_dump($x == $y);                      //True if $x and $y contain the same key/value pairs
+echo "<br>";
+echo "<br>";
+
+
+//Conditional assignment operators  ?:  ---------------------------------------------------------------------
+$me = 10; 
+$you = 20;
+echo $me > $you ? "Me greater than you" : "Me is less than you";
+echo "<br>";
+echo "<br>";
+
+//🍺 Constant
 define ('PIkivalue', 3.14);            //this is define a constant variable PI liya h, kahi bhi use kroge value ayegi
-// Data types in PHP:
+
+
+//🍺 Data types in PHP:==============================================================================================================
 // 1.String
 // 2.Integer
 // 3.Float 
@@ -179,7 +212,7 @@ echo var_dump($name);
 echo "<br>";
 echo "<br>";
 
-//Type Casting---------------------------------------------------------------------------------------------------------
+//🍺 Type Casting:==============================================================================================================
 $int = (int)"100 USD";
 var_dump($int);
 echo "<br>";
