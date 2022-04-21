@@ -1,5 +1,5 @@
-<p align = center>String Functions<p>
-<?php
+<p align = center>String Functions<p><?php
+
 $str= "I am a Dev";
 $str1 = "My name is Sagar";
 $str2 = " My hobby is coding\n and nothing else ";
@@ -24,8 +24,8 @@ echo substr($str, 2)."<br>";                        //returns a part of a string
 echo "<br><br>";
 ?>
 
-<p align = center>String Functions<p>
-<?php
+<p align = center>String Functions<p><?php
+
 //function(seperator, array)
 $arr = explode(" ", $str);                          //string to array - Array ( [0] => I [1] => am [2] => a [3] => Dev )
 print_r($arr);
@@ -34,15 +34,28 @@ echo implode(" ", $arr)."<br>";                     //array to string - I am a D
 echo join("+", $arr)."<br>";                        //join array - I+am+a+Dev
 ?>
 
-<p align= center>Math Functions<p><br><br>
-<?php
+<p align= center>Math Functions<p><br><br><?php
+
 
 echo abs(-100)."<br>";                              //returns the absolute (positive) value of a number - 100
+?>
 
 
-    
+<p align= center>Callback Functions<p><br><br><?php
+/*  🍺 A callback function (often referred to as just "callback") is a function which is passed as an argument into another function. */
+function logic($item){
+echo $item." What <br>";
+}
+function logic2($item){
+echo $item." This is callback <br>";
+}
+function myfunc($item, $logic) {
+echo $logic($item);                                 // Calling the $logic callback function
+}
+myfunc("Sagar", "logic");
+myfunc("Sagar", "logic2");
 
-
+?>
 
 
 
