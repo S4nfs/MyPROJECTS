@@ -8,16 +8,44 @@ function sum($a, $b){
 $c = 50;
 sum(10, 20);
 sum(42, $c);
-echo "The sum of two no. is". sum(20, 20); //no output becoz the function is not return anything, one-way
+echo "The sum of two no. is". sum(20, 20). "<br>";  //no output becoz the function is not return anything, one-way
 
 
-//(Return) the value from where it calls
+
+//🍺 (Return) the value from where it calls==========================================================================================
 function sum1($a, $b){
     $sum = $a + $b;
     return $sum;
 }
-echo "The sum of two no. is ".sum1(20, 20); //two-way | providing arguments + returning value
+echo "The sum of two no. is ".sum1(20, 20). "<br>"; //two-way | providing arguments + returning value
 
 
 
-?>
+/*🍺 Call by Value & Call by Reference================================================================================================
+
+1. In case of CALL-BY-VALUE actual value is not modified if its modified inside a function
+2. In case of CALL-BY-REFERENCE actual value is modified if its modified inside a function, In such case you need to use & (ampersand)  symbol with formal arguments, the (ampersand) represents reference of the variable.
+
+The term call-by-value means exactly the same as pass-by-value
+*/
+
+// Call-By-Value
+function Demo($f){      //function definition with formal argument
+    $f++;
+    return $f;
+}
+$a = 10;
+echo demo($a);          //actual argument    out: 11
+echo "<br>";    
+echo $a."<br>";         //out: 10
+
+
+// Call-By-Reference
+function Demo1(&$g){    //ampersand symbol
+    $g++;
+    return $g;
+}
+$b = 10;
+echo demo1($b);         //out: 11
+echo "<br>";    
+echo $b;                //out: 11
