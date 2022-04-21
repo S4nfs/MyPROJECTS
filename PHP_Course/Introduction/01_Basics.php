@@ -174,7 +174,7 @@ echo "<br>";
 
 //🍺 Constant
 define ('PIkivalue', 3.14);            //this is define a constant variable PI liya h, kahi bhi use kroge value ayegi
-
+echo PIkivalue. "<br>";
 
 //🍺 Data types in PHP:==============================================================================================================
 // 1.String
