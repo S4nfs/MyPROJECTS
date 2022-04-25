@@ -1,7 +1,6 @@
 <?php
 include 'connection.php';
 include 'users.php';
-include 'viewuser.php';
 ?>
 
 <!DOCTYPE html>
