@@ -23,3 +23,60 @@ Some specific SQL commands (ONLY ADVANCED):=====================================
 >SELECT COUNT(degree) FROM registration;                        - return the number of degrees in the table
 >SELECT AVG(id) FROM registration;                              - return the average of all the ids in the table
 >SELECT degree FROM registration WHERE degree LIKE '%c%';       - return all the degrees that include 'c'
+>SELECT * FROM registration WHERE degree IN ('Bcom', 'MCA');    - return all the records that is either 'Bcom' or 'MCA' in degree
+>SELECT * FROM registration WHERE id BETWEEN 1 AND 3 ORDER BY id; - return all the records with id between 1 and 3 in ascending order by id
+
+
+🍺 Inner Join: 
+The INNER JOIN is a keyword that selects records that have matching values in both tables
+Syntax: 
+SELECT column1, column2 FROM table1 INNER JOIN table2 ON table1.Column_Name = table2.Column_Name;
+
+>SELECT * from users INNER JOIN orders ON users.id=orders.user_id;  - return all the records matching in the users table (column id)
+                                                                      from the orders table (column user_id) in ecommerce database
+
+🍺 Right Join: 
+The RIGHT JOIN leyword is used return all records from the Right table (table2), and the matching records from the Left table (table1)
+Syntax:
+SELECT column1, column2 FROM table1 RIGHT JOIN table2 ON table1.Column_Name = table2.Column_Name;
+
+>SELECT * from users RIGHT JOIN orders ON users.id=orders.user_id;  - return all the records matching in the users table (column id)
+                                                                      from the orders table (column user_id) in ecommerce database
+
+🍺 Left Join:
+The LEFT JOIN keyword is used to return all records from the left table (table1), and the matching records from the right table (table2).
+Syntax:
+SELECT column1, column2 FROM table1 LEFT JOIN table2 ON table1.Column_Name = table2.Column_Name;
+
+>SELECT * from users LEFT JOIN orders ON users.id=orders.user_id;  - return all the records matching in the users table (column id)
+                                                                      from the orders table (column user_id) in ecommerce database
+
+🍺 Full Join:
+The FULL JOIN keyword is used to return all records from both tables.
+Syntax:
+SELECT column1, column2 FROM table1 FULL JOIN table2 ON table1.Column_Name = table2.Column_Name;
+
+>SELECT * from users FULL JOIN orders ON users.id=orders.user_id;  - return all the records matching in the users table (column id)
+                                                                      from the orders table (column user_id) in ecommerce database
+
+>CREATE DATABASE databasename;                                          - create a database
+>CREATE TABLE tablename (column1 datatype, column2 datatype);           - create a table
+>INSERT INTO tablename (column1, column2) VALUES (value1, value2);      - insert a record into a table
+>UPDATE tablename SET column1=value1, column2=value2 WHERE id=value3;   - update a record in a table
+>DELETE FROM tablename WHERE id=value1;                                 - delete a record from a table
+>DROP DATABASE databasename;                                            - delete a database
+>DROP TABLE tablename;                                                  - delete a table
+>TRUNCATE TABLE tablename;                                              - delete all the records in a table but not the table itself
+>ALTER TABLE tablename ADD columnname datatype;                         - add a column to a table
+>ALTER TABLE tablename DROP columnname;                                 - delete a column from a table
+
+🍺 SQL Constraints:==============================================================================================================
+SQL constraints are used to specify rules for the data in a table.
+
+NOT NULL - Ensures that a column cannot have a NULL value
+UNIQUE - Ensures that all values in a column are different
+PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+FOREIGN KEY - Prevents actions that would destroy links between tables
+CHECK - Ensures that the values in a column satisfies a specific condition
+DEFAULT - Sets a default value for a column if no value is specified
+CREATE INDEX - Used to create and retrieve data from the database very quickly
