@@ -27,20 +27,16 @@
 
 
 </script>
-
 <div class="container">
     <p id="postmaan" > This line is going to be changed using POST method</p>
     <button class="btn btn-primary btnclick">POST</button>
         </div>
-
         <script type="text/javascript">
             $(document).ready(function(){
                 $('.btnclick').click(function(){
                     $.post('example2.php',{
                     name :  "Sagar Verma",
                     field : "Illuminati"    
-
-
                     }, function(data, status){
                     $('#postmaan').html(data);
                     // alert(status);
@@ -48,8 +44,5 @@
                 });
             });
 </script>
-
-
-
 </body>
 </html>
