@@ -11,7 +11,7 @@
 <body>
     <div class="container">
 <p id="getmaan" > This line is going to be changed using GET method</p>
-<button class="btn btn-primary btnclick">POST</button>
+<button class="btn btn-primary btnclick">GET</button>
     </div>
 
 <script type="text/javascript">
@@ -29,11 +29,11 @@
 </script>
 <div class="container">
     <p id="postmaan" > This line is going to be changed using POST method</p>
-    <button class="btn btn-primary btnclick">POST</button>
+    <button class="btn btn-primary btnnclick">POST</button>
         </div>
         <script type="text/javascript">
             $(document).ready(function(){
-                $('.btnclick').click(function(){
+                $('.btnnclick').click(function(){
                     $.post('example2.php',{
                     name :  "Sagar Verma",
                     field : "Illuminati"    
