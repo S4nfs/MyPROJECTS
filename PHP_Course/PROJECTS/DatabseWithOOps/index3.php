@@ -1,4 +1,21 @@
 
+<?php
+session_start();
+include 'autoloader.php';
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+
+    
+    $demo = new LoginController($name, $email);
+     $demo->loginUser();
+    header("location: home.php");
+
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +25,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="login.php" method="post">
-    <input type="text" name="name" id="">
-    <input type="email" name="email" id="">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <input type="text" name="name" id="" placeholder="Name">
+    <input type="email" name="email" id="" placeholder="Email">
 
     <button type="submit">Login</button>
 </form>
+
 </body>
 </html>
 
