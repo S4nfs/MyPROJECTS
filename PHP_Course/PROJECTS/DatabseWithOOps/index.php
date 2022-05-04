@@ -1,6 +1,7 @@
 <?php
-include 'connection.php';
-include 'users.php';
+// include 'connection.php';
+// include 'users.php';
+include 'autoloader.php';       //Autoload Classes automatically
 ?>
 
 <!DOCTYPE html>
