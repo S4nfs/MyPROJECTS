@@ -36,3 +36,25 @@ echo "Your name is "$name
 # +---------+---------------+------------------+
 #  Not Equal to             | num1 -ne num2    | 
 # +-------------------------+------------------+
+
+
+echo "Number 1"
+read x
+echo "Number 2"
+read y
+
+if [ $x -lt $y ]
+then
+echo $x " is less than " $y
+elif [ $x -gt $y ]
+then
+echo $x " is greater than " $y
+elif [ $x -eq $y ]
+then
+echo $x " is equal to " $y
+elif [ $x -ne $y ]
+then 
+echo $x " is not equal to " $y
+else
+echo "Invalid input"
+fi
