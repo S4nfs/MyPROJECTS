@@ -1,21 +1,21 @@
 const fs = require("fs"); //file system
 
-// create a file 
+//✔️ create a file 
 // fs.writeFileSync("Node.jS_Course/readmeFromNodeJS.txt", "Hello World!");     //overwrites the content      
 
-//append content to a file without overwriting the previous content
+//✔️ append content to a file without overwriting the previous content
 // fs.appendFileSync("Node.jS_Course/readmeFromNodeJS.txt", " I am learning Node.js");
 
-//read a file
+//✔️read a file
 // const buf_data = fs.readFileSync("Node.jS_Course/readmeFromNodeJS.txt");
 // orig_data = buf_data.toString();
 // console.log(orig_data);
 
-//rename a file
+//✔️rename a file
 // fs.renameSync("Node.jS_Course/readmeFromNodeJS.txt", "Node.jS_Course/readmeFromNodeJS_new.txt");
 
 
-/*Challenge Time Create CRUD operations on a file system
+/* ✔️Challenge Time Create CRUD operations on a file system
 1.Create a folder called "NodeJSFileSystemCRUD"
 2.Create a file called "Data.txt" inside it and write "Hello World"
 3.Add more data into the file at the end of the existing data
