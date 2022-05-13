@@ -39,9 +39,9 @@ r - The RFC 2822 formatted date (e.g. Fri, 12 Apr 2013 12:01:05 +0200)
 U - The seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
 
 */
-echo date('d l M'). "<br>";
+echo date('d l M'). "<br>"; //13 Friday May
 
-echo date("h:i:sA"). "<br>";
+echo date("h:i:sA"). "<br>"; //03:34:28PM
 
 //get current time zone
 $timezone = date_default_timezone_get();
