@@ -68,7 +68,7 @@ echo "<br>";
 
 // Assignment Operators  =, +=, -=, *=, /=               ----------------------------------------------------------
 $newVar = $variable1;
-echo $newVar += 1;              //Output= 6
+echo $newVar += 1;                   //Output= 6
 echo "<br>"; 
 
 echo $newVar -= 1;                   //Output= 4
@@ -184,6 +184,7 @@ echo PIkivalue. "<br>";
 // 5.Array      used to store multiple values in a single variable
 // 6.Object     Instances of classes
 // 7.Null       to reset a variable
+// 8.Resource   to store a file handle
 
 echo "<br>Data types </br>";
 $var = "This is a string";

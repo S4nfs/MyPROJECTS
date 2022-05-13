@@ -8,6 +8,7 @@ $str2 = " My hobby is coding\n and nothing else ";
 echo strlen($str). "<br>";                          //length - 10
 echo str_word_count($str)."<br>";                   //count words - 4 
 echo strrev($str)."<br>";                           //reverse - veD a ma I
+echo strpos($str, "Dev")."<br>";                    //position of Dev - 7
 echo str_replace("am", "need", $str)."<br>";        //replace - I need a Dev
 echo similar_text($str, $str1)."<br>";              //characters similar - 5
 echo chop($str2)."yes"."<br>";                      //remove whitespace and extra characters from right
