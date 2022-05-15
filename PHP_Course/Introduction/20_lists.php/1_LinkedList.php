@@ -1,5 +1,5 @@
 <?php
-
+//Source: https://blog.devgenius.io/implementation-of-linked-list-in-php-10cf72daf76f
 // Let us create a simple linked list that contains three data nodes.
 class Node
 {
