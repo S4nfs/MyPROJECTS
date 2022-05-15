@@ -1,5 +1,7 @@
-const { createPool } = require('mysql2');
-const pool = createPool({
+const { createPool } = require('mysql2'); 
+
+//reusing connection by pooling saves time and resources
+const pool = createPool({ 
     port: process.env.DB_PORT,
     host: process.env.DB_HOST,
     user: process.env.DB_USER,

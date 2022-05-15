@@ -1,4 +1,4 @@
-require("dotenv").config();                 // hide sensitive information to environment variables
+require("dotenv").config();           // hide sensitive information to environment variables
 
 const express = require('express');
 const cors = require('cors');

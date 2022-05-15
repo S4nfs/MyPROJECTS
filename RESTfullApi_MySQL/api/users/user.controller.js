@@ -11,7 +11,7 @@ module.exports = {
         const body = req.body;
         const salt = genSaltSync(10);
         body.password = hashSync(body.password, salt);
-        create(body, (err, results) => {
+        create(body, (err, results) => {    //callbacking 'error and results' from user.service.js
             if (err) {
                 console.log(err);
                 return res.status(500).json({
