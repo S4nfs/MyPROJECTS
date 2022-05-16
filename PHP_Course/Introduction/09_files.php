@@ -1,8 +1,14 @@
 <?php
+//path
+$path = realpath(__DIR__) . '/jojo.txt';
+echo $path;
+echo "<br><br>";
+
+
 //  readfile----------------------------------------------------------------------------------------------
 echo readfile('myfile.txt');    
-echo "<br>";
-echo "<br>";
+echo "<br><br>";
+
 //  fopen - gives more control on file handling-----------------------------------------------------------
 $ftpr = fopen("myfile.txt", "r");   
 
@@ -13,8 +19,8 @@ if(!$ftpr){
 $content = fread($ftpr, filesize("myfile.txt"));
 echo $content;
 fclose($ftpr);
-echo "<br>";
-echo "<br>";
+echo "<br><br>";
+
 
 // fgets - read file line wise line------------------------------------------------------------------------
 $ftpr = fopen("myfile.txt", "r");
@@ -22,8 +28,7 @@ $ftpr = fopen("myfile.txt", "r");
 while($a=fgets($ftpr)){
     echo $a;
 }
-echo "<br>";
-echo "<br>";
+echo "<br><br>";
 
 // fgetc - read file character wise------------------------------------------------------------------------
 $file = fopen('myfile.txt', 'r');
