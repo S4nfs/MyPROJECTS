@@ -71,5 +71,9 @@ echo "<br>";
 print_r(explode(" ", $newStudents));
 echo "<br>";
 
+$splice = array_splice($students, 1, 2);
+echo "This is Array Splices ----------------------" . "<pre>";
+print_r($splice);
+echo "<br>";
 
 ?>
