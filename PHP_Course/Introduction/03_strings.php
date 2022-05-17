@@ -25,19 +25,7 @@ echo substr($str, 2)."<br>";                        //returns a part of a string
 echo "<br><br>";
 ?>
 
-<p align = center>String Functions<p><?php
-
-//function(seperator, array)
-$arr = explode(" ", $str);                          //string to array - Array ( [0] => I [1] => am [2] => a [3] => Dev )
-print_r($arr);
-echo "<br>";
-echo implode(" ", $arr)."<br>";                     //array to string - I am a Dev
-echo join("+", $arr)."<br>";                        //join array - I+am+a+Dev
-?>
-
 <p align= center>Math Functions<p><br><br><?php
-
-
 echo abs(-100)."<br>";                              //returns the absolute (positive) value of a number - 100
 ?>
 
