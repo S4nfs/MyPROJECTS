@@ -52,16 +52,16 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 ====================================================================================================================================
 */
     
-function removeDuplicates(&$nums) {     // &$nums is a reference to the array
-    $nums = array_unique($nums);
-    return count($nums);
-}
+// function removeDuplicates(&$nums) {     // &$nums is a reference to the array
+//     $nums = array_unique($nums);
+//     return count($nums);
+// }
 
-$nums = [0,0,1,1,1,2,2,3,3,4];
-$result = removeDuplicates($nums);
-echo "Length of the updated array: " . $result . "\n";
-echo "Updated array: ";
-print_r($nums);
+// $nums = [0,0,1,1,1,2,2,3,3,4];
+// $result = removeDuplicates($nums);
+// echo "Length of the updated array: " . $result . "\n";
+// echo "Updated array: ";
+// print_r($nums);
 
 
 /*
@@ -119,6 +119,23 @@ Input: nums = [3,2,2,3], val = 3
 Output: 2, nums = [2,2,_,_]
 ==================================================================================================================================
 */
-// function removeElement(&$nums, $val) {
-        
-// }
+function removeElement(&$nums, $val) {
+    $i = 0;
+    $j = 0;
+    $count = 0;
+    while($i < count($nums)){
+        if($nums[$i] != $val){
+            $nums[$j] = $nums[$i];
+            $j++;
+        }
+        $i++;
+    }
+    $nums = array_slice($nums, 0, $j); //create a new array with the extracted values
+    return $j;
+}
+
+$nums = [3,2,2,3,3,5];
+echo removeElement($nums, 3);
+echo "\n";
+print_r($nums);
+

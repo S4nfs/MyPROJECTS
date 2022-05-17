@@ -40,7 +40,7 @@ echo "<br>";
 echo $a."<br>";         //out: 10
 
 
-// Call-By-Reference
+// Call-By-Reference e.g 1
 function Demo1(&$g){    //ampersand symbol
     $g++;
     return $g;
@@ -50,14 +50,14 @@ echo demo1($b);         //out: 11
 echo "<br>";    
 echo $b;                //out: 11
 
-//another example
+//e.g 2
 function removeDuplicates(&$nums) {  
     $nums = array_unique($nums);
     return count($nums);
 }
 
 $nums = [0,0,1,1,1,2,2,3,3,4];
-$result = removeDuplicates($nums); //$result = 5
+$result = removeDuplicates($nums); //normal $result = 5
 echo "Length of the updated array: " . $result . "\n";
 echo "Updated array: ";
 print_r($nums); //also getting updated varibale value output: [0, 1, 2, 3, 4] 
