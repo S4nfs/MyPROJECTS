@@ -85,15 +85,17 @@ echo "<br>";
 print_r(explode(" ", $newStudents));
 echo "<br>";
 
+$array8 = ["mohan", "samrat", "bittu", "nilesh","santosh", "amit"];
+$sliced = array_slice($array8, -2, 2); //(array, start, length)
+echo "This is Array Slice that take 3 params----------------------" . "<pre>";
+print_r($sliced); 
+echo "</pre>";
+print_r($array8);   //original array
 
-$slice = array_slice($students, 1, 2);
-echo "This is Array Slice ----------------------" . "<pre>";
-print_r($slice);
-echo "<br>";
-
-$splice = array_splice($students, 1, 2);
-echo "This is Array Splice ----------------------" . "<pre>";
-print_r($splice);
-echo "<br>";
-
+$array8 = ["mohan", "samrat", "bittu", "nilesh","santosh", "amit"];
+$spliced = array_splice($array8, -2, 2); 
+echo "This is Array Splice that take 4 params if you want to replace the extracted elements----------------------" . "<pre>";
+print_r($spliced); 
+echo "</pre>";
+print_r($array8);  //modify the original array
 ?>
