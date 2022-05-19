@@ -122,7 +122,6 @@ Output: 2, nums = [2,2,_,_]
 function removeElement(&$nums, $val) {
     $i = 0;
     $j = 0;
-    $count = 0;
     while($i < count($nums)){
         if($nums[$i] != $val){
             $nums[$j] = $nums[$i];
@@ -137,5 +136,5 @@ function removeElement(&$nums, $val) {
 $nums = [3,2,2,3,3,5];
 echo removeElement($nums, 3);
 echo "\n";
-print_r($nums);
 
+print_r($nums);

@@ -49,7 +49,7 @@ array_splice($array, $offset, $length, $replacement) - Modifies an array by remo
 array_merge($array1, $array2) - Merges two or more arrays
 array_keys($array) - Returns the keys of an array
 array_unique($array) - Removes duplicate values from an array
-implode($glue, $pieces) - Joins array elements with a string
+implode($glue, $pieces) - Joins array elements into a string
 explode($delimiter, $string) - Splits a string into an array
 */
 

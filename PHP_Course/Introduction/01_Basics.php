@@ -24,6 +24,7 @@ echo $variable1+$variable2;
 echo "<br>";                 //break line
 
 /* 🍺 Operators in PHP:==============================================================================================================
+Operators are used to perform operations on variables and values.
 1. Arithmetic Operators
 2. Assignment Operators
 3. Comparison Operators
@@ -82,7 +83,7 @@ echo "<br>";
 echo "<br>"; 
 
 
-// Comprison Operators  >, <, >=, <=, ==, !=, ===, <=>   ----------------------------------------------------------
+// Comparison Operators  >, <, >=, <=, ==, !=, ===, <=>   ----------------------------------------------------------
 echo "<br>";
 echo "The value of 1==4 is ";
 echo var_dump(1==4);                //equal   
