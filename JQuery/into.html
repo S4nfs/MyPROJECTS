@@ -5,7 +5,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
+
   <style>
     .div {
       width: 100%;
@@ -21,7 +25,11 @@
       height: 50px;
       display: inline-block;
       background-color: aqua;
+    }
 
+    .container {
+      width: 600px;
+      height: 30px auto;
     }
   </style>
 </head>
@@ -46,21 +54,26 @@
   <button id="empty">Empty div element</button>
   <button id="traverse">Traverse</button>
 
+  <div class="container">
+    <textarea name="" id="mytxt"></textarea>
+  </div>
+
+  <p><input type="date" name="" id=""></p>
   <script>
     /*
-            $(this).hide() - hides the current element.
-            $("p").hide() - hides all <p> elements.
-            $(".test").hide() - hides all elements with class="test".
-            $("#test").hide() - hides the element with id="test".
+      $(this).hide() - hides the current element.
+      $("p").hide() - hides all <p> elements.
+      $(".test").hide() - hides all elements with class="test".
+      $("#test").hide() - hides the element with id="test".
     */
-    //     function myFunction(){
-    //     var x = document.getElementById('mydiv');
-    //     if (x.style.display === 'none') {
-    //         x.style.display = 'block';
-    //     } else {
-    //         x.style.display = 'none';
-    //     }
-    // }
+    function myFunction() {
+      var x = document.getElementById('mydiv');
+      if (x.style.display === 'none') {
+        x.style.display = 'block';
+      } else {
+        x.style.display = 'none';
+      }
+    }
 
     //same piece of code with Jquery
     $(document).ready(function () {
@@ -98,9 +111,16 @@
         $('.ps').parent().css({
           "backgroundColor": 'yellow',
         });
-      })
+      });
+
+      //emoji area
+      $("#mytxt").emojioneArea({
+        pickerPosition: "bottom",
+        tonesStyle: "bullet"
+      });
     });
   </script>
+
 </body>
 
 </html>
