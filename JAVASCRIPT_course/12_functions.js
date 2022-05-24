@@ -68,3 +68,13 @@ function randomRange(myMin, myMax) {
     return result;
   }
   randomRange(0,10);
+
+
+//✔️map(), filter(), reduce()-----------------------------------------------------------------------------------------------------
+
+//map - 
+const x = [0,1,2,3]; 
+function addOne(number){
+    return number + 1;
+}
+console.log(x.map(addOne)); 
