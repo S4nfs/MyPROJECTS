@@ -4,7 +4,7 @@
 
 ## 1. Install Node/NPM
 ```
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
 sudo apt install nodejs
 
