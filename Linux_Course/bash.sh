@@ -58,3 +58,10 @@ echo $x " is not equal to " $y
 else
 echo "Invalid input"
 fi
+
+#loops
+for i in {1..5}
+do
+echo $i
+done
+
