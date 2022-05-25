@@ -23,7 +23,7 @@ myFriends.forEach(function(element, index, array){    //ForEach is just a combin
     console.log(element)
 })
 
-//✔️ Map method() - return a new array containing the results--------------------------------------------------------------------
+//✔️ Map method() -  It applies a given function on all the elements of the array and returns the updated array-------------------
 const x = [0,1,2,3]; 
 function addOne(number){
     return number + 1;
@@ -110,3 +110,11 @@ let outarr = arr.map((outpitelement) => {                                   //�
 console.log(outarr);
 
 
+function map(arr, fn){
+    const newArr = [];
+    for(let i=0; i<arr.length; i++){
+        let val=  arr[i];
+        newArr.push(fn(val))
+    }
+    return newArr;
+}
