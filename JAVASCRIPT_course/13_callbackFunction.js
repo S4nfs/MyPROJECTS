@@ -19,7 +19,7 @@ funA();
 
 // Example 2:
 const whenHeIsBusy = (sir, callfrnd) => {
-    console.log(`I am busy right now, I am talking to ${Sir}. I will call you back.`);
+    console.log(`I am busy right now, I am talking to ${sir}. I will call you back.`);
     whenHeIsfree();
 }
 
