@@ -4,7 +4,10 @@ const port = 3000;
 const app = express();
 const connectDB = require('./db/connect')
 require('dotenv').config();
+const notFound = require('./middleware/not-found');
+
 //middleware
+app.use(express.static('./public'))
 app.use(express.json());
 
 //routes
@@ -13,6 +16,8 @@ app.get('/hello', (req, res) => {
 });
 
 app.use('/api/v1/tasks', tasks)
+app.use(notFound); //404 route
+
 //app.get('api/v1/tasks')        -get all the tasks
 //app.post('api/v1/tasks')       -create task
 //app.get('api/v1/tasks/:id')    -get single task
