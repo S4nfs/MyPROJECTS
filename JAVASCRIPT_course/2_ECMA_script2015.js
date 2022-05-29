@@ -77,7 +77,7 @@
 
 // ✔️ Fat Arrow function ⟹ --------------------------------------------------------------------------------------------------------
 //normal function
-// const sv = function (arr1, arr2){
+// const sv = function (arr1, arr2){        //passing array as parameter
 //     return arr1.concat(arr2);
 // }
 // console.log(sv([0,1,2], [3,4]));
