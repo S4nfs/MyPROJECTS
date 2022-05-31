@@ -1,25 +1,27 @@
 const Task = require('../models/task');
+
 //Get all
-const getAllTasks = async (req, res) => {
+const getAllTasks = async (req, res) => { //handling try {}catch {}block with middleware async.js
     try {
         const tasks = await Task.find({})
-        // res.status(200).json({ status: "success", data:{tasks, nbHits:tasks.length} })
+        //optional arguments res.status(200).json({ status: "success", data:{tasks, nbHits:tasks.length} }) 
         res.status(200).json({ tasks })
-
     } catch (error) {
         res.status(500).json({ msg: error })
     }
 }
+
 //Create
 const createTask = async (req, res) => {
     try {
-        const ctask = await Task.create(req.body)
-        res.status(201).json({ ctask })
+        const tasks = await Task.create(req.body)
+        res.status(201).json({ tasks })
     } catch (error) {
         res.status(500).json({ msg: error })
     }
 
 }
+
 //Get by id
 const getTask = async (req, res) => {
     try {
@@ -32,8 +34,8 @@ const getTask = async (req, res) => {
     } catch (error) {
         res.status(500).json({ msg: error })
     }
-
 }
+
 //Update
 const updateTask = async (req, res) => {
     try {
@@ -45,12 +47,12 @@ const updateTask = async (req, res) => {
         if (!task) {
             return res.status(404).json({ msg: `NO task with id : ${taskID}` })
         }
-        res.status(200).json({ task });
-    }
-    catch {
+        res.status(200).json({ task })
+    } catch (error) {
         res.status(500).json({ msg: error })
     }
 }
+
 //Delete
 const deleteTask = async (req, res) => {
     try {
@@ -63,7 +65,6 @@ const deleteTask = async (req, res) => {
     } catch (error) {
         res.status(500).json({ msg: error })
     }
-
 }
 
 module.exports = {
