@@ -9,14 +9,14 @@ const notFound = require('./middleware/not-found');
 //middleware
 app.use(express.static('./public'))
 app.use(express.json());
+app.use('/api/v1/tasks', tasks)
+app.use(notFound); //404 route
 
 //routes
 app.get('/hello', (req, res) => {
     res.send("Hello Node");
 });
 
-app.use('/api/v1/tasks', tasks)
-app.use(notFound); //404 route
 
 //app.get('api/v1/tasks')        -get all the tasks
 //app.post('api/v1/tasks')       -create task
@@ -32,5 +32,4 @@ const start = async () => {
         console.log(error);
     }
 }
-
 start();
