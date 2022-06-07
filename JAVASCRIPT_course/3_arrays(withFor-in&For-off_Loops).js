@@ -44,7 +44,7 @@ console.log(myFriendz.indexOf("Pratham"));            //indexof() = returns inde
 console.log(myFriendz.includes("Pratham"));           //incudes() = check if the element exists and returns true
 
 
-
+//✔️ find() - returns the first element of the array that satisfies the provided testing function-------------------------------
 const prices = [200,300,350,400,450,500,600];
 const findElementoz = prices.find((currVal) => {       //find() = problem is that it only returns one element, here 200
 return currVal < 400;
@@ -52,7 +52,7 @@ return currVal < 400;
 
 console.log(findElementoz);
 
-
+//✔️ filter() - method creates a new array filled with elements that pass a test provided by a function
 const prices = [200,300,350,400,450,500,600];
 const newPriceTag = prices.filter((elem, index) => {   //filter() = return an array of the given elements
 return elem < 400; 
@@ -60,15 +60,30 @@ return elem < 400;
 })
 console.log(newPriceTag);
 
-/*✔️ splice method (Do CRUD operations in an array---------------------------------------------------------------------------
-splice(indextochange, Delete/Not, whatToChange)
-
-1. Add Dec month at the end of an Array
-2. What is the return value of return method
-3. Update mar to March
-4. Delete Aug month from an array */
+//✔️ pop() - removes the last element of an array and returns it
 const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
-const newMonth = months.splice(6, 0, "Dec");                             //1 Add
+const lastMonth = months.pop();
+console.log(months);
+
+//✔️ push() - adds one or more elements to the end of an array and returns the new length of the array
+const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
+const newMonth = months.push("Dec");
+console.log(months);
+
+//✔️ shift() - removes the first element of an array and returns it
+const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
+const firstMonth = months.shift();
+console.log(months);
+
+//✔️ unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
+const newMonth = months.unshift("Dec");
+console.log(months);                                                     //Output: [ 'Dec', 'Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct' ]
+console.log(newMonth);                                                   //Output: 7
+
+//✔️ splice(indextochange, howmany, additem1...2..) - return a part of an array and overwrites the original array.
+const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
+const newMonth = months.splice(6, 0, "Dec");                             //1 Add Dec to last
 console.log(months); 
 
 const monthUpdate = months.splice(1, 1, 'March');                        //3 Insert
@@ -88,19 +103,17 @@ const indexOfMonths = months.indexOf('Aug');
 const  monthDelete = months.splice(indexOfMonths, 1);                    //4 Delete
 console.log(months);
 
-//✔️ unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+//✔️ slice(indextochange, untillement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
 const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
-const newMonth = months.unshift("Dec");
-console.log(months);                                                        //Output: [ 'Dec', 'Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct' ]
-console.log(newMonth);                                                      //Output: 7
+const newMonth = months.slice(1, 3);                                    //output: [ 'Mar', 'Aug' ]
 
 
 
-/*EXERCISE:
+/* ✔️EXERCISE:
 Multiply each element by 2 and return only those elements which are greater than 10 */
 
 let arr = [2, 3, 4, 6, 8];
-let outarr = arr.map((outpitelement) => {                                   //👉 Can be written In Single line: 
+let outarr = arr.map((outpitelement) => {                               //👉 Can be written In Single line: 
     return outpitelement * 2;                            
 }).filter((finalelement) => {
     return finalelement > 10;
