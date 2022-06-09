@@ -15,7 +15,7 @@ var twoSum = function (nums, target) {
 console.log(twoSum([2,5,5,11], 10));
 
 
-/* Q1   *
+/* Q2   *
         **
         ***
         ****
@@ -26,4 +26,16 @@ for (var i = "*"; i.length < 5; i+= "*") {
     console.log(i);
 }
 
-/* Q2.Check whether an iput is palindrome or not ex. "level" is palindrome */
+/* Q3.Check whether an iput is palindrome or not ex. "level" is palindrome */
+
+
+
+/* Q4. Reverse a string */
+function reverseString(str) {
+  let reversedStr = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
+  }
+  return reversedStr;
+}
+console.log(reverseString("hello"));
