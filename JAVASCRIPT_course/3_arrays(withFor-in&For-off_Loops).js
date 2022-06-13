@@ -23,6 +23,22 @@ myFriends.forEach(function(element, index, array){    //ForEach is just a combin
     console.log(element)
 })
 
+//⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐   ARRAY METHODS  ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+/* 
+map()       - It applies a given function on all the elements of the array and returns the updated array
+reduce()    - It reduces the array to a single value
+filter()    - It filters the array based on the condition provided
+indexOf()   - It returns the index of the first occurrence of the given element
+find()      - It returns the value of the first occurrence of the given element
+pop()       - removes the last element of an array and returns it
+push()      - adds one or more elements to the end of an array and returns the new length of the array
+shift()     - removes the first element of an array and returns it
+unshift()   - method adds one or more elements to the beginning of an array and returns the new length of the array.
+splice(indextochange, howmany, additem1...2..) - return a part of an array and overwrites the original array.
+slice(indextochange, untillement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
+*/
+
+
 //✔️ Map method() -  It applies a given function on all the elements of the array and returns the updated array-------------------
 const x = [0,1,2,3]; 
 function addOne(number){
@@ -38,6 +54,14 @@ const sum = arr3.reduce((accumulator, currElem, index, arr) => {            //ac
 })
 console.log(sum);
 
+//✔️ filter() - method creates a new array filled with elements that pass a test provided by a function
+const prices = [200,300,350,400,450,500,600];
+const newPriceTag = prices.filter((elem, index) => {   //filter() = return an array of the given elements
+return elem < 400; 
+
+})
+console.log(newPriceTag);
+
 // ✔️ Searching $ Filter in an arrays -------------------------------------------------------------------------------------------
 var myFriendz = ["Sagar","Pratik","Anjali","Pratham","Devendra"];
 console.log(myFriendz.indexOf("Pratham"));            //indexof() = returns index position CASE-SENSITIVE
@@ -51,14 +75,6 @@ return currVal < 400;
 });
 
 console.log(findElementoz);
-
-//✔️ filter() - method creates a new array filled with elements that pass a test provided by a function
-const prices = [200,300,350,400,450,500,600];
-const newPriceTag = prices.filter((elem, index) => {   //filter() = return an array of the given elements
-return elem < 400; 
-
-})
-console.log(newPriceTag);
 
 //✔️ pop() - removes the last element of an array and returns it
 const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
