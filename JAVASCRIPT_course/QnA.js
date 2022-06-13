@@ -39,3 +39,40 @@ function reverseString(str) {
   return reversedStr;
 }
 console.log(reverseString("hello"));
+
+/* Q5. Return Largest Numbers in Arrays */
+function largestOfFour(arr) {
+  let result = [];
+  for(let i=0; i<arr.length; i++){
+      let maxnumber = arr[i][0];
+      for(let j=0; j<arr[i].length; j++){
+        if(arr[i][j] > maxnumber){
+          maxnumber = arr[i][j];
+        } 
+      }
+      result[i] = maxnumber;
+    }
+    return result;
+  }
+  
+  console.log(largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10], [2, 33, 4, 8]]));
+
+//
+function largestOfFour(arr) {
+  return arr.map(function(group) {
+    return group.reduce(function(prev, current) {
+      return current > prev ? current : prev;
+    });
+  });
+}
+console.log(largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, 10, 18, 21], [72, 3, 17, 10], [2, 33, 4, 8]]));
+
+
+
+/* Q6 Confirm the Ending */
+
+function confirmEnding(str, target) {
+  return str.slice(str.length - target.length) === target; //7 - 4 = 3 which starts from 0
+}
+console.log(confirmEnding("newname", "name"));
+

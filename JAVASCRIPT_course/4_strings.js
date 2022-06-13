@@ -7,7 +7,8 @@ var str = "Apple, Banana, Orange";
 let res = str.slice(0, 4);
 console.log(res);                     //Output: Appl not 'e' as it does not include end
 
-let res1 = str.substr(-5);
+var str = "Apple, Banana, Orange";
+let res1 = str.substring(0, 4);
 console.log(res1);
 
 
