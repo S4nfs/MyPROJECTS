@@ -5,7 +5,7 @@
 
 var str = "Apple, Banana, Orange";
 let res = str.slice(0, 4);
-console.log(res);                     //Output: Appl not 'e' as it does not include end
+console.log(res);                     //Output: Appl not 'e' as it does not include end | there is no splice method for strings
 
 var str = "Apple, Banana, Orange";
 let res1 = str.substring(0, 4);
