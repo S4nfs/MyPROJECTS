@@ -1,5 +1,8 @@
-function findLongestWordLength(str) {
-  return Math.max(...str.split(" ").map(word => word.length));
+function truncateString(str, num) {
+   if(str.length >num){
+    return str.slice(0, num) + "...";
+   }else{
+    return str;
+   }
 }
-
-console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+  console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));
