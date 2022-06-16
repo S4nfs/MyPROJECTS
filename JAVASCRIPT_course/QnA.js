@@ -76,3 +76,15 @@ function confirmEnding(str, target) {
 }
 console.log(confirmEnding("newname", "name"));
 
+/* Q7 Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.*/
+
+function titleCase(str) {
+   let splitter = str.split(" ");
+   let newarr = [];
+   for(var st in splitter){
+      newarr[st] = splitter[st][0].toUpperCase()+splitter[st].slice(1).toLowerCase();
+   }
+   return newarr.join(" ")
+ }
+ 
+console.log(titleCase("I'm a little tea pot"));
