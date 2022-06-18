@@ -36,6 +36,7 @@ shift()     - removes the first element of an array and returns it
 unshift()   - method adds one or more elements to the beginning of an array and returns the new length of the array.
 splice(indextochange, howmany, additem1...2..) - return a part of an array and overwrites the original array.
 slice(indextochange, untillement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
+sort()      - sorts the elements as strings in alphabetical and ascending order with modified original array
 */
 
 
@@ -123,6 +124,27 @@ console.log(months);
 const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
 const newMonth = months.slice(1, 3);                                    //output: [ 'Mar', 'Aug' ]
 
+//✔️ sort() - sorts the elements as strings in alphabetical and ascending order
+const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
+const newMonth = months.sort();
+console.log(newMonth);
+
+//for numbers we use additional comapre function
+function getIndexToIns(arr) {
+    function compareNumbers(a, b) // -ve return value means 'a' first and +ve return value means 'b' first
+    {
+        return a - b;             // b - a for descending order
+    }
+    return arr.sort(compareNumbers);
+  }
+  console.log(getIndexToIns([3, 10, 5]));
+
+// sort an array of numbers
+const numbers = [1,2,3,4,5,6,7,8,9,10];
+const newNumbers = map(numbers, (val) => {
+    return val * 2;
+}
+console.log(newNumbers);
 
 
 /* ✔️EXERCISE:
