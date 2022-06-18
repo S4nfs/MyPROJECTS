@@ -1,6 +1,8 @@
 /*✔️Extracting String parts methods
-1. slice(start,end)                : Extract the part of string and return that part in a new string (0, -2)
-2. substring(start,end)            : Same as slice but you can't specify nagative index at the end parameter (0, 4) or it will swap the values autmatically
+slice(start,end)                : Extract the part of string and return that part in a new string (0, -2)
+substring(start,end)            : Same as slice but you can't specify nagative index at the end parameter (0, 4) or it will swap the values autmatically
+
+indexOf(searchvalue)           : Returns the index of the first occurrence in the array or -1 if not found
 */
 
 var str = "Apple, Banana, Orange";
@@ -29,3 +31,6 @@ console.log(strr.split(","));
 var arr = ["a", "b", "c", "d", "e", "f"];
 console.log(arr.join("-"));
 
+//✔️indexOf() method                 : Returns the index of the first occurrence in the array or -1 if not found
+let text = "Hello world, welcome to the universe.";
+console.log(text.indexOf("w"));        //Output: 6
