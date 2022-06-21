@@ -1,8 +1,14 @@
-function truncateString(str, num) {
-   if(str.length >num){
-    return str.slice(0, num) + "...";
-   }else{
-    return str;
-   }
+function getIndexToIns(arr, num) {
+  let newArray = arr.sort((a, b) => a - b);
+
+  for(let i=0; i<newArray.length; i++){
+    if(newArray[i]<=num){
+      newArray.push(num);
+    }else{
+      newArray.unshift(num);
+    }
+  }
+  return newArray.indexOf(num);
 }
-  console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));
+
+console.log(getIndexToIns([3, 10, 5], 3));
