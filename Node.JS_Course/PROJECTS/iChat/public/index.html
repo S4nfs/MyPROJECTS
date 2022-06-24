@@ -8,31 +8,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
     <title>iChat</title>
 </head>
 
 <body>
-    <h1>iChat</h1>
-    <div class="name">
+    <h1 class="title">iChat</h1>
+    <div class="main">
         <div class="name">
             <span><i class="far fa-user"></i></span>
             <input type="text" id="name-input" class="name-imput" value="anonymous">
         </div>
-        <ul class="message-container" id=""message-container>
-            <li class=""message-left>
-                <p class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum iure beatae, repellat itaque natus libero, sit optio distinctio tenetur dolorem magni aperiam eos. Ad inventore vero error velit, veniam maiores. <span>bluebird 23 june 10:12 PM</span></p>
+        <ul class="message-container" id="message-container">
+            <li class="message-left">
+                <p class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum iure beatae,
+                    repellat itaque natus libero, sit optio distinctio tenetur dolorem magni aperiam eos. Ad inventore
+                    vero error velit, veniam maiores. <span>bluebird &#8226; 23 june 10:12 PM</span></p>
             </li>
-            <li class=""message-right>
-                <p class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum iure beatae, repellat itaque natus libero, sit optio distinctio tenetur dolorem magni aperiam eos. Ad inventore vero error velit, veniam maiores. <span>bluebird 23 june 10:12 PM</span></p>
+            <li class="message-right" >
+                <p class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum iure beatae,
+                    repellat itaque natus libero, sit optio distinctio tenetur dolorem magni aperiam eos. Ad inventore
+                    vero error velit, veniam maiores. <span>bluebird &#8226; 23 june 10:12 PM</span></p>
             </li>
-            <li class=""message-feedback>
+            <li class="message-feedback" >
                 <p class="feedback" id="feedback">
                     atom is typing now ...
                 </p>
             </li>
         </ul>
-        <form action="" class="message-form" id="message-form"></form>
+        <form class="message-form" id="message-form">
+            <input type="text" name="message" class="message-input" id="message-input">
+            <div class="v-divider"></div>
+            <button type="submit" class="send-button">Send <span><i class="fas fa-paper-plane"></i></span></button>
+        </form>
     </div>
+    <h3 class="clients-total" id="clients-total">Total Clients 2</h3>
 </body>
 
 </html>
