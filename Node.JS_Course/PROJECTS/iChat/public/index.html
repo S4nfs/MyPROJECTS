@@ -17,24 +17,24 @@
     <div class="main">
         <div class="name">
             <span><i class="far fa-user"></i></span>
-            <input type="text" id="name-input" class="name-imput" value="anonymous">
+            <input type="text" id="name-input" class="name-input" value="anonymous">
         </div>
         <ul class="message-container" id="message-container">
-            <li class="message-left">
+            <!-- <li class="message-left">
                 <p class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum iure beatae,
                     repellat itaque natus libero, sit optio distinctio tenetur dolorem magni aperiam eos. Ad inventore
                     vero error velit, veniam maiores. <span>bluebird &#8226; 23 june 10:12 PM</span></p>
             </li>
-            <li class="message-right" >
+            <li class="message-right">
                 <p class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum iure beatae,
                     repellat itaque natus libero, sit optio distinctio tenetur dolorem magni aperiam eos. Ad inventore
                     vero error velit, veniam maiores. <span>bluebird &#8226; 23 june 10:12 PM</span></p>
             </li>
-            <li class="message-feedback" >
+            <li class="message-feedback">
                 <p class="feedback" id="feedback">
                     atom is typing now ...
                 </p>
-            </li>
+            </li> -->
         </ul>
         <form class="message-form" id="message-form">
             <input type="text" name="message" class="message-input" id="message-input">
@@ -43,7 +43,10 @@
         </form>
     </div>
     <h3 class="clients-total" id="clients-total">Total Clients 2</h3>
-<script src="/socket.io/socket.io.js"></script>
-<script src="main.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"
+        integrity="sha512-x/vqovXY/Q4b+rNjgiheBsA/vbWA3IVvsS8lkQSX1gQ4ggSJx38oI2vREZXpTzhAv6tNUaX81E7QBBzkpDQayA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="main.js"></script>
 </body>
 </html>
