@@ -16,7 +16,7 @@ socket.on('clients-total', (data) => {
     console.log(data);
 })
 
-//sending data object to server where we broadcast to all
+//sending data object to server where we broadcast to all -----------------------------------
 function sendMessage() {
     if (messageInput.value === '') return
     // console.log(messageInput.value)
@@ -39,13 +39,12 @@ socket.on('toALLThePeopleConnectedInTheLobby', (data) => {
 
 function addMessageToUI(isOwnMessage, data) { //parameter includes True/False & data itself
     clearFeedback()
-    const element = `<li class="${isOwnMessage ? "message-right" : "message-left"}"> 
-                            <p class="message">${data.message}
-                                <span>
-                                ${data.name} &#8226; 
-                                </span>
-                            </p>
-                        </li>`
+    const element = `<li class="flex ${isOwnMessage ? "justify-end" : "justify-start"}"> 
+                        <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow  ${isOwnMessage ? "bg-gray-100" : ""}">
+                            <span class="block">${data.message}</span>
+                            <span class="text-xs italic ">${data.name} &#8226; ${moment(data.dateTime).fromNow()} </span>
+                        </div>
+                     </li>`
     messageContainer.innerHTML += element;
     scrollToBottom()
 }
@@ -56,8 +55,6 @@ function scrollToBottom() {
 }
 
 //feedback
-
-
 messageInput.addEventListener('focus', (e) => {
     socket.emit('someoneIsTyping', {
         feedback: `${nameInput.value} is typing a message..`,
@@ -79,17 +76,17 @@ messageInput.addEventListener('blur', (e) => {
 socket.on('feedback', (data) => {
     clearFeedback()
     const element = `<li class="message-feedback">
-                        <p class="feedback" id="feedback">
+                        <p class="feedback text-xs text-center italic " id="feedback">
                             ${data.feedback}
                         </p>
                      </li>`
-
     messageContainer.innerHTML += element;
 })
 
 //clear feedbacks when writing is done
-function clearFeedback(){
+function clearFeedback() {
     document.querySelectorAll('li.message-feedback').forEach(element => {
         element.parentNode.removeChild(element);
     })
 }
+
