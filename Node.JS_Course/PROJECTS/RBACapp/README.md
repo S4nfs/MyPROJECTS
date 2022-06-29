@@ -1,0 +1,1 @@
+npm i express ejs dotenv morgan mongoose http-errors
