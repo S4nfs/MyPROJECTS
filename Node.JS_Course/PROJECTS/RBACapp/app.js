@@ -6,10 +6,12 @@ require('dotenv').config();
 
 const app = express();
 app.use(morgan('dev'));
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
-app.get('/', (req, res, next) => {
-    res.send('working');
-})
+app.use('/', require('./routes/index.route'));
+app.use('/auth', require('./routes/auth.route'));
+app.use('/user', require('./routes/user.route'));
 
 app.use((req, res, next) => {
     next(createHttpError.NotFound())
