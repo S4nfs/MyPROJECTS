@@ -1,3 +1,76 @@
 <%- include('./layouts/header') %>
-<h1>Indexpage</h1>
+<style>
+    .profile {
+  min-width: 600px;
+  padding: 16px;
+  border: 4px solid #d1d5db;
+  border-radius: 16px;
+  margin-top: 32px;
+}
+
+.profile > div {
+  padding: 16px;
+}
+
+.profile .title {
+  font-weight: bold;
+}
+
+.goback {
+  cursor: pointer;
+}
+
+div.messages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul.messages {
+  list-style: none;
+  min-width: 600px;
+  max-width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 16px;
+}
+
+ul.messages * {
+  padding: 8px 12px;
+}
+
+.messages .error {
+  background-color: #f87171;
+}
+.messages .success {
+  background-color: #6ee7b7;
+}
+.messages .warning {
+  background-color: #fcd34d;
+}
+.messages .info {
+  background-color: #93c5fd;
+}
+
+</style>
+<h1><span class="goback" onclick="window.history.back()"></span>Profile</h1>
+
+<div class="profile">
+    <div>
+        <p class="title">ID</p>
+        <p class="subtitle"></p>
+    </div>
+    <div>
+        <p class="title">Email/username</p>
+        <p class="subtitle"></p>
+    </div>
+    <div>
+        <p class="title">Role</p>
+        <p class="subtitle"></p>
+    </div>
+    <div>
+        <p class="title">User Object</p>
+        <p class="subtitle"></p>
+    </div>
+</div>
 <%- include('./layouts/footer') %>
