@@ -3,12 +3,17 @@ const createHttpError = require('http-errors')
 const morgan = require('morgan');
 const connectDB = require('./db/connect')
 require('dotenv').config();
+const PORT = process.env.PORT || 3000;
 
 const app = express();
+
+//middlewares
 app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 app.use('/', require('./routes/index.route'));
 app.use('/auth', require('./routes/auth.route'));
 app.use('/user', require('./routes/user.route'));
@@ -20,9 +25,8 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
     error.status = error.status || 500
     res.status(error.status)
-    res.send(error);
+    res.render('404', {error})
 })
-const PORT = process.env.PORT || 3000;
 
 const start = async () => {
     try {
