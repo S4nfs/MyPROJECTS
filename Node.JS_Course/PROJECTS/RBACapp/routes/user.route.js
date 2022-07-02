@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
 router.get('/profile', async(req,res,next) => {
-    res.send('user profile');
+    res.render('profile');
 })
 module.exports = router;
