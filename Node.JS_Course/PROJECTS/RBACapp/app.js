@@ -2,6 +2,8 @@ const express = require('express');
 const createHttpError = require('http-errors')
 const morgan = require('morgan');
 const connectDB = require('./db/connect')
+const session = require('express-session');
+const connectFlash = require('connect-flash')
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 
@@ -14,6 +16,20 @@ app.use(express.static('public'));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
+//init session
+app.use(session({
+    session:process.env.SESSION_SECRET;
+    resave:false,
+    saveUninitialized:false,
+    cookie:{
+        // secure:true, //for only https(secure)
+        httpOnly:true
+    }
+}))
+app.use(connectFlash());
+
+//routes
 app.use('/', require('./routes/index.route'));
 app.use('/auth', require('./routes/auth.route'));
 app.use('/user', require('./routes/user.route'));
