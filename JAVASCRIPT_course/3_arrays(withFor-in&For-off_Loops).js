@@ -13,7 +13,7 @@ for(var i=0; i<myFriends.length; i++){
 
 // ✔️ For-in & For-of & ForEach Loops only in arrays ---------------------------------------------------------------------------
 var myFriends = ["Sagar","Pratik","Anjali"];
-for(var elements in myFriends){                       //return index number
+for(var elements in myFriends){                       //return index number (0,1,2) but keys if myFriends is an object
     console.log(elements);
 }
 
