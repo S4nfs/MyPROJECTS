@@ -11,13 +11,20 @@ for(var i=0; i<myFriends.length; i++){
     console.log(myFriends[i]);
 }
 
-// ✔️ For-in & For-of & ForEach Loops only in arrays ---------------------------------------------------------------------------
+// ✔️ For-in[best for Objects], For-of & ForEach [best for arrays] ---------------------------------------------------------------------------
 var myFriends = ["Sagar","Pratik","Anjali"];
-for(var elements in myFriends){                       //return index number (0,1,2) but keys if myFriends is an object
-    console.log(elements);
+for(var elements in myFriends){                       
+console.log(elements);                                      //return index number (0,1,2) 
+//console.log(`${elements} : ${myFriends[elements]}`);       //but key:value if myFriends is an object
 }
 
- 
+//For-of
+var myFriends = ["Sagar","Pratik","Anjali"];
+for(var friend of myFriends){
+console.log(friend);                                  //returns "Sagar","Pratik","Anjali"         
+}
+
+//forEach
 var myFriends = ["Sagar","Pratik","Anjali"];
 myFriends.forEach(function(element, index, array){    //ForEach is just a combination of For-in & For-of loop
     console.log(element)
@@ -37,6 +44,7 @@ unshift()   - method adds one or more elements to the beginning of an array and 
 splice(indextochange, howmany, additem1...2..) - return a part of an array and overwrites the original array.
 slice(indextochange, untillement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
 sort()      - sorts the elements as strings in alphabetical and ascending order with modified original array
+split()     - splits a string into an array of substrings
 */
 
 
@@ -65,7 +73,7 @@ console.log(newPriceTag);
 
 // ✔️ Searching $ Filter in an arrays -------------------------------------------------------------------------------------------
 var myFriendz = ["Sagar","Pratik","Anjali","Pratham","Devendra"];
-console.log(myFriendz.indexOf("Pratham"));            //indexof() = returns index position CASE-SENSITIVE
+console.log(myFriendz.indexOf("Pratham"));            //indexof() = returns index position CASE-SENSITIVE if found else -1
 console.log(myFriendz.includes("Pratham"));           //incudes() = check if the element exists and returns true
 
 
@@ -129,7 +137,7 @@ const months = ['Jan','Mar','Aug','Sept','Nov','Oct'];
 const newMonth = months.sort();
 console.log(newMonth);
 
-//for numbers we use additional comapre function
+//for numbers we use additional compare function
 function getIndexToIns(arr) {
     function compareNumbers(a, b) // -ve return value means 'a' first and +ve return value means 'b' first
     {
@@ -146,8 +154,15 @@ const newNumbers = map(numbers, (val) => {
 }
 console.log(newNumbers);
 
+//✔️ split() - splits a string into an array of substrings
+let text = "How are you doing today?"; //it take string as value
+const myArray = text.split(" ", 3);
 
-/* ✔️EXERCISE:
+
+
+
+
+/* ✔️EXERCISE:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 Multiply each element by 2 and return only those elements which are greater than 10 */
 
 let arr = [2, 3, 4, 6, 8];
