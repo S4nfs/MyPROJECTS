@@ -1,14 +1,24 @@
-function getIndexToIns(arr, num) {
-  let newArray = arr.sort((a, b) => a - b);
+// var myFriends = {
+//   name: "Sagar",
+//   friend: "Pratik",
+//   collegue: "Anjali"
+// }
+// for(var elements in myFriends){
+//     console.log(elements);
+// }
 
-  for(let i=0; i<newArray.length; i++){
-    if(newArray[i]<=num){
-      newArray.push(num);
-    }else{
-      newArray.unshift(num);
-    }
-  }
-  return newArray.indexOf(num);
+// //for-of
+// var myFriends = {
+//   name: "Sagar",
+//   friend: "Pratik",
+//   collegue: "Anjali"
+// }
+// for(var friend of myFriends){
+
+//     console.log(friend);
+// }
+
+let person = {name: "SpongeBob", lastName: "SquarePants", age:  34}
+for (let property in person) {
+  console.log(`${property}: ${person[property]}`);
 }
-
-console.log(getIndexToIns([3, 10, 5], 3));
