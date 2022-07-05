@@ -6,7 +6,12 @@ router.get('/login', async (req, res, next) => {
 })
 
 router.get('/register', async (req, res, next) => {
-    res.render("register");
+    req.flash('error', "Some error")
+    req.flash('error', "Some error2")
+    req.flash('key', 'some value')
+    const messages = req.flash() //object
+    console.log(messages)
+    res.render("register", {message});
 })
 
 router.post('/login', async (req, res, next) => {
