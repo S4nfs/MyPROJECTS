@@ -27,7 +27,12 @@ app.use(session({
         httpOnly:true
     }
 }))
+
 app.use(connectFlash());
+app.use((req,res,next)=>{
+    res.locals.messages = req.flash()
+    next()
+})
 
 //routes
 app.use('/', require('./routes/index.route'));
