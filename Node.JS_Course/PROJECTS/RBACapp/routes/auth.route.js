@@ -23,8 +23,8 @@ router.post('/login', async (req, res, next) => {
 router.post('/register', [
     body('email').trim().isEmail().withMessage('Email must be a valid email').normalizeEmail().toLowerCase(),
     body('password').trim().isLength(4).withMessage('Password must be of 4 characters and above'),
-    body('confirmpassword').custom((value, {req}) => {
-        if(value !== req.body.password){
+    body('confirmpassword').custom((value, { req }) => {
+        if (value !== req.body.password) {
             throw new Error('Password do not match')
         }
         return true //return success of this validator
@@ -32,11 +32,11 @@ router.post('/register', [
 ], async (req, res, next) => {
     try {
         const errors = validationResult(req)
-        if(!errors.isEmpty()){
+        if (!errors.isEmpty()) {
             errors.array().forEach(error => {
                 req.flash('error', error.msg)
             })
-            res.render('register', {messages: req.flash()})
+            res.render('register', { email: req.body.email, messages: req.flash() })
             return
         }
         const { email } = req.body;
@@ -47,7 +47,9 @@ router.post('/register', [
         }
         const user = new User(req.body);
         await user.save()
-        res.send(user); //sending user object to frontend
+        req.flash('success', `${user.email} registered successfully, you can now login.`)
+        res.redirect('./auth/login')
+        // res.send(user); //sending user object to frontend
     } catch (error) {
         next(error)
     }
