@@ -20,8 +20,17 @@ UserSchema.pre('save', async function (next) { //cant use arrow function here (b
             this.password = hashedPassword; //overwriting the password with hased password
         }
         next();
-    } catch (err) { 
+    } catch (err) {
         next(err)
     }
-})
+});
+
+//Mthod for faster compare password used in passport.auth
+UserSchema.methods.isvalidPassword = async function (password) {
+    try {
+        return await bcrypt.compare(password, this.password);
+    } catch (error) {
+        throw creteHttpError.InternalServerError(error.message);
+    }
+}
 module.exports = mongoose.model('user', UserSchema);
