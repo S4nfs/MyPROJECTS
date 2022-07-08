@@ -3,11 +3,11 @@ const User = require('../models/user.model');
 const { body, validationResult } = require('express-validator');
 const passport = require('passport');
 
-router.get('/login', async (req, res, next) => {
+router.get('/login', ensureNotAuthenticated, async (req, res, next) => {
     res.render("login");
 })
 
-router.get('/register', async (req, res, next) => {
+router.get('/register', ensureNotAuthenticated, async (req, res, next) => {
     // req.flash('error', "Some error")
     // req.flash('error', "Some error2")
     // req.flash('key', 'some value')
@@ -16,13 +16,13 @@ router.get('/register', async (req, res, next) => {
     res.render("register");
 })
 
-router.post('/login', passport.authenticate('local', {
+router.post('/login', ensureNotAuthenticated, passport.authenticate('local', {
     successRedirect: "/user/profile",
     failureRedirect: "/auth/login",
     failureFlash: true
 }));
 
-router.post('/register', [
+router.post('/register', ensureNotAuthenticated, [
     body('email').trim().isEmail().withMessage('Email must be a valid email').normalizeEmail().toLowerCase(),
     body('password').trim().isLength(4).withMessage('Password must be of 4 characters and above'),
     body('confirmpassword').custom((value, { req }) => {
@@ -57,10 +57,26 @@ router.post('/register', [
     }
 })
 
-router.post('/logout', async (req, res, next) => {
+router.post('/logout',ensureAuthenticated, async (req, res, next) => {
     req.logout(); //passport package
     res.redirect('/')
 })
 
 
 module.exports = router;
+
+//my custom function to avoid user to unauthorised sessions routes
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        res.redirect('/auth/login');
+    }
+};
+function ensureNotAuthenticated(req, res, next) { //custom function to avoid user to unauthorised sessions routes
+    if (req.isAuthenticated()) {
+        res.redirect('back');
+    } else {
+        next();
+    }
+};
