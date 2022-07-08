@@ -6,6 +6,7 @@ const session = require('express-session');
 const connectFlash = require('connect-flash')
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
+const passport = require('passport') 
 
 const app = express();
 
@@ -28,6 +29,12 @@ app.use(session({
     }
 }))
 
+//for passport js authentication
+app.use(passport.initialize());
+app.use(passport.session());
+require('./utils/passport.auth')
+
+//flash-message
 app.use(connectFlash());
 app.use((req,res,next)=>{
     res.locals.messages = req.flash()
