@@ -6,7 +6,7 @@ const session = require('express-session');
 const connectFlash = require('connect-flash')
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
-const passport = require('passport') 
+const passport = require('passport')
 
 const app = express();
 
@@ -20,23 +20,28 @@ app.use(express.urlencoded({ extended: false }))
 
 //init session
 app.use(session({
-    secret:process.env.SESSION_SECRET,
-    resave:false,
-    saveUninitialized:false,
-    cookie:{
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
         // secure:true, //for only https(secure)
-        httpOnly:true
+        httpOnly: true
     }
 }))
 
 //for passport js authentication
 app.use(passport.initialize());
 app.use(passport.session());
-require('./utils/passport.auth')
+require('./utils/passport.auth');
+
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+})
 
 //flash-message
 app.use(connectFlash());
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
     res.locals.messages = req.flash()
     next()
 })
@@ -44,7 +49,7 @@ app.use((req,res,next)=>{
 //routes
 app.use('/', require('./routes/index.route'));
 app.use('/auth', require('./routes/auth.route'));
-app.use('/user', require('./routes/user.route'));
+app.use('/user', ensureAuthenticated, require('./routes/user.route'));
 
 app.use((req, res, next) => {
     next(createHttpError.NotFound())
@@ -53,7 +58,7 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
     error.status = error.status || 500
     res.status(error.status)
-    res.render('404', {error})
+    res.render('404', { error })
 })
 
 const start = async () => {
@@ -64,4 +69,12 @@ const start = async () => {
         console.log(err);
     }
 }
+//my custom function to avoid user to unauthorised sessions routes
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        res.redirect('/auth/login');
+    }
+};
 start();
