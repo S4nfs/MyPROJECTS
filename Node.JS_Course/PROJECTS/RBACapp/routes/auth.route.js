@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/user.model');
 const { body, validationResult } = require('express-validator');
-const { ResultWithContext } = require('express-validator/src/chain');
+const passport = require('passport');
 
 router.get('/login', async (req, res, next) => {
     res.render("login");
@@ -16,9 +16,11 @@ router.get('/register', async (req, res, next) => {
     res.render("register");
 })
 
-router.post('/login', async (req, res, next) => {
-    res.send(req.body);
-})
+router.post('/login', passport.authenticate('local', {
+    successRedirect: "/user/profile",
+    failureRedirect: "/auth/login",
+    failureFlash: true
+}));
 
 router.post('/register', [
     body('email').trim().isEmail().withMessage('Email must be a valid email').normalizeEmail().toLowerCase(),
@@ -56,7 +58,8 @@ router.post('/register', [
 })
 
 router.post('/logout', async (req, res, next) => {
-    res.send("logout post");
+    req.logout(); //passport package
+    res.redirect('/')
 })
 
 
