@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const {roles} = require('../utils/constants');
 const UserSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -11,6 +12,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    role:{
+        type:String,
+        enum: [roles.admin, roles.moderator, roles.client],
+        default: roles.client
+    }
 })
 UserSchema.pre('save', async function (next) { //cant use arrow function here (becoz of ||this||)
     try {
@@ -18,6 +24,9 @@ UserSchema.pre('save', async function (next) { //cant use arrow function here (b
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(this.password, salt)
             this.password = hashedPassword; //overwriting the password with hased password
+            if(this.email === process.env.ADMIN_EMAIL.toLowerCase()){
+                this.role = roles.admin
+            }
         }
         next();
     } catch (err) {
@@ -25,7 +34,7 @@ UserSchema.pre('save', async function (next) { //cant use arrow function here (b
     }
 });
 
-//Mthod for faster compare password used in passport.auth
+//Method for faster compare password used in passport.auth
 UserSchema.methods.isvalidPassword = async function (password) {
     try {
         return await bcrypt.compare(password, this.password);
