@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 const passport = require('passport')
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');// https://www.npmjs.com/package/express-session#compatible-session-stores [FROM expression-session package for persistent session storage after server reboots]
+const connectEnsureLogin = require('connect-ensure-login');
 const app = express();
 
 //middlewares
@@ -52,7 +53,7 @@ app.use((req, res, next) => {
 //routes
 app.use('/', require('./routes/index.route'));
 app.use('/auth', require('./routes/auth.route'));
-app.use('/user', ensureAuthenticated, require('./routes/user.route'));
+app.use('/user', connectEnsureLogin.ensureLoggedIn({redirectTo:'/auth/login'}), require('./routes/user.route'));
 
 app.use((req, res, next) => {
     next(createHttpError.NotFound())
@@ -72,12 +73,12 @@ const start = async () => {
         console.log(err);
     }
 }
-//my custom function to avoid user to unauthorised sessions routes
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        next();
-    } else {
-        res.redirect('/auth/login');
-    }
-};
+// //my custom function to avoid user to unauthorised sessions routes [replaced with connectEnsureLogin]
+// function ensureAuthenticated(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         next();
+//     } else {
+//         res.redirect('/auth/login');
+//     }
+// };
 start();
