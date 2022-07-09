@@ -7,7 +7,8 @@ const connectFlash = require('connect-flash')
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 const passport = require('passport')
-
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');// https://www.npmjs.com/package/express-session#compatible-session-stores [FROM expression-session package for persistent session storage after server reboots]
 const app = express();
 
 //middlewares
@@ -15,8 +16,9 @@ app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 
 //init session
 app.use(session({
@@ -25,8 +27,9 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         // secure:true, //for only https(secure)
-        httpOnly: true
-    }
+        httpOnly: true,
+    },
+    store: MongoStore.create({mongoUrl: process.env.MONGO_URI}) 
 }))
 
 //for passport js authentication
