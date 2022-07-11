@@ -10,6 +10,7 @@ const passport = require('passport')
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');// https://www.npmjs.com/package/express-session#compatible-session-stores [FROM expression-session package for persistent session storage after server reboots]
 const connectEnsureLogin = require('connect-ensure-login');
+const { roles } = require('./utils/constants');
 const app = express();
 
 //middlewares
@@ -30,7 +31,7 @@ app.use(session({
         // secure:true, //for only https(secure)
         httpOnly: true,
     },
-    store: MongoStore.create({mongoUrl: process.env.MONGO_URI}) 
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
 }))
 
 //for passport js authentication
@@ -53,8 +54,11 @@ app.use((req, res, next) => {
 //routes
 app.use('/', require('./routes/index.route'));
 app.use('/auth', require('./routes/auth.route'));
-app.use('/user', connectEnsureLogin.ensureLoggedIn({redirectTo:'/auth/login'}), require('./routes/user.route'));
+app.use('/user', connectEnsureLogin.ensureLoggedIn({ redirectTo: '/auth/login' }), require('./routes/user.route'));
 
+app.use('/admin', connectEnsureLogin.ensureLoggedIn({ redirectTo: '/auth/login' }), ensureAdmin, require('./routes/admin.route'))
+
+//404 handler
 app.use((req, res, next) => {
     next(createHttpError.NotFound())
 })
@@ -81,4 +85,22 @@ const start = async () => {
 //         res.redirect('/auth/login');
 //     }
 // };
+
+function ensureAdmin(req, res, next) {
+    if (req.user.role === roles.admin) {
+        next()
+    } else {
+        req.flash('warning', 'You are not an authorised user to see this page')
+        res.redirect('/')
+    }
+}
+
+function ensureModerator(req, res, next) {
+    if (req.user.role === roles.moderator) {
+        next()
+    } else {
+        req.flash('warning', 'You are not an authorised user to see this page')
+        res.redirect('/')
+    }
+}
 start();
