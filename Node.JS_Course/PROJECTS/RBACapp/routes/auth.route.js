@@ -2,13 +2,13 @@ const router = require('express').Router();
 const User = require('../models/user.model');
 const { body, validationResult } = require('express-validator');
 const passport = require('passport');
-const connectEnsure = require('connect-ensure-login');
+const {ensureLoggedIn, ensureLoggedOut} = require('connect-ensure-login');
 
-router.get('/login', connectEnsure.ensureLoggedOut({redirectTo: '/'}), async (req, res, next) => {
+router.get('/login', ensureLoggedOut({redirectTo: '/'}), async (req, res, next) => {
     res.render("login");
 })
 
-router.get('/register', connectEnsure.ensureLoggedOut({redirectTo: '/'}), async (req, res, next) => {
+router.get('/register', ensureLoggedOut({redirectTo: '/'}), async (req, res, next) => {
     // req.flash('error', "Some error")
     // req.flash('error', "Some error2")
     // req.flash('key', 'some value')
@@ -17,14 +17,14 @@ router.get('/register', connectEnsure.ensureLoggedOut({redirectTo: '/'}), async 
     res.render("register");
 })
 
-router.post('/login', connectEnsure.ensureLoggedOut({redirectTo: '/'}), passport.authenticate('local', {
+router.post('/login', ensureLoggedOut({redirectTo: '/'}), passport.authenticate('local', {
     // successRedirect: "/",
     successReturnToOrRedirect: "/",
     failureRedirect: "/auth/login",
     failureFlash: true
 }));
 
-router.post('/register', connectEnsure.ensureLoggedOut({redirectTo: '/'}), [
+router.post('/register', ensureLoggedOut({redirectTo: '/'}), [
     body('email').trim().isEmail().withMessage('Email must be a valid email').normalizeEmail().toLowerCase(),
     body('password').trim().isLength(4).withMessage('Password must be of 4 characters and above'),
     body('confirmpassword').custom((value, { req }) => {
@@ -59,8 +59,9 @@ router.post('/register', connectEnsure.ensureLoggedOut({redirectTo: '/'}), [
     }
 })
 
-router.post('/logout', connectEnsure.ensureLoggedIn({redirectTo: '/'}), async(req, res, next) => {
+router.post('/logout', ensureLoggedIn({redirectTo: '/'}), async(req, res, next) => {
     req.logout();
+    req.session.destroy();
     res.redirect('/auth/login');
 })
 
