@@ -30,6 +30,17 @@ myFriends.forEach(function(element, index, array){    //ForEach is just a combin
     console.log(element)
 })
 
+var message = {
+    error : ["Error1", "Error2", "Error3"],
+    success : ["Success1", "Success2", "Success3"]
+}
+
+Object.entries(message).forEach(key => {
+    message([key].forEach(value => {
+        console.log(`${key} and the value is ${value}`);
+    }))
+})
+
 //⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐   ARRAY METHODS  ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 /* 
 map()       - It applies a given function on all the elements of the array and returns the updated array
