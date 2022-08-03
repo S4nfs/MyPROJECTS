@@ -2,7 +2,12 @@
 module.exports = {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      margin: {
+        '48px': '48px',
+      }
+
+    },
   },
   plugins: [],
   mode: 'jit',
