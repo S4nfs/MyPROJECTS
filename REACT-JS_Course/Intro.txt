@@ -1,0 +1,10 @@
+npm - It install packages globally on your system
+npx - It directly excutes a package without installing it
+
+Create a new project (at path ./)   :   npx create-react-app ./
+
+Document - html
+Object - h1, p, input, a, tags
+Model - html structure
+
+Virtal Dom - The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
