@@ -3,6 +3,8 @@ const User = require('../models/user.model');
 const { body, validationResult } = require('express-validator');
 const passport = require('passport');
 const {ensureLoggedIn, ensureLoggedOut} = require('connect-ensure-login');
+require('../utils/passport.auth');
+
 
 router.get('/login', ensureLoggedOut({redirectTo: '/'}), async (req, res, next) => {
     res.render("login");
@@ -52,18 +54,33 @@ router.post('/register', ensureLoggedOut({redirectTo: '/'}), [
         const user = new User(req.body);
         await user.save()
         req.flash('success', `${user.email} registered successfully, you can now login.`)
-        res.redirect('./auth/login')
+        res.redirect('/auth/login')
         // res.send(user); //sending user object to frontend
     } catch (error) {
         next(error)
     }
 })
 
-router.post('/logout', ensureLoggedIn({redirectTo: '/'}), async(req, res, next) => {
-    req.logout();
-    req.session.destroy();
-    res.redirect('/auth/login');
+router.get('/logout', ensureLoggedIn({redirectTo: '/'}), async(req, res, next) => {
+    req.logout(function(err){
+        if(err){
+            next(err)
+        }
+        req.session.destroy();
+        res.redirect('/auth/login');
+    });
 })
+
+// Redirect the user to the Google signin page 
+router.get('/google', passport.authenticate('google', {
+    scope: ['profile', 'email']
+}));
+// Retrieve user data using the access token received from Google
+router.get('/google/callback', passport.authenticate('google', {
+    successRedirect: '/',
+    failureRedirect: '/auth/login',
+    failureFlash: true
+}));
 
 module.exports = router;
 

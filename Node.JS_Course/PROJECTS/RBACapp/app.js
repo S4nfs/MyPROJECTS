@@ -41,7 +41,6 @@ require('./utils/passport.auth');
 
 app.use((req, res, next) => {
     res.locals.user = req.user;
-    console.log(res.locals.user)
     next();
 })
 
@@ -56,7 +55,6 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/index.route'));
 app.use('/auth', require('./routes/auth.route'));
 app.use('/user', ensureLoggedIn({ redirectTo: '/auth/login' }), require('./routes/user.route'));
-
 app.use('/admin', ensureLoggedIn({ redirectTo: '/auth/login' }), ensureAdmin, require('./routes/admin.route'))
 
 //404 handler

@@ -46,13 +46,26 @@
                     </div>
                     <button type="submit"
                         class="block w-full bg-indigo-600 mt-5 py-2 rounded-2xl hover:bg-indigo-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Login</button>
+
+                    <p class="text-s text-gray-600 text-center">
+                        or
+                    </p>
+                    <div class="flex">
+                        <button type="button"
+                            class=" flex items-center justify-center block w-full bg-gray-700 mt-5 py-2 rounded-2xl hover:bg-gray-800 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2"
+                            onclick="location.href='/auth/google';"><img
+                                src="https://img.icons8.com/color/48/000000/google-logo.png" alt="google"
+                                class="w-5 h-5 mr-2"> Sign in with Google</button>
+                    </div>
+
                     <div class="flex justify-between mt-4">
                         <span
                             class="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Forgot
                             Password ?</span>
 
                         <a href="/auth/register"
-                            class="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Don't have an account ?.</a>
+                            class="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Don't
+                            have an account ?.</a>
                     </div>
 
                 </form>
