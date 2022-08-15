@@ -1,0 +1,1 @@
+As explained above, getting started with Socket.IO is relatively simple – all you need is a Node.js server to run it on. If you want to get started with a realtime app for a limited number of users, Socket.IO is a good option. Problems come when working at scale.
