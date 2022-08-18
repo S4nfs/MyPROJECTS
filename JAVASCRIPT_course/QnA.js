@@ -155,7 +155,7 @@ console.log(findSomePair([-5, -4, -3, -2, 0, 2, 4, 6, 8]));
 'sagar' -> 'agars'  is anagram
 */
 //==============================================================================================================================
-
+ 
 function isAnagram(string1, string2) {
   if (string1.length !== string2.length) {
     return false;
@@ -174,3 +174,4 @@ function isAnagram(string1, string2) {
   return true;
 }
 console.log(isAnagram('hello', 'llheo'));
+// o(n) linear time complexity 

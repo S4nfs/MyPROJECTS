@@ -23,3 +23,13 @@ Class Component -
 - Sometimes called "smart" and "stateful" components as they tend to implement logic anmd state.
 - react lifecycle methods can be used inside class component (for ex. componentDidMount, componentDidUpdate, componentWillUnmount).
 - you pass props down to class component and access that with this.props.
+
+Props - Props stand for "Properties." They are read-only components. Props are arguments passed into React components
+
+                    Props                               ||                             State
+        Props get passed to the component               ||            State is managed into the component
+        Props are immutable                             ||            State is mutable and can be changed
+        props -> functional component                   ||            UseStateHook -> functional component
+        this.props -> class component                   ||            this.state -> class component    
+
+yes you can use UseState in functional component also.

@@ -1,7 +1,13 @@
 import React from 'react';
 
-function Header(){
-    return <h1>Hello World From Header Component</h1>
+export const Header = (props) => {
+    console.log(props)
+    return (
+        <div>
+            <h4>Hello World From ✏️Functional Component {props.name}</h4>
+            {props.child}
+        </div>
+    )
 }
 
-export default Header;
+// export default Header;

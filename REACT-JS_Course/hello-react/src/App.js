@@ -1,18 +1,27 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header';
+import { Header } from './components/Header';
 import CHeader from './components/ClassHeader';
+import Channel from './components/Channel';
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Header/> 
-        <CHeader/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        {/* Functional component */}
+        <Header name="Sagar" />
+        <p>He is a full stack engineer </p>
+        <Header name="Prateek" />
+        <Header name="Anjali" />
+        <Header name="Sanju" />
+
+        {/* Class component */}
+        <CHeader name="ClassSanju" />
+        <Channel />
+
+
         <a
           className="App-link"
           href="https://reactjs.org"
