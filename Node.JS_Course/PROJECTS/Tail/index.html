@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>tail.js</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="//cdn.socket.io/socket.io-1.3.7.js"></script>
+
+  <style>
+    body
+      { color: #1a2c37;
+        font-family: 'Helvetica', sans-serif; font-size: 86%;
+        padding: 2em; }
+    #info
+      { font-size: 120%;
+        font-weight: bold; }
+    #tail
+      { border: 1px solid #ccc;
+        height: 300px;
+        padding: 0.5em;
+        overflow: hidden;
+        position: relative;
+        overflow-y: scroll; }
+  </style>
+
+</head>
+<body>
+  <pre id="info"></pre>
+  <pre id="tail"></pre>
+
+  <script>
+
+  var Application = function() {
+
+
+    var socket = io.connect('http://localhost:3000');
+
+    socket.on('connect', function() {
+      console.log('Connected to:', socket.host);
+    });
+    socket.on('message', function(message) {
+      console.log('Received message:', message);
+      if (message.filename) {
+        $('#info').html( '$ tail -f ' + message.filename );
+      };
+      if (message.tail) {
+        $('#tail').html( $('#tail').html() + message.tail );
+        bottom = $("#tail")[0].scrollHeight - $("#tail").height()
+        $('#tail').scrollTop(bottom);
+
+      }
+    });
+
+    return {
+      socket : socket
+    };
+  };
+
+  $(function() { var app = Application(); });
+
+  </script>
+
+</body>
+</html>
