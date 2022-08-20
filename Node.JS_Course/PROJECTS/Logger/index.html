@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="./node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(() => {
+            let socket = io();
+            socket.on('connect', () => {
+                console.log('connected');
+            });
+            socket.on('newLine', (data) => {
+                console.log(`new data: ${data.line}`);
+                $("#tailing").append(data.line);
+            });
+            $('#tail').click(() => {
+                socket.emit('tail', {
+                    service: $('#service').val()
+                });
+            });
+        });
+    </script>
+    <title>Title</title>
+</head>
+
+<body>
+    <select id="service">
+    <option id="tnet" value="/var/log/tnet">tnet</option>
+    <option id="consul" value="/var/log/consul">consul</option>
+</select>
+    <button id="tail">tail</button>
+    <div id="tailing" style="background-color: antiquewhite;">
+    </div>
+</body>
+
+</html>
