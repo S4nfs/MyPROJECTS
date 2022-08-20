@@ -1,43 +1,48 @@
-var http = require('http');
-var fs = require('fs');
+const express = require("express");
+const Tail = require("tail").Tail;
+const app = express();
 
-var spawn = require('child_process').spawn;
+const server = app.listen(5000, () => console.log(`Listening on port 5000`))
 
-var filename = process.argv[2];
-if (!filename) 
-{
-  console.log("Usage: node server.js filename_to_tail");
-  return;
-}
+const io = require("socket.io")(server);
 
-
-// -- Node.js Server ----------------------------------------------------------
-
-server = http.createServer(function(req, res){
-  res.writeHead(200, {'Content-Type': 'text/html'})
-  fs.readFile(__dirname + '/index.html', function(err, data){
-    res.write(data, 'utf8');
-    res.end();
-  });
-})
-server.listen(3000);
-
-// -- Setup Socket.IO ---------------------------------------------------------
-
-const io = require('socket.io')(server, {
-    cors: {
-      origin: '*',
+    //read all files in an array and send their content to the client using socket.io and tail
+    const fs = require("fs");
+    const path = require("path");
+    const files = fs.readdirSync(path.join(__dirname, "."));
+    const tail = new Tail("./test.log");
+    tail.on("line", (data) => {
+        io.emit("tailed", data);
     }
-  });
+    );
+    tail.on("error", (error) => {
+        io.emit("error", error);
+    } 
+    );
+    tail.on("end", () => {
+        io.emit("end");
+    }
+    );
+    tail.watch();
+    //send the data inside ./test.log to the client using socket.io
+    io.on("connection", (socket) => {
+        console.log(`client connected ${socket.client.id}`);
+        socket.on("tail", (data) => {
+            console.log(`client ${socket.client.id} wants to tail ${data.filename}`);
+            if (!tails[data.filename]) {
+                tails[data.filename] = spawn("tail", ['-f', data.filename]);
+                tails[data.filename].stdout.on("data", (data) => {
+                    socket.emit("tailed", data.toString());
+                }).on("error", (error) => {
+                    socket.emit("error", error);
+                }).on("end", () => {
+                    socket.emit("end");
+                }).watch();
+            }
+        }
+        );
+    }
+    );
 
-io.on('connection', function(client){
-  console.log('Client connected');
-  var tail = spawn("tail", ["-f", filename]);
-  client.send( { filename : filename } );
 
-  tail.stdout.on("data", function (data) {
-    console.log(data.toString('utf-8'))
-    client.send( { tail : data.toString('utf-8') } )
-  }); 
-
-});
+   
