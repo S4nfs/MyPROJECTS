@@ -175,3 +175,29 @@ function isAnagram(string1, string2) {
 }
 console.log(isAnagram('hello', 'llheo'));
 // o(n) linear time complexity 
+
+
+//==============================================================================================================================
+/* Q.10 Count Unique Numbers
+Input: [1,1,2,2,3,3,4,5,6,8,8]
+Output: 8
+*/
+//==============================================================================================================================
+
+
+function CountUnique(array){
+  let i = 0;
+  if(array.length>0){
+    for(let j=1; j<array.length; j++){
+      if(array[i] !== array[j]){
+        i++;
+        array[i] = array[j];
+      }
+    }
+    return i+1;
+
+  }else{
+    throw new Error("Array is Empty");
+  }
+}
+console.log(CountUnique([1,1,2,2,3,3,4,5,6,7,8,8]));
