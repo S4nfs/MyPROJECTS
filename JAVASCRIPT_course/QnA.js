@@ -155,7 +155,7 @@ console.log(findSomePair([-5, -4, -3, -2, 0, 2, 4, 6, 8]));
 'sagar' -> 'agars'  is anagram
 */
 //==============================================================================================================================
- 
+
 function isAnagram(string1, string2) {
   if (string1.length !== string2.length) {
     return false;
@@ -165,8 +165,8 @@ function isAnagram(string1, string2) {
     counter[letter] = (counter[letter] || 0) + 1;
     console.log(counter[letter]);
   }
-  for(let items of string2){
-    if(!counter[items]){
+  for (let items of string2) {
+    if (!counter[items]) {
       return false;
     }
     counter[items] -= 1;
@@ -183,21 +183,49 @@ Input: [1,1,2,2,3,3,4,5,6,8,8]
 Output: 8
 */
 //==============================================================================================================================
-
-
-function CountUnique(array){
+function CountUnique(array) {
   let i = 0;
-  if(array.length>0){
-    for(let j=1; j<array.length; j++){
-      if(array[i] !== array[j]){
+  if (array.length > 0) {
+    for (let j = 1; j < array.length; j++) {
+      if (array[i] !== array[j]) {
         i++;
         array[i] = array[j];
       }
     }
-    return i+1;
+    return i + 1;
 
-  }else{
+  } else {
     throw new Error("Array is Empty");
   }
 }
-console.log(CountUnique([1,1,2,2,3,3,4,5,6,7,8,8]));
+console.log(CountUnique([1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 8]));
+
+//==============================================================================================================================
+/* Q.12 Largest sum of 4 consecutive digits
+Input: [1,2,3,4,3,5,4,6,7,8]
+Output: 25
+*/
+//==============================================================================================================================
+
+//7 times the outer loop to be executed so the formula is :
+// Total - num + 1 = loop
+// 10 - 4 + 1 = 7
+
+function findLargest(array, num) {
+  if (num > array) {
+    throw new Error("Number exceeds array")
+  } else {
+    let max = 0;
+    for (let i = 0; i < array.length - 4 + 1; i++) {
+      let temp = 0;
+      for (let j = 0; j < num; j++) {
+        temp += array[i+j];
+      }
+      if (temp > max) {
+        max = temp;
+      }
+    }
+    return max;
+  }
+}
+console.log(`Largest 4 Consecutive Numbers is ${findLargest([1,2,3,4,3,5,4,6,7,8], 4)}`);
