@@ -4,7 +4,6 @@ Input: nums = [2,5,5,11], target = 10
 Output: [1,2]
 */
 //==============================================================================================================================
-//Solution:
 var twoSum = function (nums, target) {
   for (var i = 0; i < nums.length; i++) {
     for (var j = i + 1; j < nums.length; j++) {
@@ -213,7 +212,7 @@ Output: 25
 
 function findLargest(array, num) {
   if (num > array) {
-    throw new Error("Number exceeds array")
+    throw new Error("Number exceeds array");
   } else {
     let max = 0;
     for (let i = 0; i < array.length - 4 + 1; i++) {
@@ -229,3 +228,40 @@ function findLargest(array, num) {
   }
 }
 console.log(`Largest 4 Consecutive Numbers is ${findLargest([1,2,3,4,3,5,4,6,7,8], 4)}`);
+
+//==============================================================================================================================
+/* Q.13 Binary Search - Find the index of given number in a sorted array 7
+Input: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+Output: 6
+*/
+//==============================================================================================================================
+
+/* Working: Divide and conquer technique
+min=0;         max=array.length-1
+midIndex=(min+max)/2 => (0+14)/2 => 7(index)
+if(array[midIndex] < num(7))
+min=midIndex+1  =>  RHS
+if(array[midIndex] > num(7))
+max=midIndex-1  => LHS  => 6  `[1,2,3,4,5,6,7]` && min=0
+midIndex=(min+max)/2 => (0+6)/2 => 3(index) 
+min=midIndex+1  => LHS => 4(index)  `[5,6,7]` && max=6
+midIndex=(min+max)/2 => (4+6)/2 => 5(index) 
+min=midIndex+1  => LHS => 6(index) && max=6
+return midIndex;
+*/
+
+function BinSearch(array, num){
+let min=0, max=array.length-1;
+
+while(min <= max){
+  let midIndex = Math.floor((min+max)/2); //prevent decimal at all cost
+  if(array[midIndex] < num){
+    min=midIndex+1;
+  }else if(array[midIndex] > num){
+    max=midIndex-1
+  }else{
+    return midIndex;
+  }
+}
+}
+console.log(BinSearch([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 7)); //Time Complexity Binary o(log(n))
