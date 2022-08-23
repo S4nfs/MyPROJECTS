@@ -218,7 +218,7 @@ function findLargest(array, num) {
     for (let i = 0; i < array.length - 4 + 1; i++) {
       let temp = 0;
       for (let j = 0; j < num; j++) {
-        temp += array[i+j];
+        temp += array[i + j];
       }
       if (temp > max) {
         max = temp;
@@ -227,7 +227,7 @@ function findLargest(array, num) {
     return max;
   }
 }
-console.log(`Largest 4 Consecutive Numbers is ${findLargest([1,2,3,4,3,5,4,6,7,8], 4)}`);
+console.log(`Largest 4 Consecutive Numbers is ${findLargest([1, 2, 3, 4, 3, 5, 4, 6, 7, 8], 4)}`);
 
 //==============================================================================================================================
 /* Q.13 Binary Search - Find the index of given number in a sorted array 7
@@ -250,18 +250,46 @@ min=midIndex+1  => LHS => 6(index) && max=6
 return midIndex;
 */
 
-function BinSearch(array, num){
-let min=0, max=array.length-1;
+function BinSearch(array, num) {
+  let min = 0, max = array.length - 1;
 
-while(min <= max){
-  let midIndex = Math.floor((min+max)/2); //prevent decimal at all cost
-  if(array[midIndex] < num){
-    min=midIndex+1;
-  }else if(array[midIndex] > num){
-    max=midIndex-1
-  }else{
-    return midIndex;
+  while (min <= max) {
+    let midIndex = Math.floor((min + max) / 2); //prevent decimal at all cost
+    if (array[midIndex] < num) {
+      min = midIndex + 1;
+    } else if (array[midIndex] > num) {
+      max = midIndex - 1
+    } else {
+      return midIndex;
+    }
   }
 }
+console.log(BinSearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 7)); //Time Complexity Binary o(log(n))
+
+//==============================================================================================================================
+/* Q.14 Checking square in another array
+Input: [1,2,3,4] [1,9,4,16]
+Output: true
+*/
+//==============================================================================================================================
+
+function isSquare(array1, array2) {
+  for (let i = 0; i < array1.length; i++) {
+    let result = false;
+    for (let j = 0; j < array2.length; j++) {
+      if (array1[i] * array1[i] === array2[j]) {
+        result = true;
+      }
+      if(j === array2.length-1){
+        if(!result){
+          return false;
+        }
+      }
+    }
+  }
+  return true;
 }
-console.log(BinSearch([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 7)); //Time Complexity Binary o(log(n))
+console.log(isSquare([1,2,3,4],[1,9,4,16]))
+//Quadratic Time Complexity o(n^2)
+// const isSquareCheck = (arr1,arr2) =>  arr1.every(arr => arr2.includes(arr * arr))
+// console.log(isSquareCheck([1,2,3,4],[1,9,4,16]))
