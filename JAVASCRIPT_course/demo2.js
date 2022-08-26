@@ -1,31 +1,17 @@
 
-let i = 0, j = 1, myarray= [2,3,1,4], newarray = [];
-
-function isSorted(array) {
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] > array[i + 1]) {
-      return false
+function findOdd(array){
+  let result = [];
+  function helperFunction(inputArray){
+    if(inputArray.length === 0){
+      return; 
     }
+    if(inputArray[0]%2 !== 0){
+      result.push(inputArray[0])
+    }
+    helperFunction(inputArray.slice(1))
   }
-  return true;
+  helperFunction(array)
+  // return result;
 }
-
-
-function sortArray(array) {
-  if (isSorted(array)) {
-    // newarray = array;
-    console.log(array)
-    return array; 
-  } else if (array[i] < array[j]) {
-    i++;
-    j++;
-    sortArray(array)  //recursion as the fuction call itself
-  } else {
-    [array[i],array[j]] = [array[j],array[i]]
-    i = 0;
-    j = 1;
-    sortArray(array)  //recursion
-  }
-}
-const res = sortArray(myarray);
+const res = findOdd([]);
 console.log(res);
