@@ -280,8 +280,8 @@ function isSquare(array1, array2) {
       if (array1[i] * array1[i] === array2[j]) {
         result = true;
       }
-      if(j === array2.length-1){
-        if(!result){
+      if (j === array2.length - 1) {
+        if (!result) {
           return false;
         }
       }
@@ -289,7 +289,43 @@ function isSquare(array1, array2) {
   }
   return true;
 }
-console.log(isSquare([1,2,3,4],[1,9,4,16]))
+console.log(isSquare([1, 2, 3, 4], [1, 9, 4, 16]))
 //Quadratic Time Complexity o(n^2)
 // const isSquareCheck = (arr1,arr2) =>  arr1.every(arr => arr2.includes(arr * arr))
 // console.log(isSquareCheck([1,2,3,4],[1,9,4,16]))
+
+//==============================================================================================================================
+/* Q.15 Sorting using simple Recursive Function
+Input: [2,3,1,4]
+case1: [2,1,3,4]
+Output: [1,2,3,4]
+*/
+//==============================================================================================================================
+
+let i = 0, j = 1, myarray= [2,3,1,4], newarray = [];
+
+function isSorted(array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > array[i + 1]) {
+      return false
+    }
+  }
+  return true;
+}
+function sortArray(array) {
+  if (isSorted(array)) {
+    newarray = array;
+    return; 
+  } else if (array[i] < array[j]) {
+    i++;
+    j++;
+    sortArray(array)  //recursion as the fuction call itself
+  } else {
+    [array[i],array[j]] = [array[j],array[i]]
+    i = 0;
+    j = 1;
+    sortArray(array)  //recursion
+  }
+}
+sortArray(myarray);
+console.log(newarray);
