@@ -1,17 +1,15 @@
+const users = [{ username: "sagar", email: "sagar@gmail.com" },
+{ username: "prateek", email: "prateek@gmail.com" },
+{ username: "ajay", email: "ajay@gmail.com" },
+{ username: "vaishali", email: "vaishali@gmail.com" }];
 
-function findOdd(array){
-  let result = [];
-  function helperFunction(inputArray){
-    if(inputArray.length === 0){
-      return; 
-    }
-    if(inputArray[0]%2 !== 0){
-      result.push(inputArray[0])
-    }
-    helperFunction(inputArray.slice(1))
+function letsSearch(array, val) {
+  for (let names of array) {
+    if (names['username'] === val)
+      return true;
+
   }
-  helperFunction(array)
-  // return result;
+  return false;
 }
-const res = findOdd([]);
-console.log(res);
+
+console.log(letsSearch(users, 'ajay'));
