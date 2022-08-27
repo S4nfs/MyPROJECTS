@@ -302,7 +302,7 @@ Output: [1,2,3,4]
 */
 //==============================================================================================================================
 
-let i = 0, j = 1, myarray= [2,3,1,4], newarray = [];
+let i = 0, j = 1, myarray = [2, 3, 1, 4], newarray = [];
 
 function isSorted(array) {
   for (let i = 0; i < array.length; i++) {
@@ -315,13 +315,13 @@ function isSorted(array) {
 function sortArray(array) {
   if (isSorted(array)) {
     newarray = array;
-    return; 
+    return;
   } else if (array[i] < array[j]) {
     i++;
     j++;
     sortArray(array)  //recursion as the fuction call itself
   } else {
-    [array[i],array[j]] = [array[j],array[i]]
+    [array[i], array[j]] = [array[j], array[i]]
     i = 0;
     j = 1;
     sortArray(array)  //recursion
@@ -337,13 +337,13 @@ Input: [1,2,3,4,5,6,7,8,9,10]
 Output: [1,3,5,7,9]  //odd numbers
 */
 //==============================================================================================================================
-function findOdd(array){
+function findOdd(array) {
   let result = [];
-  function helperFunction(inputArray){    
-    if(inputArray.length === 0){
+  function helperFunction(inputArray) {
+    if (inputArray.length === 0) {
       return;       //to exit inner function
     }
-    if(inputArray[0]%2 !== 0){
+    if (inputArray[0] % 2 !== 0) {
       result.push(inputArray[0])
     }
     helperFunction(inputArray.slice(1))
@@ -351,5 +351,25 @@ function findOdd(array){
   helperFunction(array)
   return result;
 }
-const res = findOdd([1,2,3,4,5,6,7,8,9,10]);
+const res = findOdd([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 console.log(res);
+
+//==============================================================================================================================
+/* Q.7 Linear Search Algorithm
+*/
+//==============================================================================================================================
+
+const users = [{ username: "sagar", email: "sagar@gmail.com" },
+{ username: "prateek", email: "prateek@gmail.com" },
+{ username: "ajay", email: "ajay@gmail.com" },
+{ username: "vaishali", email: "vaishali@gmail.com" }];
+
+function letsSearch(array, val) {
+  for (let names of array) {
+    if (names['username'] === val)
+      return true;
+  }
+  return false;
+}
+//time complexity linear o(n)
+console.log(letsSearch(users, 'ajay'));
