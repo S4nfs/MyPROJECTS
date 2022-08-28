@@ -1,15 +1,11 @@
-const users = [{ username: "sagar", email: "sagar@gmail.com" },
-{ username: "prateek", email: "prateek@gmail.com" },
-{ username: "ajay", email: "ajay@gmail.com" },
-{ username: "vaishali", email: "vaishali@gmail.com" }];
-
-function letsSearch(array, val) {
-  for (let names of array) {
-    if (names['username'] === val)
-      return true;
-
+function bubbleSort(array) {
+  for (let i = array.length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) {
+      if (array[j] > array[j + 1]) {
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+      }
+    }
   }
-  return false;
+  return array;
 }
-
-console.log(letsSearch(users, 'ajay'));
+console.log(bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]));
