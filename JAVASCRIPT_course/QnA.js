@@ -355,7 +355,7 @@ const res = findOdd([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 console.log(res);
 
 //==============================================================================================================================
-/* Q.7 Linear Search Algorithm
+/* Q.17 Linear Search Algorithm
 */
 //==============================================================================================================================
 
@@ -373,3 +373,21 @@ function letsSearch(array, val) {
 }
 //time complexity linear o(n)
 console.log(letsSearch(users, 'ajay'));
+
+
+//==============================================================================================================================
+/* Q.18 Bubble Sort - a sorting algorith where the largest values bubble up at the top [left -> right]
+*/
+//==============================================================================================================================
+
+function bubbleSort(array) {
+  for (let i = array.length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) { //save memory by excluding the last one
+      if (array[j] > array[j + 1]) {
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+      }
+    }
+  }
+  return array;
+}
+console.log(bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]));
