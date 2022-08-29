@@ -391,3 +391,27 @@ function bubbleSort(array) {
   return array;
 }
 console.log(bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]));
+
+//==============================================================================================================================
+/* Q.19 Selection Sort -  sorts an array by repeatedly finding the minimum element from unsorted part and putting it at the beginning
+*/
+//==============================================================================================================================
+
+
+function SelectionSort(array) {
+  for (let i = 0; i < array.length; i++) {
+    let min = i;
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] < array[min]) {
+        min = j;      //change index
+      }
+    }
+    if (i !== min) {  //comparing index then swap
+      let temp = array[i];
+      array[i] = array[min];
+      array[min] = temp;
+    }
+  }
+  return array;
+}
+console.log(SelectionSort([0, 2, 34, 22, 10, 19]))
