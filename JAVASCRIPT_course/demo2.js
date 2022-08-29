@@ -1,11 +1,18 @@
-function bubbleSort(array) {
-  for (let i = array.length; i > 0; i--) {
-    for (let j = 0; j < i - 1; j++) {
-      if (array[j] > array[j + 1]) {
-        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+
+function SelectionSort(array) {
+  for (let i = 0; i < array.length; i++) {
+    let min = i;
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] < array[min]) {
+        min = j;      //change index
       }
+    }
+    if (i !== min) {  //comparing index then swap
+      let temp = array[i];
+      array[i] = array[min];
+      array[min] = temp;
     }
   }
   return array;
 }
-console.log(bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]));
+console.log(SelectionSort([0, 2, 34, 22, 10, 19]))
