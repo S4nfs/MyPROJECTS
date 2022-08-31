@@ -1,6 +1,8 @@
 const express = require('express');
 const { buildSchema } = require('graphql');
 const { graphqlHTTP } = require('express-graphql');
+const axios = require('axios');
+
 const app = express();
 
 /* graphql Scalar types built-in
@@ -12,6 +14,7 @@ Boolean
 List - []
 Userdefined like below User
 */
+let message = "this is a message";
 const schema = buildSchema(`
 
 type User{
@@ -20,15 +23,31 @@ type User{
     profession: String
 }
 
+type Post {
+    userId: Int
+    id: Int
+    title: String
+    body: String
+}
+
 type Query {
     hello: String
     welcomeMessage(name: String, dayofweek: String!): String
     getUser: User
     getUsers: [User]
+    getPostsFromExternalAPI: [Post]
+    getUpdatedMessage: String
 }
+
+type Mutation{
+setMessage(newmessage: String): String
+createUser(name: String!, age: Int!, profession: String!): User
+}
+
+
 `)
 
-const root = {                      //functions
+const root = {                      //rsolvers
     hello: () => {
         return "hello World";
     },
@@ -57,7 +76,21 @@ const root = {                      //functions
             }
         ];
         return users;
-    }
+    },
+    getPostsFromExternalAPI: async () => {  //GET Query
+        const result = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
+        return result.data
+    },
+    setMessage: ({ newmessage }) => {       //Post Query by updating message
+        message = newmessage
+        return message
+    },
+    getUpdatedMessage: () => message,      //get Updated Message
+
+    createUser: ({ name, age, profession }) => {//create new user inside DB, or external API
+        return { name, age, profession }
+
+    },
 }
 
 app.use('/graphql', graphqlHTTP({
