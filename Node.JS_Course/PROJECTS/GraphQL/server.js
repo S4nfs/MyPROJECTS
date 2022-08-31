@@ -1,3 +1,11 @@
+/*
+*
+*
+What problem does GraphQL solve?
+GraphQL solves both over-fetching and under-fetching issues by allowing the client to request only the needed data; 
+*
+*
+*/
 const express = require('express');
 const { buildSchema } = require('graphql');
 const { graphqlHTTP } = require('express-graphql');
