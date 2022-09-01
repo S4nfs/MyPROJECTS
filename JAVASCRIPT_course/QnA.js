@@ -394,6 +394,19 @@ console.log(bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]));
 
 //==============================================================================================================================
 /* Q.19 Selection Sort -  sorts an array by repeatedly finding the minimum element from unsorted part and putting it at the beginning
+https://visualgo.net/en/sorting?slide=6-11
+
+Steps: Consider first element as smallest (Pointer)
+         P
+Case 1: [0, 2, 34, 22, 10, 19]  - No Change
+            P
+Case 2: [0, 2, 34, 22, 10, 19]  - No Change
+                P  min                   P      min              
+Case 3: [0, 2, 34, 22, 10, 19] , [0, 2, 34, 22, 10, 19] , [0, 2, 10, 22, 34, 19]  - change
+                    P  min                   P      min              
+Case 4: [0, 2, 10, 22, 34, 19] , [0, 2, 10, 22, 34, 19] , [0, 2, 10, 19, 34, 22]  - change
+                        P  min                  
+Case 5: [0, 2, 10, 19, 34, 22] , [0, 2, 10, 19, 22, 34] - change
 */
 //==============================================================================================================================
 
@@ -415,3 +428,8 @@ function SelectionSort(array) {
   return array;
 }
 console.log(SelectionSort([0, 2, 34, 22, 10, 19]))
+
+//==============================================================================================================================
+/* Q.20 Bubble Sort - a sorting algorith where the largest values bubble up at the top [left -> right]
+*/
+//==============================================================================================================================
