@@ -1,12 +1,18 @@
 
-let i = 0, j = 1, myarray= [2,3,1,4];
-function isSorted(array) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] > array[i + 1]) {
-        return false
-      }
-      return true;
+const maxCharacters = (str) => {
+  const alpha = {};
+  str.split("").forEach(element => {
+    alpha[element] = alpha[element] ? alpha[element] + 1 : 1;   //key:value
+  });
+
+  let max = 1;
+  let letter
+  for (let k in alpha) {  //get value
+    if (alpha[k] > max) {
+      max = alpha[k];
+      letter = k;
     }
   }
-
-  console.log(isSorted(myarray))
+  return letter;
+}
+console.log(maxCharacters("Hello World"));

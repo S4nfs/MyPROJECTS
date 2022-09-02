@@ -1,18 +1,15 @@
-
-function SelectionSort(array) {
-  for (let i = 0; i < array.length; i++) {
-    let min = i;
-    for (let j = i + 1; j < array.length; j++) {
-      if (array[j] < array[min]) {
-        min = j;      //change index
+const Sort = (array) => {
+  for (let i = 1; i < array.length; i++) {
+    let curr = array[i];
+    let j;
+    for (j = i - 1; j >= 0; j--) {
+      if (array[j] >= 0 && array[j] > curr) {
+        array[j + 1] = array[j];
       }
     }
-    if (i !== min) {  //comparing index then swap
-      let temp = array[i];
-      array[i] = array[min];
-      array[min] = temp;
-    }
+    array[j + 1] = curr;
   }
-  return array;
+  return array
 }
-console.log(SelectionSort([0, 2, 34, 22, 10, 19]))
+
+console.log(Sort([8, 2, 4, 1, 3]))
