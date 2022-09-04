@@ -1,10 +1,27 @@
+const longestSubstring = (str) => {
 
-const maxCharacters = (str) => {
-  const alpha = {};
-  str.split("").forEach(element => {
-    alpha[element] = alpha[element] ? alpha[element] + 1 : 1;   //key:value
+  //Sliding window
+  if (!str) {
+    return 0;
+  }
+  //pointers
+  let end = 0;
+  let start = 0;
+  let maxLength = 0;
 
-    console.log(alpha)
-  })
+  const unique = new Set();
+
+  while (end < str.length) {
+    if (!unique.has(str[end])) {
+      unique.add(str[end]);
+      end++;
+      maxLength = Math.max(maxLength, unique.size);
+    } else {
+      unique.delete(str[end])
+      start++;
+    }
+  }
+  return maxLength;
 }
-console.log(maxCharacters("Hello World"));
+
+console.log(longestSubstring("abcabcbb"));
