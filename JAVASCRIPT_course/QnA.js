@@ -27,8 +27,46 @@ for (var i = "*"; i.length < 5; i += "*") {
 }
 
 //==============================================================================================================================
-/* Q3.Check whether an iput is palindrome or not ex. "level" is palindrome */
+/* Q3.Check whether an input is palindrome or not ex. "level" is palindrome */
 //==============================================================================================================================
+const isPal = (str) => {
+  // Use the reverse() method to reverse the new created array
+  let reverse = str.split("").reverse().join("");
+  return str.toLowerCase() === reverse.toLowerCase();
+}
+console.log(isPal("level"));
+
+//
+const isPal2 = (str) => {
+
+  let left = 0;
+  let right = str.length - 1;
+
+  while (left < right) {
+    if (str[left] !== str[right])
+      return false;
+    left++;
+    right--;
+  }
+  return true
+}
+console.log(isPal2("level"));
+
+//
+const isPal3 = (str) => {
+  let revStr = "";
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    revStr += str[i];
+  }
+  console.log(revStr)
+  if (str !== revStr) {
+    return false
+  }
+  return true;
+}
+console.log(isPal3("level"));
+
 
 
 //==============================================================================================================================
@@ -376,7 +414,7 @@ console.log(letsSearch(users, 'ajay'));
 
 
 //==============================================================================================================================
-/* Q.18 Bubble Sort - a sorting algorith where the largest values bubble up at the top [left -> right]
+/* Q.18 Bubble Sort - a sorting algorithm where the largest values bubble up at the top [left -> right]
 */
 //==============================================================================================================================
 
@@ -395,7 +433,7 @@ console.log(bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]));
 //==============================================================================================================================
 /* Q.19 Selection Sort -  sorts an array by repeatedly finding the minimum element from unsorted part and putting it at the beginning
 https://visualgo.net/en/sorting?slide=6-11
-
+ 
 Steps: Consider first element as smallest (Pointer)
          P
 Case 1: [0, 2, 34, 22, 10, 19]  - No Change
@@ -472,3 +510,9 @@ const maxCharacters = (str) => {
   return letter;
 }
 console.log(maxCharacters("Hello World"));
+
+//==============================================================================================================================
+/* Q.21 Longest Substring without repeating characters
+*/
+//==============================================================================================================================
+
