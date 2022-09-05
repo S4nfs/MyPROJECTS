@@ -1,4 +1,4 @@
-const longestSubstring = (str) => {
+const lengthOfLongestSubstring = (str) => {
 
   //Sliding window
   if (!str) {
@@ -12,16 +12,14 @@ const longestSubstring = (str) => {
   const unique = new Set();
 
   while (end < str.length) {
-    if (!unique.has(str[end])) {
-      unique.add(str[end]);
-      end++;
-      maxLength = Math.max(maxLength, unique.size);
+    if (unique.has(str[end])) {
+      unique.delete(str[start++])
     } else {
-      unique.delete(str[end])
-      start++;
+      unique.add(str[end++]);
+      maxLength = Math.max(maxLength, unique.size);
     }
   }
   return maxLength;
 }
 
-console.log(longestSubstring("abcabcbb"));
+console.log(lengthOfLongestSubstring("pwwkew"));
