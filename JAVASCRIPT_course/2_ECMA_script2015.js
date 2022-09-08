@@ -7,7 +7,7 @@
     let greeting = "say Hi";
     greeting = "say Hello instead";
 
-👎  can not be re-declared
+👎  cannot be re-declared
     let greeting = "say Hi";
     let greeting = "say Hello instead";
 -However, if the same variable is defined in different scopes, there will be no error:
