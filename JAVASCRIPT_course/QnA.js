@@ -148,7 +148,7 @@ function mutation(arr) {
 
 console.log(mutation(["hello", "hey"]));
 //==============================================================================================================================
-/* Q9 Checking Sun Zero
+/* Q9 Checking Sum Zero
 Input: nums = [-5, -4, -3, -2, 0, 2,4,6,8]
 Output: [-4, 4] sum should be 0
 */
@@ -543,3 +543,42 @@ const lengthOfLongestSubstring = (str) => {
 }
 
 console.log(lengthOfLongestSubstring("pwwkew"));
+
+
+//==============================================================================================================================
+/* Q.22 Remove all even integers from an arrays
+Input: [4, 1, 9, 10, 15, 22, 5, 14]
+Output: [4, 10, 22, 14]
+*/
+//==============================================================================================================================
+
+const removeEven = (array) => {
+  return array.filter((elem) => elem % 2 == 0);
+}
+console.log(removeEven([4, 1, 9, 10, 15, 22, 5, 14]));
+
+//
+const removeEvenRaw = (array) => {
+  let newArr = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 == 0) {
+      newArr[newArr.length] = array[i] //pushing values to array without predefined function
+    }
+  }
+  return newArr;
+}
+
+console.log(removeEvenRaw([4, 1, 9, 10, 15, 22, 5, 14]));
+
+
+//==============================================================================================================================
+/* Q.23 Valid Parentheses
+Input: s = "()[]{}"
+Output: true
+
+Input: s = "(]"
+Output: false
+
+*/
+//==============================================================================================================================
