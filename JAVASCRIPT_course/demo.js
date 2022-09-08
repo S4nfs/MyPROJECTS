@@ -1,25 +1,22 @@
-const lengthOfLongestSubstring = (str) => {
+const isValid = (s) => {
+  const stack = [];
 
-  //Sliding window
-  if (!str) {
-    return 0;
-  }
-  //pointers
-  let end = 0;
-  let start = 0;
-  let maxLength = 0;
-
-  const unique = new Set();
-
-  while (end < str.length) {
-    if (unique.has(str[end])) {
-      unique.delete(str[start++])
+  for (let i = 0; i < s.length; i += 1) {
+    const top = stack[stack.length - 1];
+    if (s[i] === '(' || s[i] === '{' || s[i] === '[') {
+      stack.push(s[i]);
+    } else if (s[i] === ')' && top === '(' && stack.length !== 0) {
+      stack.pop();
+    } else if (s[i] === ']' && top === '[' && stack.length !== 0) {
+      stack.pop();
+    } else if (s[i] === '}' && top === '{' && stack.length !== 0) {
+      stack.pop();
     } else {
-      unique.add(str[end++]);
-      maxLength = Math.max(maxLength, unique.size);
+      return false;
     }
   }
-  return maxLength;
-}
 
-console.log(lengthOfLongestSubstring("pwwkew"));
+  return stack.length === 0;
+};
+
+console.log(isValid("()[]{}"))
