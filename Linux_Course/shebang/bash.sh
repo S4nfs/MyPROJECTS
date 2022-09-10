@@ -1,21 +1,21 @@
 #! /bin/bash
 
-#print
+#🐹 print
 echo "Hello World"
 sleep 1
 
-#variables
+#🐹 variables
 a=Welcometoshebang
 echo $a
 
-#Expressions
+#🐹 Expressions
 add=$((3 + 7))
 echo $add
 
 divide=$((22 / 7))
 echo $divide
 
-#Read user input
+#🐹 Read user input
 echo "Enter your name"
 read name
 echo "Your name is "$name
@@ -53,7 +53,7 @@ else
     echo "Invalid input"
 fi
 
-#loops For, While(while it is true), until(until it is true)
+#🐹 loops For, While(while it is true), until(until it is true)
 #for loop using range
 for i in {1..5}; do
     echo $i
@@ -92,3 +92,32 @@ for x in $(cat cities.txt); do
     weather=$(curl -s https://wttr.in/$x?format=3)
     echo "The weather for $weather"
 done
+
+#🐹 Flags
+
+helpFunction() {
+    echo ""
+    echo "Usage: $0 -a parameterA -b parameterB -c parameterC"
+    echo -e "\t-a Enter your name"
+    echo -e "\t-a Enter your age"
+    echo -e "\t-p Enter your profession"
+    exit 1 # Exit script after printing help
+}
+
+while getopts u:a:p: myFlag; do
+    case "${myflag}" in
+    u) username=${OPTARG} ;;
+    a) age=${OPTARG} ;;
+    p) profession=${OPTARG} ;;
+    ?) helpFunction ;; # Print helpFunction in case parameter is non-existent
+    esac
+done
+
+if [ -z "$username" ] || [ -z "$age" ] || [ -z "$profession" ]; then # Print helpFunction in case parameters are empty
+    echo "Some or all of the parameters are empty"
+    helpFunction
+fi
+
+echo "Username: $username" #./bash.sh -u Sagar -a 23 -p Software Engineer
+echo "Age: $age"
+echo "Profession: $profession"
