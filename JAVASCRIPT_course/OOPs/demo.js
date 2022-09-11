@@ -1,4 +1,3 @@
-// Only change code below this line
 class Thermostat {
     constructor(feh) {
         this._temperature = feh;
