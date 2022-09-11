@@ -1,21 +1,29 @@
 #! /bin/bash
 
-#🐹 print
+#🐹 print----------------------------------------------------------------------------------------------------------------------------
 echo "Hello World"
 sleep 1
 
-#🐹 variables
+#🐹Single-Line Comment---------------------------------------------------------------------------------------------------------------
+: '
+Multi-line Comment
+Multi-line Comment
+Multi-line Comment
+Multi-line Comment
+Multi-line Comment'
+
+#🐹 variables------------------------------------------------------------------------------------------------------------------------
 a=Welcometoshebang
 echo $a
 
-#🐹 Expressions
+#🐹 Expressions----------------------------------------------------------------------------------------------------------------------
 add=$((3 + 7))
 echo $add
 
 divide=$((22 / 7))
 echo $divide
 
-#🐹 Read user input
+#🐹 Read user input------------------------------------------------------------------------------------------------------------------
 echo "Enter your name"
 read name
 echo "Your name is "$name
@@ -41,7 +49,7 @@ read x
 echo "Number 2"
 read y
 
-if [ $x -lt $y ]; then
+if [ $x -lt $y ]; then #same can be written as: if (( $x < $y ))
     echo $x " is less than " $y
 elif [ $x -gt $y ]; then
     echo $x " is greater than " $y
@@ -53,20 +61,20 @@ else
     echo "Invalid input"
 fi
 
-#🐹 loops For, While(while it is true), until(until it is true)
+#🐹 loops For, While(while it is true), until(until it is true)----------------------------------------------------------------------
 #for loop using range
 for i in {1..5}; do
     echo $i
 done
 
-#---------------------------------------
-x = 1
-while [[$x -le 10]]; do
+#while loop
+x=1
+while [[ $x -le 10 ]]; do
     echo "Hey, I just did $x pushups"
     ((x++))
 done
 
-#is my server down
+#is my server down----------------------
 echo "Enter Server Name/IP"
 read target
 
@@ -80,12 +88,12 @@ while true; do
     sleep 1
 done
 
-#---------------------------------------
-until [[ $order == "coffee" ]]; do
-    echo "Would you like coffee or tea ?"
-    read order
+#until loop - just the opposite of while
+x=1
+until [[ $x -gt 10 ]]; do
+    echo "Hey, I will do pushups until $x"
+    ((x++))
 done
-echo "Here's your Coffee :)"
 
 #weather--------------------------------
 for x in $(cat cities.txt); do
@@ -121,3 +129,10 @@ fi
 echo "Username: $username" #./bash.sh -u Sagar -a 23 -p Software Engineer
 echo "Age: $age"
 echo "Profession: $profession"
+
+#🐹 File system---------------------------------------------------------------------------------------------------------------------
+
+cat >file.txt
+cat >>file.txt
+
+cat
