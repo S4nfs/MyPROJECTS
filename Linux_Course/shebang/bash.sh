@@ -132,7 +132,30 @@ echo "Profession: $profession"
 
 #🐹 File system---------------------------------------------------------------------------------------------------------------------
 
-cat >file.txt
-cat >>file.txt
+cat >file.txt  #replace
+cat >>file.txt #append
 
 cat
+
+#🐹 Stdout and Stdin---------------------------------------------------------------------------------------------------------------------
+# 0 = Stdin
+# 1 = Stdout
+# 2 = Stderr
+
+ls -al 1>fileOut.txt 2>fileErr.txt #redirecting stdout and stdin in different files
+ls -al >logs.txt 2>&1              #redirecting stdout and stdin in same file
+
+#🐹 Strings---------------------------------------------------------------------------------------------------------------------
+#compare strings
+echo "Enter first string"
+read -r str1
+echo "Enter second string"
+read -r str2
+
+if [ "$str1" \> "$str2" ]; then
+    echo "$str1 is greater than $str2"
+elif [ "$str1" \< "$str2" ]; then
+    echo "$str1 is smaller than $str2"
+else
+    echo "Both are equal"
+fi
