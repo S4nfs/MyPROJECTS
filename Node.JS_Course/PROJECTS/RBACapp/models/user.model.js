@@ -44,7 +44,7 @@ UserSchema.methods.isvalidPassword = async function (password) {
     try {
         return await bcrypt.compare(password, this.password);
     } catch (error) {
-        throw creteHttpError.InternalServerError(error.message);
+        throw createHttpError.InternalServerError(error.message);
     }
 }
 module.exports = mongoose.model('user', UserSchema);
