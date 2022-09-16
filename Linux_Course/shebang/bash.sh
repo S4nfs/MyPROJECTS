@@ -159,3 +159,11 @@ elif [ "$str1" \< "$str2" ]; then
 else
     echo "Both are equal"
 fi
+
+#🐹 UpperCase & LowerCase---------------------------------------------------------------------------------------------------------
+st=sAgaR
+echo ${st,}           #first letter lowercase
+echo ${st,,}          #all lowercase
+echo ${st^}           #first letter uppercase
+echo ${st^^}          #all uppercase
+echo "${st^^[aeiou]}" #uppercase the following letters only
