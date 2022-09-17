@@ -68,7 +68,7 @@ Note:(this) object will not work wth fat arrow function
 // //vice-versa
 // const arrObj = Object.entries(person);
 // console.log(Object.fromEntries(arrObj));
-   
+
 
 //✔️ Check property value using hasOwnProperty method - iterate
 // var obj = {
@@ -87,70 +87,87 @@ Note:(this) object will not work wth fat arrow function
 
 //✔️ The every method is also used to validate all properties(keys) just like hasOwnProperty method - iterate
 let users = {
-    Alan: {
-      age: 27,
-      online: true
-    },
-    Jeff: {
-      age: 32,
-      online: true
-    },
-    Sarah: {
-      age: 48,
-      online: true
-    },
-    Ryan: {
-      age: 19,
-      online: true
-    }
-  };
-  function isEveryoneHere(userObj) {
-    return ["Alan", "Jeff", "Sarah", "Ryan"].every(name =>
-      userObj.hasOwnProperty(name)
-    );
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
   }
+};
+function isEveryoneHere(userObj) {
+  return ["Alan", "Jeff", "Sarah", "Ryan"].every(name =>
+    userObj.hasOwnProperty(name)
+  );
+}
 console.log(isEveryoneHere(users));
 
 
 //✔️ Iterate over all the keys in the users object using For...In
-const users = {
-    Alan: {
-      online: false
-    },
-    Jeff: {
-      online: true
-    },
-    Sarah: {
-      online: false
-    }
+const userz = {
+  Alan: {
+    online: false
+  },
+  Jeff: {
+    online: true
+  },
+  Sarah: {
+    online: false
   }
-  function countOnline(usersObj) {
-    for (let user in usersObj) {
-        return(usersObj[user])
-    }
+}
+function countOnline(usersObj) {
+  for (let user in usersObj) {
+    return (usersObj[user])
   }
-  console.log(countOnline(users));
+}
+console.log(countOnline(userz));
 
 //✔️ Object.keys() method returns an array of a given object's own properties.
-  let users = {
-    Alan: {
-      age: 27,
-      online: false
-    },
-    Jeff: {
-      age: 32,
-      online: true
-    },
-    Sarah: {
-      age: 48,
-      online: false
-    },
-    Ryan: {
-      age: 19,
-      online: true
-    }
-  };
-  function getArrayOfUsers(obj) {
-    return Object.keys(obj); //return an array of keys
+let usersAll = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
   }
-  console.log(getArrayOfUsers(users));
+};
+function getArrayOfUsers(obj) {
+  return Object.keys(obj); //return an array of keys
+}
+console.log(getArrayOfUsers(usersAll));
+
+//✔️ Object.assign() method assigns one object to another
+const pikachu = { name: 'Pikachu 🐹' };
+const stats = { hp: 40, attack: 650, defense: 80 }
+
+// pikachu['hp'] = stats.hp;   //❌ bad way
+// pikachu['attack'] = stats.attack;
+// pikachu['defense'] = stats.defense;
+// console.log(pikachu)
+
+const iChooseYouPikachu = Object.assign(pikachu, stats);
+console.log(iChooseYouPikachu);
+
+const goPikachu = { ...pikachu, ...stats };
+console.log(goPikachu);
+
+
