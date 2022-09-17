@@ -409,6 +409,7 @@ function letsSearch(array, val) {
   }
   return false;
 }
+
 //time complexity linear o(n)
 console.log(letsSearch(users, 'ajay'));
 
@@ -428,6 +429,7 @@ function bubbleSort(array) {
   }
   return array;
 }
+
 console.log(bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]));
 
 //==============================================================================================================================
@@ -465,6 +467,7 @@ function SelectionSort(array) {
   }
   return array;
 }
+
 console.log(SelectionSort([0, 2, 34, 22, 10, 19]))
 
 //==============================================================================================================================
@@ -509,6 +512,7 @@ const maxCharacters = (str) => {
   }
   return letter;
 }
+
 console.log(maxCharacters("Hello World"));
 
 //==============================================================================================================================
@@ -519,7 +523,6 @@ Output: 3
 //==============================================================================================================================
 
 const lengthOfLongestSubstring = (str) => {
-
   //Sliding window
   if (!str) {
     return 0;
@@ -600,7 +603,6 @@ const isValid = (s) => {
       return false;
     }
   }
-
   return stack.length === 0;
 };
 

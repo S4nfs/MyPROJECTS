@@ -5,6 +5,7 @@ indexOf(searchvalue)            : Returns the index of the first occurrence in t
 lastIndexOf() method -          : Returns the index of the last occurrence in the string or -1 if not found
 replace()                       : Replaces a specified value with another value in a string:
 concat()                        : The concat() method can be used instead of the plus operator
+includes()                      : Returns true if a string contains a specified value.
 */
 
 //✔️slice() method - Extract the part of string and return that part in a new string (0, -2)
@@ -48,4 +49,8 @@ let txt = "I am Sagar Verma";
 console.log(txt.replace("Sagar", "Ajay"));  //To replace all matches, use rgx /Sagar/g flag (global match):
 
 //✔️concat() - The concat() method can be used instead of the plus operator
-console.log("Hello".concat(" ", "World!")); 
+console.log("Hello".concat(" ", "World!"));
+
+//✔️includes() - Returns true if a string contains a specified value.
+let t = "Hello world, welcome to the universe.";
+console.log(text.includes("world"));
