@@ -167,3 +167,29 @@ echo ${st,,}          #all lowercase
 echo ${st^}           #first letter uppercase
 echo ${st^^}          #all uppercase
 echo "${st^^[aeiou]}" #uppercase the following letters only
+
+#🐹 Airthematic Operations---------------------------------------------------------------------------------------------------------
+n1=20
+n2=10
+echo $((n1 + n2))
+echo $((n1 - n2))
+echo $((n1 * n2))
+echo $((n1 / n2))
+echo $((n1 % n2))
+
+#🐹 Arrays--------------------------------------------------------------------------------------------------------------------------
+car=('BMWm3' 'RangeRover' 'Mazda' 'FordFocus')
+echo "${car[@]}"  #get all elements
+echo "${car[2]}"  #get element by index
+echo "${!car[@]}" #indexes 0,1,2,3
+echo "${#car[@]}" #total indexes 4
+unset "car[2]"    #remove element
+car[2]="Tesla"    #add element
+echo "${car[@]}"  #get all elements
+
+#🐹 Functions-----------------------------------------------------------------------------------------------------------------------
+function printArgs() {
+    echo $1 $2 $3 $4 #number-wise
+}
+
+printArgs We are your arguments
