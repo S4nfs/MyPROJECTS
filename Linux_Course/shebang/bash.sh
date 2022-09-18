@@ -112,7 +112,7 @@ helpFunction() {
     exit 1 # Exit script after printing help
 }
 
-while getopts u:a:p: myFlag; do
+while getopts u:a:p: myflag; do
     case "${myflag}" in
     u) username=${OPTARG} ;;
     a) age=${OPTARG} ;;
@@ -129,13 +129,6 @@ fi
 echo "Username: $username" #./bash.sh -u Sagar -a 23 -p Software Engineer
 echo "Age: $age"
 echo "Profession: $profession"
-
-#🐹 File system---------------------------------------------------------------------------------------------------------------------
-
-cat >file.txt  #replace
-cat >>file.txt #append
-
-cat
 
 #🐹 Stdout and Stdin---------------------------------------------------------------------------------------------------------------------
 # 0 = Stdin
@@ -193,3 +186,40 @@ function printArgs() {
 }
 
 printArgs We are your arguments
+
+#🐹 File system---------------------------------------------------------------------------------------------------------------------
+
+mkdir -p goku.sh #create directory with -p to avoid stderr if dir already exists
+
+echo "Enter Directory name" #check directory existence using -d flag and file using -f
+read -r input
+if [[ -d "$input" ]]; then
+    echo "directory exists"
+else
+    echo "not exists"
+fi
+
+echo "Enter file name" #append in file
+read -r fileName
+if [[ -f "$fileName" ]]; then
+    echo "Enter text u want to append"
+    read filetxt
+    echo "$filetxt" >>$fileName
+else
+    echo "$fileName doesn't exists"
+fi
+
+echo "Enter file name" #read from file line-by-line. IFS stands for Internal Field Separator By default, space, tab, and newline are considered as field separators but you can change it in your script as per your need
+read -r fileName
+if [[ -f "$fileName" ]]; then
+    while IFS= read -r mylines; do
+        echo "$mylines"
+    done <"$fileName"
+else
+    echo "$fileName doesn't exists"
+fi
+
+cat >file.txt  #replace
+cat >>file.txt #append
+
+cat
