@@ -1,4 +1,6 @@
-/*✔️All string methods return a new string they don't modify the original string. Strings are immutable and can only be replaced
+/*✔️All string methods return a new string they don't modify the original string. Strings are immutable and can only be replaced Because
+once a String object is assigned to String reference the object value cannot be changed.
+
 slice(start,end)                : Extract the part of string and return that part in a new string (0, -2)
 substring(start,end)            : Same as slice but you can't specify nagative index at the end parameter (0, 4) or it will swap the values autmatically
 indexOf(searchvalue)            : Returns the index of the first occurrence in the string or -1 if not found
