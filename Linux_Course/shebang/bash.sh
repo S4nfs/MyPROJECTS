@@ -106,7 +106,7 @@ done
 helpFunction() {
     echo ""
     echo "Usage: $0 -a parameterA -b parameterB -c parameterC"
-    echo -e "\t-a Enter your name"
+    echo -e "\t-u Enter your username"
     echo -e "\t-a Enter your age"
     echo -e "\t-p Enter your profession"
     exit 1 # Exit script after printing help
@@ -219,7 +219,83 @@ else
     echo "$fileName doesn't exists"
 fi
 
-cat >file.txt  #replace
-cat >>file.txt #append
+#🐹 case---------------------------------------------------------------------------------------------------------------------
 
-cat
+select car in BMW Tesla Mercedes Hundai Tata; do
+    case $car in
+    BMW)
+        echo "test drive BMW"
+        ;;
+    Tesla)
+        echo "test drive Tesla"
+        ;;
+    Mercedes)
+        echo "test drive Mercedes"
+        ;;
+    Hundai)
+        echo "test drive Hundai"
+        ;;
+    Tata)
+        echo "test drive Tata"
+        ;;
+    *)
+        echo "Error! Please select"
+        ;;
+    esac
+done
+
+#🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹------------------Some Bash Script Examples------------------🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹
+
+#Below it's an approach to detect Debian and RedHat based Linux OS making use of the /etc/lsb-release and /etc/os-release (depending on the Linux flavor you're using) and take a simple action based on it.
+set -e
+
+YUM_PACKAGE_NAME="python python-devl python-pip openssl-devel"
+DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
+
+if cat /etc/*release | grep ^NAME | grep CentOS; then
+    echo "==============================================="
+    echo "Installing packages $YUM_PACKAGE_NAME on CentOS"
+    echo "==============================================="
+    yum install -y $YUM_PACKAGE_NAME
+elif cat /etc/*release | grep ^NAME | grep Red; then
+    echo "==============================================="
+    echo "Installing packages $YUM_PACKAGE_NAME on RedHat"
+    echo "==============================================="
+    yum install -y $YUM_PACKAGE_NAME
+elif cat /etc/*release | grep ^NAME | grep Fedora; then
+    echo "================================================"
+    echo "Installing packages $YUM_PACKAGE_NAME on Fedorea"
+    echo "================================================"
+    yum install -y $YUM_PACKAGE_NAME
+elif cat /etc/*release | grep ^NAME | grep Ubuntu; then
+    echo "==============================================="
+    echo "Installing packages $DEB_PACKAGE_NAME on Ubuntu"
+    echo "==============================================="
+    apt-get update
+    apt-get install -y $DEB_PACKAGE_NAME
+elif cat /etc/*release | grep ^NAME | grep Debian; then
+    echo "==============================================="
+    echo "Installing packages $DEB_PACKAGE_NAME on Debian"
+    echo "==============================================="
+    apt-get update
+    apt-get install -y $DEB_PACKAGE_NAME
+elif cat /etc/*release | grep ^NAME | grep Mint; then
+    echo "============================================="
+    echo "Installing packages $DEB_PACKAGE_NAME on Mint"
+    echo "============================================="
+    apt-get update
+    apt-get install -y $DEB_PACKAGE_NAME
+elif cat /etc/*release | grep ^NAME | grep Knoppix; then
+    echo "================================================="
+    echo "Installing packages $DEB_PACKAGE_NAME on Kanoppix"
+    echo "================================================="
+    apt-get update
+    apt-get install -y $DEB_PACKAGE_NAME
+else
+    echo "OS NOT DETECTED, couldn't install package $PACKAGE"
+    exit 1
+fi
+
+exit 0
+
+#--------------------------------------------------------------------------------------------------------------------------------------
