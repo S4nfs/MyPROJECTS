@@ -641,7 +641,5 @@ const putIn = (array, element, index) => {
   }
   return array;
 }
-let arr = [20, 55, 46, 2, 90, 44];
-let element = 22;
-let index = 2
+let arr = [20, 55, 46, 2, 90, 44], element = 22, index = 2;
 console.log(putIn(arr, element, index))
