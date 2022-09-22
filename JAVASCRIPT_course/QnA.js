@@ -622,3 +622,26 @@ const appleFizz = () => {
   }
 }
 appleFizz();
+
+//==============================================================================================================================
+/* Q.25 Insert new element in an array
+Input: [20,55,46,2,90,44]
+Output: [20,55,22,46,2,90,44]
+*/
+//==============================================================================================================================
+
+const putIn = (array, element, index) => {
+  for (let i = array.length - 1; i >= 0; i -= 1) {
+    if (i >= index) {
+      array[i + 1] = array[i];
+      if (i == index) {
+        array[i] = element;
+      }
+    }
+  }
+  return array;
+}
+let arr = [20, 55, 46, 2, 90, 44];
+let element = 22;
+let index = 2
+console.log(putIn(arr, element, index))
