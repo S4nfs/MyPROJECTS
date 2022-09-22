@@ -244,6 +244,11 @@ select car in BMW Tesla Mercedes Hundai Tata; do
     esac
 done
 
+#🐹 Difference b/w OR(||) and pipe (|)------------------------------------------------------------------------------------------------
+#Putting this double pipe || between two commands will try to run the first command. If running the first command is unsuccessful, it will go for the second one.
+
+#Putting this single pipe | is also known as pipe in Bash. It is used when the output of the first command works as an input of the second command.
+
 #🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹------------------Some Bash Script Examples------------------🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹🐹
 
 #Below it's an approach to detect Debian and RedHat based Linux OS making use of the /etc/lsb-release and /etc/os-release (depending on the Linux flavor you're using) and take a simple action based on it.
@@ -264,7 +269,7 @@ elif cat /etc/*release | grep ^NAME | grep Red; then
     yum install -y $YUM_PACKAGE_NAME
 elif cat /etc/*release | grep ^NAME | grep Fedora; then
     echo "================================================"
-    echo "Installing packages $YUM_PACKAGE_NAME on Fedorea"
+    echo "Installing packages $YUM_PACKAGE_NAME on Fedora"
     echo "================================================"
     yum install -y $YUM_PACKAGE_NAME
 elif cat /etc/*release | grep ^NAME | grep Ubuntu; then
@@ -298,4 +303,27 @@ fi
 
 exit 0
 
-#--------------------------------------------------------------------------------------------------------------------------------------
+#OR
+if type lsb_release >/dev/null 2>&1; then
+    distro=$(lsb_release -i -s)
+elif [ -e /etc/os-release ]; then
+    distro=$(awk -F= '$1 == "ID" {print $2}' /etc/os-release)
+elif [ -e /etc/some-other-release-file ]; then
+    distro=$(unknown)
+fi
+
+# convert to lowercase
+distro=$(printf '%s\n' "$distro" | LC_ALL=C tr '[:upper:]' '[:lower:]' | sed -r 's/^"|"$//g')
+
+# now do different things depending on distro
+case "$distro" in
+debian*) commands-for-debian ;;
+centos*) commands-for-centos ;;
+ubuntu*) commands-for-ubuntu ;;
+mint*) commands-for-mint ;;
+rhel*) commands-for-rhel ;;
+?)
+    echo "unknown distro: '$distro'"
+    exit 1
+    ;;
+esac
