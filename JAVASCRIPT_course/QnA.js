@@ -1,3 +1,5 @@
+//Welcome to my 100+ DSA question series. ⚠️Avoid using javascript pre-defined functions as much as possible becoz Data Structure is all about learning the core functionalities of any given language. 
+
 //==============================================================================================================================
 /* Q1: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 Input: nums = [2,5,5,11], target = 10
@@ -643,3 +645,19 @@ const putIn = (array, element, index) => {
 }
 let arr = [20, 55, 46, 2, 90, 44], element = 22, index = 2;
 console.log(putIn(arr, element, index))
+
+//==============================================================================================================================
+/* Q.26 Delete element in an array
+Input: [20,55,46,2,90,44]
+Output: [20,55,2,90,44]
+*/
+//==============================================================================================================================
+
+const delElem = (array) => {
+  for (let i = 2; i < array.length; i += 1) {
+    array[i] = array[i + 1];
+  }
+  array.length = array.length - 1; //avoid undefined
+  return array;
+}
+console.log(delElem([20, 55, 46, 2, 90, 44]))
