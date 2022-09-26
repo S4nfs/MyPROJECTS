@@ -5,11 +5,17 @@ import { Header } from './components/Header';
 import CHeader from './components/ClassHeader';
 import Channel from './components/Channel';
 
+//without jsx
+const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
+
+//function App is itself an example of JSX format 😊
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        {withoutJSXformat}
+
         {/* Functional component */}
         <Header name="Sagar" />
         <p>He is a full stack engineer </p>
