@@ -135,8 +135,8 @@ echo "Profession: $profession"
 # 1 = Stdout
 # 2 = Stderr
 
-ls -al 1>fileOut.txt 2>fileErr.txt #redirecting stdout and stdin in different files
-ls -al >logs.txt 2>&1              #redirecting stdout and stdin in same file
+ls -al 1>fileOut.txt 2>fileErr.txt #redirecting stdout and stderr in different files
+ls -al >logs.txt 2>&1              #redirecting the stderr to the same place we are redirecting the stdout
 
 #🐹 Strings---------------------------------------------------------------------------------------------------------------------
 #compare strings
