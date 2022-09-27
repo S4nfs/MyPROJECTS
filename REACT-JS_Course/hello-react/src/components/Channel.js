@@ -9,12 +9,12 @@ class Channel extends React.Component {
     }
 
     //create new state for eventlistener method playReactPodcast
-    playReactPodcast(){
+    playReactPodcast() {
         this.setState({
             msg: 'Now playing...'
         })
     }
-    
+
     render() {
         return (
             <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Header = (props) => {
+export const Header = (props) => { //function name should match with the filename
     console.log(props)
     return (
         <div>
