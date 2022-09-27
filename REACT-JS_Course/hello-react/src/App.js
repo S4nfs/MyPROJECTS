@@ -5,7 +5,7 @@ import { Header } from './components/Header';
 import CHeader from './components/ClassHeader';
 import Channel from './components/Channel';
 import FunctionClick from './components/FunctionClick';
-import CFunctionClick from './components/CFunctionClick';
+import CFunctionClick from './components/ClassFunctionClick';
 //without jsx
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
 
@@ -28,7 +28,7 @@ function App() {
         <CHeader name="ClassSanju" />
         <Channel />
         <FunctionClick />
-        <CFunctionClick />
+        <CFunctionClick roll="22" />
 
         <a
           className="App-link"
