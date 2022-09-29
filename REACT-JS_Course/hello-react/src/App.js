@@ -6,11 +6,13 @@ import CHeader from './components/ClassHeader';
 import Channel from './components/Channel';
 import FunctionClick from './components/FunctionClick';
 import CFunctionClick from './components/ClassFunctionClick';
+import StateWithList from './components/StateWithList';
 //without jsx
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
 
 //function App is itself an example of JSX format 😊
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
@@ -29,6 +31,7 @@ function App() {
         <Channel />
         <FunctionClick />
         <CFunctionClick roll="22" />
+        <StateWithList />
 
         <a
           className="App-link"

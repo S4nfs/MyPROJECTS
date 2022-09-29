@@ -16,7 +16,7 @@ export class CFunctionClick extends Component {
         //list
         const listNum = [3, 4, 5, 6]
         const showList = listNum.map((listNum) => {
-            return <li>{listNum}</li>
+            return <li key={listNum}>{listNum}</li>
         })
         return (
             <React.Fragment>
