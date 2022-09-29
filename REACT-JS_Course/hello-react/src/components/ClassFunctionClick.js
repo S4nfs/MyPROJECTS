@@ -13,11 +13,18 @@ export class CFunctionClick extends Component {
     }
 
     render() {
+        //list
+        const listNum = [3, 4, 5, 6]
+        const showList = listNum.map((listNum) => {
+            return <li>{listNum}</li>
+        })
         return (
-            <div>
+            <React.Fragment>
                 <button onClick={this.clickme}>Click me ! I am a Class event listener</button>
                 {this.props.roll}
-            </div>
+
+                <ul>{showList}</ul>
+            </React.Fragment>
         )
     }
 }
