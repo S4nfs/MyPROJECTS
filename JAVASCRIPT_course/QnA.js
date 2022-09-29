@@ -1,4 +1,18 @@
-//Welcome to my 100+ DSA question series. ⚠️Avoid using javascript pre-defined functions as much as possible becoz Data Structure is all about learning the core functionalities of any given language. 
+/*Welcome to my 100+ DSA question series. ⚠️Avoid using javascript pre-defined functions as much as possible becoz Data Structure is all about learning the core functionalities of any given language.
+
+Algorithm is basically the steps to do anything
+-Time Complexity - is mainly calculated by counting the number of steps to finish the execution
+
+f(n) = 5n^2 + 6n + 12
+       5(10)^2 + 6(10) + 12
+       500 + 60 + 12
+       572
+       500 time complexity
+
+-Space Complexity - is the amount of space required to solve a problem
+Big O Notation - Use to denote complexity
+*/
+
 
 //==============================================================================================================================
 /* Q1: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
