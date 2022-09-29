@@ -56,6 +56,7 @@ splice(indextochange, howmany, additem1...2..) - return a part of an array and o
 slice(indextochange, untillement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
 sort()      - sorts the elements as strings in alphabetical and ascending order with modified original array
 split()     - splits a string into an array of substrings
+concat()    - merge two arrays
 */
 
 
@@ -169,8 +170,11 @@ console.log(newNumbers);
 let text = "How are you doing today?"; //it take string as value
 const myArray = text.split(" ", 3);
 
-
-
+//✔️ concat() - merge two arrays
+const arr1 = ["Cecilie", "Lone"];
+const arr2 = ["Emil", "Tobias", "Linus"];
+const arr3 = ["Robin"];
+const children = arr1.concat(arr2, arr3);
 
 
 /* ✔️EXERCISE:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
