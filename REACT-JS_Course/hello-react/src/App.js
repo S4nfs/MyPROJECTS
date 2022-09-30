@@ -8,7 +8,10 @@ import FunctionClick from './components/FunctionClick';
 import CFunctionClick from './components/ClassFunctionClick';
 import StateWithList from './components/StateWithList';
 import Stylesheet from './components/Stylesheet';
-//without jsx
+import styles from './waiting.module.css';  //css module (important filename)
+import Form from './components/Form';
+
+//without jsx 
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
 
 //function App is itself an example of JSX format 😊
@@ -35,6 +38,8 @@ function App() {
         <StateWithList />
         <Stylesheet />
 
+        <h2 className={styles.wait}>Waiting .. Done</h2>
+        <Form />
         <a
           className="App-link"
           href="https://reactjs.org"
