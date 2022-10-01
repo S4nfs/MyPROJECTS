@@ -8,8 +8,9 @@ import FunctionClick from './components/FunctionClick';
 import CFunctionClick from './components/ClassFunctionClick';
 import StateWithList from './components/StateWithList';
 import Stylesheet from './components/Stylesheet';
-import styles from './waiting.module.css';  //css module (important filename)
+import styles from './components/waiting.module.css';  //css module (important filename)
 import Form from './components/Form';
+import Routing from './components/Routing';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
@@ -37,7 +38,7 @@ function App() {
         <CFunctionClick roll="22" />
         <StateWithList />
         <Stylesheet />
-
+        <Routing />
         <h2 className={styles.wait}>Waiting .. Done</h2>
         <Form />
         <a
