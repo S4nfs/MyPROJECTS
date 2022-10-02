@@ -12,6 +12,9 @@ import styles from './components/waiting.module.css';  //css module (important f
 import Form from './components/Form';
 import Routing from './components/Routing';
 import LifeCycleA from './components/LifeCycleA';
+import ProductA from './components/ProductA';
+import ProductB from './components/ProductB';
+import PostAxios from './components/PostAxios';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
@@ -43,6 +46,11 @@ function App() {
         <h2 className={styles.wait}>Waiting .. Done</h2>
         <Form />
         <LifeCycleA />
+        <ProductA />
+        <ProductB />
+        <PostAxios />
+
+
         <a
           className="App-link"
           href="https://reactjs.org"
