@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-export class PostAxios extends Component {
+export class GetAxios extends Component {
     constructor(props) {
         super(props)
 
@@ -26,7 +26,7 @@ export class PostAxios extends Component {
     render() {
         const { post, error } = this.state
         return (
-            <div>Get/Post using Axios
+            <div>GET using Axios
                 {
                     post.length ? post.map(posts => <div key={posts.id}> {posts.title} </div>) : null
                 }
@@ -38,4 +38,4 @@ export class PostAxios extends Component {
     }
 }
 
-export default PostAxios
+export default GetAxios
