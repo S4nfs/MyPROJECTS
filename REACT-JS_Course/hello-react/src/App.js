@@ -14,7 +14,10 @@ import Routing from './components/Routing';
 import LifeCycleA from './components/LifeCycleA';
 import ProductA from './components/ProductA';
 import ProductB from './components/ProductB';
-import PostAxios from './components/PostAxios';
+import GetAxios from './components/AxiosPost';
+import PostAxios from './components/AxiosGet';
+import HookUseState from './components/HookUseState';
+import HookUseEffect from './components/HookUseEffect';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
@@ -48,8 +51,10 @@ function App() {
         <LifeCycleA />
         <ProductA />
         <ProductB />
+        <GetAxios />
         <PostAxios />
-
+        <HookUseState />
+        <HookUseEffect />
 
         <a
           className="App-link"
