@@ -18,6 +18,13 @@ import GetAxios from './components/AxiosPost';
 import PostAxios from './components/AxiosGet';
 import HookUseState from './components/HookUseState';
 import HookUseEffect from './components/HookUseEffect';
+import HookObject from './components/HookObject';
+import HookArray from './components/HookArray';
+import MouseClass from './components/MouseClass';
+import MouseFunction from './components/MouseFunction';
+import AContextApi from './components/AContextApi';
+import BContextApi from './components/BContextApi';
+import CContextApi from './components/CContextApi';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
@@ -55,7 +62,13 @@ function App() {
         <PostAxios />
         <HookUseState />
         <HookUseEffect />
-
+        <HookObject />
+        <HookArray />
+        <MouseClass />
+        <MouseFunction />
+        <AContextApi />
+        <BContextApi />
+        {/* <CContextApi /> */}
         <a
           className="App-link"
           href="https://reactjs.org"
