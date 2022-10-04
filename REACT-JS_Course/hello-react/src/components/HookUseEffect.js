@@ -21,17 +21,18 @@ function HookUseEffect() {
         addinvestors(investors + 1)
     }
     const Decrement = () => {
+        console.log(founders)                           //u'll see previous values
         addfounders(founders - 1)
     }
 
     const ShareIncr = () => {
         for (let i = 0; i < 10; i++) {
-            termsheet(shareprice => shareprice + 1) //useState with previous state a.k.a retain values and increment by 10
+            termsheet(shareprice => shareprice + 1)     //useState with previous state a.k.a retain values and increment by 10
         }
     }
 
-    useEffect(() => {                                   //useEffect is similer to componentDidUpdate as it renders 
-        console.log("Hit")
+    useEffect(() => {                                   //useEffect is similer to componentDidUpdate as it renders the updated
+        console.log(`Founders has been changed to ${founders}`)
     }, [founders])                                     //you might not want to run the effect on every change taking place in DOM, so array parameter tells which component you want to hit after update, empty array == componentDidMount
 
     return (
