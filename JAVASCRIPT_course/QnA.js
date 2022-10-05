@@ -97,6 +97,70 @@ function reverseString(str) {
 }
 console.log(reverseString("hello"));
 
+//using stack
+let data = [];
+let currentSize = data.length
+function push(newVal) {
+  data[currentSize] = newVal;
+  currentSize += 1;
+}
+
+function pop() {
+  lastremovedItm = data[currentSize - 1]
+  currentSize -= 1;
+  data.length = currentSize;
+  return lastremovedItm
+}
+
+function reverseStr(item) {
+  for (let i = 0; i < item.length; i++) {
+    push(item[i])
+  }
+  for (let i = 0; i < item.length; i++) {
+    item[i] = pop()
+  }
+}
+let str = "Sagar";
+str = str.split("")
+reverseStr(str);
+console.log(str.join(""))
+
+//more optimised way
+/*here, time complexity of the algorithm is O(n), and the space complexity is also O(n) because we are accessing each character of the string, and pushing it on the stack. After this, we again pop each character from the stack and create the reversed string [O(n) + O(n) = O(n)].
+*/
+class Stack {
+
+  constructor() {
+    this.elements = [];
+  }
+  push(element) {
+    this.elements.push(element);
+  }
+  pop() {
+    if (this.elements.length === 0) return "Underflow Situation"
+    else return this.elements.pop();
+  }
+  isEmpty() {
+    if (this.elements.length > 0) return false;
+    else return true;
+  }
+}
+function reverse(str) {
+  let stack = new Stack()
+
+  let i = 0, result = "";
+  while (i !== str.length) {
+    stack.push(str.charAt(i));
+    i++
+  }
+  while (!stack.isEmpty()) {
+    result += stack.pop()
+  }
+  return result
+}
+console.log(reverse("Sagar"))
+
+
 //==============================================================================================================================
 /* Q5. Return Largest Numbers in Arrays */
 //==============================================================================================================================
