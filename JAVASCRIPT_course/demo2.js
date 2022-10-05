@@ -31,20 +31,21 @@ class Stack {
         if (this.elements.length > 0) return false;
         else return true;
     }
-}
-function reverse(str) {
-    let stack = new Stack()
+    reverse(str) {
 
-    let i = 0, result = "";
-    while (i !== str.length) {
-        stack.push(str.charAt(i));
-        i++
+        let i = 0, result = "";
+        while (i !== str.length) {
+            this.push(str.charAt(i));
+            i++
+        }
+        while (!this.isEmpty()) {
+            result += this.pop()
+        }
+        return result
     }
-    while (!stack.isEmpty()) {
-        result += stack.pop()
-    }
-    return result
 }
 
 
-console.log(reverse("Sagar"))
+let stack = new Stack()
+
+console.log(stack.reverse("Sagar"))
