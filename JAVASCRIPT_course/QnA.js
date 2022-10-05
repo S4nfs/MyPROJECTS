@@ -571,7 +571,7 @@ const insertionSort = (array) => {
 console.log(insertionSort([8, 2, 4, 1, 3]));
 
 //==============================================================================================================================
-/* Q.20 Find the maximum occurence characters in a string
+/* Q.21 Find the maximum occurence characters in a string
 */
 //==============================================================================================================================
 
@@ -596,7 +596,7 @@ const maxCharacters = (str) => {
 console.log(maxCharacters("Hello World"));
 
 //==============================================================================================================================
-/* Q.21 Longest Substring without repeating characters
+/* Q.22 Longest Substring without repeating characters
 Input: str = "pwwkew"
 Output: 3
 */
@@ -629,7 +629,7 @@ console.log(lengthOfLongestSubstring("pwwkew"));
 
 
 //==============================================================================================================================
-/* Q.22 Remove all even integers from an arrays
+/* Q.23 Remove all even integers from an arrays
 Input: [4, 1, 9, 10, 15, 22, 5, 14]
 Output: [4, 10, 22, 14]
 */
@@ -656,7 +656,7 @@ console.log(removeEvenRaw([4, 1, 9, 10, 15, 22, 5, 14]));
 
 
 //==============================================================================================================================
-/* Q.23 Valid Parentheses
+/* Q.24 Valid Parentheses
 Input: s = "()[]{}"
 Output: true
 
@@ -689,7 +689,7 @@ const isValid = (s) => {
 console.log(isValid("()[]{}"))
 
 //==============================================================================================================================
-/* Q.24 FizzBuzz Challenge
+/* Q.25 FizzBuzz Challenge
 Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5.
 */
 //==============================================================================================================================
@@ -704,7 +704,7 @@ const appleFizz = () => {
 appleFizz();
 
 //==============================================================================================================================
-/* Q.25 Insert new element in an array
+/* Q.26 Insert new element in an array
 Input: [20,55,46,2,90,44]
 Output: [20,55,22,46,2,90,44]
 */
@@ -725,7 +725,7 @@ let arr = [20, 55, 46, 2, 90, 44], element = 22, index = 2;
 console.log(putIn(arr, element, index))
 
 //==============================================================================================================================
-/* Q.26 Delete element in an array
+/* Q.27 Delete element in an array
 Input: [20,55,46,2,90,44]
 Output: [20,55,2,90,44]
 */
@@ -741,7 +741,7 @@ const delElem = (array) => {
 console.log(delElem([20, 55, 46, 2, 90, 44]))
 
 //==============================================================================================================================
-/* Q.27 Merge two arrays
+/* Q.28 Merge two arrays
 Input: [20,55,46,2,90,44], [98,55,3,14,20,36,88]
 Output: [20,55,46,2,90,44,98,55,3,14,20,36,88]
 */
