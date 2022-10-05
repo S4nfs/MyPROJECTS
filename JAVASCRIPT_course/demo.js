@@ -1,22 +1,28 @@
-const isValid = (s) => {
-  const stack = [];
+let data = [];
+let currentSize = data.length
+function push(newVal) {
+  data[currentSize] = newVal;
+  currentSize += 1;
+}
 
-  for (let i = 0; i < s.length; i += 1) {
-    const top = stack[stack.length - 1];
-    if (s[i] === '(' || s[i] === '{' || s[i] === '[') {
-      stack.push(s[i]);
-    } else if (s[i] === ')' && top === '(' && stack.length !== 0) {
-      stack.pop();
-    } else if (s[i] === ']' && top === '[' && stack.length !== 0) {
-      stack.pop();
-    } else if (s[i] === '}' && top === '{' && stack.length !== 0) {
-      stack.pop();
-    } else {
-      return false;
-    }
+function pop() {
+  lastremovedItm = data[currentSize - 1]
+  currentSize -= 1;
+  data.length = currentSize;
+  return lastremovedItm
+}
+
+function reverseStr(item) {
+  for (let i = 0; i < item.length; i++) {
+    push(item[i])
   }
+  for (let i = 0; i < item.length; i++) {
+    item[i] = pop()
+  }
+}
+let str = "Sagar";
+str = str.split("")
+reverseStr(str);
+console.log(str.join(""))
 
-  return stack.length === 0;
-};
 
-console.log(isValid("(]"))
