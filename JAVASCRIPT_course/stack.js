@@ -1,5 +1,7 @@
-// The stack is a data structure that follows Last In First Out (LIFO) principle
-
+/* The stack is a data structure that follows Last In First Out (LIFO) principle
+1. Linear Data Structure: Stack, Queue, Array
+2. Non - Linear Data Structure: Tree, Graph,
+*/
 class Stack {
     constructor() {
         this.items = [];
