@@ -25,6 +25,10 @@ import MouseFunction from './components/MouseFunction';
 import AContextApi from './components/AContextApi';
 import BContextApi from './components/BContextApi';
 import CContextApi from './components/CContextApi';
+import PersonA from './components/PersonA';
+import PersonB from './components/PersonB';
+import Test from './components/Test';
+import FunctionContextA from './components/FunctionContextA';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
@@ -55,20 +59,30 @@ function App() {
         <Routing />
         <h2 className={styles.wait}>Waiting .. Done</h2>
         <Form />
+
         <LifeCycleA />
         <ProductA />
         <ProductB />
+
         <GetAxios />
         <PostAxios />
+
         <HookUseState />
         <HookUseEffect />
         <HookObject />
         <HookArray />
+
         <MouseClass />
         <MouseFunction />
-        <AContextApi />
-        <BContextApi />
+
+        {/* <AContextApi /> */}
+        {/* <BContextApi /> */}
         {/* <CContextApi /> */}
+
+        <FunctionContextA />
+        <PersonA />
+        <PersonB />
+        <Test />
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -78,7 +92,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </div >
   );
 }
 
