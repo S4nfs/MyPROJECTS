@@ -354,7 +354,7 @@ Output: 6
 */
 //==============================================================================================================================
 
-/* Working: Divide and conquer technique
+/* Working: Divide and conquer technique / Iterative approach
 min=0;         max=array.length-1
 midIndex=(min+max)/2 => (0+14)/2 => 7(index)
 if(array[midIndex] < num(7))
