@@ -279,7 +279,7 @@ function isAnagram(string1, string2) {
   }
   let counter = {};
   for (let letter of string1) {
-    counter[letter] = (counter[letter] || 0) + 1;
+    counter[letter] = (counter[letter] || 0) + 1; //if undefined/0 increment
     console.log(counter[letter]);
   }
   for (let items of string2) {
@@ -551,7 +551,7 @@ function SelectionSort(array) {
 console.log(SelectionSort([0, 2, 34, 22, 10, 19]))
 
 //==============================================================================================================================
-/* Q.20 Insertion Sort -
+/* Q.20 Insertion Sort - VIP 2nd element, Assume first element is sorted 
 */
 //==============================================================================================================================
 const insertionSort = (array) => {
