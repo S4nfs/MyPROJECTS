@@ -47,7 +47,7 @@ map()       - It applies a given function on all the elements of the array and r
 reduce()    - It reduces the array to a single value
 filter()    - It filters the array based on the condition provided
 indexOf()   - It returns the index of the first occurrence of the given element
-find()      - It returns the value of the first occurrence of the given element
+find()      - It returns the value of the first element that passes a test function
 pop()       - removes the last element of an array and returns it
 push()      - adds one or more elements to the end of an array and returns the new length of the array
 shift()     - removes the first element of an array and returns it
@@ -57,6 +57,11 @@ slice(indextochange, untillement/❗not start from substring starts from beginni
 sort()      - sorts the elements as strings in alphabetical and ascending order with modified original array
 split()     - splits a string into an array of substrings
 concat()    - merge two arrays
+every()     - checks if all array values pass a test
+some()      - checks if some array values pass a test
+keys()      - returns an Array Iterator object with the keys of an array
+entries()   - returns an Array Iterator object with key/value pairs
+
 */
 
 
@@ -86,16 +91,22 @@ console.log(newPriceTag);
 // ✔️ Searching $ Filter in an arrays -------------------------------------------------------------------------------------------
 var myFriendz = ["Sagar", "Pratik", "Anjali", "Pratham", "Devendra"];
 console.log(myFriendz.indexOf("Pratham"));            //indexof() = returns index position CASE-SENSITIVE if found else -1
-console.log(myFriendz.includes("Pratham"));           //incudes() = check if the element exists and returns true
+console.log(myFriendz.includes("Pratham"));           //incudes() = check if the element exists(including NaN, unlike indexOf) and returns true
 
 
-//✔️ find() - returns the first element of the array that satisfies the provided testing function-------------------------------
+//✔️ find() - It returns the value of the first element *that passes a test function*
 const prices = [200, 300, 350, 400, 450, 500, 600];
 const findElementoz = prices.find((currVal) => {       //find() = problem is that it only returns one element, here 200
     return currVal < 400;
 });
-
 console.log(findElementoz);
+
+//✔️ findIndex() method returns the index of the first element that passes a test function.
+const prices2 = [200, 300, 350, 400, 450, 500, 600];
+const letsfindIndex = prices.findIndex((currVal) => {
+    return currVal < 400;
+});
+console.log(letsfindIndex);                             //0 
 
 //✔️ pop() - removes the last element of an array and returns it
 const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct'];
@@ -142,7 +153,8 @@ console.log(months);
 
 //✔️ slice(indextochange, untillElement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
 const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct'];
-const newMonth = months.slice(1, 3);                                    //output: [ 'Mar', 'Aug' ]
+const newMonth = months.slice(1, 3);
+console.log(newMonth)                                                   //output: [ 'Mar', 'Aug' ]
 
 //✔️ sort() - sorts the elements as strings in alphabetical and ascending order
 const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct'];
@@ -175,6 +187,38 @@ const arr1 = ["Cecilie", "Lone"];
 const arr2 = ["Emil", "Tobias", "Linus"];
 const arr3 = ["Robin"];
 const children = arr1.concat(arr2, arr3);
+
+//✔️ every() - checks if all array values pass a test
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const result = array.every((element, index, array) => {
+    return element > 0;
+})
+console.log(result);                    //true
+
+
+//✔️ some() - checks if some array values pass a test
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const result = array.some((element, index, array) => {
+    return element > 8;
+})
+console.log(result);                    //true
+
+//✔️ keys() - returns an Array Iterator object with the keys of an array
+const arrayt = ["java", "PHP", "fortan", "goLang"];
+const k = arrayt.keys();
+for (let keys of k) {
+    console.log(keys)                   //0 1 2 3
+}
+
+//✔️ entries() - returns an Array Iterator object with key/value pairs
+const arrayo = ["java", "PHP", "fortan", "goLang"];
+const kv = arrayo.entries();
+for (let keys of kv) {
+    console.log(keys)                   //[ 0, 'java' ] [ 1, 'PHP' ] [ 2, 'fortan' ] [ 3, 'goLang' ]
+}
+
+
+
 
 
 /* ✔️EXERCISE:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
