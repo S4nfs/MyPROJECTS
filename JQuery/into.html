@@ -5,33 +5,23 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <!--emojione CDN-->
   <link rel="stylesheet" href="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.css">
+  <!--jquery CDN-->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <!--emojione CDN-->
   <script type="text/javascript"
     src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
+  <!--jquery UI-->
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+    integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+  <!---jquery datatable CDN -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
-  <style>
-    .div {
-      width: 100%;
-      padding: 50px 0;
-      text-align: center;
-      background-color: bisque;
-      margin-top: 20px;
-    }
-
-    .divs {
-      margin: 20px 20px;
-      width: 50px;
-      height: 50px;
-      display: inline-block;
-      background-color: aqua;
-    }
-
-    .container {
-      width: 600px;
-      height: 30px auto;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -58,7 +48,36 @@
     <textarea name="" id="mytxt"></textarea>
   </div>
 
-  <p><input type="date" name="" id=""></p>
+  <p><input type="text" name="" id="mydate"></p>
+
+  <table id="mytable">
+    <thead>
+      <tr>
+        <th>
+        <td>Sno.</td>
+        <td>First name</td>
+        <td>Last Name</td>
+        <td>Mobile</td>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Sagar</td>
+        <td>Verma</td>
+        <td>9876543210</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Ajay</td>
+        <td>Suneja</td>
+        <td>9876543210</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <img src="load.gif" alt="" srcset="" id="loader">
   <script>
     /*
       $(this).hide() - hides the current element.
@@ -77,6 +96,9 @@
 
     //same piece of code with Jquery
     $(document).ready(function () {
+      //loader
+      $('#loader').fadeOut("slow");
+
       $("btn").click(function () {
         $("#mydiv").toggle(100);
         $('#div1').fadeTo('slow', 0.15);       // (speed, opacity(b/w 0-1), callback);
@@ -118,9 +140,16 @@
         pickerPosition: "bottom",
         tonesStyle: "bullet"
       });
+
+      //date picker
+      $('#mydate').datepicker();
+
+      //datatable
+      $('#mytable').dataTable();
+
+
     });
   </script>
 
 </body>
-
 </html>
