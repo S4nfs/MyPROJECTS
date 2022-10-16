@@ -29,9 +29,9 @@ var something;
 console.log(typeof something); //undefined
 
 var marks = {
-    maths: 90,
-    science: 80,
-    english: 70
+  maths: 90,
+  science: 80,
+  english: 70
 }
 console.log(typeof marks);     //object
 
@@ -78,13 +78,23 @@ if (year % 4 === 0) {
   console.log("The year " + year + " is not a leap year");
 }
 
-// ---------------------------------------------------------------------
+// Ternary Operators
 var age = 17;
 console.log(age >= 18 ? "You can vote" : "You can't vote");
 
+// Nullish coalescing operator (??) - returns the first argument if it’s not null/undefined, Otherwise, the second one
+let firstName = null;
+let lastName = null;
+let nickName = "Supercoder";
+
+alert(firstName ?? lastName ?? nickName ?? "Anonymous"); // Supercoder
+
+// Optional Chaining Operator (?.) - returns undefined if an object is undefined or null (instead of throwing an error).
+const car = { type: "Fiat", model: "500", color: "white" };
+document.getElementById("demo").innerHTML = car?.name;  //undefined
 
 /* CONTROL STATEMENTS & LOOPs--------------------------------------------------------------------------------------------------
-If-Else
+1. If-Else
 2. For Loop
 3. While Loop
 4. Do-While Loop
@@ -144,7 +154,7 @@ switch (area) {
 
 // ---------------------------------------------------------------------While
 var num = 0;
-while(num <= 10){
+while (num <= 10) {
   console.log(num);
   num++;
 }
@@ -158,6 +168,6 @@ while(num <= 10){
 
 // ---------------------------------------------------------------------For Loop
 
-for(var num = 0; num <= 10; num++){
+for (var num = 0; num <= 10; num++) {
   console.log(num);
 }
