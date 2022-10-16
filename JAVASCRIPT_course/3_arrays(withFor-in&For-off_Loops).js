@@ -51,7 +51,7 @@ find()      - It returns the value of the first element that passes a test funct
 pop()       - removes the last element of an array and returns it
 push()      - adds one or more elements to the end of an array and returns the new length of the array
 shift()     - removes the first element of an array and returns it
-unshift()   - method adds one or more elements to the beginning of an array and returns the new length of the array.
+unshift()   - adds one or more elements to the beginning of an array and returns the new length of the array.
 splice(indextochange, howmany, additem1...2..) - return a part of an array and overwrites the original array.
 slice(indextochange, untillement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
 sort()      - sorts the elements as strings in alphabetical and ascending order with modified original array
@@ -123,7 +123,7 @@ const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct'];
 const firstMonth = months.shift();
 console.log(months);
 
-//✔️ unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+//✔️ unshift() -  adds one or more elements to the beginning of an array and returns the new length of the array.
 const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct'];
 const newMonth = months.unshift("Dec");
 console.log(months);                                                     //Output: [ 'Dec', 'Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct' ]
