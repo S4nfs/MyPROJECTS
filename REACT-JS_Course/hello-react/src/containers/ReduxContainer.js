@@ -1,18 +1,17 @@
 //container job is to join react to redux 
 /*Flow = action-->reducer-->store
 */
-import React from 'react'
 import { connect } from 'react-redux'
 import Redux from '../components/Redux'
-import { addToCart } from '../services/actions/action'
+import { addToCart, removeToCart } from '../services/actions/action'
 
 const mapStateToProps = (state) => ({    //button events
-    cartData: state
+    data: state.cartItems
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addToCartHandler: data => dispatch(addToCart(data))
+    addToCartHandler: (data) => dispatch(addToCart(data)),
+    removeToCartHandler: (data) => dispatch(removeToCart(data))
 })
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Redux);
