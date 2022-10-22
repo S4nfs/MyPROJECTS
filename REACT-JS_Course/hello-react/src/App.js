@@ -30,6 +30,7 @@ import PersonB from './components/PersonB';
 import Test from './components/Test';
 import FunctionContextA from './components/FunctionContextA';
 import ReduxContainer from './containers/ReduxContainer';
+import ReduxClassComponent from './components/ReduxClassComponent';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
@@ -85,16 +86,17 @@ function App() {
         <PersonB />
         <Test />
         <ReduxContainer />
+        <ReduxClassComponent />
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/S4nfs"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Made By S4nfs
         </a>
       </header>
-    </div >
+    </div>
   );
 }
 

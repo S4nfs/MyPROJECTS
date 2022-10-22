@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { legacy_createStore as createStore } from 'redux';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux'    //flows the data to whole application
 import rootReducer from './services/reducers'
 // import { configureStore } from '@reduxjs/toolkit'
+
+//get rootreducer data
 const store = createStore(rootReducer);
-console.warn(`store data : ${store}`)
+// window.store = store;
+
+// console.warn(`store data : ${store}`)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
@@ -16,7 +20,4 @@ root.render(
   </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
