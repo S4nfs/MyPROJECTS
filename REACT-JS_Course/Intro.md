@@ -42,3 +42,5 @@ Hooks - Hooks allows you to use state and other React features without writing a
 - sometimes, we want to run some code after the DOM has been updated. It can be anything, showing pop-ups, sending API requests, logging users’ information etc. and such functions don’t require cleanup to be performed. They are just hit-once functions and then we forget about them. Such places are the best examples to use the useEffect hook.
 
 ContextAPI - contextAPI is an easy way to create global variables that canbe passed around in the react app and this is an alternative of prop drilling.
+
+Redux - it creates a global state for the whole application, that can be accessed by any of your component
