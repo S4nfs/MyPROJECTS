@@ -1,20 +1,24 @@
 //reducer
-import { ADD_TO_CART } from '../constants'
-
 const initialState = {
     cartData: []
 }
-export default function cartItems(state = initialState, action) {
+export default function cartItems(state = [], action) {
     switch (action.type) {
-        case ADD_TO_CART:
-            console.warn(`Redux reducer data: ${action}`)
+        case "ADD_TO_CART":
+            // console.warn("Redux reducer data: ", action)
 
-            return {
+            return [
                 ...state,
-                cartData: action.data
-            }
+                { cartData: action.data }
+            ]
+        case "REMOVE_TO_CART":
+            // console.warn("Redux reducer data: ", action)
+            state.pop()
+            return [
+                ...state,
+            ]
         default:
-            return state
+            return state            //else return initialstate
 
     }
 }
