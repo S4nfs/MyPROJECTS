@@ -42,7 +42,19 @@
   position: relative;
   top: 1%;
   right: 1%;
-  margin-left: 250px;
+  margin: 0px;
+}
+.add-to-cart span {
+  position: relative;
+  margin: 0 5px 18px;
+  bottom: 30px;
+  left: 65px;
+  border-radius: 50%;
+  background-color: blueviolet;
+  width: 30px;
+  display: inline-block;
+  padding: 0px;
+  z-index: 1;
 }
 .item {
   float: left;
@@ -51,9 +63,10 @@
 }
 .img-wrapper img {
   width: 100px;
+  margin-top: 8px;
 }
 .cart-wrapper {
-  height: 100px;
+  height: 120px;
   width: 500px;
   border: 1px solid #ccc;
 }
