@@ -119,9 +119,6 @@ const userz = {
   },
   Jeff: {
     online: true
-  },
-  Sarah: {
-    online: false
   }
 }
 function countOnline(usersObj) {
@@ -130,6 +127,14 @@ function countOnline(usersObj) {
   }
 }
 console.log(countOnline(userz));
+
+
+//✔️ Object.keys()      - method returns an array of keys.
+//✔️ Object.values()    - method returns an array of values or properties
+//✔️ Object.entries()   - method return an array of key/values pairs 
+//✔️ Object.asign()     - method assigns one object to another
+//✔️ new Map()          - Map holds key-value pairs where the keys can be any datatype.
+
 
 //✔️ Object.keys() method returns an array of a given object's own properties.
 let usersAll = {
@@ -141,19 +146,16 @@ let usersAll = {
     age: 32,
     online: true
   },
-  Sarah: {
-    age: 48,
-    online: false
-  },
-  Ryan: {
-    age: 19,
-    online: true
-  }
 };
-function getArrayOfUsers(obj) {
-  return Object.keys(obj); //return an array of keys
-}
-console.log(getArrayOfUsers(usersAll));
+
+console.log(Object.keys(usersAll));           //return an array of keys   [ 'Alan', 'Jeff' ]
+console.log(Object.values(usersAll));         //return an array of values [ { age: 27, online: false }, { age: 32, online: true } ]
+console.log(Object.entries(usersAll));        //return an array of key/values pairs 
+// [
+//   [ 'Alan', { age: 27, online: false } ],
+//   [ 'Jeff', { age: 32, online: true } ]
+// ]
+
 
 //✔️ Object.assign() method assigns one object to another
 const pikachu = { name: 'Pikachu 🐹' };
@@ -171,3 +173,26 @@ const goPikachu = { ...pikachu, ...stats };
 console.log(goPikachu);
 
 
+//✔️ new Map() - object Map holds {key => value pairs} where the keys can be any datatype unlike normal object where it is only String.
+let mymap = new Map([
+  ['name', 'sagar'],
+  [true, 'programmer'],
+  [680000, 'salary']
+])
+
+console.log(mymap)
+mymap.set('behavior', 'aggresive')          //set() method can also be used to set or change existing Map values        -CU
+console.log(mymap)
+console.log(mymap.get('behavior'))          //get() method gets the value of a key in a Map                             -R
+console.log(mymap.size)                     //size property returns the number of elements in a Map
+console.log(mymap.has(680000))              //has() method returns true if a key exists in a Map:
+console.log(mymap.delete('behavior'))       //delete() method removes a Map element                                     -D
+// console.log(mymap.clear())                  //clear() method removes all the elements from a Map
+
+for (let x of mymap) {                      //iterate Map Object
+  console.log(x)
+}
+
+mymap.forEach((key, val) => {
+  console.log(key);
+})
