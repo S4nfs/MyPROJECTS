@@ -1,28 +1,27 @@
-let data = [];
-let currentSize = data.length
-function push(newVal) {
-  data[currentSize] = newVal;
-  currentSize += 1;
-}
+// const userz = {
+//   Alan: {
+//     online: false
+//   },
+//   Jeff: {
+//     online: true
+//   }
+// }
+// for (let user in userz) {
+//   console.log(userz[user])
+// }
 
-function pop() {
-  lastremovedItm = data[currentSize - 1]
-  currentSize -= 1;
-  data.length = currentSize;
-  return lastremovedItm
-}
+// var str = ["Apple", "Banana", "Orange"]
 
-function reverseStr(item) {
-  for (let i = 0; i < item.length; i++) {
-    push(item[i])
+
+function receive(name) {
+  var x
+  "use strict";
+  if (name == "Sagar") {
+    x = "ok";                    //Initialization
+  } else {
+    x = "not ok";
   }
-  for (let i = 0; i < item.length; i++) {
-    item[i] = pop()
-  }
+  x;    // x is hoisted to the top //Declaration
+  console.log(x)
 }
-let str = "Sagar";
-str = str.split("")
-reverseStr(str);
-console.log(str.join(""))
-
-
+receive("Sagar");
