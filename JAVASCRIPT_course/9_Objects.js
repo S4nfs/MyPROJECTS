@@ -132,7 +132,8 @@ console.log(countOnline(userz));
 //✔️ Object.keys()      - method returns an array of keys.
 //✔️ Object.values()    - method returns an array of values or properties
 //✔️ Object.entries()   - method return an array of key/values pairs 
-//✔️ Object.asign()     - method assigns one object to another
+//✔️ Object.assign()    - method assigns one object to another
+//✔️ Object.seal()      - method prevents new properties from being added to the object
 //✔️ new Map()          - Map holds key-value pairs where the keys can be any datatype.
 
 
@@ -172,6 +173,11 @@ console.log(iChooseYouPikachu);
 const goPikachu = { ...pikachu, ...stats };
 console.log(goPikachu);
 
+//✔️ Object.seal() - method prevents new properties from being added to the object
+Object.seal(stats);
+stats.defense = 100;  //{ hp: 40, attack: 650, defense: 100 }
+stats.power = 200     //{ hp: 40, attack: 650, defense: 100 }
+console.log(stats)
 
 //✔️ new Map() - object Map holds {key => value pairs} where the keys can be any datatype unlike normal object where it is only String.
 let mymap = new Map([
@@ -187,7 +193,7 @@ console.log(mymap.get('behavior'))          //get() method gets the value of a k
 console.log(mymap.size)                     //size property returns the number of elements in a Map
 console.log(mymap.has(680000))              //has() method returns true if a key exists in a Map:
 console.log(mymap.delete('behavior'))       //delete() method removes a Map element                                     -D
-// console.log(mymap.clear())                  //clear() method removes all the elements from a Map
+// console.log(mymap.clear())               //clear() method removes all the elements from a Map
 
 for (let x of mymap) {                      //iterate Map Object
   console.log(x)
