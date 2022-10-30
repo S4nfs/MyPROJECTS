@@ -4,12 +4,13 @@ once a String object is assigned to String reference the object value cannot be 
 slice(start,end)                : Extract the part of string and return that part in a new string (0, -2)
 substring(start,end)            : Same as slice but you can't specify nagative index at the end parameter (0, 4) or it will swap the values autmatically
 substr()                        : DEPRECATED- second parameter specifies the length of the extracted part
-indexOf(searchvalue)            : Returns the index of the first occurrence in the string or -1 if not found
-lastIndexOf() method -          : Returns the index of the last occurrence in the string or -1 if not found
+indexOf(searchvalue)            : returns the index of the first occurrence in the string or -1 if not found
+lastIndexOf()                   : returns the index of the last occurrence in the string or -1 if not found
+search()                        : searches a string and returns the position of the match
+match()                         : returns an array containing the results of matching a string against a string (or a regular expression)
 replace()                       : Replaces a specified value with another value in a string
 concat()                        : The concat() method can be used instead of the plus operator
 includes()                      : Returns true if a string contains a specified value
-search()                        : searches a string and returns the position of the match
 toUpperCase()                   : convert to uppercase
 toLowerCase()                   : convert to lowercase
 trim()                          : removes whitespace from both ends
@@ -18,6 +19,8 @@ trimEnd()                       : removes whitespace from the end of a string
 padStart()                      : pads a string with another string at the beginning
 padEnd()                        : pads a string with another string in the end
 charAt()                        : returns the character at a specified index (position) in a string
+startsWith()                    : returns true if a string begins with a specified value
+endsWith()                      : returns true if a string ends with a specified value
 */
 
 //✔️slice() method - Extract the part of string and return that part in a new string (0, -2)
@@ -61,6 +64,21 @@ console.log(text.indexOf("w"));            //6
 let loc = "Please locate where 'locate' occurs!";
 console.log(loc.lastIndexOf("locate"));    //21
 
+//Both methods accept a second parameter as the starting position for the search:
+
+//✔️ search()  - method searches a string for a specified value and returns the index position of the match:
+let t = "Visit Lucknow!";
+console.log(t.search("Lucknow"));         //6
+
+/*NOTE: The only difference b/w search() and indexOf() is:
+    The search() method cannot take a second start position argument
+    The indexOf() method cannot take powerful search values (regular expressions)
+*/
+
+//✔️ match() - returns an array containing the results of matching a string against a string (or a regular expression)
+let tex = "The rain in SPAIN";
+console.log(tex.match("ain"));          //['ain',index: 5,input: 'The rain in SPAIN',groups: undefined]
+
 //✔️ replace() - Replaces a specified value with another value in a string:
 let txt = "I am Sagar Verma";
 console.log(txt.replace("Sagar", "Ajay"));  //To replace all matches, use rgx /Sagar/g flag (global match):
@@ -71,10 +89,6 @@ console.log("Hello".concat(" ", "World!"));
 //✔️ includes() - returns true if a string contains a specified value.
 let te = "Hello world, welcome to the universe.";
 console.log(te.includes("world"));          //true
-
-//✔️ search()  - method searches a string for a specified value and returns the index position of the match:
-let t = "Visit Lucknow!";
-console.log(t.search("Lucknow"));         //6
 
 //✔️ toUpperCase()  - convert to uppercase
 let t1 = "Hello World!";
@@ -107,3 +121,11 @@ console.log(t7.padEnd(4, "0"));
 //✔️ charAt() - returns the character at a specified index (position) in a string
 let t8 = "Dogecoin";
 console.log(t8.charAt(0));
+
+//✔️ startsWith() - returns true if a string begins with a specified value
+let t9 = "learning japanese";
+console.log(t9.startsWith("learning"));
+
+//✔️ endsWith() - returns true if a string ends with a specified value
+let t10 = "learning japanese";
+console.log(t10.endsWith("japanese"));
