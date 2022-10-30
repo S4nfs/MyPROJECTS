@@ -1,11 +1,11 @@
 //Example: 1 Hoisting 🍄-----------------------------------
-//Hoisting is JavaScript's default behavior of moving declarations to the top. Var is hoisted but let is not
-"use strict";
+//Hoisting is JavaScript's default behavior of moving declarations to the top. Var is hoisted but let is not 
+"use strict";                           //means no hoisting rules
 function receive(name = "") {
     if (name == "Sagar") {
-       var x = "ok";                    //Initialization
+        var x = "ok";                    //u need to proper define variables
     } else {
-       var x = "not ok";
+        var x = "not ok";
     }
     var x;    // x is hoisted to the top //Declaration
     console.log(x)
