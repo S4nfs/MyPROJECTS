@@ -1,4 +1,4 @@
-/*Welcome to my 100+ DSA question series. ⚠️Avoid using javascript pre-defined functions as much as possible becoz Data Structure is all about learning the core functionalities of any given language.
+/*Welcome to my 100+ DSA question series. ⚠️Avoid using javascript pre-defined functions as much as possible becoz Data Structure is all about learning the core functionalities of a given language.
 
 Algorithm is basically the steps to do anything
 -Time Complexity - is mainly calculated by counting the number of steps to finish the execution
@@ -162,7 +162,10 @@ console.log(reverse("Sagar"))
 
 
 //==============================================================================================================================
-/* Q5. Return Largest Numbers in Arrays */
+/* Q5. Return Largest Numbers in Arrays 
+Input : [[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10], [2, 33, 4, 8]]
+Output: [ 25, 48, 21, -3, 33 ]
+*/
 //==============================================================================================================================
 function largestOfFour(arr) {
   let result = [];
@@ -514,7 +517,7 @@ console.log(bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]));
 
 //==============================================================================================================================
 /* Q.19 Selection Sort -  sorts an array by repeatedly finding the minimum element from unsorted part and putting it at the beginning
-https://visualgo.net/en/sorting?slide=6-11
+https://visualgo.net/en/sorting?slide=6-11  || Go-ahead & search
  
 Steps: Consider first element as smallest (Pointer)
          P
@@ -551,7 +554,7 @@ function SelectionSort(array) {
 console.log(SelectionSort([0, 2, 34, 22, 10, 19]))
 
 //==============================================================================================================================
-/* Q.20 Insertion Sort - VIP 2nd element, Assume first element is sorted 
+/* Q.20 Insertion Sort - VIP 2nd element, Assume first element is sorted || Backwaters
 */
 //==============================================================================================================================
 const insertionSort = (array) => {
