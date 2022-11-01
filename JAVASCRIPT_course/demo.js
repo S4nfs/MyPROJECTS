@@ -1,57 +1,96 @@
-// const userz = {
-//   Alan: {
-//     online: false
-//   },
-//   Jeff: {
-//     online: true
-//   }
-// }
-// for (let user in userz) {
-//   console.log(userz[user])
-// }
-
-// var str = ["Apple", "Banana", "Orange"]
-
-// var message = {
-//   error: ["Error1", "Error2", "Error3"],
-//   success: ["Success1", "Success2", "Success3"]
-// }
-
-// message.forEach((key) => {
-//   message([key].forEach(value => {
-//     console.log(`${key} and the value is ${value}`);
-//   }))
-// })
-
-
-// function largestOfFour(arr) {
-//   let result = [];
-//   t = 0
-//   for (let i = 0; i < arr.length; i++) {
-//     let maxnumber = arr[i][0];
-//     for (let j = 0; j < arr[i].length; j++) {
-//       console.log(t++)
-//       if (arr[i][j] > maxnumber) {
-//         maxnumber = arr[i][j];
-//       }
-//     }
-//     result[i] = maxnumber;
-//   }
-//   return result;
-// }
-
-const insertionSort = (array) => {
-
-  for (i = 1; i < array.length; i++) {
-    let curr = array[i];
-    let j = i - 1;
-    while (j >= 0 && array[j] > curr) {
-      array[j + 1] = array[j];  //temp [8,8,4,1,3]
-      j--;
+const buildNewCategories = (parentId, categories, category) => {
+  let myCategories = [];
+  for (let cat of categories) {
+    if (cat._id == parentId) {
+      console.log(cat)
+      myCategories.push({
+        ...cat,
+        children: cat.children && cat.children.length > 0 ? buildNewCategories(parentId, [...cat.children, { //spreading children
+          _id: category.id,
+          name: category.name,
+          slug: category.slug,
+          parentId: category.parentId,
+          categoryImage: category.categoryImage,
+          children: category.children
+        }], category) : []
+      })
+    } else {
+      myCategories.push({
+        ...cat,
+        children: cat.children && cat.children.length > 0 ? buildNewCategories(parentId, cat.children, category) : []
+      })
     }
-    array[j + 1] = curr;  //-1+1 = 0 [2,8,4,1,3]
   }
-  return array;
+  return myCategories;
 }
 
-console.log(insertionSort([8, 2, 4, 1, 3]));
+let state = {
+  categories: [
+    {
+      _id: "6349a56cbf58ef7d83f87629",
+      name: "Kitchen",
+      children: []
+    },
+    {
+      _id: "634a785b1951a3c488ef3547",
+      name: "Grocery",
+      children: []
+    },
+    {
+      _id: "634a7935280de96b1e990eca",
+      name: "Electronics",
+      children: [
+        {
+          _id: "634a79d6e6bc75363e70810b",
+          name: "Mobiles",
+          "parentId": "634a7935280de96b1e990eca",
+          children: [
+            {
+              _id: "634a7a13e6bc75363e70810e",
+              name: "Samsung",
+              "parentId": "634a79d6e6bc75363e70810b",
+              children: []
+            },
+            {
+              _id: "634ae5d7826153eb3083151c",
+              name: "Apple",
+              "parentId": "634a79d6e6bc75363e70810b",
+              children: []
+            },
+            {
+              _id: "634bcbce5681c697216cbce7",
+              name: "Realme",
+              "parentId": "634a79d6e6bc75363e70810b",
+              children: []
+            },
+            {
+              _id: "634c42c59cdd8556ceda9e1d",
+              name: "Infinix",
+              "parentId": "634a79d6e6bc75363e70810b",
+              children: []
+            },
+            {
+              _id: "635f9ee27498a443891bc772",
+              name: "Nothing",
+              "parentId": "634a79d6e6bc75363e70810b",
+              children: []
+            },
+            {
+              _id: "636130080338d0ca4a024b16",
+              name: "Motorola",
+              "parentId": "634a79d6e6bc75363e70810b",
+              children: []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+let category = {
+  parentId: "6349a56cbf58ef7d83f87629",
+  name: "verma noodles",
+  categoryImage: "noodles.png"
+}
+buildNewCategories(category.parentId, state.categories, category);
