@@ -2,13 +2,10 @@ const buildNewCategories = (parentId, categories, category) => {
   let myCategories = [];
   for (let cat of categories) {
     if (cat._id == parentId) {
-      console.log(cat)
       myCategories.push({
         ...cat,
-        children: cat.children && cat.children.length > 0 ? buildNewCategories(parentId, [...cat.children, { //spreading children
-          _id: category.id,
+        children: cat.children ? buildNewCategories(parentId, [...cat.children, {
           name: category.name,
-          slug: category.slug,
           parentId: category.parentId,
           categoryImage: category.categoryImage,
           children: category.children
@@ -17,7 +14,7 @@ const buildNewCategories = (parentId, categories, category) => {
     } else {
       myCategories.push({
         ...cat,
-        children: cat.children && cat.children.length > 0 ? buildNewCategories(parentId, cat.children, category) : []
+        children: cat.children ? buildNewCategories(parentId, cat.children, category) : []
       })
     }
   }
@@ -56,30 +53,6 @@ let state = {
               name: "Apple",
               "parentId": "634a79d6e6bc75363e70810b",
               children: []
-            },
-            {
-              _id: "634bcbce5681c697216cbce7",
-              name: "Realme",
-              "parentId": "634a79d6e6bc75363e70810b",
-              children: []
-            },
-            {
-              _id: "634c42c59cdd8556ceda9e1d",
-              name: "Infinix",
-              "parentId": "634a79d6e6bc75363e70810b",
-              children: []
-            },
-            {
-              _id: "635f9ee27498a443891bc772",
-              name: "Nothing",
-              "parentId": "634a79d6e6bc75363e70810b",
-              children: []
-            },
-            {
-              _id: "636130080338d0ca4a024b16",
-              name: "Motorola",
-              "parentId": "634a79d6e6bc75363e70810b",
-              children: []
             }
           ]
         }
@@ -93,4 +66,4 @@ let category = {
   name: "verma noodles",
   categoryImage: "noodles.png"
 }
-buildNewCategories(category.parentId, state.categories, category);
+console.log(buildNewCategories(category.parentId, state.categories, category));
