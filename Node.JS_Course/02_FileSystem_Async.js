@@ -1,6 +1,6 @@
 /*async is nothing but a callback function
 We pass them a function as an argument (here) - a callback - that gets called when the task completes.
-the callback has an argument that tell you whenther the task was successful or not.
+the callback has an argument that tell you whether the task was successful or not.
 Now we need to say what to do when fs.wwriteFile has completed and start checking errors. */
 
 //✔️ create a file 
