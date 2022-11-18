@@ -7,18 +7,18 @@ const EventEmitter = require('events');
 const event = new EventEmitter();
 
 event.on("sayMyName", () => {
-    console.log("Sagar Verma");
+    console.log("My name is: Sagar Verma");
 });
 
-event.on("sayMyName", () => {
-    console.log("Nick name Sonu");
+event.on("sayMyNickName", () => {
+    console.log("My Nick name is: Sonu");
 });
 
-event.on("sayMyName", () => {
+event.on("sayMyOtherName", () => {
     console.log("No other name");
 });
 
-event.emit("sayMyName");
+event.emit("sayMyNickName");
 
 //2 Ex.-----------------------------------------------------------------
 // event.on("checkMyPage", (sc, msg) => {

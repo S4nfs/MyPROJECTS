@@ -3,6 +3,15 @@ Node.js is an open-source and cross-platform runtime environment built on Chrome
 
 ==============================
 
+Assembler, Compiler and Interpreter
+The Assembler is used to translate the program written in Assembly language into machine code
+
+Compiler convert a program written in a high-level language into machine code understood by computers all at one go. Examples: C, C++, Java
+
+Interpreter convert a program written in a high-level language into machine code understood by computers line-by-line. Examples: Python, Perl, JavaScript, Ruby
+
+==============================
+
 Why use NodeJs?
 -Writing javascript on the server-side
 -Access to HTTP stack
@@ -64,8 +73,10 @@ The Node.js Assert is a way to write tests. It provides no feedback when running
 ==============================
 
 Streams?
-The Streams are the objects that facilitate you to read data from a source and write data to a destination. There are four types of streams in Node.js:
-Readable: This stream is used for reading operations.
-Writable: This stream is used for write operations.
-Duplex: This stream can be used for both reading and write operations.
-Transform: It is a type of duplex stream where the output computes according to input.
+Streams are a way to handle reading/writing files, network communications, or any kind of end-to-end information exchange in an efficient way. For example, a file size can be larger than your free memory space, making it impossible to read the whole file into the memory in order to process it. That’s where streams come to the rescue! Using streams to process smaller chunks of data, makes it possible to read larger files.
+
+There are four types of streams in Node.js:
+-Readable: This stream is used for reading operations. For example: fs.createReadStream() lets us read the contents of a file.
+-Writable: This stream is used for write operations. For example, fs.createWriteStream() lets us write data to a file using streams.
+-Duplex: This stream can be used for both reading and write operations. For example, net.Socket
+-Transform: It is a type of duplex stream where the output computes according to input. For example, in the instance of file-compression, you can write compressed data and read decompressed data to and from a file.

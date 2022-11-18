@@ -14,6 +14,7 @@ fs.utimes(path, atime, mtime, callback) 	        - Changes the timestamp of the 
 fs.exists(path, callback) 	                        - Determines whether the specified file exists or not.
 fs.access(path[, mode], callback) 	                - Tests a user's permissions for the specified file.
 fs.appendFile(file, data[, options], callback) 	    - Appends new content to the existing file. 
+fs.unlink(path, callback)                           - Delete an existing file.
 */
 
 
