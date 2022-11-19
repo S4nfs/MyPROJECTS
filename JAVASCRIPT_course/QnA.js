@@ -1,7 +1,7 @@
 /*Welcome to my 100+ DSA question series. ⚠️Avoid using javascript pre-defined functions as much as possible becoz Data Structure is all about learning the core functionalities of a given language.
 
-Algorithm is basically the steps to do anything
--Time Complexity - is mainly calculated by counting the number of steps to finish the execution
+ Algorithm is basically the steps to do anything
+🍯-Time Complexity - is mainly calculated by counting the number of steps to finish the execution
 
 f(n) = 5n^2 + 6n + 12
        5(10)^2 + 6(10) + 12
@@ -9,8 +9,52 @@ f(n) = 5n^2 + 6n + 12
        572
        500 time complexity
 
--Space Complexity - is the amount of space required to solve a problem
-Big O Notation - Use to denote complexity
+
+Example:
+function summation(n){
+let sum = 0;                    //---------------1
+  for(let i= 1; i <=n; i++){    
+    sum += i;                   //---------------4
+  }
+  return sum;                   //---------------1
+}
+summation(4)                    //n+2
+
+>but consider n as it contributes the most here timecomplexity is   = O(n) linear 
+>two loops                                                          = O(n2) Quadratic
+>three loops                                                        = O(n3) cubic
+>Input size reduced by half every iteration                         = O(logn) logarithmic
+
+
+🐝 Objects Time Complexity:
+Insert                                                              = O(1)
+Remove                                                              = O(1)
+Access                                                              = O(1)
+Search                                                              = O(n)
+Object.keys()                                                       = O(n)
+Object.values()                                                     = O(n)
+Object.entries                                                      = O(n)
+
+🐝 Arrays(ordered) Time Complexity:
+Insert/remove at end                                                                              = O(1)
+push/pop                                                                                          = O(1)
+Access                                                                                            = O(1)
+Insert/remove at begining (linear becoz the index has to reset for the new element)               = O(n)
+Search                                                                                            = O(n)
+shift/unshift/concat/slice/splice                                                                 = O(n)
+forEach/map/filter/reuce                                                                          = O(n)
+
+
+
+
+
+
+🍯-Space Complexity - is the amount of space required to solve a problem
+Big O Notation describe the complexity of an algorithm using algebric terms.
+
+Algorithm doesn't need extra space but the space needed does not depends on the input size (ex. salting)  = O(1) constant 
+Where extra space needed as the imput size grows                                                          = O(n) linear
+Where extra space needed as the imput size grows but not at the sam rate as input size                    = O(logn) logarithmic
 */
 
 
@@ -810,4 +854,34 @@ Output:
 let n = 6;
 for (let i = 1; i <= n; i++) {
   console.log(" ".repeat(n - i) + "#".repeat(i))    //repeat() method
-}   
+}
+
+//==============================================================================================================================
+/* Q.30 Birthday Candles: You are in charge of the cake for a child's birthday. You have decided the cake will have one candle for each year of their total age. They will only be able to blow out the tallest of the candles. Count how many candles are tallest.
+
+Input: [3,2,1,3]
+Output: 2
+The maximum height candles are 4 units high. There are 2 of them, so return 2.
+*/
+//==============================================================================================================================
+
+function birthdayCakeCandles(candles) {
+  let cond = Math.max(...candles);
+  return candles.filter(function (e) {
+    return e === cond;
+  }).length;
+}
+console.log(birthdayCakeCandles([3, 2, 1, 3]))
+
+//
+function birthdayCakeCandles(candles) {
+  let count = 0;
+  let highest = Math.max(...candles);
+  for (i of candles) {
+    if (highest == i) {
+      count++
+    }
+  }
+  return count
+}
+console.log(birthdayCakeCandles([10, 18, 90, 90, 13, 90, 75, 90, 8, 90, 43]))
