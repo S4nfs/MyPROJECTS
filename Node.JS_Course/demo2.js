@@ -1,5 +1,5 @@
 const net = require('net');
-const client = net.connect({ port: 63290 }, () => {//use same port of server  
+const client = net.connect({ port: 61205 }, () => {//use same port of server  
     console.log('connected to server!');
     client.write('world!\r\n');
 });
