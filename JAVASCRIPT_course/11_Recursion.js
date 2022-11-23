@@ -12,7 +12,7 @@
 // function show() {
 //     console.log("Hi", num);
 //     num ++;
-//     if (num <=100) {                //Breaking point
+//     if (num <=100) {                     //Breaking point or Base case to terminate the recursion
 //         show();
 //     }
 // }

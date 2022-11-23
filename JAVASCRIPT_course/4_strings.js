@@ -21,6 +21,7 @@ padEnd()                        : pads a string with another string in the end
 charAt()                        : returns the character at a specified index (position) in a string
 startsWith()                    : returns true if a string begins with a specified value
 endsWith()                      : returns true if a string ends with a specified value
+repeat()                        : returns a string with a number of copies of a string
 */
 
 //✔️slice() method - Extract the part of string and return that part in a new string (0, -2)
@@ -129,3 +130,7 @@ console.log(t9.startsWith("learning"));
 //✔️ endsWith() - returns true if a string ends with a specified value
 let t10 = "learning japanese";
 console.log(t10.endsWith("japanese"));
+
+//✔️ repeat() - returns a string with a number of copies of a string
+let t11 = "Hello world!";
+console.log(t11.repeat(2));
