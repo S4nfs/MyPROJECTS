@@ -1,8 +1,10 @@
-/*Welcome to my 100+ DSA question series. ⚠️Avoid using javascript pre-defined functions as much as possible becoz Data Structure is all about learning the core functionalities of a given language.
+/*Welcome to my 100+ DSA question series. ⚠️Avoid using javascript pre-defined functions as much as possible becoz Data Structure is all about learning the core functionalities of a given language. Let's Start with basics...
+Credits: https://towardsdatascience.com/essential-programming-time-complexity-a95bb2608cac
 
  Algorithm is basically the steps to do anything
 🍯-Time Complexity - is mainly calculated by counting the number of steps to finish the execution
 
+Example:
 f(n) = 5n^2 + 6n + 12
        5(10)^2 + 6(10) + 12
        500 + 60 + 12
@@ -12,19 +14,20 @@ f(n) = 5n^2 + 6n + 12
 
 Example:
 function summation(n){
-let sum = 0;                    //---------------1
+let sum = 0;                    //---------------1 time
   for(let i= 1; i <=n; i++){    
-    sum += i;                   //---------------4
+    sum += i;                   //---------------4 times
   }
-  return sum;                   //---------------1
+  return sum;                   //---------------1 time
 }
-summation(4)                    //n+2
+summation(4)                    //n+2 = O(n)
 
->but consider n as it contributes the most here timecomplexity is   = O(n) linear 
->two loops                                                          = O(n2) Quadratic
->three loops                                                        = O(n3) cubic
->Input size reduced by half every iteration                         = O(logn) logarithmic
-
+>When time complexity is constant independently to the size of the input                    = O(1) constant
+>When time complexity grows in direct proportion to the size of the input                   = O(n) linear 
+>When time complexity grows directly proportional to the square of the size of the input    = O(n2) Quadratic e.g two loops
+>When time complexity grows directly proportional to the cube of the size of the input      = O(n3) cubic e.g three loops
+>Input size reduced by half every iteration                                                 = O(logn) logarithmic e.g Divide and Conquer algorithms 
+>When time complexity gets doubled after every addition in the input                        = O(2^n) Exponential e.g In recursive functions & In Brute-Force algorithms these are used in cryptography as attacking methods to defeat password protection by trying random strings until they find the correct password that unlocks the system
 
 🐝 Objects Time Complexity:
 Insert                                                              = O(1)
@@ -54,7 +57,7 @@ Big O Notation describe the complexity of an algorithm using algebric terms.
 
 Algorithm doesn't need extra space but the space needed does not depends on the input size (ex. salting)  = O(1) constant 
 Where extra space needed as the imput size grows                                                          = O(n) linear
-Where extra space needed as the imput size grows but not at the sam rate as input size                    = O(logn) logarithmic
+Where extra space needed as the imput size grows but not at the same rate as input size                   = O(logn) logarithmic
 */
 
 
@@ -885,3 +888,29 @@ function birthdayCakeCandles(candles) {
   return count
 }
 console.log(birthdayCakeCandles([10, 18, 90, 90, 13, 90, 75, 90, 8, 90, 43]))
+
+//==============================================================================================================================
+/* Q.31 Fibonacci series - is a sequence in which each number is the sum of two preceding ones.
+Fibonacci(2) = [0,1]
+Fibonacci(3) = [0,1,1]
+Fibonacci(7) = [0,1,1,2,3,5,8]
+*/
+//==============================================================================================================================
+
+function fibonacci(n) {
+  const fib = [0, 1];
+  for (let i = 2; i < n; i++) {
+    fib[i] = fib[i - 1] + fib[i - 2];
+  }
+  return fib;
+}
+console.log(fibonacci(7))         //Time Complexity: O(n)
+
+//using recursion
+function fibonacci(n) {
+  if (n < 2) {
+    return n;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2)
+}
+console.log(fibonacci(6))         //Time Complexity: O(2^n)
