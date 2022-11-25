@@ -1,15 +1,14 @@
-/*
-1. The function `fibonacci` takes a number `n` as an argument.
-2. If `n` is less than 2, then return `n`.
-3. Otherwise, return the sum of the previous two numbers in the sequence.
-*/
-/*
-Time Complexity: O(2^n)
-*/
-function fibonacci(n) {
-  if (n < 2) {
-    return n;
+const insertionSort = (array) => {
+  for (i = 1; i < array.length; i++) {
+    let curr = array[i];
+    let j = i - 1;
+    while (j >= 0 && array[j] > curr) {
+      array[j + 1] = array[j];  //temp [8,8,4,1,3]
+      j--;
+    }
+    array[j + 1] = curr;  //-1+1 = 0 [2,8,4,1,3]
   }
-  return fibonacci(n - 1) + fibonacci(n - 2)
+  return array;
 }
-console.log(fibonacci(6))
+
+console.log(insertionSort([8, 2, 4, 1, 3]));
