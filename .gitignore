@@ -40,3 +40,5 @@ typings
 #env file
 .env
 *.vscode
+
+QnA
