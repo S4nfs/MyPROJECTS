@@ -1,5 +1,7 @@
 /*✔️ What is an Object?
-An object is a collection of properties and methods. 
+An object is a unordered collection of key-value pairs. The key must be a sring or symbol data type and the value must be of any data type.
+⚠️Objects & arrays are both mutable, Arrays are iterable but objects aren't. U can't normally iterate using for...of || forEach loop Instead you have to use Object.keys or Object.entries methods to iterate an object. https://www.freecodecamp.org/news/how-to-iterate-over-objects-in-javascript/
+
 Object = School bag
 
 There are different ways to create new objects:

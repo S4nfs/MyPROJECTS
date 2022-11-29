@@ -2,6 +2,10 @@
 1. Linear Data Structure: Stack(LIFO), Queue(FIFO), Array
 2. Non - Linear Data Structure: Tree, Graph,
 */
+
+/*
+Time Complexity: O(1)
+*/
 class Stack {
     constructor() {
         this.items = [];
