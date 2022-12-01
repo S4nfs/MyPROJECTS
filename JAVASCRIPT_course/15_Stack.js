@@ -1,8 +1,12 @@
 /* The stack is a data structure that follows Last In First Out (LIFO) principle
 1. Linear Data Structure: Stack(LIFO), Queue(FIFO), Array
 2. Non - Linear Data Structure: Tree, Graph,
-*/
 
+If you add last and remove last that's a STACK
+If you add last and remove first that's a QUEUE
+If you do both that's a LINKED LIST
+
+Yep it's that simple ;)
 /*
 Time Complexity: O(1)
 */

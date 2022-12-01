@@ -41,7 +41,7 @@ class Queue {
     }
 
     dequeue() {
-        const item = this.items[this.front];
+        const item = this.items[this.front];     //save in item, before delete
         delete this.items[this.front];
         this.front++;
         return item
@@ -70,3 +70,8 @@ console.log(queue1.size())
 console.log(queue1.dequeue());
 console.log(queue1.peek())
 console.log(queue1.print())
+
+
+//Circular Queue | Usage: Clock, Streaming Data, traffic lights
+
+
