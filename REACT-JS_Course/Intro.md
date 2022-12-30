@@ -26,6 +26,8 @@ Class Component -
 - react lifecycle methods can be used inside class component (for ex. componentDidMount, componentDidUpdate, componentWillUnmount).
 - you pass props down to class component and access that with this.props.
 
+https://medium.com/coffee-and-codes/componentdidmount-v-s-componnetwillmount-react-47f4f631276c
+
 Props - Props stand for "Properties." They are read-only components. Props are arguments passed into React components
 
                     Props                               ||                             State
