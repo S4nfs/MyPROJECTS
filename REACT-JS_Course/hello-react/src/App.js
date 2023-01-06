@@ -31,6 +31,7 @@ import Test from './components/Test';
 import FunctionContextA from './components/FunctionContextA';
 import ReduxContainer from './containers/ReduxContainer';
 import ReduxClassComponent from './components/ReduxClassComponent';
+import Demo from './components/Demo';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
@@ -65,10 +66,10 @@ function App() {
         <LifeCycleA />
         <ProductA />
         <ProductB />
-
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <GetAxios />
         <PostAxios />
-
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <HookUseState />
         <HookUseEffect />
         <HookObject />
@@ -87,6 +88,7 @@ function App() {
         <Test />
         <ReduxContainer />
         <ReduxClassComponent />
+        <Demo />
         <a
           className="App-link"
           href="https://github.com/S4nfs"
