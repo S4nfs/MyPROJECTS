@@ -5,15 +5,16 @@ export class GetAxios extends Component {
         super(props)
 
         this.state = {
-            post: [],
+            user: [],
+            searchField: '',
             error: ''
         }
     }
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('https://jsonplaceholder.typicode.com/users')
             .then(res => {
                 this.setState({
-                    post: res.data
+                    user: res.data
                 })
                 console.log(res)
             }).catch(err => {
@@ -24,12 +25,35 @@ export class GetAxios extends Component {
             })
     }
     render() {
-        const { post, error } = this.state
+        const { user, error } = this.state
+        //[{name:"sagar"},{ name:"antony"}]
+        const filteredSearch = this.state.user.filter(elem => elem.name.toLocaleLowerCase().includes(this.state.searchField))
         return (
-            <div>GET using Axios
-                {
-                    post.length ? post.map(posts => <div key={posts.id}> {posts.title} </div>) : null
-                }
+            <div>
+                GET using Axios<br></br>
+
+                <input type="search" name="" id="" placeholder='Search by name' onChange={(e) => {
+                    const searchField = e.target.value.toLocaleLowerCase();
+
+                    this.setState(() => {
+                        return { searchField: searchField }
+                    })
+                }} />
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                    </tr>
+                    {
+                        filteredSearch.length ? filteredSearch.map(users =>
+                            <tr key={users.id}>
+                                <td> {users.name}</td>
+                                <td>{users.username}</td>
+                                <td>{users.email}</td>
+                            </tr>) : null
+                    }
+                </table>
                 {
                     error ? <div>{error}</div> : null
                 }
