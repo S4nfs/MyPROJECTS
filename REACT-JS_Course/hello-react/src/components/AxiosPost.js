@@ -32,7 +32,8 @@ export class PostAxios extends Component {
     render() {
         const { userid, title, description } = this.state
         return (
-            <div>POST using Axios
+            <div>
+                POST using Axios
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>UserID </label>
