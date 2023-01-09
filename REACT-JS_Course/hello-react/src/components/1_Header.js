@@ -4,8 +4,8 @@ export const Header = (props) => { //function name should match with the filenam
     console.log(props)
     return (
         <div>
-            <h4>Hello World From ✏️Functional Component {props.name}</h4>
-            {props.child}
+            <h4>Hello React By {props.name} From ✏️ Functional Component</h4>
+            {props.children}
         </div>
     )
 }
