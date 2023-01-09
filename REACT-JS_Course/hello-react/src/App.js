@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Header } from './components/Header';
+import { Header } from './components/1_Header';
 import CHeader from './components/ClassHeader';
 import Channel from './components/Channel';
 import FunctionClick from './components/FunctionClick';
@@ -31,10 +31,9 @@ import Test from './components/Test';
 import FunctionContextA from './components/FunctionContextA';
 import ReduxContainer from './containers/ReduxContainer';
 import ReduxClassComponent from './components/ReduxClassComponent';
-import Demo from './components/Demo';
 
 //without jsx 
-const withoutJSXformat = React.createElement('h2', { className: 'antiJSX' }, 'i am h2 tag from non jsx');
+const withoutJSXformat = React.createElement('h1', { className: 'antiJSX' }, 'Complete React Application');
 
 //function App is itself an example of JSX format 😊
 function App() {
@@ -43,14 +42,18 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+
         {withoutJSXformat}
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
 
         {/* Functional component */}
-        <Header name="Sagar" />
-        <p>He is a full stack engineer </p>
+        <Header name="Sagar"><p>i am a full stack engineer and this is from children component</p>
+        </Header>
         <Header name="Prateek" />
         <Header name="Anjali" />
         <Header name="Sanju" />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
 
         {/* Class component */}
         <CHeader name="ClassSanju" />
@@ -68,6 +71,7 @@ function App() {
         <ProductB />
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <GetAxios />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <PostAxios />
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <HookUseState />
@@ -86,9 +90,11 @@ function App() {
         <PersonA />
         <PersonB />
         <Test />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <ReduxContainer />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <ReduxClassComponent />
-        <Demo />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <a
           className="App-link"
           href="https://github.com/S4nfs"
