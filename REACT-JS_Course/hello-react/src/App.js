@@ -30,7 +30,7 @@ import PersonB from './components/20_PersonB';
 import Test from './components/Test';
 import FunctionContextA from './components/19_FunctionContextA';
 import ReduxContainer from './containers/ReduxContainer';
-import ReduxClassComponent from './components/ReduxClassComponent';
+import ReduxClassComponent from './components/22_ReduxClassComponent';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h1', { className: 'antiJSX' }, 'Complete React Application');

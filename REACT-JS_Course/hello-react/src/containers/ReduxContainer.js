@@ -2,7 +2,7 @@
 /*Flow = action-->reducer-->store
 */
 import { connect } from 'react-redux'
-import Redux from '../components/Redux'
+import Redux from '../components/21_Redux'
 import { addToCart, removeToCart } from '../services/actions/action'
 
 const mapStateToProps = (state) => ({    //button events
