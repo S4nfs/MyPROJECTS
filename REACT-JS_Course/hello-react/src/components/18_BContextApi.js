@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { mycontext } from './18_AContextApi'
+import { Mycontext } from './18_AContextApi'
 
 
 export class BContextApi extends Component {
@@ -7,14 +7,14 @@ export class BContextApi extends Component {
         return (
             <div>
                 <h1>Component B</h1>
-                <mycontext.Consumer>{
+                <Mycontext.Consumer>{
                     ({ data, handlecheck }) => (
                         <div>
                             <h3>{data.name},{data.roll}</h3>
                             <button onClick={handlecheck}>Change roll no using Context API</button>
                         </div>
                     )
-                }</mycontext.Consumer>
+                }</Mycontext.Consumer>
             </div>
         )
     }

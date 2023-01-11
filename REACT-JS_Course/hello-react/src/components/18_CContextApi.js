@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { mycontext } from './18_AContextApi'
+import { Mycontext } from './18_AContextApi'
 
 
 export class CContextApi extends Component {
@@ -7,7 +7,7 @@ export class CContextApi extends Component {
         return (
             <div>
                 <h1>Component C</h1>
-                <mycontext.Consumer>{data => <h3>{data.roll}</h3>}</mycontext.Consumer>
+                <Mycontext.Consumer>{data => <h3>{data.roll}</h3>}</Mycontext.Consumer>
             </div>
         )
     }
