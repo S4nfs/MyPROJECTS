@@ -2,33 +2,33 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Header } from './components/1_Header';
-import CHeader from './components/ClassHeader';
-import Channel from './components/Channel';
-import FunctionClick from './components/FunctionClick';
-import CFunctionClick from './components/ClassFunctionClick';
-import StateWithList from './components/StateWithList';
-import Stylesheet from './components/Stylesheet';
+import CHeader from './components/2_ClassHeader';
+import Channel from './components/3_Channel';
+import FunctionClick from './components/4_FunctionClick';
+import CFunctionClick from './components/4_ClassFunctionClick';
+import StateWithList from './components/5_StateWithList';
+import Stylesheet from './components/6_Stylesheet';
 import styles from './components/waiting.module.css';  //css module (important filename)
-import Form from './components/Form';
-import Routing from './components/Routing';
-import LifeCycleA from './components/LifeCycleA';
-import ProductA from './components/ProductA';
-import ProductB from './components/ProductB';
-import GetAxios from './components/AxiosPost';
-import PostAxios from './components/AxiosGet';
-import HookUseState from './components/HookUseState';
-import HookUseEffect from './components/HookUseEffect';
-import HookObject from './components/HookObject';
-import HookArray from './components/HookArray';
-import MouseClass from './components/MouseClass';
-import MouseFunction from './components/MouseFunction';
-import AContextApi from './components/AContextApi';
-import BContextApi from './components/BContextApi';
-import CContextApi from './components/CContextApi';
-import PersonA from './components/PersonA';
-import PersonB from './components/PersonB';
+import Form from './components/8_Form';
+import Routing from './components/7_Routing';
+import LifeCycleA from './components/9_LifeCycleA';
+import ProductA from './components/10_ProductA';
+import ProductB from './components/10_ProductB';
+import GetAxios from './components/12_AxiosPost';
+import PostAxios from './components/11_AxiosGet';
+import HookUseState from './components/13_HookUseState';
+import HookUseEffect from './components/14_HookUseEffect';
+import HookObject from './components/15_HookObject';
+import HookArray from './components/16_HookArray';
+import MouseClass from './components/17_MouseClass';
+import MouseFunction from './components/17_MouseFunction';
+import AContextApi from './components/18_AContextApi';
+import BContextApi from './components/18_BContextApi';
+import CContextApi from './components/18_CContextApi';
+import PersonA from './components/20_PersonA';
+import PersonB from './components/20_PersonB';
 import Test from './components/Test';
-import FunctionContextA from './components/FunctionContextA';
+import FunctionContextA from './components/19_FunctionContextA';
 import ReduxContainer from './containers/ReduxContainer';
 import ReduxClassComponent from './components/ReduxClassComponent';
 
@@ -57,38 +57,71 @@ function App() {
 
         {/* Class component */}
         <CHeader name="ClassSanju" />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <Channel />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <FunctionClick />
         <CFunctionClick roll="22" />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <StateWithList />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <Stylesheet />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <Routing />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <h2 className={styles.wait}>Waiting .. Done</h2>
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <Form />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
 
         <LifeCycleA />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <ProductA />
         <ProductB />
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <GetAxios />
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <PostAxios />
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <HookUseState />
         <HookUseEffect />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <HookObject />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <HookArray />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
 
         <MouseClass />
         <MouseFunction />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
 
-        {/* <AContextApi /> */}
-        {/* <BContextApi /> */}
-        {/* <CContextApi /> */}
+
+        {/* <AContextApi />
+        <BContextApi />
+        <CContextApi /> */}
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
 
         <FunctionContextA />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <PersonA />
         <PersonB />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <Test />
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <ReduxContainer />
