@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
-import { Consumer } from './ABCcontext'
+import { mycontext } from './18_AContextApi'
+
 
 export class BContextApi extends Component {
     render() {
         return (
             <div>
                 <h1>Component B</h1>
-                <Consumer>{
+                <mycontext.Consumer>{
                     ({ data, handlecheck }) => (
                         <div>
                             <h3>{data.name},{data.roll}</h3>
                             <button onClick={handlecheck}>Change roll no using Context API</button>
                         </div>
                     )
-                }</Consumer>
+                }</mycontext.Consumer>
             </div>
         )
     }

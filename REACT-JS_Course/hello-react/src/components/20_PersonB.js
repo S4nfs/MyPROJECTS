@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import subjects from './HOC'
+import subjects from './20_HOC'
 
 export class PersonB extends Component {
     state = {

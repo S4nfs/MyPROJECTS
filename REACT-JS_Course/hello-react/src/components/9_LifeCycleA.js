@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LifeCycleB from './LifeCycleB';
+import LifeCycleB from './9_LifeCycleB';
 
 /*credits: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 check LifeCycle flow using console.log-------------------------------------------------------------------------------------*/

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Provider } from './ABCcontext'
-import BContextApi from './BContextApi';
-import CContextApi from './CContextApi';
-//pass data to other component without using props, Here Context API helps
+import BContextApi from './18_BContextApi';
+import CContextApi from './18_CContextApi';
+//pass data to other component without using props, Here Context API helps to avoid prop drilling
 export const mycontext = React.createContext(); //can also pass default values in createContext parameter
 
 export class AContextApi extends Component {
@@ -23,10 +22,10 @@ export class AContextApi extends Component {
         return (
             <div>
                 <h1>Component A</h1>
-                <Provider value={payload}>
+                <mycontext.Provider value={payload}>
                     <BContextApi />
                     <CContextApi />
-                </Provider>
+                </mycontext.Provider>
             </div>
         )
     }

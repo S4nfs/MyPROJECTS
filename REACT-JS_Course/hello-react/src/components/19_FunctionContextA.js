@@ -1,7 +1,7 @@
 import React from 'react'
 import ContextFunctional from '../Context/ContextFunctional'
-import FunctionContextB from './FunctionContextB'
-import FunctionContextC from './FunctionContextC'
+import FunctionContextB from './19_FunctionContextB'
+import FunctionContextC from './19_FunctionContextC'
 
 function FunctionContextA() {
     return (
