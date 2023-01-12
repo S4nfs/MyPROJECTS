@@ -8,7 +8,9 @@ export class CContextApi extends Component {
             <div>
                 <h1>ContextAPI using class component</h1>
                 <Mycontext.Consumer>
-                    {data => <h3>{data.roll}</h3>}
+                    {
+                        ({ data }) => <h3>{data.roll}</h3>
+                    }
                 </Mycontext.Consumer>
             </div>
         )
