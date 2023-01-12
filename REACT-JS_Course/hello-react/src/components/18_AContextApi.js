@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import BContextApi from './18_BContextApi';
 import CContextApi from './18_CContextApi';
-//pass data to other component without using props, Here Context API helps to avoid prop drilling
-export const Mycontext = React.createContext(); //can also pass default values in createContext parameter
+import { Mycontext } from './18_Context';
 
+//WHY context API?
+//pass data down to other component without using props, Here Context API helps to avoid prop drilling
 export class AContextApi extends Component {
     state = {
         name: "Sagar Verma",
@@ -21,7 +22,6 @@ export class AContextApi extends Component {
         }
         return (
             <div>
-                <h1>Component A</h1>
                 <Mycontext.Provider value={payload}>
                     <BContextApi />
                     <CContextApi />
