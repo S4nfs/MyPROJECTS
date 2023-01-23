@@ -1,6 +1,7 @@
 
 //The JavaScript Math object allows you to perform mathematical tasks on numbers.
 x = 6.5;
+arr = [1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]
 console.log(Math.round(x))	    //Returns x rounded to its nearest integer                   7
 console.log(Math.ceil(x))       //Returns x rounded up to its nearest integer                7
 console.log(Math.floor(x))	    //Returns x rounded down to its nearest integer              6
@@ -12,3 +13,14 @@ console.log(Math.abs(x))        //returns the absolute (positive) value of x    
 console.log(Math.min(0, 150, 30, -200)) //returns the lowest in a list of arguments          -200
 console.log(Math.max(0, 150, 30, -200)) //returns the highest value in a list of arguments   150
 console.log(Math.random())      //returns a random number between 0 (inclusive), and 1 (exclusive) 0 - 0.9
+
+
+
+// When you sort an array with .sort(), it assumes that you are sorting strings. When sorting numbers, the default behavior will not sort them properly.The function that you pass tells how to sort the elements. It takes two parameters (a and b) that represent any two elements from the array. How the elements will be sorted depends on the function’s return value:
+
+//     if it returns a negative value, the value in a will be ordered before b.
+//     if it returns 0, the ordering of a and b won’t change.
+//     if it returns a positive value, the value in b will be ordered before a.
+
+// When you pass the function (a, b) => a - b, you’re telling the .sort() function to sort the numbers in ascending order.
+console.log(arr.sort((a, b) => a - b))
