@@ -1,14 +1,66 @@
-const insertionSort = (array) => {
-  for (i = 1; i < array.length; i++) {
-    let curr = array[i];
-    let j = i - 1;
-    while (j >= 0 && array[j] > curr) {
-      array[j + 1] = array[j];  //temp [8,8,4,1,3]
-      j--;
-    }
-    array[j + 1] = curr;  //-1+1 = 0 [2,8,4,1,3]
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
-  return array;
 }
 
-console.log(insertionSort([8, 2, 4, 1, 3]));
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0
+  }
+
+  isEmpty() {
+    return this.size === 0
+  }
+  getSize() {
+    return this.size
+  }
+  prepend(value) {
+    const node = new Node(value)
+    if (this.isEmpty()) {
+      this.head = node
+    } else {
+      node.next = this.head;
+      this.head = node
+    }
+    this.size++
+  }
+  print() {
+    if (this.isEmpty()) {
+      console.log(`List is empty`)
+    } else {
+      let curr = this.head;
+      let listValues = ''
+      while (curr) {
+        listValues += `${curr.value} `
+        curr = curr.next;
+      }
+      console.log(listValues)
+    }
+  }
+  append(value) {
+    const node = new Node(value)
+    if (this.isEmpty()) {
+      this.head = node;
+    } else {
+      let pre = this.head;
+      while (pre.next) {
+        pre = pre.next
+      }
+      pre.next = node
+    }
+    this.size++
+  }
+}
+
+let Obj = new LinkedList()
+console.log(Obj.isEmpty())
+Obj.prepend(10)
+Obj.prepend(20)
+Obj.prepend(30)
+Obj.print()
+Obj.append(40)
+Obj.append(50)
+Obj.print()
