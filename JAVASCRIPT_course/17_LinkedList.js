@@ -58,16 +58,59 @@ class LinkedList {
         }
         this.size++
     }
+    insert(value, index) {
+        if (index < 0 || index >= this.size) {
+            return null
+        }
+        if (index === 0) {
+            this.prepend(value)
+        } else {
+            const node = new Node(value)
+            let prev = this.head
+            for (let i = 0; i < index - 1; i++) {       //traversing always requires a temporary pointer in linked list
+                prev = prev.next                        //at index - 1
+            }
+            node.next = prev.next;
+            prev.next = node
+        }
+    }
+
+    //O(n)
+    remove(index) {
+        if (index < 0 || index >= this.size) {
+            return null
+        }
+        let removedNode;
+        if (index === 0) {
+            removedNode = this.head
+            this.head = this.head.next
+        }
+        if (index > 0) {
+            let prev = this.head
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next                    //at index - 1
+            }
+            removedNode = prev.next
+            prev.next = removedNode.next
+        }
+        this.size--
+        return removedNode.value
+    }
+
 }
 
-let linkedlist = new LinkedList()
-// console.log(linkedlist.isEmpty())
-// console.log(linkedlist.isEmpty())
-linkedlist.append(10)
-linkedlist.append(20)
-linkedlist.append(30)
-linkedlist.print()
 
+let linkedlist = new LinkedList()
+console.log(linkedlist.isEmpty())
+linkedlist.prepend(10)
+linkedlist.prepend(20)
+linkedlist.prepend(30)
+linkedlist.append(40)
+linkedlist.print()
+linkedlist.insert(250, 3)
+linkedlist.print()
+console.log(linkedlist.remove(222))
+linkedlist.print()
 
 //Example :2 a bit complex but efficient
 
