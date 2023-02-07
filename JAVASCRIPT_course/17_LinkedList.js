@@ -58,6 +58,7 @@ class LinkedList {
         }
         this.size++
     }
+
     insert(value, index) {
         if (index < 0 || index >= this.size) {
             return null
@@ -68,7 +69,7 @@ class LinkedList {
             const node = new Node(value)
             let prev = this.head
             for (let i = 0; i < index - 1; i++) {       //traversing always requires a temporary pointer in linked list
-                prev = prev.next                        //at index - 1
+                prev = prev.next                        //exit at index - 1
             }
             node.next = prev.next;
             prev.next = node
@@ -88,7 +89,7 @@ class LinkedList {
         if (index > 0) {
             let prev = this.head
             for (let i = 0; i < index - 1; i++) {
-                prev = prev.next                    //at index - 1
+                prev = prev.next                    //exit at index - 1
             }
             removedNode = prev.next
             prev.next = removedNode.next
@@ -97,6 +98,34 @@ class LinkedList {
         return removedNode.value
     }
 
+    //O(n)
+    find(value) {
+        if (this.isEmpty()) {
+            return -1
+        }
+        let curr = this.head
+        let i = 0
+        while (curr) {
+            if (curr.value === value) {
+                return i
+            }
+            curr = curr.next
+            i++
+        }
+        return -1
+    }
+
+    reverse() {
+        let prev = null;
+        let curr = this.head
+        while (curr) {
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
 }
 
 
@@ -109,10 +138,14 @@ linkedlist.append(40)
 linkedlist.print()
 linkedlist.insert(250, 3)
 linkedlist.print()
-console.log(linkedlist.remove(222))
+console.log(linkedlist.remove(3))
+linkedlist.print()
+console.log(linkedlist.find(40))
+linkedlist.reverse()
 linkedlist.print()
 
-//Example :2 a bit complex but efficient
+
+//Example :2 a bit complex but efficient using tail
 
 // class List {
 //     constructor(data) {
