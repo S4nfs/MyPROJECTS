@@ -7,9 +7,9 @@ Document - html
 Object - h1, p, input, a, tags
 Model - html structure
 
-Virtal Dom - The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
+🟡Virtal Dom - The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
 
-Component - React components let you break up the user interface into seperate pieces that can be reused and handled independently.
+🟡Component - React components let you break up the user interface into seperate pieces that can be reused and handled independently.
 
 Functional Component -
 
@@ -28,7 +28,7 @@ Class Component -
 
 https://medium.com/coffee-and-codes/componentdidmount-v-s-componnetwillmount-react-47f4f631276c
 
-Props - Props stand for "Properties." They are read-only components. Props are arguments passed into React components
+🟡Props - Props stand for "Properties." They are read-only components. Props are arguments passed into React components
 
                     Props                               ||                             State
         Props get passed to the component               ||            State is managed into the component
@@ -38,16 +38,16 @@ Props - Props stand for "Properties." They are read-only components. Props are a
 
 yes you can use UseState in functional component also.
 
-Hooks - Hooks allows you to use state and other React features without writing a class. Some built-in hooks are useState, useEffect.
+🟡Hooks - Hooks allows you to use state and other React features without writing a class. Some built-in hooks are useState, useEffect.
 
 - useEffect hook is a smooth combination of React’s lifecycle methods like componentDidMount, componentDidUpdate and componentWillUnmount.
 - sometimes, we want to run some code after the DOM has been updated. It can be anything, showing pop-ups, sending API requests, logging users’ information etc. and such functions don’t require cleanup to be performed. They are just hit-once functions and then we forget about them. Such places are the best examples to use the useEffect hook.
 
-ContextAPI - contextAPI is an easy way to create global variables that can be passed around in the react app and this is an alternative of prop drilling.
+🟡ContextAPI - contextAPI is an easy way to create global variables that can be passed around in the react app and this is an alternative of prop drilling.
 
-Redux - it creates a global state for the whole application, that can be accessed by any of your component
+🟡Redux - it creates a global state for the whole application, that can be accessed by any of your component
 
-useCallback and useMemo Hooks
+🟡useCallback and useMemo Hooks
 When to use the two hooks - useCallback and useMemo?
 Every state change in React can cause re-rendering which can affect badly on application. Mostly when the component size gets increased. useCallback and useMemo hooks are used for improvising the performance of React application.
 Does useCallback and useMemo do the same thing?
