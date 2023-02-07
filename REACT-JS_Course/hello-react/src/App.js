@@ -31,6 +31,7 @@ import Test from './components/Test';
 import FunctionContextA from './components/19_FunctionContextA';
 import ReduxContainer from './containers/ReduxContainer';
 import ReduxClassComponent from './components/22_ReduxClassComponent';
+import UseMemoUseCallback from './components/23_UseMemo&UseCallback';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h1', { className: 'antiJSX' }, 'Complete React Application');
@@ -126,6 +127,10 @@ function App() {
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
         <ReduxClassComponent />
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+        {/* <TEST></TEST> */}
+        <UseMemoUseCallback />
+        <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
+
         <a
           className="App-link"
           href="https://github.com/S4nfs"

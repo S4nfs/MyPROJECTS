@@ -43,6 +43,30 @@ Hooks - Hooks allows you to use state and other React features without writing a
 - useEffect hook is a smooth combination of React’s lifecycle methods like componentDidMount, componentDidUpdate and componentWillUnmount.
 - sometimes, we want to run some code after the DOM has been updated. It can be anything, showing pop-ups, sending API requests, logging users’ information etc. and such functions don’t require cleanup to be performed. They are just hit-once functions and then we forget about them. Such places are the best examples to use the useEffect hook.
 
-ContextAPI - contextAPI is an easy way to create global variables that canbe passed around in the react app and this is an alternative of prop drilling.
+ContextAPI - contextAPI is an easy way to create global variables that can be passed around in the react app and this is an alternative of prop drilling.
 
 Redux - it creates a global state for the whole application, that can be accessed by any of your component
+
+useCallback and useMemo Hooks
+When to use the two hooks - useCallback and useMemo?
+Every state change in React can cause re-rendering which can affect badly on application. Mostly when the component size gets increased. useCallback and useMemo hooks are used for improvising the performance of React application.
+Does useCallback and useMemo do the same thing?
+
+Though both are used for performance optimization, it might be confusing for developers regarding their use-case. So let’s understand them thoroughly.
+
+Before diving deeply into their difference, let’s understand why they are used.
+
+    As mentioned above, both hooks are used for performance optimization.
+    If our application is doing frequent re-rendering then based on the use-case we can use one of them.
+
+Let’s see how syntactically different they are:-
+
+useCallback(()=>{
+doSomething();
+}, [dependencies]);
+
+useMemo(()=>{
+doSomething();
+}, [dependencies]);
+
+As we can see, there is no such difference in their syntax except in their naming. Both hooks accept a function and a dependency array. The main difference between useMemo and useCallback hook is, useMemo returns memoized value and useCallback returns memoised function.
