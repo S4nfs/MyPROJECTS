@@ -4,7 +4,7 @@ import UseMemoUseCallbackChildComponent from './23_UseMemoUseCallbackChildCompon
 function UseMemoUseCallback() {
     const [num, setNum] = useState(0);
     //Problem: Child component get rendered everytime the state changes
-    //✅Solution: useMemo but it won't handle functions and re-renderes the child component aggin as useMemo returns memoized value
+    //✅Solution: useMemo but it won't handle functions and re-renderes the child component again as useMemo returns memoized value
 
     //const getChildComp = useMemo(() => <UseMemoUseCallbackChildComponent handleUpdateNum={handleUpdateNum} />, [])
 
