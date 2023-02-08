@@ -1,5 +1,5 @@
 // const { projects, clients } = require('../sampleData');
-const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLSchema, GraphQLList, GraphQLNonNull } = require('graphql');
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLSchema, GraphQLList, GraphQLNonNull, GraphQLEnumType } = require('graphql');
 const Project = require('../models/Project');
 const Client = require('../models/Client');
 
@@ -31,7 +31,7 @@ const ProjectType = new GraphQLObjectType({
         }
     })
 })
-
+//-----------------------------------------------------------------------------------------------------------------
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
@@ -70,7 +70,7 @@ const RootQuery = new GraphQLObjectType({
 })
 
 //Mutations
-const mutation = new GraphQLObjectType({
+const myMutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
         addClient: {
@@ -93,11 +93,42 @@ const mutation = new GraphQLObjectType({
             type: ClientType,
             args: {
                 id: { type: GraphQLNonNull(GraphQLID) },       //values shouldn't be null
+            },
+            resolve(parent, args) {
+                return Client.findByIdAndRemove(args.id)
+            }
+        },
+        addProject: {
+            type: ProjectType,
+            args: {
+                name: { type: GraphQLNonNull(GraphQLString) },
+                description: { type: GraphQLNonNull(GraphQLString) },
+                status: {
+                    type: new GraphQLEnumType({
+                        name: 'ProjectStatus',
+                        values: {
+                            new: { value: 'Not Started' },
+                            progress: { value: 'In Progress' },
+                            completed: { value: 'Completed' },
+                        },
+                    }),
+                    defaultValue: 'Not Started'
+                },
+                clientId: { type: GraphQLNonNull(GraphQLID) }
+            },
+            resolve(parent, args) {
+                const project = new Project({
+                    name: args.name,
+                    description: args.description,
+                    status: args.status,
+                    clientId: args.clientId
+                })
+                return project.save()
             }
         }
     }
 })
 module.exports = new GraphQLSchema({
     query: RootQuery,
-    mutation: mutation
+    mutation: myMutation
 })
