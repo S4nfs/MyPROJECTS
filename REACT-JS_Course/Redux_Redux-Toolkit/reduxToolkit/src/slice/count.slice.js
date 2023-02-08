@@ -5,7 +5,7 @@ const counterSlice = createSlice({  //combine reducers and action using createSl
     initialState: {
         count: 0
     },
-    reducer: {
+    reducers: {
         //actions
         ADD: (state) => {
             state.count = state.count + 1

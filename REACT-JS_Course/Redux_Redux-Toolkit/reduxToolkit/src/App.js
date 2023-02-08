@@ -5,8 +5,8 @@ import { ADD, SUBTRACT, RESET, ADD_NUMBER } from "./slice/count.slice"
 import { TOGGLE_AUTH } from "./slice/auth.slice"
 
 function App() {
-  const count = useSelector(state => state.countR.count)
-  const isLoggedIn = useSelector(state => state.authR.isLoggedIn)
+  const { count } = useSelector(state => state.countR)
+  const { isLoggedIn } = useSelector(state => state.authR)
   const dispatch = useDispatch();
 
   let color = "#fff";
