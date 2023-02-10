@@ -2,7 +2,7 @@
 
 ## Courses Completed 🥳
 
-✅ Javascipt
+✅ Javascript
 ✅ PHP
 ✅ React
 ✅ NodeJS
