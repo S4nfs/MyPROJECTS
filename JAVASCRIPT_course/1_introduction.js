@@ -23,7 +23,7 @@ Reference Data Types: Object, Function, Array, Date, RegExp, Error */
 // 7. Objects
 // 8. null
 var myname = "Sagar Verma";
-console.log(typeof myname);    //like var_dump to determine which datatype
+console.log(typeof myname);    //just like var_dump to determine which datatype in PHP
 
 var something;
 console.log(typeof something); //undefined
