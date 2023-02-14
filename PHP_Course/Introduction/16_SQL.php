@@ -23,7 +23,6 @@ Some specific SQL commands (ONLY ADVANCED):=====================================
 >SELECT COUNT(degree) FROM registration;                        - return the number of degrees in the table
 >SELECT AVG(id) FROM registration;                              - return the average of all the ids in the table
 >SELECT degree FROM registration WHERE degree LIKE '%c%';       - return all the degrees that include 'c'
->SELECT * FROM registration WHERE degree IN ('Bcom', 'MCA');    - return all the records that is either 'Bcom' or 'MCA' in degree
 >SELECT * FROM registration WHERE id BETWEEN 1 AND 3 ORDER BY id; - return all the records with id between 1 and 3 in ascending order by id
 
 
