@@ -44,16 +44,18 @@ map()       - It applies a given function on all the elements of the array and r
 reduce()    - It reduces the array to a single value
 filter()    - It filters the array based on the condition provided
 indexOf()   - It returns the index of the first occurrence of the given element
+includes()  - It returns true/false if an array contains a specified value, CASE SENSITIVE
 find()      - It returns the value of the first element that passes a test function
 pop()       - removes the last element of an array and returns it
 push()      - adds one or more elements to the end of an array and returns the new length of the array
 shift()     - removes the first element of an array and returns it
 unshift()   - adds one or more elements to the beginning of an array and returns the new length of the array.
-splice(indextochange, howmany, additem1...2..) - return a part of an array and overwrites the original array.
+splice(indextochange, howmany to remove, additem1...2..) - return a part of an array and overwrites the original array.
 slice(indextochange, untillement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
 sort()      - sorts the elements as strings in alphabetical and ascending order with modified original array
 split()     - splits a string into an array of substrings
 concat()    - merge two arrays
+from()      - create an array from a string
 every()     - checks if all array values pass a test
 some()      - checks if some array values pass a test
 keys()      - returns an Array Iterator object with the keys of an array
@@ -62,7 +64,7 @@ entries()   - returns an Array Iterator object with key/value pairs
 */
 
 
-//✔️ Map method() -  It applies a given function on all the elements of the array and returns the updated array-------------------
+//✔️ Map method(currentValue, index, arr) -  It applies a given function on all the elements of the array and returns the updated array-------------------
 const x = [0, 1, 2, 3];
 function addOne(number) {
     return number + 1;
@@ -72,10 +74,29 @@ console.log(x.map(addOne)); //Output: [ 1, 2, 3, 4 ]
 
 //✔️ Reduce method() - reduces all the elements of the array to a single value by repeatedly applying a function------------------
 const arr3 = [5, 6, 2];
-const sum = arr3.reduce((accumulator, currElem, index, arr) => {            //accumulator means Collecting               
-    return accumulator += currElem;                                         //(+=) adds a value to a variable     
+const sum = arr3.reduce((accumulator, currElem, index, arr) => {  //accumulator OR previousValue means Collecting               
+    return accumulator += currElem;                               //(+=) adds a value to a variable     
 })
 console.log(sum);
+
+// When to use initial value, HERE We need to know the total years of experience of all pilots
+var pilots = [
+    {
+        id: 10,
+        name: "Poe Dameron",
+        years: 14,
+    },
+    {
+        id: 2,
+        name: "Temmin 'Snap' Wexley",
+        years: 30,
+    },
+];
+
+var totalYears = pilots.reduce(function (accumulator, pilot) {
+    return accumulator + pilot.years;
+}, 0);               //here we need to explicitly give initial value as it's an object
+console.log(totalYears)
 
 //✔️ filter() - method creates a new array filled with elements that pass a test provided by a function
 const prices = [200, 300, 350, 400, 450, 500, 600];
@@ -85,13 +106,17 @@ const newPriceTag = prices.filter((elem, index) => {   //filter() = return an ar
 })
 console.log(newPriceTag);
 
-// ✔️ Searching $ Filter in an arrays -------------------------------------------------------------------------------------------
+
+// ✔️ Searching $ Filter in an arrays 
 var myFriendz = ["Sagar", "Pratik", "Anjali", "Pratham", "Devendra"];
 console.log(myFriendz.indexOf("Pratham"));            //indexof() = returns index position CASE-SENSITIVE if found else -1
 console.log(myFriendz.includes("Pratham"));           //incudes() = check if the element exists(including NaN, unlike indexOf) and returns true
 
+// ✔️ includes(element, start)  - It returns true/false if an array contains a specified value, CASE SENSITIVE
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits.includes("Mango"));   //true
 
-//✔️ find() - It returns the value of the first element *that passes a test function*
+//✔️ find() - It returns the value of the first element *that passes a test function* otherwise return undefined
 const prices = [200, 300, 350, 400, 450, 500, 600];
 const findElementoz = prices.find((currVal) => {       //find() = problem is that it only returns one element, here 200
     return currVal < 400;
@@ -185,6 +210,10 @@ const arr2 = ["Emil", "Tobias", "Linus"];
 const arr3 = ["Robin"];
 const children = arr1.concat(arr2, arr3);
 
+//✔️ from() - create an array from a stringr
+let text = "ABCDEFG"
+const myArr = Array.from(text);
+
 //✔️ every() - checks if all array values pass a test
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const result = array.every((element, index, array) => {
@@ -219,7 +248,7 @@ for (let keys of kv) {
 
 
 /* ✔️EXERCISE:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-Multiply each element by 2 and return only those elements which are greater than 10 */
+Q1. Multiply each element by 2 and return only those elements which are greater than 10 */
 
 let arr = [2, 3, 4, 6, 8];
 let outarr = arr.map((outpitelement) => {                               //👉 Can be written In Single line: 
@@ -240,3 +269,30 @@ function map(arr, fn) {
     }
     return newArr;
 }
+
+//Q2. Get the total score of force users only.
+var personnel = [
+    {
+        id: 5,
+        name: "Luke Skywalker",
+        pilotingScore: 98,
+        shootingScore: 56,
+        isForceUser: true,
+    },
+    {
+        id: 82,
+        name: "Sabine Wren",
+        pilotingScore: 73,
+        shootingScore: 99,
+        isForceUser: false,
+    },
+    {
+        id: 22,
+        name: "Zeb Orellios",
+        pilotingScore: 20,
+        shootingScore: 59,
+        isForceUser: false,
+    },
+];
+let res = personnel.filter((jedi) => jedi.isForceUser).map(jedi => jedi.pilotingScore + jedi.shootingScore).reduce((acc, currElement) => acc + currElement)
+console.log(res)
