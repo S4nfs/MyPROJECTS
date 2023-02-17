@@ -35,6 +35,7 @@ import UseMemoUseCallback from './components/23_UseMemo&UseCallback';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h1', { className: 'antiJSX' }, 'Complete React Application');
+const withoutJSXformat2 = React.createElement('p', { className: 'antiJSXpara' }, 'Note: See console logs or press F12 to get more information');
 
 //function App is itself an example of JSX format 😊
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
 
         {withoutJSXformat}
+        {withoutJSXformat2}
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
 
         {/* Functional component */}

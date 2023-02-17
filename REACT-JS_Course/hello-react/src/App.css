@@ -27,6 +27,15 @@
 .App-link {
   color: #61dafb;
 }
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+.antiJSX {
+  font-family: "Orbitron", sans-serif;
+}
+.antiJSXpara {
+  color: red;
+  font-size: small;
+  font-family: "Orbitron", sans-serif;
+}
 
 @keyframes App-logo-spin {
   from {
