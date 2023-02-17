@@ -46,6 +46,9 @@ yes you can use UseState in functional component also.
 🟡ContextAPI - contextAPI is an easy way to create global variables that can be passed around in the react app and this is an alternative of prop drilling.
 
 🟡Redux - it creates a global state for the whole application, that can be accessed by any of your component
+Store - that holds the state of your application
+Action - that describe what happened in the application
+Reducer - which handles the action and describe how to update the state
 
 🟡useCallback and useMemo Hooks
 When to use the two hooks - useCallback and useMemo?
