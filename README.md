@@ -11,7 +11,6 @@
 ## Courses Ongoing 😤
 
 ☑️ Bash
-☑️ HTML/CSS
 ☑️ JQuery
 ☑️ AWS
 ☑️ Docker
