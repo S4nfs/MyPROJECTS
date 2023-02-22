@@ -42,3 +42,5 @@ typings
 *.vscode
 
 QnA
+demo*.js
+debug*.js
