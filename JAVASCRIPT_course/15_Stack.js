@@ -2,6 +2,8 @@
 1. Linear Data Structure: Stack(LIFO), Queue(FIFO), Array
 2. Non - Linear Data Structure: Tree, Graph,
 
+In a linear data structure, the data elements connect to each other sequentially. A user can transverse each element through a single run. In a non-linear data structure, the data elements connect to each other hierarchically
+
 If you add last and remove last that's a STACK
 If you add last and remove first that's a QUEUE
 If you do both that's a LINKED LIST

@@ -67,9 +67,9 @@ queue1.enqueue(10);
 queue1.enqueue(20);
 queue1.enqueue(30);
 console.log(queue1.size())
-console.log(queue1.dequeue());
-console.log(queue1.peek())
-console.log(queue1.print())
+console.log("Removed", queue1.dequeue());
+console.log("First", queue1.peek())
+queue1.print()
 
 
 //Circular Queue | Usage: Clock, Streaming Data, traffic lights
