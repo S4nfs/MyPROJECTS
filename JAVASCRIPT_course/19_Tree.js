@@ -78,12 +78,117 @@ class BinarySearchTree {
                }
           }
      }
+
+     /*Traverse a tree has many ways: Depth First Search (DFS) & Breadth First Search (BFS)
+          DFS - start with root node and explores as fas as possible along each brach before backtracking, 
+               Types: PreOrder - visit node, visit the left subtree, visit the right subtree
+                      InOrder  - visit left subtree, visit node, visit right subtree   
+                      PostOrder - visit left subtree, visit right subtree, visit node
+
+          BFS - starts traversing from the root node and explores all the neighboring nodes at the depth level
+     */
+
+     preorder(root) {
+          if (root) {
+               console.log("Preorder: ", root.value)
+               this.preorder(root.left)
+               this.preorder(root.right)
+          }
+     }
+
+     inorder(root) {
+          if (root) {
+               this.inorder(root.left)
+               console.log("Inorder: ", root.value)
+               this.inorder(root.right)
+          }
+     }
+     postorder(root) {
+          if (root) {
+               this.postorder(root.left)
+               this.postorder(root.right)
+               console.log("Postorder: ", root.value)
+          }
+     }
+
+     bfsUnoptimised() {
+          const queue = []
+          queue.push(this.root)
+          while (queue.length) {
+               let curr = queue.shift()
+               console.log(curr.value)
+               if (curr.left) {
+                    queue.push(curr.left)
+               }
+               if (curr.right) {
+                    queue.push(curr.right)
+               }
+          }
+     }
 }
+
+//i made the more optimised solution with constant complexity
+class BFSOptimised {
+     constructor() {
+          this.items = {}
+          this.front = 0
+          this.rear = 0
+     }
+
+     enqueue(element) {
+          this.items[this.rear] = element
+          this.rear++
+     }
+
+
+     dequeue() {
+          const item = this.items[this.front]
+          delete this.items(this.front)
+          this.front++
+          console.log(item)
+
+     }
+
+     isEmpty() {
+          return this.rear - this.front === 0;
+     }
+
+     traverse(element) {
+          console.log(element.root.value)
+          this.enqueue(element.root.value)
+          let curr = element.root
+          while (curr) {
+               if (element.root.left) {
+                    this.enqueue(element.root.left.value)
+                    curr = element.root.left
+               }
+               if (element.root.right) {
+                    this.enqueue(element.root.left.value)
+                    curr = element.root.left
+               }
+          }
+          while (!this.isEmpty) {
+               this.dequeue()
+          }
+     }
+}
+
 
 const bst = new BinarySearchTree()
 console.log("Is tree Empty", bst.isEmpty());
 bst.insert(10)
 bst.insert(5)
 bst.insert(15)
-console.log(bst.search(bst.root, 15))
-console.log(bst.search(bst.root, 10))
+bst.insert(3)
+bst.insert(7)
+// console.log(bst.search(bst.root, 15))
+// console.log(bst.search(bst.root, 10))
+// bst.preorder(bst.root)   //10,5,3,7,15
+// bst.inorder(bst.root)   //3,5,7,10,15
+// bst.postorder(bst.root)   //3,7,5,15,10
+// bst.bfsUnoptimised()
+const bfs = new BFSOptimised()
+bfs.traverse(bst)
+// console.log(bst.root.value)
+
+
