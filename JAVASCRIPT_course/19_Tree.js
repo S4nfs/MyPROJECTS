@@ -125,9 +125,43 @@ class BinarySearchTree {
                }
           }
      }
+
+     min(root) {
+          if (!root.left) return root.value
+          else {
+               return this.min(root.left)
+          }
+     }
+     max(root) {
+          if (!root.right) return root.value
+          else {
+               return this.min(root.right)
+          }
+     }
+
+     delete(value) {
+          this.root = this.deleteNode(this.root, value)
+     }
+
+     deleteNode(root, value) {
+          if (root === null) return root
+          if (value < root.value) {
+               root.left = this.deleteNode(root.left, value)
+          } else if (value > root.value) {
+               root.right = this.deleteNode(root.right, value)
+          } else {
+               if (!root.left && !root.right) { return null }  //null to root if no child node present
+               if (!root.left) { return root.right }
+               else if (!root.right) { return root.left }
+
+               root.value = this.min(root.right)
+               root.right = this.deleteNode(root.right, root.value)
+               return root
+          }
+     }
 }
 
-//i made the more optimised solution with constant complexity
+//i made the more optimised solution to traverse with constant complexity---------------------------------------
 class BFSOptimised {
      constructor() {
           this.items = {}
@@ -172,7 +206,7 @@ class BFSOptimised {
           }
      }
 }
-
+//---------------------------------------------------------------------------------------------------Not working (debugging)
 
 const bst = new BinarySearchTree()
 console.log("Is tree Empty", bst.isEmpty());
@@ -186,9 +220,13 @@ bst.insert(7)
 // bst.preorder(bst.root)   //10,5,3,7,15
 // bst.inorder(bst.root)   //3,5,7,10,15
 // bst.postorder(bst.root)   //3,7,5,15,10
-// bst.bfsUnoptimised()
-const bfs = new BFSOptimised()
-bfs.traverse(bst)
+bst.bfsUnoptimised()
+console.log("Minimum: ", bst.min(bst.root))
+console.log("Maximum: ", bst.max(bst.root))
+bst.delete(7)
+bst.bfsUnoptimised()
+// const bfs = new BFSOptimised()
+// bfs.traverse(bst)
 // console.log(bst.root.value)
 
 
