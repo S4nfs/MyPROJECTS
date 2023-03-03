@@ -53,7 +53,7 @@ These are the GraphQL queries and mutations for the course.
 
 ```
 mutation {
-  addClient(name: "Tony Stark", email: "ironman@gmail.com", phone: "955-365-3376") {
+  addClient(name: "Eastwood", email: "thegoodthebadandtheugly@gmail.com", phone: "955-365-3376") {
     id
     name
     email
@@ -76,7 +76,7 @@ mutation {
 
 ```
 mutation {
-  addProject(name: "Mobile App", description: "This is the project description", status: "new", clientId: "1") {
+  addProject(name: "GraphQl App", description: "This is the project description", status: "new", clientId: "1") {
    name
    description
   }
