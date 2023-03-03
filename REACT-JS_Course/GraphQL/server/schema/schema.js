@@ -95,6 +95,9 @@ const myMutation = new GraphQLObjectType({
                 id: { type: GraphQLNonNull(GraphQLID) },       //values shouldn't be null
             },
             resolve(parent, args) {
+                Project.find({ clientId: args.id }).then((projects) => {
+                    projects.forEach((project) => project.remove())
+                })
                 return Client.findByIdAndRemove(args.id)
             }
         },
