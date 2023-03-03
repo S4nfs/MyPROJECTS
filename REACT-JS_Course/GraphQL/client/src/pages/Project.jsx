@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ClientInfo from '../components/ClientInfo'
 import DeleteProjectButton from '../components/DeleteProjectButton'
+import EditProjectForm from '../components/EditProjectForm'
 import Spinner from '../components/Spinner'
 import { GET_PROJECT } from '../queries/projectQueries'
 
