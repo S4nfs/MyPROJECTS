@@ -35,6 +35,7 @@ import UseMemoUseCallback from './components/23_UseMemo&UseCallback';
 import UseRefHook from './components/24_UseRef';
 import UseImperativeHandle from './components/25_UseImperativeHandle';
 import UseTransition from './components/26_UseTransition';
+import CustomHook from './components/27_CustomHook';
 
 //without jsx 
 const withoutJSXformat = React.createElement('h1', { className: 'antiJSX' }, 'Complete React Application');
@@ -145,6 +146,7 @@ function App() {
         <UseTransition />
         <h1 style={{ width: '100%', height: '1px', backgroundColor: 'grey' }}></h1>
 
+        <CustomHook />
         <a
           className="App-link"
           href="https://github.com/S4nfs"

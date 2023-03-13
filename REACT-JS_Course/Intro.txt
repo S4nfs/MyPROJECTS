@@ -87,8 +87,10 @@ Another use the useRef() hook is to access DOM elements directly.
 By default, components don’t expose their DOM nodes to parent components, you have to opt in with forwardRef.
 
 
-🟡 useLayoutEffect - same as useEffect()
+🟡 useLayoutEffect Hook - same as useEffect()
 The useEffect and useLayoutEffect hooks differ in the order in which they are invoked. After the DOM has been painted, the useEffect theme is called. On the other hand, the useLayoutEffect article is called synchronously before making any changes to the screen and can sometimes provide animations that seem butterier, cleaner, and faster than useEffect.
 
-🟡 useTransition() - [isPending, startTransition] = useTransitionHook()
+🟡 useTransition Hook- const [isPending, startTransition] = useTransitionHook()
 The useTransition hook enables us to mark some state modifications as unimportant. These state updates will be performed in parallel with other state updates, but the rendering of the component will not be delayed.
+
+🟡 useDeferredValue Hook- The useDeferredValue hook lets us to solve the slow render issue by adding a delay before some information is calculated.
