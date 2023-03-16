@@ -148,44 +148,74 @@
 // linkedlist.print()
 
 
-//Example :2 Using tail pointer | both head and tail node point to same node at the beginning
+//Example :2 Using tail pointer | both head and tail node point to same node at the beginning, Pop is O(n) as we can't go backwards in LL we have to index from the head.(see image)
 
+class Node {
+    constructor(value) {
+        this.value = value
+        this.next = null
+    }
+}
 class List {
     constructor(data) {
-        this.head = {
-            value: data,
-            next: null
-        }
+        const newNode = new Node(data)
+        this.head = newNode
         this.tail = this.head;
         this.size = 1;
     }
 
     append(data) {
-        let newNode = {
-            value: data,
-            next: null
+        const newNode = new Node(data)
+        if (!this.head) {
+            this.head = newNode
+            this.tail = newNode
         }
-
         this.tail.next = newNode;
         this.tail = newNode
         this.size++;
+        return this
     }
 
-    prepend(data) {
-        let newNode = {
-            value: data,
-            next: null
+    pop() {
+        if (!this.head) return "List is empty"
+
+        let currentNode = this.head
+        let pre = this.head
+        while (currentNode.next) {
+            pre = currentNode
+            currentNode = currentNode.next
         }
+        this.tail = pre
+        this.tail.next = null
+        this.size--
+        if (this.size === 0) {
+            this.head = null
+            this.tail = null
+        }
+        return currentNode
+    }
+    prepend(data) {
+        const newNode = new Node(data)
         if (!this.head) {
             this.head = newNode
             this.tail = newNode
         }
         newNode.next = this.head
         this.head = newNode
-
         this.size++
+        return this
     }
-
+    shift() {
+        if (!this.head) return "List is empty"
+        let temp = this.head
+        this.head = this.head.next
+        temp.next = null
+        this.size--
+        if (this.size === 0) {
+            this.tail = null
+        }
+        return this
+    }
     insert(index, value) {
         let counter = 1;
         let currentNode = this.head;
@@ -231,13 +261,13 @@ class List {
 
 let list = new List(0);
 list.append(10);
-list.append(20);
-list.append(30);
+// console.log(list.pop())
 list.prepend(40);
-list.prepend(50);
-// list.insert(2, 50);
+console.log(list.shift())
 
-list.traversing();
+// list.insert(2, 50);
+// list.traversing();
+
 // list.deleteNode(1);
 // console.log(list);
 // list.traversing();
