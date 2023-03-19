@@ -164,7 +164,7 @@ class List {
         this.size = 1;
     }
 
-    append(data) {
+    push(data) {
         const newNode = new Node(data)
         if (!this.head) {
             this.head = newNode
@@ -194,7 +194,8 @@ class List {
         }
         return currentNode
     }
-    prepend(data) {
+
+    unshift(data) {
         const newNode = new Node(data)
         if (!this.head) {
             this.head = newNode
@@ -205,6 +206,7 @@ class List {
         this.size++
         return this
     }
+
     shift() {
         if (!this.head) return "List is empty"
         let temp = this.head
@@ -216,19 +218,35 @@ class List {
         }
         return this
     }
+    get(index) {
+        if (index < 0 || index >= this.size) return "Out of Range"
+        let temp = this.head
+        for (let i = 0; i < index; i++) {
+            temp = temp.next
+        }
+        return temp
+    }
+
+    set(index, value) {
+        let temp = this.get(index)
+        if (temp) {
+            temp.value = value
+            return true
+        }
+        return false
+    }
+
     insert(index, value) {
-        let counter = 1;
-        let currentNode = this.head;
-        while (counter > index) {
-            counter++
-            currentNode = currentNode.next
-        }
-        let nextNode = currentNode.next
-        currentNode.next = {
-            value: value,
-            next: nextNode
-        }
-        // this.size++
+        if (index === 0) return this.unshift(value)
+        if (index === this.size) return this.push(value)
+        if (index < 0 || index >= this.size) return "Out of Range"
+
+        const newNode = new Node(value)
+        const temp = this.get(index - 1) //one last
+        newNode.next = temp
+        temp.next = newNode
+        this.size++
+        return true
     }
     //O(n)
     //traverse the linked list
@@ -241,36 +259,51 @@ class List {
         }
         console.log(this.size)
     }
-    //delete
-    deleteNode(element) {
-        let counter = 1;
-        let lead = this.head;
-        if (element === 1) {    //compare head first
-            this.head = this.head.next;
-        } else {
-            while (counter < element - 1) {
-                lead = lead.next;
-                counter++;
-            }
+
+    deleteNode(index) {
+        if (index === 0) return this.shift()
+        if (index === this.size) return this.pop()
+        if (index < 0 || index >= this.size) return "Out of Range"
+
+        let pre = this.get(index - 1)
+        let temp = pre.next
+        pre.next = temp.next
+        temp.next = this.size--
+        return temp
+    }
+
+    reverse() {
+        let temp = this.head
+        this.head = this.tail
+        this.tail = temp
+
+        let next = temp.next
+        let pre = null
+        for (let i = 0; i < this.size; i++) {
+            console.log(i)
+            next = temp.next
+            temp.next = pre
+            pre = temp
+            temp = next
         }
-        let nextNode = lead.next.next;
-        lead.next = nextNode;
-        console.warn(lead)
+        return this
     }
 }
 
 let list = new List(0);
-list.append(10);
+list.push(10);
 // console.log(list.pop())
-list.prepend(40);
-console.log(list.shift())
-
-// list.insert(2, 50);
+// list.unshift(40);
+// console.log(list.shift())
+// console.log(list.get(10))
+// list.set(0, 100)
+list.insert(0, 50);
 // list.traversing();
 
-// list.deleteNode(1);
-// console.log(list);
+// list.deleteNode(10);
 // list.traversing();
+list.reverse()
+list.traversing();
 
 /*Output
 {
