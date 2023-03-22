@@ -10,7 +10,7 @@ class Employee {
     }
 
 
-    static add(a, b) {      //static function (call without createing any object)
+    static add(a, b) {      //static function (call without creating any object)
         return a + b;
     }
 
