@@ -52,6 +52,7 @@ unshift()   - adds one or more elements to the beginning of an array and returns
 splice(indextochange, howmany to remove, additem1...2..) - return a part of an array and overwrites the original array.
 slice(indextochange, untillement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
 sort()      - sorts the elements as strings in alphabetical and ascending order with modified original array
+reverse()   - reverse an array
 split()     - splits a string into an array of substrings
 concat()    - merge two arrays
 from()      - create an array from a string
@@ -198,6 +199,10 @@ const newNumbers = numbers.map((val) => {
     return val * 2;
 })
 console.log(newNumbers);
+
+//✔️ reverse() - reverse an array
+var fruitBag = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruitBag.reverse());
 
 //✔️ split() - splits a string into an array of substrings
 let text = "How are you doing today?"; //it take string as value

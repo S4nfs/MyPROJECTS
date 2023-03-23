@@ -148,7 +148,7 @@
 // linkedlist.print()
 
 
-//Example :2 Using tail pointer | both head and tail node point to same node at the beginning, Pop is O(n) as we can't go backwards in LL we have to index from the head.(see image)
+//Example :2 Using tail pointer | both head and tail node point to same node at the beginning, Pop is O(n) as we can't go backwards in SLL we have to index from the head.(see image)
 
 class Node {
     constructor(value) {

@@ -48,7 +48,7 @@ class Queue {
     }
 
     peek() {
-        return this.items[this.front];
+        return this.items[this.rear - 1];
     }
     isEmpty() {
         return this.rear - this.front === 0;
@@ -68,7 +68,7 @@ queue1.enqueue(20);
 queue1.enqueue(30);
 console.log(queue1.size())
 console.log("Removed", queue1.dequeue());
-console.log("First", queue1.peek())
+console.log("Peek", queue1.peek())
 queue1.print()
 
 

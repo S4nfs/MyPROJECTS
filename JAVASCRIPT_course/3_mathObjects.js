@@ -13,6 +13,7 @@ console.log(Math.abs(x))        //returns the absolute (positive) value of x    
 console.log(Math.min(0, 150, 30, -200)) //returns the lowest in a list of arguments          -200
 console.log(Math.max(0, 150, 30, -200)) //returns the highest value in a list of arguments   150
 console.log(Math.random())      //returns a random number between 0 (inclusive), and 1 (exclusive) 0 - 0.9
+console.log(Math.imul(3, 4));   //retuens the product of two numbers
 
 
 
