@@ -1,41 +1,54 @@
-class ParkingSlot {
-  slots = []
-  constructor(parkingSize) {
-    this.slots = new Array(parkingSize).fill(null)
-  }
+function Queue() {
+    var storage = {},
+        head = 0,
+        tail = 0;
 
-  park(carId) {
-    if (this.slots.every((elem) => elem !== null)) {
-      return false
-    } else {
-      const getIndex = this.slots.indexOf(null)
-      if (getIndex !== -1) this.slots[getIndex] = carId
-      return true
+    return {
+        enQueue: function (item) {
+            storage[tail] = item;
+            tail++;
+        },
+        deQueue: function () {
+            var size = tail - head;
+
+            if (size <= 0) return undefined;
+
+            var item = storage[head];
+
+            delete storage[head];
+
+            head++;
+
+            //Reset the counter
+            if (head === tail) {
+                head = 0;
+                tail = 0;
+            }
+
+            return item;
+        },
+        size: function () {
+            return tail - head;
+        },
+        peek: function () {
+            return storage[tail - 1];
+        },
+        print: function () {
+            var result = [];
+
+            for (var key in storage) {
+                result.push(storage[key]);
+            }
+
+            return result;
+        }
     }
-
-  }
-
-
-  getSlots() {
-    return ("Slots: ", this.slots)
-  }
-
-  remove(carId) {
-    if (this.slots.find((cardID) => cardID == carId) === undefined) return false
-    else {
-      this.slots.splice(this.slots.indexOf(carId), 1, null)
-      return true
-    }
-  }
 }
 
-let obj = new ParkingSlot(5)
-console.log(obj.getSlots())
-console.log(obj.park("Car-10"))
-console.log(obj.park("Car-20"))
-console.log(obj.park("Car-30"))
-console.log(obj.park("Car-40"))
-console.log(obj.park("Car-50"))
-console.log(obj.getSlots())
-console.log(obj.remove("Car-50"))
-console.log(obj.getSlots())
+const Q = Queue()
+console.log(Q.enQueue(10))
+console.log(Q.enQueue(40))
+console.log(Q.peek())
+
+console.log(Q.size())
+console.log(Q.print())
