@@ -1,18 +1,19 @@
-// function smallestDivide(num) {
-//     for (let i = 0; i < num; i++) {
-//         if (i % 2 === 0 && i % 3 === 0 && i % 4 === 0 && ... && i % 20 === 0)
-//         return i;
+function multiply(a, b, n) {
+    //code here
+    let m = [];
+    for (let r = 0; r < n; r++) {
+        for (let c = 0; c < n; c++) {
+            let sum = 0;
+            for (let k = 0; k < n; k++) {
+                sum = sum + a[r][k] * b[k][c];
+            }
+            // process.stdout.write(sum + " ");
+            m.push(sum);
+        }
+    }
+    // process.stdout.write("\n");
+    console.log(...m);
 
-//     }
-// }
-// smallestDivide(10000)
-
-function nthLargest(arr, n) {
-    const map = arr.map((value, index) => { index, value }).sort((e1, e2) => (e2.value - e1.value));
-    console.log(map);
-    return map[n - 1].index;
 }
 
-const arr = [91, 2, 33, 51, 54, 39, 34, 61, 34, 91];
-const result = nthLargest(arr, 3);
-console.log(`Number is ${arr[result]} at index ${result} `)
+console.log(multiply([[7, 8], [2, 9]], [[14, 5], [5, 18]], 2))
