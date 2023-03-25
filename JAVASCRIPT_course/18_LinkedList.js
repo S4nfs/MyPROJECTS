@@ -288,6 +288,21 @@ class List {
         }
         return this
     }
+
+    detectLoop() {
+        let slow = this.head
+        let fast = this.head
+        while (fast && fast.next) {
+            fast = fast.next.next
+            slow = slow.next
+            if (fast === slow) {
+                return true
+
+            }
+        }
+
+        return false
+    }
 }
 
 let list = new List(0);
@@ -302,8 +317,9 @@ list.insert(0, 50);
 
 // list.deleteNode(10);
 // list.traversing();
-list.reverse()
+// list.reverse()
 list.traversing();
+console.log(list.detectLoop())
 
 /*Output
 {
