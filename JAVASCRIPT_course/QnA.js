@@ -17,3 +17,5 @@ const hasCycle = (head) => {
     // traverse is completed, cycle not found
     return false
 };
+
+//head = current node head
