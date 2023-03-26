@@ -101,3 +101,8 @@ try {
 
 try {
     assert.equal(coinChange([2, 3, 5], 1), -1);
+
+    console.log('PASSED: ' + 'Fifth Test: coinChange([2, 3, 5]');
+} catch (err) {
+    console.log(err);
+}
