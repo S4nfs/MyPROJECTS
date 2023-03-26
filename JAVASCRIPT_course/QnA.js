@@ -1,6 +1,6 @@
-//algorithm 2 private
+//algorithm 2 private SLL
 const hasCycle = () => {
-    //head = this.head
+    head = this.head
     let set = new Set()
     // for traversing, initialize current with head node
     let current = head
@@ -19,11 +19,10 @@ const hasCycle = () => {
     return false
 };
 
-//head = current node head
 
 console.log(hasCycle())
 
-/*algorithm 3 DB private pseudo-code
+/*algorithm 3 DB private pseudo-code--------------------------------------------------------------------------
 // Fill the array using the following rule.
 
 Routine: Solve
