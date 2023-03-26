@@ -22,3 +22,5 @@ const hasCycle = () => {
 //head = current node head
 
 console.log(hasCycle())
+
+//algorithm 3 DB private pseudo-code
