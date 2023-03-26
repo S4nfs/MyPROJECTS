@@ -44,11 +44,6 @@ Recursive case:
 2. return M[i-1][amount]
 
 */
-=======
-    console.log('PASSED: ' + 'Fifth Test: coinChange([2, 3, 5]');
-} catch (err) {
-    console.log(err);
-}
 var assert = require('assert');
 
 function coinChange(coins, amount) {
