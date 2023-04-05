@@ -249,7 +249,6 @@ class List {
         return true
     }
     //O(n)
-    //traverse the linked list
     traversing() {
         let counter = 0, currentNode = this.head;
         while (counter < this.size) {
@@ -289,7 +288,7 @@ class List {
         return this
     }
 
-    detectLoop() {
+    detectLoop() { //Floyd’s Tortoise and Hare Algorithm
         let slow = this.head
         let fast = this.head
         while (fast && fast.next) {

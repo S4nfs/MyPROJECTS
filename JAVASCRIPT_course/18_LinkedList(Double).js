@@ -154,6 +154,20 @@ class DoubleLinkedList {
         }
         return this
     }
+    detectLoop() {
+        let slow = this.head
+        let fast = this.head
+        while (fast && fast.next) {
+            fast = fast.next.next
+            slow = slow.next
+            if (fast === slow) {
+                return true
+
+            }
+        }
+
+        return false
+    }
 }
 
 let dll = new DoubleLinkedList(0);
@@ -167,6 +181,7 @@ dll.push(20);
 // dll.set(0, 100)
 // dll.insert(1, 50);
 
-dll.deleteNode(1);
+// dll.deleteNode(1);
 // dll.reverse()
 dll.traversing();
+console.log(dll.detectLoop())
