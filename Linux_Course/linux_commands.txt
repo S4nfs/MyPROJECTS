@@ -1,0 +1,586 @@
+
+🐧 Master the Command Line: A Comprehensive Collection of Essential Linux Commands including Github, Docker, KVM and Citrix Hypervisor and Their Usage Examples 🐧
+
+
+Forget tutorials & gurus these are some of the important commands which you can learn & practise even i use many of these commands on my linux servers in daily tasks. Be practical & curious. 
+
+Note: PLEASE RAISE AN ISSUE IF I MISS ANY IMPORTANT COMMAND BC I MADE THIS TXT FILE WHILE BUILDING OUT MY OTHER PROJECTS
+
+
+*********************************************************************************************************************************
+  _      _                     _____                                          _     
+ | |    (_)                   / ____|                                        | |    
+ | |     _ _ __  _   ___  __ | |     ___  _ __ ___  _ __ ___   __ _ _ __   __| |___ 
+ | |    | | '_ \| | | \ \/ / | |    / _ \| '_ ` _ \| '_ ` _ \ / _` | '_ \ / _` / __|
+ | |____| | | | | |_| |>  <  | |___| (_) | | | | | | | | | | | (_| | | | | (_| \__ \
+ |______|_|_| |_|\__,_/_/\_\  \_____\___/|_| |_| |_|_| |_| |_|\__,_|_| |_|\__,_|___/
+
+
+===================================================================================
+check active user sessions               #last -a | grep -i still           or   w
+Linux OS version                         #lsb_release -d
+change user password                     first run #sudo -i then #passwd david
+change user                              #sudo su - david
+remove a directory                       #rm -r mydirectory
+remove a file				                     #rm filename
+search in file				                   #grep "searchMyText" fileName			(case-sensitive)
+					                               #grep -w "searchMyText" fileName		(case-sensitive & search whole word)
+					                               #grep -iw "searchMyText" fileName		(not case-sensitive & search whole word)
+					                               #grep -n "searchMyText" fileName		(line number)
+					                               #grep -rwin "searchMyText" ./ .txt		(search in all .txt in current dir recursively)
+create a directory			                 #mkdir mydirectory
+move to upper directory path             #cd ..
+rename a directory                       #sudo mv vmdashboard-19.01.03 vmdashboard
+give permission to file                  #chmod +x the_file_name
+Allow port range			                   #sudo ufw allow 30000:31000/tcp
+check particular PORT                    #sudo netstat -tulpn | grep 6080
+Check port is open			                 #sudo lsof -i:10000
+Restart Networking                       #/etc/init.d/networking restart
+check vGPU                               #nvidia-smi vgpu -q | grep "VM Name\|License"
+Create .Tar.gz file                      #tar -czvf file.tar.gz directory
+Extract tar                              #sudo tar -xvf arclight.tar.gz
+Check firewall status			               #sudo ufw status
+Check all ports running			             #netstat -plntu
+Directory size				                   #sudo du -sh /var
+Copy with permissions			               #rsync -av --exclude='/arclightD/pages/ami/builder/images' /var/www/html/arclightD /var/www/html/arclight
+Sending file over ssh			               #rsync -a -P /var/startup.sh sv@5.182.18.49:/home/Files/Temp
+rename/move file:                        #mv oldFileName renameFileName
+change pemission:                   	   #chown 777 file name	4=read,2=write,1=execute,0=no permission
+					                               #chmod u=rwx,g=rw,o=r fileName
+overwrite in file			                   #echo "helloworld" > file.txt
+append in file				                   #echo "helloworld" >> file.txt
+run parallel				                     #echo "cmd1" & echo "cmd2"
+run if first exit successfully		       #echo "cmd1" && echo "cmd2"
+run second if first exit usuccessfully	 #echo "cmd1" || echo "cmd2"
+output of one command serves 
+as input to the next			               #echo "cmd1" | echo "cmd2"			//Pipe
+
+5 Popular Text Editors for Linux= Vi (aka Vim), gedit, nano and pico, emacs, Kate
+
+Using Nano Editor:
+1.#nano /home/synders.d
+2.After Editing save with Ctrl+O
+3.Hit Enter
+4.Ctr+X to edit (it fails to exit if there is no file relation)
+
+Editor {Sorry,I love Nano}               #nano /etc/filename here                         // [Alt-U]  undo           [Alt-E]  redo
+ls file details				                   #ls -l
+list all installed packages              #apt list
+remove packages                          #sudo apt remove 
+RAM usage                                #free -m         //use g for GB
+Storage usage                            #free -h         
+CPU info                                 #lscpu
+Display User Groups			                 #id username
+
+Returns any bad configuration in
+/etc/ssh/sshd_config file then fix 
+that parameter yourself			             #/usr/sbin/sshd -T
+Restart ssh				                       #sudo systemctl status ssh
+
+
+SSH passwordless connection:
+1.ssh-keygen
+2.Press Enter key till you get the prompt
+3.ssh-copy-id -i root@ip_address (It will once ask for the password of the host system)
+4.ssh root@ip_address
+5.Now you should be able to login without any password
+
+
+FTP================================================================================
+See groups				                       #nano /etc/group
+See user's group			                   #groups www-data
+Add user to a group			                 #sudo usermod -a -G group_name user_name
+Groups can have write permission	       #sudo chmod -R g+w /var/www/html/arclight		//ugo+rwx
+Only www-data has those permissions	     #sudo chown -R www-data:www-data /var/www/html/arclight
+ftpuser group has those permissions	     #sudo chown -R ftpuser:ftpuser /var/www/html/arclight
+
+===================================================================================
+
+M O D U L E S:
+All modules are to be loaded from /etc/modules-load.d/files here
+
+**********************************************************************************************************************************
+ 
+  _____             _             
+ |  __ \           | |            
+ | |  | | ___   ___| | _____ _ __ 
+ | |  | |/ _ \ / __| |/ / _ \ '__|
+ | |__| | (_) | (__|   <  __/ |   
+ |_____/ \___/ \___|_|\_\___|_|   
+                                  
+                                  
+status                                  #sudo systemctl status docker
+start docker				                    #systemctl start docker
+list running containers			            #docker ps
+list all containers			                #docker ps -a
+list all networks			                  #docker network ls
+list all volumes			                  #docker volume ls
+start a container			                  #docker start meracontainername
+delete a container			                #docker stop Container_ID
+kill all running containers		          #docker kill $(docker ps -q)
+start all stopped containers		        #docker start $(docker ps -a -q)
+delete all stopped containers		        #docker rm $(docker ps -a -q)
+delete all images			                  #docker rmi $(docker images -q)
+kill a container 			                  #docker rm Container_ID
+delete an image				                  #docker rmi -f Image_name
+use container's shell			              #docker exec -it mycontainer bash
+build image 				                    #docker build -t jenops .
+tag image				                        #docker image tag jenops s4nfs/jenops:latest
+publish to dockerhub			              #docker image push s4nfs/jenops:latest
+pull image				                      #docker pull s4nfs/jenops
+run image				                        #docker run -p 3000:3000 -d -name myjenops s4nfs/jenops
+Create a volume				                  #docker volume create
+Display detailed information
+on one or more volumes			            #docker volume inspect
+Remove all unused local volumes		      #docker volume prune 	
+Remove one or more volumes		          #docker volume rm
+
+If you want to clean up and 
+delete all unused container images	    #docker image prune -a
+
+
+**********************************************************************************************************************************
+   _____ _ _   _           _     
+  / ____(_) | | |         | |    
+ | |  __ _| |_| |__  _   _| |__  
+ | | |_ | | __| '_ \| | | | '_ \ 
+ | |__| | | |_| | | | |_| | |_) |
+  \_____|_|\__|_| |_|\__,_|_.__/ 
+
+Follow these steps to upload project to Github:
+0) First make you repo and then open CMD on your project directory path //git bash must be installed and configured
+1) git init
+2) git add .
+Get Status of current repositories: 	git status OR git remote -v
+Get Status of current user 	  :	git config -l
+If you want to login through another account:
+git credential-manager delete https://github.com
+git config --global user.email "you@example.com"
+git config --global user.name "your name"
+3) git commit -m "Add all my files"
+4) git remote add origin https://github.com/yourusername/your-repo-name.git
+5) git push -u origin master
+
+
+Cloning a branch:
+$git clone -b branch_name --single-branch 'repo_url' //branch_name is the name of your branch, and repo_url is the link of your remote repository (repository location)
+
+Switch to another repository:
+1)Check the location of current repo 
+git remote -v
+git remote set-url origin https://github.com/Chatnaut/Arclight
+
+Create a new empty Git branch in an existing repository (replace empty-branch with the branch name you want to create):
+git checkout --orphan empty-branch
+git rm -rf .
+git commit --allow-empty -m "root commit"
+git push origin empty-branch
+
+
+*********************************************************************************************************************************
+
+  _  ____      ____  __     _____      _   _   _                _____ _             _           _ 
+ | |/ /\ \    / /  \/  |   / ____|    | | | | (_)              / ____| |           | |         | |
+ | ' /  \ \  / /| \  / |  | |  __  ___| |_| |_ _ _ __   __ _  | (___ | |_ __ _ _ __| |_ ___  __| |
+ |  <    \ \/ / | |\/| |  | | |_ |/ _ \ __| __| | '_ \ / _` |  \___ \| __/ _` | '__| __/ _ \/ _` |
+ | . \    \  /  | |  | |  | |__| |  __/ |_| |_| | | | | (_| |  ____) | || (_| | |  | ||  __/ (_| |
+ |_|\_\    \/   |_|  |_|   \_____|\___|\__|\__|_|_| |_|\__, | |_____/ \__\__,_|_|   \__\___|\__,_|
+                                                        __/ |                                     
+                                                       |___/                                      
+1) Get all required tools for Windows 
+ - putty https://www.chiark.greenend.org.uk/~s...​
+ - xming https://sourceforge.net/projects/xming/​
+2) Update all the packages on the Ubuntu host and check if we can run KVM 
+ - apt-get update & apt-get upgrade
+ - egrep -c '(vmx|svm)' /proc/cpuinfo
+If the command returns a value of 0, your processor is not capable of running KVM. On the other hand, any other number means you can proceed with the installation.
+3) Install KVM, Virt-Manager and the dependencies
+ - apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager xauth
+4) Grant user the usage of kvm
+ - adduser john libvirt
+5) Install Windows10 as the guest OS make sure tor create dir as cd /home/s4nfs/isoshere....
+ - apt-get "https://chatnaut.com/iso/win10image.iso"
+6) Test everything
+
+If virt-manager cannot display: 
+x11 should be forwading in putty so that xming display the VM
+check
+#grep 'X11' /etc/ssh/sshd_config
+X11Forwarding yes
+
+*********************************************************************************************************************************
+  _  ____      ____  __ 
+ | |/ /\ \    / /  \/  |
+ | ' /  \ \  / /| \  / |
+ |  <    \ \/ / | |\/| |
+ | . \    \  /  | |  | |
+ |_|\_\    \/   |_|  |_|
+
+C O M M A N D S:
+
+
+Kvm version                              #kvm --version                                   //QEMU emulator version 2.11.1(Debian 1:2.11+dfsg-1ubuntu7.36)
+Libvirt Version [All]                    #virsh -c qemu:///system version --daemon
+List VMs                                 #virsh list --all
+List Virtual Networks                    #virsh net-list
+Clone VM                                 #virt-clone --original VMNAMEHERE --auto-clone
+View Default Network in xml:             #virsh net-dumpxml default
+Restart libvert                          #sudo systemctl restart libvirt-bin
+VM attached network                      #virsh dumpxml Win2019 | grep -i 'network='
+check Macvtap status                     #lsmod | grep macvtap
+Connection qemu:///system                #virsh --connect qemu:///system
+Kvm VMs image path                       #cd /var/lib/libvirt/images
+Get the IP address of vms		             #virsh domifaddr Rhel8
+
+*********************************************************************************************************************************
+  _  ____      ____  __   _   _      _                      _    _             
+ | |/ /\ \    / /  \/  | | \ | |    | |                    | |  (_)            
+ | ' /  \ \  / /| \  / | |  \| | ___| |___      _____  _ __| | ___ _ __   __ _ 
+ |  <    \ \/ / | |\/| | | . ` |/ _ \ __\ \ /\ / / _ \| '__| |/ / | '_ \ / _` |
+ | . \    \  /  | |  | | | |\  |  __/ |_ \ V  V / (_) | |  |   <| | | | | (_| |
+ |_|\_\    \/   |_|  |_| |_| \_|\___|\__| \_/\_/ \___/|_|  |_|\_\_|_| |_|\__, |
+                                                                          __/ |
+									 |___/ 
+
+Types                                                                     
+
+Private=NAT [uses DHCP]
+Public=Bridge Network [uses Macvtap driver]     https://blog.scottlowe.org/2016/02/09/using-kvm-libvirt-macvtap-interfaces/
+                                                https://youtu.be/LqVRqid9gBQ
+
+
+
+Bridge Network [using Macvtap] -Can be accessible from any device Also it just act as forwarder to network switch without any IP/Gateway, assign guest IP manually OG
+1. Make sure your Linux kernel supports the macvlan driver: 
+# modprobe macvlan
+# lsmod | grep macvlan
+Some Output
+2. Create a file name macvtap-def.xml and edit with these code
+# cat > macvtap-def.xml
+# nano macvtap-def.xml
+ <network>
+  <name>macvtap-net</name>
+  <forward mode="bridge">
+    <interface dev="bond1"/>                   //network switch should be of public IP
+  </forward>
+  </network>
+3.Define the macvtap bridge 
+# virsh net-define macvtap-def.xml
+4.Set the resulting Libvirt network to autostart and start it
+# virsh net-autostart macvtap-net
+# virsh net-start macvtap-net
+5. This module will be reseted after hardboot of Host so to automate we create a module file called macvtap.conf in /etc/modules-load.d/macvtap.conf so that kernel load the module in every boot automatically.
+edit macvtap.conf
+macvtap
+-
+-
+-
+6. That's it just reboot vm, select NIC in virt manager and model rtl8139(default), i face the error but it fixes itself after second attempt.
+
+
+C O M M A N D S
+
+Virtual Network Status        #virsh net-list
+
+    
+ Name      State    Autostart   Persistent
+--------------------------------------------
+ default   active   yes         yes
+
+
+As you can see, my KVM host has a virtual network named “default”. This is a private virtual network bridge created by the KVM by default. It provides its own subnet and DHCP to configure the guest’s network and uses NAT to access the host network.
+Since KVM has its own DHCP, we can find out the IP address that has been assigned to each KVM virtual machine using this command:
+
+# virsh net-dhcp-leases default
+
+Expiry Time           MAC address         Protocol   [Here***]IP address      Hostname      Client ID or DUID
+---------------------------------------------------------------------------------------------------------------
+ 2020-07-25 18:51:53   52:54:00:42:b6:5a   ipv4     *  192.168.122.119/24      centos8       01:52:54:00:42:b6:5a
+ 2020-07-25 18:54:04   52:54:00:61:2a:88   ipv4     *  192.168.122.20/24      centos8uefi    01:52:54:00:61:2a:88
+
+
+View Default Network in xml:
+# virsh net-dumpxml default
+
+*********************************************************************************************************************************
+  _  ____      ____  __      _____ _____  _    _ 
+ | |/ /\ \    / /  \/  |    / ____|  __ \| |  | |
+ | ' /  \ \  / /| \  / |   | |  __| |__) | |  | |
+ |  <    \ \/ / | |\/| |   | | |_ |  ___/| |  | |
+ | . \    \  /  | |  | |   | |__| | |    | |__| |
+ |_|\_\    \/   |_|  |_|    \_____|_|     \____/                                                
+                                                 
+Source= https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-device-GPU#sect-device-GPU-vGPU
+
+
+pci_0000_af_00_0|                                                                     //this is called full identifier of GPU & af:00:0 is bus/device/function (BDF)
+cd /sys/bus/pci/devices/0000\:af\:00.0/mdev_supported_types
+cat /sys/bus/pci/devices/0000:af:00.0/mdev_supported_types
+
+Display the XML information of the GPU:
+#virsh nodedev-dumpxml pci_0000_af_00_0
+<device>
+  <name>pci_0000_af_00_0</name>
+  <path>/sys/devices/pci0000:ae/0000:ae:00.0/0000:af:00.0</path>
+  <parent>pci_0000_ae_00_0</parent>
+  <capability type='pci'>
+    <domain>0</domain>
+    <bus>175</bus>
+    <slot>0</slot>
+    <function>0</function>
+    <product id='0x1eb8' />
+    <vendor id='0x10de'>NVIDIA Corporation</vendor>
+    <capability type='virt_functions' maxCount='16'/>
+    <numa node='1'/>
+    <pci-express>
+      <link validity='cap' port='0' speed='8' width='16'/>
+      <link validity='sta' speed='8' width='16'/>
+    </pci-express>
+  </capability>
+</device>
+
+root@baremetal01:~# lspci -nn | grep af.00
+af:00.0 3D controller [0302]: NVIDIA Corporation Device [10de:1eb8] (rev a1)
+
+IOMMU support:==========================================================================================================]]]]]]]]]]]]]]]]]]]
+For this tutorial to succeed, your computer hardware must fulfill all of the following requirements:
+IOMMU support
+
+    use #nano /etc/default/grub
+    OUTPUT before the edit:
+    GRUB_DEFAULT=0
+    #GRUB_HIDDEN_TIMEOUT=10
+    #GRUB_HIDDEN_TIMEOUT_QUIET=true
+    GRUB_TIMEOUT_STYLE=countdown
+    GRUB_TIMEOUT=0
+    GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+    GRUB_CMDLINE_LINUX_DEFAULT=”quiet”
+    GRUB_CMDLINE_LINUX=””
+
+    Look for the line that starts with GRUB_CMDLINE_LINUX_DEFAULT=”…”. You need to add one of the following options to this line, depending on your hardware:
+    Intel CPU:
+    intel_iommu=on
+    Save the file and exit. Then type:
+    sudo update-grub
+    Now check that IOMMU is actually supported. Reboot the PC. Open a terminal window.
+
+On Intel machines use:
+#dmesg | grep "Virtualization Technology for Directed I/O"
+
+The output should be this:
+[ 0.902214] DMAR: Intel(R) Virtualization Technology for Directed I/O
+
+If you do not get this output, then VT-d or AMD-V is not working – you need to fix that before you continue! 
+
+
+*********************************************************************************************************************************
+
+  _  ____      ____  __           _____ _____  _    _ 
+ | |/ /\ \    / /  \/  |         / ____|  __ \| |  | |
+ | ' /  \ \  / /| \  / |  __   _| |  __| |__) | |  | |
+ |  <    \ \/ / | |\/| |  \ \ / / | |_ |  ___/| |  | |
+ | . \    \  /  | |  | |   \ V /| |__| | |    | |__| |
+ |_|\_\    \/   |_|  |_|    \_/  \_____|_|     \____/ 
+
+Doc: https://docs.nvidia.com/grid/10.0/grid-vgpu-user-guide/index.html#creating-vgpu-device-red-hat-el-kvm (avaliable with driver pdfs)                                 Read from onwards 
+4.2. Installing the NVIDIA vGPU Software Graphics Driver on Linux
+2.5. Installing and Configuring the NVIDIA Virtual GPU Manager for Red Hat Enterprise Linux KVM or RHV                                                
+
+1.Download and place the vGPU driver package anywhere on KVM [NVIDIA vGPU for Linux KVM ALL]
+2.Make the package file executable. (here vgpu-kvm.run)
+# chmod +x package-file-name
+3.Run #./package-file-name
+4.Reboot
+
+5.Verify that the NVIDIA vGPU software package is installed and loaded correctly by checking for the VFIO drivers in the list of kernel loaded modules.
+# lsmod | grep vfio
+nvidia_vgpu_vfio       27099  0
+nvidia              12316924  1 nvidia_vgpu_vfio
+vfio_mdev              12841  0
+mdev                   20414  2 vfio_mdev,nvidia_vgpu_vfio
+vfio_iommu_type1       22342  0
+vfio                   32331  3 vfio_mdev,nvidia_vgpu_vfio,vfio_iommu_type1
+Also run nvidia-smi
+
+6.Verify that the libvirtd service is active and running.
+# service libvirtd status
+
+7.Grab Bus:Domain:Function/ of a GPU [see in KVM GPU]
+8.Grab vgpu family subdirectory name under Directory # cd /sys/bus/pci/devices/0000:af:00.0/mdev_supported_types/
+# grep -l "T4-4Q" nvidia-*/name
+Output nvidia-232/name
+9.Generate a correctly formatted universally unique identifier (UUID) for the vGPU.
+# uuidgen
+4c9d7417-9e44-4a85-89e5-18016f238e99
+10. Give it to that 4Q # echo "4c9d7417-9e44-4a85-89e5-18016f238e99" > nvidia-232/create                             // hit this line after host reboot,That's all!!
+11.Confirm that the vGPU was created
+# ls -l /sys/bus/mdev/devices/
+total 0 
+lrwxrwxrwx. 1 root root 0 Nov 24 13:33 4c9d7417-9e44-4a85-89e5-18016f238e99 -> ../../../devices/pci0000:00/0000:00:03.0/0000:03:00.0/0000:04:09.0/0000:06:00.0/4c9d7417-9e44-4a85-89e5-18016f238e99
+
+12. Add this vGPU to VM
+# virsh edit Win2019
+<device>
+  <hostdev mode='subsystem' type='mdev' model='vfio-pci'>
+    <source>
+      <address uuid='08672576-fad3-4a77-b5c3-33aa82e85915'/>                                    
+    </source>
+  </hostdev>
+</device>
+
+13. <emulator>/usr/bin/kvm-spice</emulator> remove this line in VM xml as its causing issue while boot error display
+
+
+root@baremetal01:/sys/bus/pci/devices/0000:af:00.0/mdev_supported_types# echo "301b7a7e-6704-4393-aa72-0255ccf3fe80" > nvidia-231/create
+VMs UUID==3d8837f1-e6e7-4fe7-a968-63510bf1239b
+Win10pro GPU uuid= echo "9f76027a-2910-49c1-804a-885dd0646779" > nvidia-232/create
+CNAUTHYPR3 GPU uuid= echo "08672576-fad3-4a77-b5c3-33aa82e85915" > nvidia-232/create
+Win2019== echo "4c9d7417-9e44-4a85-89e5-18016f238e99" > nvidia-232/create
+
+
+nvidia-dev-ctl.py -l INFO create-mdev 0000:af:00.0 nvidia-232
+
+
+**********************************************************************************************************************************
+  _  ____      ____  __    _____  _     _        
+ | |/ /\ \    / /  \/  |  |  __ \(_)   | |       
+ | ' /  \ \  / /| \  / |  | |  | |_ ___| | _____ 
+ |  <    \ \/ / | |\/| |  | |  | | / __| |/ / __|
+ | . \    \  /  | |  | |  | |__| | \__ \   <\__ \
+ |_|\_\    \/   |_|  |_|  |_____/|_|___/_|\_\___/
+
+Refer:https://computingforgeeks.com/how-to-extend-increase-kvm-virtual-machine-disk-size/
+Increase VMs Disk Size
+1.Get path from # Virsh edit Win2019
+2.Get size info # qemu-img info /var/lib/libvirt/images/Win2019.qcow2
+3.Extend #qemu-img resize /var/lib/libvirt/images/Win2019.qcow2 +10G
+4.Confirm #sudo fdisk -l /var/lib/libvirt/images/Win2019.qcow2
+5.Power up VM and extend volume
+
+to shrink volume use #qemu-img resize /var/lib/libvirt/images/Win2019.qcow2 --shrink -10G and confirm
+
+**********************************************************************************************************************************
+
+
+   _____ _ _        _        _    _                             _                   ___   ___  
+  / ____(_) |      (_)      | |  | |                           (_)                 / _ \ |__ \ 
+ | |     _| |_ _ __ ___  __ | |__| |_   _ _ __   ___ _ ____   ___ ___  ___  _ __  | (_) |   ) |
+ | |    | | __| '__| \ \/ / |  __  | | | | '_ \ / _ \ '__\ \ / / / __|/ _ \| '__|  > _ <   / / 
+ | |____| | |_| |  | |>  <  | |  | | |_| | |_) |  __/ |   \ V /| \__ \ (_) | |    | (_) | / /_ 
+  \_____|_|\__|_|  |_/_/\_\ |_|  |_|\__, | .__/ \___|_|    \_/ |_|___/\___/|_|     \___(_)____|
+                                     __/ | |                                                   
+                                    |___/|_|                                                   
+DOCUMENTATION
+
+Remove lockscreen on Windows Server (Any version):-
+1.Server Manager>Manage>Properties>Do not start server manager on startup
+2.Server Manager>Local Server>IE enhanced>OFF
+3.Run Netplwiz -----------//disabling loginscreen password
+4.Regedit>HQ Local Machine>Software>Policies>Microsoft>Windows Right click on it create Key, name it Personalization>Double Click and enter Dword Value name it NoLockScreen with value data 1---------//disabling lockscreen password
+
+*********************************************************************************************************************************
+
+Disable Context Menu (Right Mouse Click)
+1. Go to Start -> Run or press Win+R and type Regedit, then press Enter. Navigate to the next key in the register:
+HKLM\Software\Microsoft\Windows\Current version\Policies\Explore
+2. Right-click the Explorer button and select New -> DWORD value.
+3. name it NoViewContextMenu and click OK. Then double-click on the name and set the value to 1, then press OK. To reset it, simply reset this value to 0 or right-click on the NoViewContextMenu entry and delete it. You must log out or restart for any of these changes to take effect.
+
+*********************************************************************************************************************************
+
+
+Creating ISO Repository SMB Storage in Xenserver console:-
+1.Open console Type #df -h
+2.mkdir /iso
+3.xe sr-create name-label="iso" type=iso device-config:location=/iso device-config:legacy_mode=true content-type=iso
+4.Download WinSCP.exe upload Windows 10 iso to path /iso
+
+**********************************************************************************************************************************
+
+Networking Public IP to windows VM
+1.No need to change in the host level just assign one network adaper to VM and start. Head over to Local Area Connection>Properties>Internet Protocol Version 4 (TCP/IPv4) Properties>General > Use the following IP address>fill the required fields and Subnet Mask 255.255.255.252 DNS1:8.8.8.8 and DNS2: 8.8.4.4.
+2.Run CMD as admin and enter [route add 10.0.0.0 mask 255.0.0.0 169.56.138.29(gateway) –p]
+3.restart VM
+
+
+*********************************************************************************************************************************
+         _____ _____  _    _ 
+        / ____|  __ \| |  | |
+ __   _| |  __| |__) | |  | |
+ \ \ / / | |_ |  ___/| |  | |
+  \ V /| |__| | |    | |__| |
+   \_/  \_____|_|     \____/ 
+                             
+Licensing Physical and Virtual GPU:-
+Video https://www.youtube.com/watch?v=TbH1TqF4uf4
+https://ui.licensing.nvidia.com/software
+(Java must be only one from open souce 64bit .msi) https://github.com/ojdkbuild/ojdkbuild/blob/master/README.md
+
+
+1.Download the recommended software
+2.Download License Manager from Additional sofware tab
+3.Prior installing Win+R search for view advanced system setting > Environment variables > System variable > New
+4.name JAVA_HOME
+5.value C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.265-1\jre
+6.Install setup
+7.Visit http://localhost:8080/licserver and upload the .bin file
+8.From Nvidia Contol panel acquire license.
+
+Q-series= vGPU License applies at one VM and all other through EULA
+You can't make two VMs with same MAC addresses however you can add secondary server in nvidia manage license panel
+Services must be running = 
+~Flexnet License Server
+~Tomcat Server
+
+
+GPU & vGPU Configuration:-
+1.Download required drivers
+2.Run cmd as admin 
+3.cd C:\Program Files\NVIDIA Corporation\NVSMI
+4.nvidia-smi to check status
+5.nvidia-smi -g gpuID -fdm 0
+6.Restart
+
+To disable GPU Fame Limiter,if any:-
+xe vm-param-set uuid=c7c4ace0-6deb-91c6-6086-0890e0e42e62 platform:vgpu_extra_args="enable_large_sys_mem=0"
+
+
+*********************************************************************************************************************************
+
+Xencenter Console Blank Error (FIXED)
+1.Change the private and public network to DHCP in xencenter IP Address Configuration.
+2.Update IPs for network bond0 and bond1 in IPMI console
+3.Reboot
+
+*********************************************************************************************************************************
+
+MOONLIGHT Poject Build in Qt5.15
+-Open Qt MSVC 2015 64bit or 2019 32bit cmd
+-Call >vcvarsall.bat X64                                                       //https://stackoverflow.com/questions/13761522/setting-up-the-environment-for-qt-usage
+-Go to moonlight-qt.pro path hit >scripts\build-arch.bat Release x64           //build both 32 and 64 bit portable package before building installers
+-Last step is to generate bundle>scripts\generate-bundle.bat Release x86                            //
+
+*********************************************************************************************************************************
+   _____ ______ ______ 
+  / ____|  ____|  ____|
+ | |  __| |__  | |__   
+ | | |_ |  __| |  __|  
+ | |__| | |    | |____ 
+  \_____|_|    |______|
+
+NVIDIA Geforce Experience Gamestream [on GRID with passthrough gpu tested on M60]:-
+1. Powershell as admin run 
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls";Set-ExecutionPolicy Unrestricted;Invoke-WebRequest -Uri https://github.com/acceleration3/cloudgamestream/archive/master.zip -OutFile arch.zip;Add-Type -Assembly "System.IO.Compression.Filesystem";$dir = [string](Get-Location);rmdir -r cloudgamestream-master -ErrorAction Ignore;[System.IO.Compression.ZipFile]::ExtractToDirectory($dir + "\arch.zip", $dir);cd cloudgamestream-master;./Setup.ps1
+
+2.Source https://github.com/acceleration3/cloudgamestream (Script just run the zip file and download GRID drivers and patch them)
+
+
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls";Set-ExecutionPolicy Unrestricted;Invoke-WebRequest -Uri https://github.com/S4nfs/cloudgputool/archive/master.zip -OutFile arch.zip;Add-Type -Assembly "System.IO.Compression.Filesystem";$dir = [string](Get-Location);rmdir -r cloudgputool-master -ErrorAction Ignore;[System.IO.Compression.ZipFile]::ExtractToDirectory($dir + "\arch.zip", $dir);cd cloudgputool-master;./Setup.ps1
+
+here i remove rds-assets due to login issues 
+GFE version 3.18.0.94 LINK>https://us.download.nvidia.com/GFE/GFEClient/3.18.0.94/GeForce_Experience_v3.18.0.94.exe
+
+("telemetry.gfe.nvidia.com", "ls.dtrace.nvidia.com", "ota.nvidia.com", "ota-downloads.nvidia.com", "rds-assets.nvidia.com", "nvidia.tt.omtrdc.net", "api.commune.ly")
+$HostsFile = "$env:SystemRoot\System32\Drivers\etc\hosts"
+
+*********************************************************************************************************************************
