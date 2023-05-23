@@ -15,6 +15,7 @@
 ☑️ AWS
 ☑️ Docker
 ☑️ ChartJS
+☑️ Linux
 
 🚀 Follow Me:
 
