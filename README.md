@@ -1,6 +1,6 @@
 <h1 align="center">"Lovely, Lively Languages"</h1>
 
-## Courses Completed 🥳
+## Tutorials Completed 🥳
 
 ✅ Javascript
 ✅ PHP
@@ -8,7 +8,7 @@
 ✅ NodeJS
 ✅ REST API
 
-## Courses Ongoing 😤
+## Tutorials Ongoing 😤
 
 ☑️ Bash
 ☑️ JQuery
@@ -16,6 +16,7 @@
 ☑️ Docker
 ☑️ ChartJS
 ☑️ Linux
+☑️ Typescript
 
 🚀 Follow Me:
 
@@ -24,7 +25,9 @@
 
 ## Description
 
-🚀 This repository shares ALL of the resources referenced with other available projects of mine.
+Welcome to the ultimate guide to programming languages! This GitHub repository contains comprehensive tutorials on all major programming languages & frameworks, including PHP, Javascript, Bash, React, Bootstrap, and more. Whether you're a beginner or an experienced developer, this hand-made guide will help you master the basics and take your coding skills to the next level and covers everything from syntax and data structures to algorithms and best practices, making it easy for you to learn at your own pace.
+
+This repository shares ALL of the resources referenced with other available projects of mine. Note: Avoid filenames like demo*.js or debug*.js as they are for debugging purposes.
 
 ## Academic Honesty 🎓
 
@@ -76,3 +79,25 @@
 ## ⚙ VS Code Extensions I Use:
 
 - 🔗 [ES7 React JS Snippets Extension](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+- 🔗 [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
+- 🔗 [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+- 🔗 [EJS language support](https://marketplace.visualstudio.com/items?itemName=DigitalBrainstem.javascript-ejs-support)
+- 🔗 [ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+- 🔗 [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- 🔗 [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- 🔗 [SVG Previewer](https://marketplace.visualstudio.com/items?itemName=vitaliymaz.vscode-svg-previewer)
+- 🔗 [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
+Optional
+
+- 🔗 [Git History](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory)
+- 🔗 [CSS Peek](https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek)
+- 🔗 [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+- 🔗 [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)
+- 🔗 [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- 🔗 [Live Sass Compiler](https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass)
+- 🔗 [PHP Debug](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug)
+- 🔗 [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
+- 🔗 [Shell Syntax](https://marketplace.visualstudio.com/items?itemName=bmalehorn.shell-syntax)
+- 🔗 [shell-format](https://marketplace.visualstudio.com/items?itemName=foxundermoon.shell-format)
+- 🔗 [ShellCheckPHP Debug](https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck)
