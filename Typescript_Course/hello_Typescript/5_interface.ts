@@ -21,6 +21,10 @@ interface Age {
   nah?: string; //optional property
 }
 
+interface ErrorContainer {
+  [what: number]: string; //index property when you don't know which one you passing  - DRY
+}
+
 // interface Greetable extends Age {
 //   //can inherit multiple interfaces simply extend
 //   name: string;
@@ -30,10 +34,11 @@ interface Age {
 interface AnonymousMyFunc {
   (a: number, b: number): number;
 }
-class Person implements Greetable, Age {
+class Person implements Greetable, Age, ErrorContainer {
   //can inherit multiple interfaces simply put after ,
   name: string;
   age = 30;
+  [what: number]: string;
   //implementation
   constructor(n: string) {
     this.name = n;
@@ -41,6 +46,9 @@ class Person implements Greetable, Age {
   greet(phrase: string) {
     console.log(phrase + " " + this.name);
   }
+  error: ErrorContainer = {
+    404: "Not Found",
+  };
 }
 
 const user = new Person("Jen");
