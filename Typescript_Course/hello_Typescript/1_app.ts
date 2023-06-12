@@ -1,6 +1,6 @@
 console.log("Hello Typescript");
 
-//✔️Cheking the types
+//✔️Cheking the types-------------------------------------------------------------------------------------------------------
 const add = (n1: number, n2: number, result: boolean, str: string) => {
   if (result) {
     let sum = n1 + n2; //avoid concatination
@@ -11,8 +11,7 @@ add(30, 5.2, true, "Result is: ");
 
 //The key difference is: javascript uses "dynamic types" resolved at (runtime) whereas Typescript uses "static types" set during (development)
 
-//🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞
-//✔️Typescript work flawless when checking errors, repeat "flawless". Lets see other data types like touple
+//✔️Typescript work flawless when checking errors, repeat "flawless". Lets see other data types like touple-----------------
 const person: {
   name: string;
   age: number;
@@ -33,7 +32,6 @@ console.log(person);
 //     console.log(a.map((element) => element ))  //❌ will not throw error in normal js in build time
 // }
 
-//🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞
 //✔️An enum is a special "class" that represents a group of constants (unchangeable variables). Comes in two flavors string and numeric
 enum Role {
   Enterprise,
@@ -58,7 +56,7 @@ const sum = (n1: number | string, n2: number | string) => {
 };
 console.log(sum("30", "20"));
 
-//✔️types in Functions🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞
+//✔️types in Functions------------------------------------------------------------------------------------------------
 // number type
 let addNumbers = (n1: number, n2: number): number => {
   //ensure the return type should be number
@@ -95,7 +93,7 @@ type Bird = {
   name: string;
   food: string[];
   speed: number;
-  kind: "B"; //descriminate union to check in switch case later
+  kind: "B"; //discriminated union to check in switch case later
 };
 
 type Dog = {
@@ -107,14 +105,15 @@ type Dog = {
 
 type combineCustomTypeAnimal = Bird & Dog;
 
-const animal: combineCustomTypeAnimal = {
-  // must provide values for all of the required properties, otherwise it will give compile err
-  name: "Shiba",
-  dob: new Date(),
-  food: ["Kellogg's", "bitcoin", "Redmeat"],
-  speed: 20,
-};
-console.log(animal);
+// const animal: combineCustomTypeAnimal = {
+//   // must provide values for all of the required properties, otherwise it will give compile err, here intentionally it give error becoz we are using discriminated union as kind:
+//   name: "Shiba",
+//   dob: new Date(),
+//   food: ["Kellogg's", "bitcoin", "Redmeat"],
+//   speed: 20,
+//   kind: "D",
+// };
+// console.log(animal);
 
 type unionCustomTypeAnimal = Bird | Dog; //it takes the common in both the type, e.g name
 // function whoAmI(animal: customUnionType) {
@@ -172,10 +171,63 @@ const addingNumbers = (...numbers: number[]) => {
 };
 console.log("Rest of numbers: ", addingNumbers(5, 10, 66, 87, 1.2));
 
-const obj2 = {
+const spd = {
   name: "Sagar",
   height: 5.6,
   weight: 65,
 };
-const spreadCopied = { ...obj2 };
+const spreadCopied = { ...spd };
 console.log("Spread: ", spreadCopied);
+
+//✔️Type Casting--------------------------------------------------------------------------------------------------------
+const myVariable: number = 123;
+const myString: string = myVariable as unknown as string;
+console.log("Type Casting", typeof myString);
+
+//✔️Function overloading is a feature in TypeScript that allows a single function to have multiple signatures.-----------
+function addme(a: number, b: number): number;
+function addme(a: string, b: string): string;
+function addme(a: any, b: any): any {
+  return a + b;
+}
+
+const fetchUser = {
+  name: "Sage",
+  profession: "Thinker",
+  // skill: {
+  //   language:"PHP"
+  // }
+};
+
+//✔️Nullish Coalescing-----------------------------------------------------------------------------------------------
+let beNotNull = "";
+// var beNotNullorUndefined = beNotNull || "DEFAULT"; //returns if undefined|null|falsy, empty value treated as falsy
+var beNotNullorUndefined = beNotNull ?? "DEFAULT"; //returns if only undefined|null
+console.log(beNotNullorUndefined);
+
+//✔️Generic Type - increase resusablity of code and types below 3 exapmples-------------------------------------------
+function identity<T>(arg: T): T {
+  return arg;
+}
+console.log(identity<string>("Sagar is a generic type")); //here we are explicitly passing types to our identifier T
+console.log(identity<number>(25));
+
+// let genericObj(obj1:object, obj2:object){ //TypeScript compiler cannot infer the shape of these objects.
+//   return Object.assign(obj1, obj2)
+// }
+// let mergedObject = genericObj({firstname:"Sagar"}, {lastname:"Verma"})
+
+let genericObj = <T extends object, U extends object>(o1: T, o2: U) => {
+  //using constraints to
+  return Object.assign(o1, o2);
+};
+let mergedObject = genericObj({ firstname: "Sagar" }, { lastname: "Verma" });
+console.log(mergedObject);
+
+interface LengthWise {
+  length: number;
+}
+function loggingIdentity<T extends LengthWise>(arg: T): string {
+  return "LengthWise: " + arg.length;
+}
+console.log(loggingIdentity("Sagar"));
