@@ -205,7 +205,7 @@ let beNotNull = "";
 var beNotNullorUndefined = beNotNull ?? "DEFAULT"; //returns if only undefined|null
 console.log(beNotNullorUndefined);
 
-//✔️Generic Type - increase resusablity of code and types below 3 exapmples-------------------------------------------
+//✔️Generic Type - increase resusablity of code and types below 4 exapmples-------------------------------------------
 function identity<T>(arg: T): T {
   return arg;
 }
@@ -218,7 +218,7 @@ console.log(identity<number>(25));
 // let mergedObject = genericObj({firstname:"Sagar"}, {lastname:"Verma"})
 
 let genericObj = <T extends object, U extends object>(o1: T, o2: U) => {
-  //using constraints to
+  //using constraints 'extends'
   return Object.assign(o1, o2);
 };
 let mergedObject = genericObj({ firstname: "Sagar" }, { lastname: "Verma" });
@@ -231,3 +231,9 @@ function loggingIdentity<T extends LengthWise>(arg: T): string {
   return "LengthWise: " + arg.length;
 }
 console.log(loggingIdentity("Sagar"));
+
+let myOwnObject = <T extends object, O extends keyof T>(obj: T, key: O) => {
+  //using constraints 'keyof'
+  return obj[key];
+};
+console.log(myOwnObject({ name: "Sagar" }, "name"));
