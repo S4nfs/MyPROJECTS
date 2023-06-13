@@ -237,3 +237,25 @@ let myOwnObject = <T extends object, O extends keyof T>(obj: T, key: O) => {
   return obj[key];
 };
 console.log(myOwnObject({ name: "Sagar" }, "name"));
+
+//✔️Generic Class-----------------------------------------------------------------------------------------------------
+class Dropbox<T> {
+  private data: T[] = [];
+
+  addimage(url: T) {
+    this.data.push(url);
+  }
+
+  removeImage(url: T) {
+    this.data.splice(this.data.indexOf(url), 1);
+  }
+
+  getAllItems() {
+    return [...this.data];
+  }
+}
+const storeImages = new Dropbox<string>();
+storeImages.addimage("kakashi.png");
+storeImages.addimage("Itachi.png");
+storeImages.removeImage("kakashi.png");
+console.log(storeImages.getAllItems());
