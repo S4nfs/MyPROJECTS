@@ -50,17 +50,29 @@ const start = async () => {
   //       active: true,
   //     });
 
-  const phpPlaylist = new Meratable({
-    name: "Python",
-    ctype: "Backend",
-    active: true,
-  });
+  // const pythonPlaylist = new Meratable({
+  //   name: "Python",
+  //   ctype: "Backend",
+  //   active: true,
+  // });
   // const result = await Meratable.insertMany([javaPlaylist, goPlaylist, pythonPlaylist]); //insert many
-  await phpPlaylist.save().then((res) => {
-    console.log(res);
-  }).catch((error) => {
-    console.log(error);
-  })
+  // await pythonPlaylist.save().then((res) => {
+  //   console.log(res);
+  // }).catch((error) => {
+  //   console.log(error);
+  // })
+
+  //----------OR-----------
+  //await Meratable.create({
+  //   name: "Python2",
+  //   ctype: "Backend",
+  //   active: true,
+  // }).then((res) => {
+  //   console.log(res);
+  // }).catch((error) => {
+  //   console.log(error);
+  // })
+
 }
 
 //🍃READ DOCUEMNT---------------------------------------------------------------------------------------------
