@@ -238,7 +238,7 @@ let myOwnObject = <T extends object, O extends keyof T>(obj: T, key: O) => {
 };
 console.log(myOwnObject({ name: "Sagar" }, "name"));
 
-//✔️Generic Class-----------------------------------------------------------------------------------------------------
+//Generic Class
 class Dropbox<T> {
   private data: T[] = [];
 
@@ -259,3 +259,6 @@ storeImages.addimage("kakashi.png");
 storeImages.addimage("Itachi.png");
 storeImages.removeImage("kakashi.png");
 console.log(storeImages.getAllItems());
+
+//Generic utility types helpful
+let max: Readonly<string>[] = ["Keyboard", "Mouse"]; // max.push["Santa claus"];  //gives error
