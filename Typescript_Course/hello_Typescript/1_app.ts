@@ -13,6 +13,10 @@ add(30, 5.2, true, "Result is: ");
 
 //✔️Typescript work flawless when checking errors, repeat "flawless". Lets see other data types like touple-----------------
 const person: {
+  //     console.log(a.map((element) => element ))  //❌ will not throw error in normal js in build time
+  // }
+  //✔️An enum is a special "class" that represents a group of constants (unchangeable variables). Comes in two flavors string and numeric
+  getFullName(): any;
   name: string;
   age: number;
   friends: any[]; //array with any type
