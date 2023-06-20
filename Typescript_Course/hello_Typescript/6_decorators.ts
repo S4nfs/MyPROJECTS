@@ -100,7 +100,7 @@ const button = document.querySelector("button")!;
 button.addEventListener("click", p.showMessage);
 
 //✔️Ultilizing decorator for validition----------------------------------------------------------------------------------
-
+//https://github.com/typestack/class-validator package uses the same concept. Check it out!
 interface ValidatorConfig {
   [property: string]: {
     [validatableProp: string]: string[]; //['required', 'positive']
