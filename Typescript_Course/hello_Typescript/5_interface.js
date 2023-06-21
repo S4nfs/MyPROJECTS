@@ -15,6 +15,9 @@ class Person {
     //implementation
     constructor(n) {
         this.age = 30;
+        this.error = {
+            404: "Not Found",
+        };
         this.name = n;
     }
     greet(phrase) {

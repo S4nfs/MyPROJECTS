@@ -1,6 +1,6 @@
 "use strict";
 console.log("Hello Typescript");
-//✔️Cheking the types
+//✔️Cheking the types-------------------------------------------------------------------------------------------------------
 const add = (n1, n2, result, str) => {
     if (result) {
         let sum = n1 + n2; //avoid concatination
@@ -9,8 +9,7 @@ const add = (n1, n2, result, str) => {
 };
 add(30, 5.2, true, "Result is: ");
 //The key difference is: javascript uses "dynamic types" resolved at (runtime) whereas Typescript uses "static types" set during (development)
-//🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞
-//✔️Typescript work flawless when checking errors, repeat "flawless". Lets see other data types like touple
+//✔️Typescript work flawless when checking errors, repeat "flawless". Lets see other data types like touple-----------------
 const person = {
     name: "Sagar Verma",
     age: 23,
@@ -23,7 +22,6 @@ console.log(person);
 // for (let a of person.friends) {
 //     console.log(a.map((element) => element ))  //❌ will not throw error in normal js in build time
 // }
-//🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞
 //✔️An enum is a special "class" that represents a group of constants (unchangeable variables). Comes in two flavors string and numeric
 var Role;
 (function (Role) {
@@ -48,7 +46,7 @@ const sum = (n1, n2) => {
     return res;
 };
 console.log(sum("30", "20"));
-//✔️types in Functions🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞🍞
+//✔️types in Functions------------------------------------------------------------------------------------------------
 // number type
 let addNumbers = (n1, n2) => {
     //ensure the return type should be number
@@ -69,14 +67,6 @@ iDontCare = 5;
 iDontCare = "Max";
 if (typeof iDontCare === "string")
     example = iDontCare; //without typechecking throw error
-const animal = {
-    // must provide values for all of the required properties, otherwise it will give compile err
-    name: "Shiba",
-    dob: new Date(),
-    food: ["Kellogg's", "bitcoin", "Redmeat"],
-    speed: 20,
-};
-console.log(animal);
 // function whoAmI(animal: customUnionType) {
 //   if ("dob" in animal)
 //     //need to explicitly check "dob" to avoid compile error, works with interface also
@@ -124,10 +114,76 @@ const addingNumbers = (...numbers) => {
     }, 0);
 };
 console.log("Rest of numbers: ", addingNumbers(5, 10, 66, 87, 1.2));
-const obj2 = {
+const spd = {
     name: "Sagar",
     height: 5.6,
     weight: 65,
 };
-const spreadCopied = Object.assign({}, obj2);
+const spreadCopied = Object.assign({}, spd);
 console.log("Spread: ", spreadCopied);
+//✔️Type Casting--------------------------------------------------------------------------------------------------------
+const myVariable = 123;
+const myString = myVariable;
+console.log("Type Casting", typeof myString);
+function addme(a, b) {
+    return a + b;
+}
+const fetchUser = {
+    name: "Sage",
+    profession: "Thinker",
+    // skill: {
+    //   language:"PHP"
+    // }
+};
+//✔️Nullish Coalescing-----------------------------------------------------------------------------------------------
+let beNotNull = "";
+// var beNotNullorUndefined = beNotNull || "DEFAULT"; //returns if undefined|null|falsy, empty value treated as falsy
+var beNotNullorUndefined = beNotNull !== null && beNotNull !== void 0 ? beNotNull : "DEFAULT"; //returns if only undefined|null
+console.log(beNotNullorUndefined);
+//✔️Generic Type - increase resusablity of code and types below 4 exapmples-------------------------------------------
+function identity(arg) {
+    return arg;
+}
+console.log(identity("Sagar is a generic type")); //here we are explicitly passing types to our identifier T
+console.log(identity(25));
+// let genericObj(obj1:object, obj2:object){ //TypeScript compiler cannot infer the shape of these objects.
+//   return Object.assign(obj1, obj2)
+// }
+// let mergedObject = genericObj({firstname:"Sagar"}, {lastname:"Verma"})
+let genericObj = (o1, o2) => {
+    //using constraints 'extends'
+    return Object.assign(o1, o2);
+};
+let mergedObject = genericObj({ firstname: "Sagar" }, { lastname: "Verma" });
+console.log(mergedObject);
+function loggingIdentity(arg) {
+    return "LengthWise: " + arg.length;
+}
+console.log(loggingIdentity("Sagar"));
+let myOwnObject = (obj, key) => {
+    //using constraints 'keyof'
+    return obj[key];
+};
+console.log(myOwnObject({ name: "Sagar" }, "name"));
+//Generic Class
+class Dropbox {
+    constructor() {
+        this.data = [];
+    }
+    addimage(url) {
+        this.data.push(url);
+    }
+    removeImage(url) {
+        this.data.splice(this.data.indexOf(url), 1);
+    }
+    getAllItems() {
+        return [...this.data];
+    }
+}
+const storeImages = new Dropbox();
+storeImages.addimage("kakashi.png");
+storeImages.addimage("Itachi.png");
+storeImages.removeImage("kakashi.png");
+console.log(storeImages.getAllItems());
+//Generic utility types helpful
+let max = ["Keyboard", "Mouse"]; // max.push["Santa claus"];  //gives error
