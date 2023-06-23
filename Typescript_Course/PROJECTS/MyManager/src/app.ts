@@ -25,10 +25,10 @@ function validate(validatableInput: Validatable) {
   if (validatableInput.required) {
     isValid = isValid && validatableInput.value.toString().trim().length !== 0;
   }
-  if (validatableInput.minLength != null && typeof validatableInput === "string") {
+  if (validatableInput.minLength != null && typeof validatableInput.value === "string") {
     isValid = isValid && validatableInput.value.length >= validatableInput.minLength;
   }
-  if (validatableInput.maxLength != null && typeof validatableInput === "string") {
+  if (validatableInput.maxLength != null && typeof validatableInput.value === "string") {
     isValid = isValid && validatableInput.value.length <= validatableInput.maxLength;
   }
   if (validatableInput.min != null && typeof validatableInput.value === "number") {
@@ -39,6 +39,8 @@ function validate(validatableInput: Validatable) {
   }
   return isValid;
 }
+
+//Project Input class
 class ProjectInput {
   templateElement: HTMLTemplateElement;
   hostElement: HTMLDivElement;
@@ -97,15 +99,43 @@ class ProjectInput {
       this.clearInputs();
     }
   }
-
   private configure() {
     // this.element.addEventListener("submit", this.submitHandler.bind(this)); //binding to current class
     this.element.addEventListener("submit", this.submitHandler);
   }
-
   private attach() {
     this.hostElement.insertAdjacentElement("afterbegin", this.element);
   }
 }
 
 const star = new ProjectInput();
+
+//project list class
+class ProjectList {
+  templateElement: HTMLTemplateElement;
+  hostElement: HTMLDivElement;
+  element: HTMLElement;
+  constructor(private type: "active" | "finished") {
+    this.templateElement = document.getElementById("project-list")! as HTMLTemplateElement;
+    this.hostElement = document.getElementById("app")! as HTMLDivElement;
+
+    const importedNode = document.importNode(this.templateElement.content, true);
+
+    this.element = importedNode.firstElementChild as HTMLElement; //project section
+    this.element.id = `${this.type}-projects`;
+    this.attach();
+    this.renderContent();
+  }
+
+  private renderContent() {
+    const listid = `${this.type}-projects-lists`;
+    this.element.querySelector("ul")!.id = listid;
+    this.element.querySelector("h2")!.textContent = this.type.toUpperCase() + " PROJECTS";
+  }
+  private attach() {
+    this.hostElement.insertAdjacentElement("beforeend", this.element);
+  }
+}
+
+const activeProjList = new ProjectList("active");
+const finishedProjList = new ProjectList("finished");
