@@ -22,11 +22,7 @@ function logger(target: any, propertyName: string | Symbol) {
   console.log(target, propertyName);
 }
 
-function logger2(
-  target: any,
-  name: string | Symbol,
-  descriptor: PropertyDescriptor
-) {
+function logger2(target: any, name: string | Symbol, descriptor: PropertyDescriptor) {
   console.log(`[Method 🟠]  Decorator`);
   console.log(target);
   console.log(name);
