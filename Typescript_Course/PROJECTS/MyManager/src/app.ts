@@ -76,7 +76,7 @@ function validate(validatableInput: Validatable) {
     isValid = isValid && validatableInput.value.length <= validatableInput.maxLength;
   }
   if (validatableInput.min != null && typeof validatableInput.value === "number") {
-    isValid = isValid && validatableInput.value > validatableInput.min;
+    isValid = isValid && validatableInput.value >= validatableInput.min;
   }
   if (validatableInput.max != null && typeof validatableInput.value === "number") {
     isValid = isValid && validatableInput.value <= validatableInput.max;
@@ -131,7 +131,7 @@ class ProjectInput extends Component<HTMLDivElement, HTMLElement> {
 
     const titleValidatable: Validatable = { value: enteredTitle, required: true };
     const descValidatable: Validatable = { value: enteredDesc, required: true, minLength: 5 };
-    const peopleValidatable: Validatable = { value: +enteredPeople, required: true, min: 1, max: 5 };
+    const peopleValidatable: Validatable = { value: +enteredPeople, required: true, min: 1, max: 10 };
 
     if (!validate(titleValidatable) || !validate(descValidatable) || !validate(peopleValidatable)) {
       alert("Invalid or Empty field, Please try again.");
@@ -171,6 +171,14 @@ const star = new ProjectInput();
 //project item class
 class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
   private project: Project;
+
+  get personsGet() {
+    if (this.project.people === 1) {
+      return "1 person";
+    } else {
+      return `${this.project.people} persons`;
+    }
+  }
   constructor(hostid: string, project: Project) {
     super("single-project", hostid, false, project.id);
     this.project = project;
@@ -181,7 +189,7 @@ class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
   configure() {}
   renderContent() {
     this.element.querySelector("h2")!.textContent = this.project.title;
-    this.element.querySelector("h3")!.textContent = this.project.people.toString();
+    this.element.querySelector("h3")!.textContent = this.personsGet + " assigned"; //utilizing getter
     this.element.querySelector("p")!.textContent = this.project.description;
   }
 }
