@@ -283,7 +283,7 @@ class ProjectList extends Component<HTMLDivElement, HTMLElement> implements Drag
   renderContent() {
     const listid = `${this.type}-projects-lists`
     this.element.querySelector("ul")!.id = listid
-    this.element.querySelector("h2")!.textContent = this.type.toUpperCase() + " PROJECTS"
+    this.element.querySelector("h2")!.textContent = this.type.toUpperCase() + " PROJECTS (Drag & Drop)"
   }
 
   private renderProjects() {
