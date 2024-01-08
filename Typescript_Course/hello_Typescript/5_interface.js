@@ -1,4 +1,3 @@
-"use strict";
 /*✅  Interface -
 In TypeScript, both abstract classes and interfaces can be used to define contracts for classes. However, there are some differences between them.
 
@@ -11,19 +10,26 @@ Differences ? -
     Abstract class can provide the implementation of the interface. Interface can not provide the implementation of an abstract class
 
 */
-class Person {
+var myuser = {
+    id: 1,
+    username: "sagar4nfs",
+    password: "qewgveqwgv",
+};
+console.log(myuser);
+var Person = /** @class */ (function () {
     //implementation
-    constructor(n) {
+    function Person(n) {
         this.age = 30;
         this.error = {
             404: "Not Found",
         };
         this.name = n;
     }
-    greet(phrase) {
+    Person.prototype.greet = function (phrase) {
         console.log(phrase + " " + this.name);
-    }
-}
-const user = new Person("Jen");
+    };
+    return Person;
+}());
+var user = new Person("Jen");
 user.greet("Hi there, I am");
 console.log(user);

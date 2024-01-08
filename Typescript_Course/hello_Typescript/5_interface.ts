@@ -11,18 +11,34 @@ Differences ? -
 
 */
 
+interface Authentication {
+  username: string
+  password: string
+}
+
+interface User extends Authentication {
+  id: number
+}
+
+let myuser: User = {
+  id: 1,
+  username: "sagar4nfs",
+  password: "qewgveqwgv",
+}
+
+console.log(myuser)
 interface Greetable {
-  name: string; //no implementation, like a normal object
-  greet(phrase: string): void;
+  name: string //no implementation, like a normal object
+  greet(phrase: string): void
 }
 
 interface Age {
-  age: number;
-  nah?: string; //optional property
+  age: number
+  nah?: string //optional property
 }
 
 interface ErrorContainer {
-  [what: number]: string; //index property when you don't know which one you passing  - DRY
+  [what: number]: string //index property when you don't know which one you passing  - DRY
 }
 
 // interface Greetable extends Age {
@@ -32,25 +48,25 @@ interface ErrorContainer {
 // }
 
 interface AnonymousMyFunc {
-  (a: number, b: number): number;
+  (a: number, b: number): number
 }
 class Person implements Greetable, Age, ErrorContainer {
   //can inherit multiple interfaces simply put after ,
-  name: string;
+  name: string
   age = 30;
-  [what: number]: string;
+  [what: number]: string
   //implementation
   constructor(n: string) {
-    this.name = n;
+    this.name = n
   }
   greet(phrase: string) {
-    console.log(phrase + " " + this.name);
+    console.log(phrase + " " + this.name)
   }
   error: ErrorContainer = {
     404: "Not Found",
-  };
+  }
 }
 
-const user = new Person("Jen");
-user.greet("Hi there, I am");
-console.log(user);
+const user = new Person("Jen")
+user.greet("Hi there, I am")
+console.log(user)
