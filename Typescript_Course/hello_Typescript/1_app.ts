@@ -1,4 +1,4 @@
-/* Helpful resources: 
+/* Helpfull resources: 
 https://www.typescriptlang.org/
 */
 console.log("Hello Typescript")
@@ -246,6 +246,12 @@ let myOwnObject = <T extends object, O extends keyof T>(obj: T, key: O) => {
   return obj[key]
 }
 console.log(myOwnObject({ name: "Sagar" }, "name"))
+
+//generic array
+const genericArray = <T>(skills: T[]): T => {
+  return skills[0]
+}
+console.log(genericArray(["PHP", "Javascript", "Typescript"]))
 
 //Generic Class
 class Dropbox<T> {

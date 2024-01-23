@@ -1,4 +1,7 @@
 "use strict";
+/* Helpful resources:
+https://www.typescriptlang.org/
+*/
 console.log("Hello Typescript");
 //✔️Cheking the types-------------------------------------------------------------------------------------------------------
 const add = (n1, n2, result, str) => {
@@ -46,6 +49,7 @@ const sum = (n1, n2) => {
     return res;
 };
 console.log(sum("30", "20"));
+const groceries = ["coffee", 2, "flour"];
 //✔️types in Functions------------------------------------------------------------------------------------------------
 // number type
 let addNumbers = (n1, n2) => {
