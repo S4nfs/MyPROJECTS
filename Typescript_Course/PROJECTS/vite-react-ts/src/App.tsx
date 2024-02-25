@@ -4,6 +4,7 @@ import Headings from './components/Headings'
 import Section from './components/Section'
 import List from './components/List'
 import RenderApp from './components/RenderApp'
+import { CounterProvider, initialState } from './context/CounterContext'
 /****************************************** */
 
 interface User {
@@ -45,7 +46,9 @@ function App() {
       <RenderApp />
       <Headings title='Hello from TS React' />
       <Section title='Not Default Title'>This is my section</Section>
-      <Counter setCount={setCount}>Count is {count}</Counter>
+      <CounterProvider count={initialState.count} text={initialState.text}>
+        <Counter setCount={setCount}>Count is {count}</Counter>
+      </CounterProvider>
       <h2>Props & Childers</h2>
       <List items={['one', 'two', 'three']} render={(item: string) => <span className='gold'>{item}</span>} />
       <h2>UseCallback (Memoize Function)</h2>
