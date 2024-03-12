@@ -1,13 +1,13 @@
 import UserAuthForm from './UserAuthForm'
 
-const SignIn = () => {
+const SignUp = () => {
   return (
     <div>
       <section>
         <div className='grid md:h-screen md:grid-cols-2'>
           <div className='flex flex-col items-center justify-center bg-white'>
             <div className='max-w-lg px-5 py-16 text-center md:px-10 md:py-24 lg:py-32'>
-              <h2 className='mb-8 text-3xl font-bold md:mb-12 md:text-5xl'>Sign in</h2>
+              <h2 className='mb-8 text-3xl font-bold md:mb-12 md:text-5xl'>Sign up</h2>
               {/* Google Auth form  */}
               <UserAuthForm />
               <form className='mx-auto mb-4 max-w-sm pb-4' name='wf-form-password' method='get'>
@@ -58,8 +58,8 @@ const SignIn = () => {
               </form>
               <p className='text-sm text-[#636262]'>
                 Already have an account?{' '}
-                <a href='sign-up' className='text-sm font-bold text-black'>
-                  Sign up
+                <a href='/sign-in' className='text-sm font-bold text-black'>
+                  Sign In
                 </a>
               </p>
             </div>
@@ -83,4 +83,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default SignUp
