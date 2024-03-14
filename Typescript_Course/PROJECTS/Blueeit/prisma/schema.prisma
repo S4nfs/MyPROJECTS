@@ -39,21 +39,20 @@ model Session {
 }
 
 model User {
-  id                 String         @id @default(cuid())
-  name               String?
-  email              String?        @unique
-  emailVerified      DateTime?
-  username           String?        @unique
-  creaduedSubreddits Subreddit[]    @relation("CreatedBy")
-  image              String?
-  accounts           Account[]
-  sessions           Session[]
-  Post               Post[]
-  Vote               Vote[]
-  CommentVote        CommentVote[]
-  Comment            Comment[]
-  Subscription       Subscription[]
-  Subreddit          Subreddit[]
+  id                String         @id @default(cuid())
+  name              String?
+  email             String?        @unique
+  emailVerified     DateTime?
+  username          String?        @unique
+  createdSubreddits Subreddit[]    @relation("CreatedBy")
+  image             String?
+  accounts          Account[]
+  sessions          Session[]
+  Post              Post[]
+  Vote              Vote[]
+  CommentVote       CommentVote[]
+  Comment           Comment[]
+  Subscription      Subscription[]
 }
 
 model Subreddit {
@@ -66,8 +65,6 @@ model Subreddit {
   creatorId   String
   Creator     User?          @relation("CreatedBy", fields: [creatorId], references: [id])
   subscribers Subscription[]
-  userId      String?
-  User        User?          @relation(fields: [userId], references: [id])
 
   @@index([name])
 }

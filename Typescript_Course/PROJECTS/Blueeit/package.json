@@ -1,6 +1,7 @@
 {
   "name": "Blueeit",
   "version": "0.1.0",
+  "description": "Create communities to connect beyond expertise.",
   "private": true,
   "scripts": {
     "dev": "next dev",
