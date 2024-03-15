@@ -6,14 +6,18 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
+import { CreateSubredditPayload } from '@/lib/validators/subreddit'
 
 const Page = () => {
   const [input, setInput] = useState<string>('')
   const router = useRouter()
-  const {} = useMutation({
+  const { mutate: createCommunity, isLoading } = useMutation({
     mutationFn: async () => {
-      const payload = {}
-      const { data } = await axios.post('/api/subreddit', {})
+      const payload: CreateSubredditPayload = {
+        name: input,
+      }
+      const { data } = await axios.post('/api/subreddit', payload)
+      return data as string
     },
   })
   return (
@@ -35,7 +39,7 @@ const Page = () => {
           <Button variant='subtle' onClick={() => router.back()}>
             Cancel
           </Button>
-          <Button variant='subtle' onClick={() => router.back()}>
+          <Button isLoading={isLoading} disabled={input.length === 0} onClick={() => createCommunity()} variant='subtle'>
             Create Community
           </Button>
         </div>
