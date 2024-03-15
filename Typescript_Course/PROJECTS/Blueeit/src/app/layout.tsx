@@ -1,3 +1,4 @@
+import Providers from '@/components/Providers'
 import Navbar from '@/components/ui/Navbar'
 import { Toaster } from '@/components/ui/toaster'
 import { cn } from '@/lib/utils'
@@ -13,11 +14,13 @@ export default function RootLayout({ children, authModal }: { children: React.Re
   return (
     <html lang='en' className={cn('bg-white to-slate-900 antialiased light', inter.className)}>
       <body className='min-h-screen pt-12 bg-slate-50 antialiased'>
-        {/* @ts-expect-error sever component*/}
-        <Navbar />
-        {authModal}
-        <div className='container max-w-7xl mx-auto h-full pt-12'>{children}</div>
-        <Toaster />
+        <Providers>
+          {/* @ts-expect-error sever component*/}
+          <Navbar />
+          {authModal}
+          <div className='container max-w-7xl mx-auto h-full pt-12'>{children}</div>
+          <Toaster />
+        </Providers>
       </body>
     </html>
   )
