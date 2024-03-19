@@ -44,7 +44,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.0",
-    "date-fns": "^2.30.0",
+    "date-fns": "^3.6.0",
     "editorjs-react-renderer": "^3.5.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
