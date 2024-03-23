@@ -37,7 +37,7 @@ db.products.findOneAndUpdate ({ name: 'invoiceGeneration' },{ $set: { invoiceSta
 
 db.collection_name.updateOne({name:"React"}, {$set:{name:"ReactJS"}}) : update the first document with name React to name ReactJS
 
-db.collection_name.updateOne({name:"React"}, {$set:{name:"ReactJS"}}, {upsert:true}) : insert the document if it is not found
+db.collection_name.updateOne({name:"React"}, {$set:{name:"ReactJS"}}, {upsert:true}) : insert the document if it is not found, upsert is a compound word of "update" and "insert"
 
 db.collection_name.updateMany({name:"React"}, {$set:{name:"ReactJS"}}) : update all documents with name React to name ReactJS
 
