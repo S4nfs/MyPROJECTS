@@ -17,13 +17,26 @@ export async function POST(req: Request) {
         userId: session.user.id,
       },
     })
-    if (subscriptionExists) {
-      return new Response('Already subscribed', { status: 400 })
+    if (!subscriptionExists) {
+      return new Response('Not subscribed to this community', { status: 400 })
     }
-    await db.subscription.create({
-      data: {
-        userId: session.user.id,
-        subredditId,
+
+    //check if the user is the cerator of the subreddit
+    const subreddit = await db.subreddit.findFirst({
+      where: {
+        id: subredditId,
+        creatorId: session.user.id,
+      },
+    })
+    if (subreddit) {
+      return new Response('You cannot subscribe to your own community', { status: 400 })
+    }
+    await db.subscription.delete({
+      where: {
+        userId_subredditId: {
+          subredditId,
+          userId: session.user.id,
+        },
       },
     })
     return new Response(subredditId)
@@ -31,6 +44,6 @@ export async function POST(req: Request) {
     if (error instanceof z.ZodError) {
       return new Response('Invalid data', { status: 422 })
     } //422 invalid data
-    return new Response('Something went wrong while subscribing community', { status: 500 })
+    return new Response('Something went wrong while unsubscribing community', { status: 500 })
   }
 }

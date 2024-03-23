@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 import { compareAsc, format } from 'date-fns'
 import SubscribeLeaveToggle from '@/components/SubscribeLeaveToggle'
+import Link from 'next/link'
+import { buttonVariants } from '@/components/ui/Button'
 
 const layout = async ({ children, params: { slug } }: { children: React.ReactNode; params: { slug: string } }) => {
   const session = await getAuthSession()
@@ -51,7 +53,7 @@ const layout = async ({ children, params: { slug } }: { children: React.ReactNod
             <div className='px-6 py-4'>
               <p className='font-semibold py-3'>About r/{subreddit.name}</p>
             </div>
-            <dt className='divide-y divide-gray-100 px-6 py-4 text-sm leading-6 bg-white'>
+            <dl className='divide-y divide-gray-100 px-6 py-4 text-sm leading-6 bg-white'>
               <div className='flex justify-between gap-x-4 py-3'>
                 <dt className='text-gray-500'>Created</dt>
                 <dd className='text-gray-700'>
@@ -70,8 +72,17 @@ const layout = async ({ children, params: { slug } }: { children: React.ReactNod
                   <p className='text-gray-500'>You created this community</p>
                 </div>
               ) : null}
-              {subreddit.creatorId !== session?.user.id ? <SubscribeLeaveToggle /> : null}
-            </dt>
+              {subreddit.creatorId !== session?.user.id ? <SubscribeLeaveToggle subredditId={subreddit.id} subredditName={subreddit.name} isSubscribed={isSubscribed} /> : null}
+              <Link
+                className={buttonVariants({
+                  variant: 'outline',
+                  className: 'w-full mb-6',
+                })}
+                href={`r/${slug}/submit`}
+              >
+                Create Post
+              </Link>
+            </dl>
           </div>
         </div>
       </div>
