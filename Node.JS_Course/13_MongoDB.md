@@ -33,7 +33,9 @@ db.products.find({quantity: {$lte:70}, price:{lt:2000}}) : find where quantity <
 
 db.products.find({$or:[{quantity:{lte:70}}, {price:{lt:2000}} ]}) : find where quantity <= 70 || price < 2000
 
-db.products.findOneAndUpdate ({ name: 'invoiceGeneration' },{ $set: { invoiceStatus: 'Invoice generation task stopped' } },{ new: true }) : finds and updates the first matching document, and documents before or after the update (depend on passing {new: true}). can return
+db.products.findOneAndUpdate ({ name: 'invoiceGeneration' },{ $set: { invoiceStatus: 'Invoice generation task stopped' } },{ new: true }, {upsert:true}) : finds and updates the first matching document if not found creats one {upsert: true}, and return that document before or after the update (depend on passing {new: true})
+Note=> {new: true} (or returnNewDocument: true): used with findOneAndUpdate(), findOneAndReplace(), findOneAndDelete() 
+{upsert: true}: used with findOneAndUpdate(), updateOne(), updateMany()
 
 db.collection_name.updateOne({name:"React"}, {$set:{name:"ReactJS"}}) : update the first document with name React to name ReactJS
 
