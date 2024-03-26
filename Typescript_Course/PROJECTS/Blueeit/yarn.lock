@@ -911,9 +911,9 @@
     "@typescript-eslint/types" "5.59.8"
     eslint-visitor-keys "^3.3.0"
 
-"@uploadthing/react@^4.0.0":
+"@uploadthing/react@4.0.0":
   version "4.0.0"
-  resolved "https://registry.npmjs.org/@uploadthing/react/-/react-4.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@uploadthing/react/-/react-4.0.0.tgz#3b359b722d73a60d9790a385d46f73f92997a9e5"
   integrity sha512-4EI9Q3qs/iRbV9JeuGD0B+AYd61mguH9/jVZwjC/H4i8nj2fhsNs1ILLUtdZUs+adcUYOBU2rt4ZjEoPofpxHg==
 
 "@upstash/redis@^1.21.0":
@@ -3821,9 +3821,9 @@ update-browserslist-db@^1.0.11:
     escalade "^3.1.1"
     picocolors "^1.0.0"
 
-uploadthing@^4.0.0:
+uploadthing@4.0.0:
   version "4.0.0"
-  resolved "https://registry.npmjs.org/uploadthing/-/uploadthing-4.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/uploadthing/-/uploadthing-4.0.0.tgz#3e09acf97adb3fc1595d15a75dcfd78796b37b95"
   integrity sha512-mgJaCcG+mDjNUcWmZCBdR+KZr2uucDVi0QL7q+S6zkZQ7g8SlOsFCPH9+Kp9G+iLfF/lOp/MjQZZPeIoiFHzvw==
   dependencies:
     mime-types "^2.1.35"

@@ -6,7 +6,7 @@ export const PostValidator = z.object({
     }).max(128, {message:
         "Title must be at most 128 characters long"
     }),
-    subbreditId: z.string(),
+    subredditId: z.string(),
     content: z.any()
 })
 
