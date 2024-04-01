@@ -1,3 +1,4 @@
+'use client'
 import { ExtendedPost } from '@/types/db'
 import React, { useRef } from 'react'
 import { useIntersection } from '@mantine/hooks'
@@ -5,6 +6,7 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { INFINITE_SCROLLING_PAGINATION_RESULTS } from '@/app/api/config'
 import { useSession } from 'next-auth/react'
+import Posts from './Posts'
 
 interface PostFeedProps {
   initialPosts: ExtendedPost[]
@@ -41,7 +43,15 @@ const PostFeed = ({ initialPosts, subredditName }: PostFeedProps) => {
           return acc
         }, 0)
         const currentVote = post.votes.find((vote) => vote.userId === session?.user.id)
-        return <div></div>
+        if (index === posts.length - 1) {
+          return (
+            <li key={index} ref={ref}>
+              <Posts subredditName={post.subreddit.name} post={post} commentAmt={post.comments.length} />
+            </li>
+          )
+        } else {
+          return <Posts subredditName={post.subreddit.name} post={post} commentAmt={post.comments.length} />
+        }
       })}
     </ul>
   )
