@@ -277,3 +277,40 @@ console.log(storeImages.getAllItems())
 
 //Generic utility types helpful
 let max: Readonly<string>[] = ["Keyboard", "Mouse"] // max.push["Santa claus"];  //gives error
+
+
+//✔️ Other Utility types: Prettify, Partial, Required
+//Prettify
+interface MainType {
+  name: string
+  age: number
+}
+
+type NestedType = MainType &{
+  isDeveloper: boolean
+}
+
+type Prettify<T> = {
+    [K in keyof T]: T[K]
+} & {}
+
+type idk = Prettify<NestedType> //this contains the whole object types
+
+
+//Partial & Required
+interface Todo{
+  title: string
+  description: string
+}
+
+const updateTodo = (todo: Todo, fieldsToUpdate: Partial<Todo>) => { //by declaring type Partial or Required allows you to update details with/without needing to provide all properties, making your code more flexible and adaptable without using ? in properties
+  return { ...todo, ...fieldsToUpdate }
+}
+
+const initialTodo: Todo = {
+  title: "Learn TypeScript",
+  description: "TypeScript is awesome",
+}
+
+
+const updatedTodo = updateTodo(initialTodo, { description: "TypeScript is awesome" })
