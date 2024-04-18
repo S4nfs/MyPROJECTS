@@ -1,33 +1,32 @@
 <h1 align="center">"Lovely, Lively Languages"</h1>
 
-## Tutorials Completed 🥳
+## Tutorials Completed - Production Ready 🥳
 
 ✅ Javascript
 ✅ PHP
 ✅ React
 ✅ NodeJS
 ✅ REST API
+✅ Typescript
 
-## Tutorials Ongoing 😤
+## Tutorials Ongoing (with Done %)😤
 
-☑️ Bash
-☑️ JQuery
-☑️ AWS
-☑️ Docker
-☑️ ChartJS
-☑️ Linux
-☑️ Typescript
+☑️ Bash - 80
+☑️ Python - 90
+☑️ AWS - 5
+☑️ Docker - 90
+☑️ Linux - 80
 
-🚀 Follow Me:
+🚀 Ping me, if you need any help or report bugs:
 
 - [Twitter](https://twitter.com/sagar4nfs)
 - [LinkedIn](https://www.linkedin.com/in/sagar-verma-57ba6a1b0/)
 
 ## Description
 
-Welcome to the ultimate guide to programming languages! This GitHub repository contains comprehensive tutorials on all major programming languages & frameworks, including PHP, Javascript, Bash, React, Bootstrap, and more. Whether you're a beginner or an experienced developer, this hand-made guide will help you master the basics and take your coding skills to the next level and covers everything from syntax and data structures to algorithms and best practices, making it easy for you to learn at your own pace.
+Welcome to the ultimate guide to programming languages! This GitHub repository contains comprehensive material of all major programming languages & frameworks, including PHP, Javascript, Bash, React, Bootstrap, and more. Whether you're a beginner or an experienced developer, this hand-made guide will help you master the basics and take your coding skills to the next level and covers everything from syntax and data structures to algorithms and best practices, making it easy for you to learn at your own pace.
 
-This repository shares ALL of the resources referenced with other available projects of mine. Note: Avoid filenames like demo*.js or debug*.js as they are for debugging purposes.
+This repository shares all of the resources referenced with other available projects and some of the enterprise level projects of mine handling thousands of users everyday. I often revisit this repository whenever I forget something. That's why I keep updating it whenever I find something missing that needs to be added <span style="color:orange;">Note: Avoid filenames like demo* or debug* as they are for debugging purposes.</span>
 
 ## Academic Honesty 🎓
 
