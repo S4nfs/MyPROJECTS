@@ -1,3 +1,5 @@
+First go with the Hello-react project in the folder where you'll get familiar with the below topics then moved to advanced features like handling the redux state and graphQL.
+
 npm - It install packages globally on your system
 npx - It directly excutes a package without installing it
 
