@@ -97,7 +97,7 @@ void is used whenever a function does not return anything explicitly (usually th
 // };
 // generateError("An error occured!", 500);
 
-/*- custom type (including Descrimination type) */
+/*- custom type (including Descrimination type or tagged type) */
 type Bird = {
   name: string
   food: string[]
@@ -279,7 +279,9 @@ console.log(storeImages.getAllItems())
 let max: Readonly<string>[] = ["Keyboard", "Mouse"] // max.push["Santa claus"];  //gives error
 
 
-//✔️ Other Utility types: Prettify, Partial, Required
+/*✔️ Other Utility types: Prettify, Partial, Required, Record 
+Source: https://www.typescriptlang.org/docs/handbook/utility-types.html
+*/
 //Prettify
 interface MainType {
   name: string
@@ -302,15 +304,25 @@ interface Todo{
   title: string
   description: string
 }
-
 const updateTodo = (todo: Todo, fieldsToUpdate: Partial<Todo>) => { //by declaring type Partial or Required allows you to update details with/without needing to provide all properties, making your code more flexible and adaptable without using ? in properties
   return { ...todo, ...fieldsToUpdate }
 }
-
 const initialTodo: Todo = {
   title: "Learn TypeScript",
   description: "TypeScript is awesome",
 }
-
-
 const updatedTodo = updateTodo(initialTodo, { description: "TypeScript is awesome" })
+
+//Record - Imagine you're creating a program to manage a zoo. You have different types of animals, and each animal has a name and a description. You want to store information about each animal in an object, where the key is the animal's name, and the value is an object containing the animal's description. In short Record allows you to create a dictionary or map where the keys are strings, and the values are of a specific type.
+interface AnimalInfo {
+  description: string;
+ }
+ 
+ type AnimalName = "lion" | "elephant" | "giraffe";
+ 
+ const zooAnimals: Record<AnimalName, AnimalInfo> = {
+  lion: { description: "A large, powerful cat." },
+  elephant: { description: "A large, intelligent mammal." },
+  giraffe: { description: "A tall, long-necked mammal." },
+ };
+ 
