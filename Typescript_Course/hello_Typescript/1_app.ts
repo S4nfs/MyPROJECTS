@@ -25,6 +25,9 @@ const person: {
   friends: any[] //array with any type
   role: [number, string] //touple - is a typed array with predefined length and type
 } = {
+  getFullName: function (): string {
+    return this.name + " " + this.role[1]
+  },
   name: "Sagar Verma",
   age: 23,
   friends: [4, "pratik", "gaurav", "ritvik", "rohan"],
@@ -282,7 +285,7 @@ let max: Readonly<string>[] = ["Keyboard", "Mouse"] // max.push["Santa claus"]; 
 /*✔️ Other Utility types: Prettify, Partial, Required, Record 
 Source: https://www.typescriptlang.org/docs/handbook/utility-types.html
 */
-//Prettify
+//🔧Prettify
 interface MainType {
   name: string
   age: number
@@ -299,10 +302,11 @@ type Prettify<T> = {
 type idk = Prettify<NestedType> //this contains the whole object types
 
 
-//Partial & Required
+//🔧artial & Required
 interface Todo{
   title: string
   description: string
+  
 }
 const updateTodo = (todo: Todo, fieldsToUpdate: Partial<Todo>) => { //by declaring type Partial or Required allows you to update details with/without needing to provide all properties, making your code more flexible and adaptable without using ? in properties
   return { ...todo, ...fieldsToUpdate }
@@ -313,7 +317,7 @@ const initialTodo: Todo = {
 }
 const updatedTodo = updateTodo(initialTodo, { description: "TypeScript is awesome" })
 
-//Record - Imagine you're creating a program to manage a zoo. You have different types of animals, and each animal has a name and a description. You want to store information about each animal in an object, where the key is the animal's name, and the value is an object containing the animal's description. In short Record allows you to create a dictionary or map where the keys are strings, and the values are of a specific type.
+//🔧Record - Imagine you're creating a program to manage a zoo. You have different types of animals, and each animal has a name and a description. You want to store information about each animal in an object, where the key is the animal's name, and the value is an object containing the animal's description. In short Record allows you to create a dictionary or map where the keys are strings, and the values are of a specific type.
 interface AnimalInfo {
   description: string;
  }
@@ -326,3 +330,34 @@ interface AnimalInfo {
   giraffe: { description: "A tall, long-necked mammal." },
  };
  
+
+ //🔧 RecursivePartial & DeepPartial - Partial only affects the top-level properties of T; it does not recurse into nested properties. DeepPartial<T> is another utility type that aims to make all properties of a type T optional, including those nested within objects. However, DeepPartial is designed to handle more complex scenarios, such as arrays, sets, maps, and functions, by treating them differently from regular objects. For instance, DeepPartial leaves primitive types and their methods intact, whereas RecursivePartial treats all properties uniformly, regardless of their nature.
+
+ interface Todo1 {
+  title: string
+  description: string
+  location: {
+    country: string;
+    countryCode: string;
+    street: string;
+  };
+}
+type RecursivePartial<T> = {
+  [P in keyof T]?: RecursivePartial<T[P]>;
+};
+const updateTodo1: RecursivePartial<Todo1> = {
+  title: 'Make Dishes',
+  location: {
+    countryCode: 'FR',
+  },
+};
+
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
+const updateTodo2: DeepPartial<Todo1> = {
+  title: 'Make Dishes Again',
+  location: {
+    countryCode: 'FR',
+  },
+};
