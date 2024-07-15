@@ -35,7 +35,7 @@ const PostFeed = ({ initialPosts, subredditName }: PostFeedProps) => {
   )
   const posts = data?.pages.flatMap((page) => page) ?? initialPosts
   return (
-    <ul className='flex flex-col col-span-2 skew-y-6'>
+    <ul className='flex flex-col col-span-2'>
       {posts.map((post, index) => {
         const voteAmt = post.votes.reduce((acc, vote) => {
           if (vote.type === 'UP') return acc + 1
