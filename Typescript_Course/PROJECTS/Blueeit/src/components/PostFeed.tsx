@@ -37,7 +37,7 @@ const PostFeed = ({ initialPosts, subredditName }: PostFeedProps) => {
   return (
     <ul className='flex flex-col col-span-2'>
       {posts.map((post, index) => {
-        const voteAmt = post.votes.reduce((acc, vote) => {
+        const votesAmt = post.votes.reduce((acc, vote) => {
           if (vote.type === 'UP') return acc + 1
           if (vote.type === 'DOWN') return acc - 1
           return acc
@@ -46,11 +46,11 @@ const PostFeed = ({ initialPosts, subredditName }: PostFeedProps) => {
         if (index === posts.length - 1) {
           return (
             <li key={index} ref={ref}>
-              <Posts subredditName={post.subreddit.name} post={post} commentAmt={post.comments.length} />
+              <Posts subredditName={post.subreddit.name} post={post} commentAmt={post.comments.length} currentVote={currentVote} />
             </li>
           )
         } else {
-          return <Posts subredditName={post.subreddit.name} post={post} commentAmt={post.comments.length} />
+          return <Posts subredditName={post.subreddit.name} post={post} commentAmt={post.comments.length} currentVote={currentVote} />
         }
       })}
     </ul>

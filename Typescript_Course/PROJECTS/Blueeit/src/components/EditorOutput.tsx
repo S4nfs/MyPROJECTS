@@ -25,7 +25,13 @@ const EditorOutput = ({ content }: EditorPostProps) => {
   return <Output className='text-sm' renderers={renderers} style={style} data={content} />
 }
 
-function CustomCodeRenderers(props: any) {}
+function CustomCodeRenderers({ data }: any) {
+  return (
+    <pre className='bg-gray-800 p-4 rounded-md'>
+      <code className='text-gray-100 text-sm'>{data.code}</code>
+    </pre>
+  )
+}
 
 function CustomImageRenderers({ data }: any) {
   const src = data.file.url

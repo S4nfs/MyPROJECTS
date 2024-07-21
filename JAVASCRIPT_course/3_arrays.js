@@ -1,7 +1,8 @@
+//Array: An array stores the data contigously(Adjacent) back to back to back.
 // ✔️Creating Arrays---------------------------------------------------------------------------------------------------------
-var myfriends = new Array("Sagar", 30, "Male", "Pratik", 29, "Male", "Anjali", 28, "Female")
+var myfriends = new Array('Sagar', 30, 'Male', 'Pratik', 29, 'Male', 'Anjali', 28, 'Female')
 
-var myfriends = ["Sagar", 30, "Male", "Pratik", 29, "Male", "Anjali", 28, "Female"] //you can put anything in javascript array
+var myfriends = ['Sagar', 30, 'Male', 'Pratik', 29, 'Male', 'Anjali', 28, 'Female'] //you can put anything in javascript array
 
 console.log(myFriends[0])
 console.log(myFriends.length)
@@ -11,28 +12,28 @@ for (var i = 0; i < myFriends.length; i++) {
 }
 
 // ✔️ For-in[best for Objects], For-of & ForEach [best for arrays] ---------------------------------------------------------------------------
-var myFriends = ["Sagar", "Pratik", "Anjali"]
+var myFriends = ['Sagar', 'Pratik', 'Anjali']
 for (var elements in myFriends) {
   console.log(elements) //return index number (0,1,2)
   //console.log(`${elements} : ${myFriends[elements]}`);       //but key:value if myFriends is an object
 }
 
 //For-of
-var myFriends = ["Sagar", "Pratik", "Anjali"]
+var myFriends = ['Sagar', 'Pratik', 'Anjali']
 for (var friend of myFriends) {
   console.log(friend) //returns "Sagar","Pratik","Anjali"
 }
 
 //forEach
-var myFriends = ["Sagar", "Pratik", "Anjali"]
+var myFriends = ['Sagar', 'Pratik', 'Anjali']
 myFriends.forEach(function (element, index, array) {
   //ForEach is just a combination of For-in & For-of loop
   console.log(element)
 })
 
 var message = {
-  error: ["Error1", "Error2", "Error3"],
-  success: ["Success1", "Success2", "Success3"],
+  error: ['Error1', 'Error2', 'Error3'],
+  success: ['Success1', 'Success2', 'Success3'],
 }
 Object.entries(message).forEach(([key, value]) => console.log(`${key} and the value is ${value}`))
 
@@ -84,7 +85,7 @@ console.log(sum)
 var pilots = [
   {
     id: 10,
-    name: "Poe Dameron",
+    name: 'Poe Dameron',
     years: 14,
   },
   {
@@ -108,13 +109,13 @@ const newPriceTag = prices.filter((elem, index) => {
 console.log(newPriceTag)
 
 // ✔️ Searching $ Filter in an arrays
-var myFriendz = ["Sagar", "Pratik", "Anjali", "Pratham", "Devendra"]
-console.log(myFriendz.indexOf("Pratham")) //indexof() = returns index position CASE-SENSITIVE if found else -1
-console.log(myFriendz.includes("Pratham")) //incudes() = check if the element exists(including NaN, unlike indexOf) and returns true
+var myFriendz = ['Sagar', 'Pratik', 'Anjali', 'Pratham', 'Devendra']
+console.log(myFriendz.indexOf('Pratham')) //indexof() = returns index position CASE-SENSITIVE if found else -1
+console.log(myFriendz.includes('Pratham')) //incudes() = check if the element exists(including NaN, unlike indexOf) and returns true
 
 // ✔️ includes(element, start)  - It returns true/false if an array contains a specified value, CASE SENSITIVE
-const fruits = ["Banana", "Orange", "Apple", "Mango"]
-console.log(fruits.includes("Mango")) //true
+const fruits = ['Banana', 'Orange', 'Apple', 'Mango']
+console.log(fruits.includes('Mango')) //true
 
 //✔️ find() - It returns the value of the first element *that passes a test function* otherwise return undefined
 const prices = [200, 300, 350, 400, 450, 500, 600]
@@ -132,55 +133,55 @@ const letsfindIndex = prices.findIndex((currVal) => {
 console.log(letsfindIndex) //0
 
 //✔️ pop() - removes the last element of an array and returns it
-const months = ["Jan", "Mar", "Aug", "Sept", "Nov", "Oct"]
+const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct']
 const lastMonth = months.pop()
 console.log(months)
 
 //✔️ push() - adds one or more elements to the end of an array and returns the new length of the array
-const months = ["Jan", "Mar", "Aug", "Sept", "Nov", "Oct"]
-const newMonth = months.push("Dec")
+const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct']
+const newMonth = months.push('Dec')
 console.log(months)
 
 //✔️ shift() - removes the first element of an array and returns it
-const months = ["Jan", "Mar", "Aug", "Sept", "Nov", "Oct"]
+const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct']
 const firstMonth = months.shift()
 console.log(months)
 
 //✔️ unshift() -  adds one or more elements to the beginning of an array and returns the new length of the array.
-const months = ["Jan", "Mar", "Aug", "Sept", "Nov", "Oct"]
-const newMonth = months.unshift("Dec")
+const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct']
+const newMonth = months.unshift('Dec')
 console.log(months) //Output: [ 'Dec', 'Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct' ]
 console.log(newMonth) //Output: 7
 
 //✔️ splice(indextochange, howmany to remove, additem1...2..) - return a part of an array and overwrites the original array.
-const months = ["Jan", "Mar", "Aug", "Sept", "Nov", "Oct"]
-const newMonth = months.splice(6, 0, "Dec") //1 Add Dec to last
+const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct']
+const newMonth = months.splice(6, 0, 'Dec') //1 Add Dec to last
 console.log(months)
 
-const monthUpdate = months.splice(1, 1, "March") //3 Insert
+const monthUpdate = months.splice(1, 1, 'March') //3 Insert
 console.log(months)
 console.log(monthUpdate) //2 return only the deleted element value
 
 // OR Maybe you are not GOD who knows where that element was
-const months = ["Jan", "Mar", "Aug", "Sept", "Nov", "Oct"]
-const indexOfMonths = months.indexOf("Mar")
+const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct']
+const indexOfMonths = months.indexOf('Mar')
 if (indexOfMonths != -1) {
-  const monthUpdate = months.splice(indexOfMonths, 1, "March")
+  const monthUpdate = months.splice(indexOfMonths, 1, 'March')
   console.log(months)
 }
 
-const months = ["Jan", "Mar", "Aug", "Sept", "Nov", "Oct"]
-const indexOfMonths = months.indexOf("Aug")
+const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct']
+const indexOfMonths = months.indexOf('Aug')
 const monthDelete = months.splice(indexOfMonths, 1) //4 Delete
 console.log(months)
 
 //✔️ slice(indextochange, untillElement/❗not start from substring starts from beginning) - It doesn’t mutate (or change the original array)
-const months = ["Jan", "Mar", "Aug", "Sept", "Nov", "Oct"]
+const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct']
 const newMonth = months.slice(1, 3)
 console.log(newMonth) //output: [ 'Mar', 'Aug' ]
 
 //✔️ sort() - sorts the elements as strings in alphabetical and ascending order
-const months = ["Jan", "Mar", "Aug", "Sept", "Nov", "Oct"]
+const months = ['Jan', 'Mar', 'Aug', 'Sept', 'Nov', 'Oct']
 const newMonth = months.sort()
 console.log(newMonth)
 
@@ -212,25 +213,25 @@ const newflatMapArr = myflatMapArr.flatMap((x) => x * 2)
 console.log(newflatMapArr)
 
 //✔️ reverse() - reverse an array with mutation
-var fruitBag = ["Banana", "Orange", "Apple", "Mango"]
+var fruitBag = ['Banana', 'Orange', 'Apple', 'Mango']
 console.log(fruitBag.reverse())
 
 //✔️ toReversed() - reverse an array without mutation
-var fruitBags = ["Banana", "Orange", "Apple", "Mango"]
+var fruitBags = ['Banana', 'Orange', 'Apple', 'Mango']
 console.log(fruitBags.toReversed()) //or fruitBags.slice().reverse() , [...fruitbags].reverse()
 
 //✔️ split() - splits a string into an array of substrings
-let text = "How are you doing today?" //it take string as value
-const myArray = text.split(" ", 3)
+let text = 'How are you doing today?' //it take string as value
+const myArray = text.split(' ', 3)
 
 //✔️ concat() - merge two arrays
-const arr1 = ["Cecilie", "Lone"]
-const arr2 = ["Emil", "Tobias", "Linus"]
-const arr3 = ["Robin"]
+const arr1 = ['Cecilie', 'Lone']
+const arr2 = ['Emil', 'Tobias', 'Linus']
+const arr3 = ['Robin']
 const children = arr1.concat(arr2, arr3)
 
 //✔️ from() - create an array from a stringr
-let text = "ABCDEFG"
+let text = 'ABCDEFG'
 const myArr = Array.from(text)
 
 //✔️ every() - checks if all array values pass a test
@@ -248,14 +249,14 @@ const result = array.some((element, index, array) => {
 console.log(result) //true
 
 //✔️ keys() - returns an Array Iterator object with the keys of an array
-const arrayt = ["java", "PHP", "fortan", "goLang"]
+const arrayt = ['java', 'PHP', 'fortan', 'goLang']
 const k = arrayt.keys()
 for (let keys of k) {
   console.log(keys) //0 1 2 3
 }
 
 //✔️ entries() - returns an Array Iterator object with key/value pairs
-const arrayo = ["java", "PHP", "fortan", "goLang"]
+const arrayo = ['java', 'PHP', 'fortan', 'goLang']
 const kv = arrayo.entries()
 for (let keys of kv) {
   console.log(keys) //[ 0, 'java' ] [ 1, 'PHP' ] [ 2, 'fortan' ] [ 3, 'goLang' ]
@@ -290,21 +291,21 @@ function map(arr, fn) {
 var personnel = [
   {
     id: 5,
-    name: "Luke Skywalker",
+    name: 'Luke Skywalker',
     pilotingScore: 98,
     shootingScore: 56,
     isForceUser: true,
   },
   {
     id: 82,
-    name: "Sabine Wren",
+    name: 'Sabine Wren',
     pilotingScore: 73,
     shootingScore: 99,
     isForceUser: false,
   },
   {
     id: 22,
-    name: "Zeb Orellios",
+    name: 'Zeb Orellios',
     pilotingScore: 20,
     shootingScore: 59,
     isForceUser: false,

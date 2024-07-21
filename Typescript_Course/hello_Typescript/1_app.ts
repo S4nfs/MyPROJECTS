@@ -282,10 +282,10 @@ console.log(storeImages.getAllItems())
 let max: Readonly<string>[] = ["Keyboard", "Mouse"] // max.push["Santa claus"];  //gives error
 
 
-/*✔️ Other Utility types: Prettify, Partial, Required, Record 
+/*✔️ Other Utility types: Prettify, Partial, Required, Record , Pick -----------------------------------------------------------------------------
 Source: https://www.typescriptlang.org/docs/handbook/utility-types.html
 */
-//🔧Prettify
+//🔧 Prettify
 interface MainType {
   name: string
   age: number
@@ -302,7 +302,7 @@ type Prettify<T> = {
 type idk = Prettify<NestedType> //this contains the whole object types
 
 
-//🔧artial & Required
+//🔧 Partial & Required
 interface Todo{
   title: string
   description: string
@@ -361,3 +361,18 @@ const updateTodo2: DeepPartial<Todo1> = {
     countryCode: 'FR',
   },
 };
+
+ //🔧 Pick -  allows you to create a new type by cherry picking specific properties from an existing type.
+ type Goku = {
+  powers: string;
+  weight: number;
+  siblings: string;
+  location: string;
+};
+
+type Gokusbio = Pick<Goku, "powers" | "weight">; 
+// This new NameAndAge type is equivalent to:
+// type Gokusbio = {
+//   powers: string;
+//   weight: number;
+// };
