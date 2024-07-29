@@ -1,3 +1,4 @@
+import CommentsSection from '@/components/CommentsSection'
 import EditorOutput from '@/components/EditorOutput'
 import PostVoteServer from '@/components/post-vote/PostVoteServer'
 import { buttonVariants } from '@/components/ui/Button'
@@ -39,7 +40,7 @@ const page = async ({ params }: PageProps) => {
     <div>
       <div className='flex h-full flex-col sm:flex-row items-center sm:items-start justify-between '>
         <Suspense fallback={<PostVoteShell />}>
-          {/* Its just typescript not recognizing the server component async behavoius as its quite new so we use to ignore that error saying "PostVoteServer cannot be used as a JSX component."*/}
+          {/* Its just typescript not recognizing the server component async behavior as its quite new so we use to ignore that error saying "PostVoteServer cannot be used as a JSX component."*/}
           {/* @ts-expect-error server component */}
           <PostVoteServer
             postId={post?.id ?? cachedPost?.id}
@@ -60,9 +61,11 @@ const page = async ({ params }: PageProps) => {
           </p>
           <h1 className='text-xl font-semibold py-2 leading-6 text-gray-900'>{post?.title ?? cachedPost.title}</h1>
           <EditorOutput content={post?.content ?? cachedPost.content} />
-          <Suspense fallback={<Loader2 />} className='h-5 w-5 animate-spin text-zinc-500'>
+          <Suspense fallback={<Loader2 className='h-5 w-5 animate-spin text-zinc-500' />}>
             {' '}
-            <CommentsSection />
+            {/* Its just typescript not recognizing the server component async behavior as its quite new so we use to ignore that error saying "cannot be used as a JSX component."*/}
+            {/* @ts-expect-error server component */}
+            <CommentsSection postId={post?.id ?? cachedPost.id} />
           </Suspense>
         </div>
       </div>
