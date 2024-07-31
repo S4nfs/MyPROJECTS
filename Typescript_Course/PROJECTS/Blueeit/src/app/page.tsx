@@ -12,7 +12,7 @@ export default async function Home() {
       <h1 className='font-bold text-3xl md:text-4xl'>Your Feed</h1>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6'>
         {/* feed  */}
-        {/* Its just typescript not recognizing the server component async behavoius as its quite new so we use to ignore that error saying "cannot be used as a JSX component."*/}
+        {/* Its just typescript not recognizing the server component async behavior as its quite new so we use to ignore that error saying "cannot be used as a JSX component."*/}
 
         {/* @ts-expect-error server component */}
         {session ? <CustomFeed /> : <Generalfeed />}
