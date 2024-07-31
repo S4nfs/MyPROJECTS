@@ -2,12 +2,13 @@ import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { FC } from 'react'
 import PostComment from './PostComment'
+import CreateComment from './CreateComment'
 
 interface CommentsSectionProps {
   postId: string
 }
 
-const CommentsSection = async ({ postId }) => {
+const CommentsSection = async ({ postId }: CommentsSectionProps) => {
   const session = getAuthSession()
   const comments = await db.comment.findMany({
     where: {
@@ -43,11 +44,11 @@ const CommentsSection = async ({ postId }) => {
               if (cur.type === 'DOWN') return acc - 1
               return acc
             }, 0)
-            const topLvelCommentVote = topLevelComment.votes.find((vote) => vote.userId === session?.user.id)
+            const topLevelCommentVote = topLevelComment.votes.find((vote) => vote.userId === session?.user.id)
             return (
               <div key={topLevelComment.id} className='flex flex-col'>
                 <div className='mb-2'>
-                  <PostComment comment={topLevelComment} />
+                  <PostComment comment={topLevelComment} postId={postId} currentVote={topLevelCommentVote} votesAmt={topLevelCommentVotesAmt} />
                 </div>
               </div>
             )

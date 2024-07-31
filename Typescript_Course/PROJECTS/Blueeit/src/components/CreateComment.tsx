@@ -27,7 +27,7 @@ const CreateComment: FC<CreateCommentProps> = ({ postId, replyToId }) => {
         text,
         replyToId,
       }
-      const { data } = await axios.patch(`/api/posts/${postId}/comments`, payload)
+      const { data } = await axios.patch(`/api/subreddit/post/comment/`, payload)
       return data
     },
     onError: (error) => {
@@ -53,7 +53,9 @@ const CreateComment: FC<CreateCommentProps> = ({ postId, replyToId }) => {
       <div className='mt-2'>
         <Textarea id='comment' value={input} onChange={(e) => setInput(e.target.value)} rows={1} placeholder='What are your thoughts?' />
         <div className='mt-2 flex justify-end '>
-          <Button isLoading={isLoading} disabled={input.length === 0} onClick={() => comment({ postId, text: input, replyToId })}></Button>
+          <Button isLoading={isLoading} disabled={input.length === 0} onClick={() => comment({ postId, text: input, replyToId })}>
+            Post
+          </Button>
         </div>
       </div>
     </div>
