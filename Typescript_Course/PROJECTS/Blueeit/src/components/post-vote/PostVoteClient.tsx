@@ -69,11 +69,11 @@ const PostVoteClient: FC<PostVoteClientProps> = ({ postId, initialVotesAmt, init
 
   return (
     <div className='flex sm:flex-col gap-4 sm:gap-4 pr-6 sm:w-20 pb-4 sm:pb-0'>
-      <Button size='sm' variant='ghost' aria-labe='upvote' onClick={() => vote('UP')}>
+      <Button size='sm' variant='ghost' aria-label='upvote' onClick={() => vote('UP')}>
         <ArrowBigUp className={cn('h-5 w-5 text-zinc-700', { 'text-emerald-500 fill-emerald-500': currentVote === 'UP' })} />{' '}
       </Button>
       <p className='text-center py-2 font-medium text-sm text-zinc-900'>{votesAmt}</p>{' '}
-      <Button size='sm' variant='ghost' aria-labe='downvote' onClick={() => vote('DOWN')}>
+      <Button size='sm' variant='ghost' aria-label='downvote' onClick={() => vote('DOWN')}>
         <ArrowBigDown className={cn('h-5 w-5 text-zinc-700', { 'text-red-500 fill-red-500': currentVote === 'DOWN' })} />{' '}
       </Button>
     </div>

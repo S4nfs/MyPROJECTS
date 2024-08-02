@@ -9,10 +9,11 @@ import { Button } from './ui/Button'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { Label } from '@radix-ui/react-dropdown-menu'
-import { Textarea } from './ui/textarea'
 import { useMutation } from '@tanstack/react-query'
 import { CommentRequest } from '@/lib/validators/comment'
 import axios from 'axios'
+import { Textarea } from './ui/textarea'
+import { toast } from '@/hooks/use-toast'
 
 type ExtendedComment = Comment & {
   votes: CommentVote[]
@@ -37,6 +38,14 @@ const PostComment: FC<PostCommentProps> = ({ comment, votesAmt, currentVote, pos
       const payload: CommentRequest = { postId, text, replyToId }
       const { data } = await axios.patch('/api/subreddit/post/comment', payload)
       return data
+    },
+    onError: () => {
+      return toast({ title: 'Something went wrong', description: 'Comment wasnt posted successfully, please try agaian.', variant: 'destructive' })
+    },
+    onSuccess: () => {
+      router.refresh()
+      setInput('')
+      setIsReplying(false)
     },
   })
   return (
@@ -72,7 +81,7 @@ const PostComment: FC<PostCommentProps> = ({ comment, votesAmt, currentVote, pos
             <Label htmlFor='comment'>Your Comment</Label>
             <div className='mt-2'>
               <Textarea id='comment' value={input} onChange={(e) => setInput(e.target.value)} rows={1} placeholder='What are your thoughts?' />
-              <div className='mt-2 flex justify-end '>
+              <div className='mt-2 flex justify-end gap-2'>
                 <Button tabIndex={-1} variant='subtle' onClick={() => setIsReplying(false)}>
                   Cancel
                 </Button>
