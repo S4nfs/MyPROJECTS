@@ -57,7 +57,7 @@ const PostFeed = ({ initialPosts, subredditName }: PostFeedProps) => {
             </li>
           )
         } else {
-          return <Posts subredditName={post.subreddit.name} post={post} commentAmt={post.comments.length} currentVote={currentVote} votesAmt={votesAmt} />
+          return <Posts key={post.id} subredditName={post.subreddit.name} post={post} commentAmt={post.comments.length} currentVote={currentVote} votesAmt={votesAmt} />
         }
       })}
     </ul>
