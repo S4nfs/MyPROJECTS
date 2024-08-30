@@ -46,13 +46,16 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
   })
 
   useEffect(() => {
+    console.log(queryResults)
+  }, [])
+
+  useEffect(() => {
     setInput('')
   }, [pathname])
 
   return (
     <Command ref={commandRef} className='relative rounded-lg border max-w-lg z-50 overflow-visible'>
       <CommandInput
-        isLoading={isFetching}
         onValueChange={(text) => {
           setInput(text)
           debounceRequest()
@@ -69,15 +72,18 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
             <CommandGroup heading='Communities'>
               {queryResults?.map((subreddit) => (
                 <CommandItem
+                  className='cursor-pointer'
                   onSelect={(e) => {
                     router.push(`/r/${e}`)
                     router.refresh()
                   }}
-                  key={subreddit.id}
-                  value={subreddit.name}
+                  key={subreddit?.id}
+                  value={subreddit?.name}
                 >
                   <Users className='mr-2 h-4 w-4' />
-                  <a href={`/r/${subreddit.name}`}>r/{subreddit.name}</a>
+                  <a href={`/r/${subreddit?.name}`} className='cursor-pointer'>
+                    r/{subreddit?.name}
+                  </a>
                 </CommandItem>
               ))}
             </CommandGroup>

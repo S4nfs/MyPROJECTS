@@ -24,15 +24,15 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
           </div>
         </div>
         <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
+        <DropdownMenuItem className='cursor-pointer' asChild>
           <Link href='/'>Feed</Link>
         </DropdownMenuItem>
 
-        <DropdownMenuItem asChild>
+        <DropdownMenuItem className='cursor-pointer' asChild>
           <Link href='/r/create'>Create Community</Link>
         </DropdownMenuItem>
 
-        <DropdownMenuItem asChild>
+        <DropdownMenuItem className='cursor-pointer' asChild>
           <Link href='/settings'>Settings</Link>
         </DropdownMenuItem>
 

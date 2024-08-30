@@ -27,7 +27,7 @@ export default async function Home() {
 
           <div className='-my-3 divide-y divide-gray-100 px-6 py-4 text-sm leading-6'>
             <div className='flex justify-between gap-x-4 py-3'>
-              <p className='text-zinc-500'>Your cozy Blueeit home. Check your favourite communities here.</p>
+              <p className='text-zinc-500'>Your cozy Blueeit homepage. Check your favourite communities here.</p>
             </div>
             <Link className={buttonVariants({ className: 'w-full mt-4 mb-6' })} href='/r/create'>
               Create Community
