@@ -46,21 +46,40 @@ npm install
 npm run seed
 ```
 
+2. Go to MongoDb Atlas site and create search index in Atlas Search putting the below JSON configuration by selection the employees document in hr_database:
+
+    For Groq/OpenAI embeddings (e.g., 1536 dimensions)  
+    For HuggingFace MiniLM embeddings (384 dimensions)  
+    When querying MongoDB for similarity search, ensure that you query only the embeddings from the specific model (or provider) that corresponds to the same dimensionality.
+
+```
+{
+  "fields": [
+    {
+      "numDimensions": 1536,
+      "path": "embedding",
+      "similarity": "cosine",
+      "type": "vector"
+    }
+  ]
+}
+```
+
 ## Usage
 
-1. Start the server:
+3. Start the server:
 
 ```bash
 npm run dev
 ```
 
-2. Use the following API endpoints:
+4. Use the following API endpoints:
 
 - Start a new conversation:
   ```
   curl -X POST -H "Content-Type: application/json" -d '{"message": "Your message here"}' http://localhost:3000/chat
   ```
-- Continue an existing conversation:
+- Continue an existing conversation using the Thread ID:
   ```
   curl -X POST -H "Content-Type: application/json" -d '{"message": "Your follow-up message"}' http://localhost:3000/chat/{threadId}
   ```
