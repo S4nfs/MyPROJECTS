@@ -96,3 +96,9 @@ The useEffect and useLayoutEffect hooks differ in the order in which they are in
 The useTransition hook enables us to mark some state modifications as unimportant. These state updates will be performed in parallel with other state updates, but the rendering of the component will not be delayed.
 
 🟡 useDeferredValue Hook- The useDeferredValue hook lets us to solve the slow render issue by adding a delay before some information is calculated.
+
+🟡 useDisclosure Hook - Helps you easily manage the open/closed state of components such as modals, dropdowns, toggle buttons, etc. in React. It is mainly used in UI libraries such as Chakra UI. Always use these three keys and cannot be renamed:
+isOpen : Current open state (true or false).
+onOpen : Function to open a modal.
+onClose : Function to close the modal.
+
