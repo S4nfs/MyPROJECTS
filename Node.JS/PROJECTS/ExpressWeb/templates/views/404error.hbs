@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{!-- header links from partials --}}
+    {{>headerLinks}}
+  </head>
+  <body>
+
+   {{!-- navbar from partials folder --}}
+  {{>navbar}}
+{{!-- set background image to 404.png --}}
+
+    <!-- main header -->
+    <div class="container-fluid main_header">
+      <div class="row">
+        <div class="col-md-10 col-12 mx-auto">
+          <div class="row">
+            <!-- main header left -->
+            <div class="col-md-12 col-12 main_header_right align-items-center">
+                <figure class"errimg">
+                    <img src="images/404.png" alt="" class="src">
+                </figure>
+              <h1>{{errormsg}}</h1>
+                <a href="/" class="href"><button>Go Back</button></a>
+            </div>
+            <!-- main header right -->
+            <div class="col-md-6 col-12 main_header_right">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer from partials-->
+    {{>footer}}
+  </body>
+</html>

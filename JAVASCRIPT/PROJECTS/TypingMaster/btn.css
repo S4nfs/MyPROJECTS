@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Tokyo+Zoo&display=swap');
+.btn,
+a.btn {
+  display: inline-block;
+  text-transform: none;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1em;
+  -webkit-transition: all 0.35s cubic-bezier(0.1, 0, 0, 1);
+  transition: all 0.35s cubic-bezier(0.1, 0, 0, 1);
+  border-radius: 6px;
+  padding: 15px 20px;
+  -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
+          box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
+  margin: 8px;
+  font-family: 'DotGothic16', sans-serif;
+  letter-spacing: .1em;
+  /*border: 1px solid rgba(0, 0, 0, 0);*/
+  text-shadow: 0 0 rgba(0, 0, 0, 0);
+}
+
+.btn,
+a.btn:hover {
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.2);
+  /*border: 1px solid rgba(0, 0, 0, .1);*/
+  -webkit-transform: scale(1.06);
+          transform: scale(1.06);
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn,
+a.btn:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.3);
+  /*border: 1px solid rgba(0, 0, 0, .1);*/
+}
+
+.btn,
+a.btn:visited {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.blue,
+a.blue {
+  color: white;
+  font-weight: 600;
+  background: #ffae00;
+}
+
+.blue,
+a.blue:hover {
+  background: #ffd414;
+}
+
+.blue,
+a.blue:active {
+  background: #e69d00;
+}
+/*# sourceMappingURL=btn.css.map */
