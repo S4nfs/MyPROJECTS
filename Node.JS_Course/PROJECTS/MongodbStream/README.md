@@ -1,1 +1,0 @@
-# mongoose-change-streams-typescript
