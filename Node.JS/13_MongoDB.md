@@ -55,7 +55,8 @@ use <dbname>
 db.colllection_name.insertOne({name: "React", Type:"frontEnd", Contributions:50, Active:true})
 
 # insert multiples
-db.collection_name.insertMany([{name: "React", Type:"frontEnd", Contributions:50, Active:true, Libraries:{tailwindCSS: true}}, {name: "NodeJs", Type:"Backend", Contributions:98, Active:true, contributorsNames: ["Sagar", "Vivek", "Rishabh"]}, {name: "MongoDB", Type:"Database", Contributions:10, Active:false}, {name: "NextJS", Type:"frontEnd", Contributions:5, Active:true, Libraries:{tailwindCSS: false}, contributorsNames: ["Sagar", "Rishabh"]},{name: "GoLang", Type:"Backend", Contributions:120, PRs: 719, Active:true, Libraries:{Gin: true}, contributorsNames: ["Sagar"]}])
+db.collection_name.insertMany([{name: "React", Type:"frontEnd", Contributions:50, Active:true, Libraries:{tailwindCSS: true}}, {name: "NodeJs", Type:"Backend", Contributions:98, Active:true, contributorsNames: ["Sagar", "Vivek", "Rishabh"], createdAt: new Date()}, {name: "MongoDB", Type:"Database", Contributions:10, Active:false}, {name: "NextJS", Type:"frontEnd", Contributions:5, Active:true, Libraries:{tailwindCSS: false}, contributorsNames: ["Sagar", "Rishabh"], createdAt: new Date()},{name: "GoLang", Type:"Backend", Contributions:120, PRs: 719, Active:true, Libraries:{Gin: true}, contributorsNames: ["Sagar"], createdAt: new Date()},
+{name: "React", Type:"frontEnd", Contributions:150, Active:false, Libraries:{tailwindCSS: false, passport: true, radix: true }, contributorsNames: ["John", "Mohit", "Parthik"] ,  PRs: 55}])
 
 # show all collections
 show collections
@@ -128,3 +129,73 @@ This means that if two operations are modifying different fields or array elemen
 
 ## Non-Atomic Operations:
 Operations that span multiple documents (e.g., multi-document updates) are not atomic unless you use transactions.
+
+
+# Aggregation:
+aggregation pipeline is a powerful feature that allows you to process and transform data in multiple stages
+
+## Stages Operator
+- $group: Groups documents by a specific field and performs calculations (like GROUP BY in SQL).
+- $match: Filters documents based on a condition (like WHERE in SQL).
+- $sort: Sorts documents by one or more fields.
+- $project: Reshapes documents by including, excluding, or renaming fields.
+- $limit: Limits the number of documents passed to the next stage
+- $skip: Skips a specified number of documents.
+- $unwind: Deconstructs an array field into multiple documents (one document per array element, useful for interations).
+- $lookup: Performs a join with another collection (like JOIN in SQL).
+- $addFields: Adds new fields to documents.
+- $count: Counts the number of documents at the current stage.
+
+```mongodb
+Format
+db.collection.aggregate([
+  { stage1: { ... } }, // First stage
+  { stage2: { ... } }, // Second stage
+  { stage3: { ... } }, // Third stage
+  // Add more stages as needed
+]);
+
+```
+# grouping as per the name
+```mongodb
+db.collection_name.aggregate([
+  // Stage 1: Filter documents for "React"
+  {
+    $match: {
+      name: "React"
+    }
+  },
+  // Stage 2: Group by "name" and calculate totals
+  {
+    $group: {
+      _id: "$name",
+      TotalNumberOfAllReposAsPerTechStack: { $sum: 1 },             // Count documents
+      AvgNumberOfAllReposAsPerTechStack: { $avg: "$Contributions" } // Average contributions
+    }
+  },
+  // Stage 3: Unwind contributorsNames (if it exists) and count contributors
+  {
+    $unwind: {
+      path: "$contributorsNames",
+      preserveNullAndEmptyArrays: true                             // Handle cases where contributorsNames doesn't exist
+    }
+  },
+  // Stage 4: Group by contributors and count
+  {
+    $group: {
+      _id: "$_id",                                                // Group by the original name (React)
+      TotalContributorsOfReact: {
+        $sum: {
+          $cond: {
+            if: { $ifNull: ["$contributorsNames", false] },       // Check if contributorsNames exists
+            then: 1,
+            else: 0
+          }
+        }
+      }
+    }
+  }
+]);
+
+
+```
