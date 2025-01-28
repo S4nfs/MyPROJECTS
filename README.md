@@ -8,6 +8,7 @@
 ✅ NodeJS
 ✅ REST API
 ✅ Typescript
+✅ AI (Langchain)
 
 ## Tutorials Ongoing (with Done %)😤
 
@@ -16,6 +17,7 @@
 ☑️ AWS - 5
 ☑️ Docker - 90
 ☑️ Linux - 80
+☑️ GoLang - 0
 
 🚀 Ping me, if you need any help or report bugs:
 
