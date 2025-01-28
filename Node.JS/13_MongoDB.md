@@ -165,25 +165,26 @@ db.collection_name.aggregate([
       name: "React"
     }
   },
-  // Stage 2: Group by "name" and calculate totals
+    // Debug: You can check the document structure after in each step
   {
-    $group: {
-      _id: "$name",
-      TotalNumberOfAllReposAsPerTechStack: { $sum: 1 },             // Count documents
-      AvgNumberOfAllReposAsPerTechStack: { $avg: "$Contributions" } // Average contributions
+    $project: {
+      contributorsNames: 1,
+      moreInfo: {$concat: ["$Active", " ", "$name", " ", "$contributorsNames"]}
     }
   },
-  // Stage 3: Unwind contributorsNames (if it exists) and count contributors
+   // Stage 2: Unwind contributorsNames (if it exists) and count contributors
   {
     $unwind: {
       path: "$contributorsNames",
       preserveNullAndEmptyArrays: true                             // Handle cases where contributorsNames doesn't exist
     }
   },
-  // Stage 4: Group by contributors and count
+// Stage 3: Group by "name" and calculate totals
   {
     $group: {
-      _id: "$_id",                                                // Group by the original name (React)
+      _id: "$name",
+      TotalNumberOfAllReposAsPerTechStack: { $sum: 1 },             // Count documents
+      AvgNumberOfAllReposAsPerTechStack: { $avg: "$Contributions" }, // Average contributions
       TotalContributorsOfReact: {
         $sum: {
           $cond: {
@@ -193,6 +194,12 @@ db.collection_name.aggregate([
           }
         }
       }
+    }
+  },
+  // Debug: You can check the document structure after in each step
+  {
+    $project: {
+      document: "$$ROOT"
     }
   }
 ]);

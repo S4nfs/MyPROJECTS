@@ -4,9 +4,9 @@ Node.js is an open-source and cross-platform runtime environment built on Chrome
 ==============================
 
 Assembler, Compiler and Interpreter
-The Assembler is used to translate the program written in Assembly language into machine code
+The Assembler is used to translate the program written in Assembly language into machine code. Examples: NASM, MASM, TASM, GAS, FASM, ARM etc.
 
-Compiler convert a program written in a high-level language into machine code understood by computers all at one go. Examples: C, C++, Java
+Compiler convert a program written in a high-level language into machine code understood by computers all at one go. Examples: MSVC(C++), javac(Java), tsc(Typescript), rustc(Rust), go build(Go)
 
 Interpreter convert a program written in a high-level language into machine code understood by computers line-by-line. Examples: Python, Perl, JavaScript, Ruby
 
