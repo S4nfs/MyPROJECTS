@@ -13,7 +13,8 @@ Running LangGraph Studio locally requires [Docker](https://www.docker.com/), so 
 
 ## Projects
 
-- [Intro](./intro/README.md) - Introduction to LangGraph.js, Studio, and Cloud.
-- [Human in the Loop](./human_in_the_loop/README.md) - Introduction to Human in the Loop (HITL) concepts.
-- [Stockbroker](./stockbroker/README.md) - A full stack stockbroker & financial analyst app, with HITL for purchasing stocks.
-- Streaming Messages ([Examples](./streaming_messages/README.md), [Frontend](./streaming_messages_frontend/README.md)) - Next.js web app connected to a LangGraph Cloud deployment to show off different message streaming types.
+- [Intro](./1_intro/README.md) - Introduction to LangGraph.js, Studio, and Cloud.
+- [Human in the Loop](./2_human_in_the_loop/README.md) - Introduction to Human in the Loop (HITL) concepts.
+- Streaming Messages ([Examples](./3_streaming_messages/README.md), [Frontend](./3_streaming_messages_frontend/README.md)) - Next.js web app connected to a LangGraph Cloud deployment to show off different message streaming types.
+- [RAG](./4_RAG/README.md) - RAG agent
+- [Stockbroker](./5_stockbroker/README.md) - A full stack stockbroker & financial analyst app, with HITL for purchasing stocks.
