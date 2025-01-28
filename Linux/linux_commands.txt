@@ -23,10 +23,10 @@ change user password                     first run #sudo -i then #passwd david
 change user                              #sudo su - david
 remove a directory                       #rm -r mydirectory
 remove a file				                     #rm filename
-search in file				                   #grep "searchMyText" fileName			(case-sensitive)
-					                               #grep -w "searchMyText" fileName		(case-sensitive & search whole word)
+search in file				                   #grep "searchMyText" fileName			  (case-sensitive)
+					                               #grep -w "searchMyText" fileName		  (case-sensitive & search whole word)
 					                               #grep -iw "searchMyText" fileName		(not case-sensitive & search whole word)
-					                               #grep -n "searchMyText" fileName		(line number)
+					                               #grep -n "searchMyText" fileName		  (line number)
 					                               #grep -rwin "searchMyText" ./ .txt		(search in all .txt in current dir recursively)
 create a directory			                 #mkdir mydirectory
 move to upper directory path             #cd ..
@@ -43,9 +43,12 @@ Check firewall status			               #sudo ufw status
 Check all ports running			             #netstat -plntu
 Directory size				                   #sudo du -sh /var
 Copy with permissions			               #rsync -av --exclude='/arclightD/pages/ami/builder/images' /var/www/html/arclightD /var/www/html/arclight
+Copy with overwrite						           #cp -rf source_directory/ destination_directory/
+Copy files with progress and resume		   #rsync -av --progress --partial /path/to/source/ /path/to/destination/         //make sure to add directory name in the destination (--partial to check progress)
+
 Sending file over ssh			               #rsync -a -P /var/startup.sh sv@5.182.18.49:/home/Files/Temp
 rename/move file:                        #mv oldFileName renameFileName
-change pemission:                   	   #chown 777 file name	4=read,2=write,1=execute,0=no permission
+change permission:                   	   #chown 777 file name	4=read,2=write,1=execute,0=no permission
 					                               #chmod u=rwx,g=rw,o=r fileName
 overwrite in file			                   #echo "helloworld" > file.txt
 append in file				                   #echo "helloworld" >> file.txt
@@ -137,6 +140,8 @@ Remove one or more volumes		          #docker volume rm
 
 If you want to clean up and 
 delete all unused container images	    #docker image prune -a
+Reset docker completely					        #docker system prune -a --volumes
+
 
 
 **********************************************************************************************************************************
