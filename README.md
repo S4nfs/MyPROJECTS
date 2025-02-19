@@ -1,4 +1,4 @@
-<h1 align="center">"Lovely, Lively Languages"</h1>
+<h1 align="center">Algolisa - The famous repo of Leonardo da Vinci</h1>
 
 ## Tutorials Completed - Production Ready 🥳
 
