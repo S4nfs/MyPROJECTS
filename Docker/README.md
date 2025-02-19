@@ -1,1 +1,1 @@
-### All the Docker commands are here: Linux_Course/linux_commands.txt
+### All the Docker commands are here: ../Linux/linux_commands.txt
