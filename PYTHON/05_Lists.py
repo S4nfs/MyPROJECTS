@@ -7,7 +7,7 @@ a = [1, 6, 56, 3, 8]
 print(a[2])  # 56
 # ----------------------------------------------
 a[2] = 100
-print(a)  # [1, 6, 100, 3, 8]
+print(a)  # [1, 6, 100, 3, 8] (inside elements are called indices that starts with 0)
 
 # 🍏 List Methods
 """

@@ -6,23 +6,47 @@
 #🔹 Dynamic Typing: (like PHP) You don’t need to declare variable types explicitly. The type is determined at runtime.
 #🔹 Static Typing (like in Go, Java, C, TypeScript): Variable types are declared and checked at compile time.
 
-a = "Sagar" # a is string
-_b = 30     # numbers can be written as 3_000_000 (3 mill)
-c_1 = 45.25
-D = True
-e = None
+a = "Sagar"                                         # string        Output: "Sagar"
+_b = 30                                             # numbers can be written as 3_000_000 (3 mill)        Output: 30
+c_1 = 45.25                                         # float         Output: 45.25
+c_2 = 1j                                            # complex       Output: 1j
+D = True                                            # boolean       Output: True
+e = None                                            # none          Output: None
+f = ["apple", "banana", "cherry"]                   # list          Output: ["apple", "banana", "cherry"]
+g = ("apple", "banana", "cherry")                   # tuple         Output: ("apple", "banana", "cherry")
+i =  {"name" : "Sagar", "age" : 28}                 # dict          Output: {"name" : "Sagar", "age" : 28}
+j = {"apple", "banana", "cherry"}                   # set           Output: {"apple", "banana", "cherry"}
+h = range(6)                                        # range         Output: range(0, 6)
+k = frozenset({"apple", "banana", "cherry"})        # frozenset     Output: frozenset({"apple", "banana", "cherry"})
+l = b"Hello"	                                    # bytes         Output: b"Hello"
+m = bytearray(5)	                                # bytearray     Output: bytearray(b'\x00\x00\x00\x00\x00')
+n = memoryview(bytes(5))                            # memoryview    Output: <memory at 0x006F8FA0>
+
 
 #Strings, Numbers and Booleans are passed by values
 print(type(a)) #<class 'str'>
 print(type(_b)) #<class 'int'>
 print(type(c_1)) #<class 'float'>
+print(type(c_2)) #<class 'complex'>
 print(type(D)) #<class 'bool'>
 print(type(e)) #<class 'NoneType'>
+print(type(f)) #<class 'list'>
+print(type(g)) #<class 'tuple'>
+print(type(i)) #<class 'dict'>
+print(type(j)) #<class 'set'>
+print(type(h)) #<class 'range'>
+print(type(k)) #<class 'frozenset'>
+print(type(l)) #<class 'bytes'>
+print(type(m)) #<class 'bytearray'>
+print(type(n)) #<class 'memoryview'>
 
+print("\n")
 # Variables are block scope inside a function and global outside the function but you can set it globally accessed using global keyword
 global name
 name = "S4nfs"
 
+
+print("\n")
 #🍏 OPERATORS ---------------------------------------------------------------------------------------------------
 ''' 
 1. Arithmetic Operators : +, -, *, /, %, **, //
@@ -77,3 +101,5 @@ a = "10"
 print(int(a)) #convert string to integer  = 10
 print(float(a))# 10.0
 print(str(10)) # "10"
+print(bool(a)) # True
+print(bool("")) # False

@@ -2,7 +2,7 @@
 # print("Hello", a) 
 
 
-# Take input and return average of two numbers
+#🍏 Take input and return average of two numbers
 
 b = input("Enter First Number: ")
 c = input("Enter Second Number: ")
